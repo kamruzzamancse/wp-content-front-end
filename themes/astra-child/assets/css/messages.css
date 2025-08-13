@@ -1,0 +1,154 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 8px 8px 8px 0px;
+}
+
+.top-bar h2 {
+  margin: 0;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  border: 1px solid #cdd6e0;
+  border-radius: 5px;
+  background: #fff;
+  padding: 5px 8px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+}
+
+.search-icon {
+  margin-right: 5px;
+  color: #888;
+}
+
+/* Main Content */
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  border-radius: 0px 0px 8px 8px;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.client img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.client-info h4 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.client-info p {
+  margin: 2px 0;
+  color: gray;
+  font-size: 12px;
+}
+
+.client-info span {
+  font-size: 10px;
+  color: #999;
+}
+
+/* Chat Area */
+.chat-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.chat-box {
+  max-width: 500px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: auto;
+}
+
+.message {
+  max-width: 80%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.left {
+  align-self: flex-start;
+  background: #d9ecfa;
+}
+
+.right {
+  align-self: flex-end;
+  background: #d9ecfa;
+}
+
+/* Input Area */
+.input-area {
+  display: flex;
+  max-width: 500px;
+  width: 100%;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.input-area button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
