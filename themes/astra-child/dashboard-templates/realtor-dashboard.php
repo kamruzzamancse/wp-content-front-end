@@ -49,7 +49,7 @@ get_header();
                     break;
                     
                 case 'settings':
-                    include locate_template('dashboard-templates/realtor-settings.php');
+                    include locate_template('dashboard-templates/settings-tab.php');
                     break;
 
                 case 'notifications':
@@ -66,6 +66,10 @@ get_header();
 
                  case 'settings-realtor-cp':
                     include locate_template('dashboard-templates/settings-realtor-cp.php');
+                    break;
+
+                case 'settings-realtor-pi-edit':
+                    include locate_template('dashboard-templates/settings-realtor-pi-edit.php');
                     break;
 
                  case 'settings-support':

@@ -2,13 +2,13 @@
 <div class="profile-modal-overlay" id="profileModal">
     <div class="modal">
         <?php $current_user = wp_get_current_user(); ?>
-        <img src="<?php echo esc_url(get_avatar_url($current_user->ID)); ?>" alt="Profile">
+        <img class="realtor-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Realtor Profile Pic">
         <h3><?php echo esc_html($current_user->display_name); ?></h3>
         <p><?php echo esc_html($current_user->user_email); ?></p>
 
         <div class="modal-buttons">
-            <button onclick="location.href='/profile'">View Profile</button>
-            <button onclick="location.href='/edit-profile'">Edit Profile</button>
+            <button onclick="location.href='?tab=settings-realtor-pi'">View Profile</button>
+            <button onclick="location.href='?tab=settings-realtor-pi-edit'">Edit Profile</button>
             <button onclick="location.href='<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>'">Log out</button>
         </div>
     </div>

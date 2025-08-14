@@ -24,7 +24,7 @@ $dashboard_url = current_user_can('realtor') ? home_url('/realtor-dashboard') : 
 
             <div class="profile-header">
                 <div class="profile-pic">
-                    <img src="<?php echo esc_url(get_avatar_url($current_user->ID)); ?>" alt="Profile Picture">
+                    <img class="realtor-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Realtor Profile Pic">
                 </div>
             </div>
 
