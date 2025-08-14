@@ -90,7 +90,6 @@ function astra_child_enqueue_address_book_css() {
 }
 add_action('wp_enqueue_scripts', 'astra_child_enqueue_address_book_css');
 
-
 /**
  * Enqueue Property Management JavaScript
  */
@@ -104,6 +103,33 @@ function astra_child_enqueue_property_management_js() {
     );
 }
 add_action('wp_enqueue_scripts', 'astra_child_enqueue_property_management_js');
+
+/**
+ * Enqueue Realtor Settings CSS
+ */
+function astra_child_enqueue_realtor_settings_css() {
+    wp_enqueue_style(
+        'realtor-settings-css',
+        get_stylesheet_directory_uri() . '/assets/css/realtor-settings.css',
+        array(),
+        filemtime(get_stylesheet_directory() . '/assets/css/realtor-settings.css')
+    );
+}
+add_action('wp_enqueue_scripts', 'astra_child_enqueue_realtor_settings_css');
+
+/**
+ * Enqueue Realtor Settings JavaScript
+ */
+function astra_child_enqueue_realtor_settings_js() {
+    wp_enqueue_script(
+        'realtor-settings-js',
+        get_stylesheet_directory_uri() . '/assets/js/realtor-settings.js',
+        array(),
+        filemtime(get_stylesheet_directory() . '/assets/js/realtor-settings.js'),
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'astra_child_enqueue_realtor_settings_js');
 
 /**
  * Enqueue Address Book JavaScript

@@ -49,7 +49,7 @@ get_header();
                     break;
                     
                 case 'settings':
-                    echo '<div class="dashboard-section"><h2>Settings</h2></div>';
+                    include locate_template('dashboard-templates/realtor-settings.php');
                     break;
 
                 case 'notifications':
@@ -59,14 +59,22 @@ get_header();
                 case 'property-details':
                     include locate_template('dashboard-templates/property-details.php');
                     break;
+
+                case 'settings-realtor-pi':
+                    include locate_template('dashboard-templates/settings-realtor-pi.php');
+                    break;
+
+                 case 'settings-realtor-cp':
+                    include locate_template('dashboard-templates/settings-realtor-cp.php');
+                    break;
+
+                 case 'settings-support':
+                    include locate_template('dashboard-templates/settings-support.php');
+                    break;
                     
                 default:
                     wp_redirect(add_query_arg('tab', 'dashboard'));
                     exit;
-            }
-            
-            if (!in_array($current_tab, ['settings', 'notifications', 'properties', 'property-details', 'address-book', 'messages'])) {
-                include locate_template('dashboard-templates/leads-section.php');
             }
             ?>
         </main>

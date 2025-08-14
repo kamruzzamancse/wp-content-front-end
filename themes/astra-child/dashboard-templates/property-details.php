@@ -1,4 +1,4 @@
-<div class="pd-property-details-back-link">
+<div class="back-link">
     <a href="http://localhost/mary/realtor-dashboard/?tab=properties" class="pd-back-link">
         <span class="pd-back-link__arrow">←</span>
         <h1 class="pd-back-link__title">Property Details</h1>

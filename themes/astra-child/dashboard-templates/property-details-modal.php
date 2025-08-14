@@ -81,6 +81,7 @@
 <style>
 /* Property Details Modal Styles */
 .property-modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;

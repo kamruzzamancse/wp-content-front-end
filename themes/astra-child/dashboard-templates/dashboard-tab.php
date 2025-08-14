@@ -46,3 +46,5 @@
         <?php echo do_shortcode('[todo_calendar]'); ?>
     </div>
 </div>
+
+<?php include locate_template('dashboard-templates/leads-section.php'); ?>
