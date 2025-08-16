@@ -28,12 +28,26 @@
         </thead>
         <tbody>
             <tr>
-                <td class="ab-sl-column">01</td>
-                <td>Afsana Hamid Mim</td>
-                <td>Support.info@gmail.com</td>
-                <td>999-888-666</td>
-                <td>New York</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">01</td>
+                <td data-label="Client Name">Afsana Hamid Mim</td>
+                <td data-label="Email">Support.info@gmail.com</td>
+                <td data-label="Phone Number">999-888-666</td>
+                <td data-label="Address">New York</td>
+                <td class="ab-actions-column" data-label="Actions">
+                    <div class="ab-action-icons">
+                    <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
+                    <span class="ab-action-icon" title="Edit">✏️</span>
+                    <span class="ab-action-icon" title="Delete">🗑️</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="ab-sl-column" data-label="#SL">02</td>
+                <td data-label="Client Name">John D. Smith</td>
+                <td data-label="Email">john.smith@business.com</td>
+                <td data-label="Phone Number">555-123-4567</td>
+                <td data-label="Address">Los Angeles, CA</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -42,12 +56,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="ab-sl-column">02</td>
-                <td>John D. Smith</td>
-                <td>john.smith@business.com</td>
-                <td>555-123-4567</td>
-                <td>Los Angeles, CA</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">03</td>
+                <td data-label="Client Name">Emily Carter</td>
+                <td data-label="Email">emily.carter@example.com</td>
+                <td data-label="Phone Number">777-222-9999</td>
+                <td data-label="Address">Chicago, IL</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -56,12 +70,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="ab-sl-column">03</td>
-                <td>Emily Carter</td>
-                <td>emily.carter@example.com</td>
-                <td>777-222-9999</td>
-                <td>Chicago, IL</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">04</td>
+                <td data-label="Client Name">Michael Johnson</td>
+                <td data-label="Email">michael.johnson@example.com</td>
+                <td data-label="Phone Number">888-333-4444</td>
+                <td data-label="Address">Houston, TX</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -70,12 +84,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="ab-sl-column">04</td>
-                <td>Michael Johnson</td>
-                <td>michael.johnson@example.com</td>
-                <td>888-333-4444</td>
-                <td>Houston, TX</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">05</td>
+                <td data-label="Client Name">Sophia Williams</td>
+                <td data-label="Email">sophia.williams@example.com</td>
+                <td data-label="Phone Number">999-555-1111</td>
+                <td data-label="Address">San Francisco, CA</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -84,12 +98,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="ab-sl-column">05</td>
-                <td>Sophia Williams</td>
-                <td>sophia.williams@example.com</td>
-                <td>999-555-1111</td>
-                <td>San Francisco, CA</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">06</td>
+                <td data-label="Client Name">David Brown</td>
+                <td data-label="Email">david.brown@example.com</td>
+                <td data-label="Phone Number">444-777-2222</td>
+                <td data-label="Address">Miami, FL</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -98,12 +112,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="ab-sl-column">06</td>
-                <td>David Brown</td>
-                <td>david.brown@example.com</td>
-                <td>444-777-2222</td>
-                <td>Miami, FL</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">07</td>
+                <td data-label="Client Name">Olivia Martinez</td>
+                <td data-label="Email">olivia.martinez@example.com</td>
+                <td data-label="Phone Number">333-666-8888</td>
+                <td data-label="Address">Seattle, WA</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -112,12 +126,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="ab-sl-column">07</td>
-                <td>Olivia Martinez</td>
-                <td>olivia.martinez@example.com</td>
-                <td>333-666-8888</td>
-                <td>Seattle, WA</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">08</td>
+                <td data-label="Client Name">James Lee</td>
+                <td data-label="Email">james.lee@example.com</td>
+                <td data-label="Phone Number">222-444-5555</td>
+                <td data-label="Address">Boston, MA</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -126,26 +140,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="ab-sl-column">08</td>
-                <td>James Lee</td>
-                <td>james.lee@example.com</td>
-                <td>222-444-5555</td>
-                <td>Boston, MA</td>
-                <td class="ab-actions-column">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="ab-sl-column">09</td>
-                <td>Isabella Thompson</td>
-                <td>isabella.thompson@example.com</td>
-                <td>555-888-9999</td>
-                <td>Denver, CO</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">09</td>
+                <td data-label="Client Name">Isabella Thompson</td>
+                <td data-label="Email">isabella.thompson@example.com</td>
+                <td data-label="Phone Number">555-888-9999</td>
+                <td data-label="Address">Denver, CO</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -154,12 +154,12 @@
                 </td>
             </tr>
             <tr style="border-bottom:1px solid #CCC">
-                <td class="ab-sl-column">10</td>
-                <td>William Garcia</td>
-                <td>william.garcia@example.com</td>
-                <td>777-999-0000</td>
-                <td>Phoenix, AZ</td>
-                <td class="ab-actions-column">
+                <td class="ab-sl-column" data-label="#SL">10</td>
+                <td data-label="Client Name">William Garcia</td>
+                <td data-label="Email">william.garcia@example.com</td>
+                <td data-label="Phone Number">777-999-0000</td>
+                <td data-label="Address">Phoenix, AZ</td>
+                <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
                         <span class="ab-action-icon" title="Edit">✏️</span>
@@ -167,6 +167,7 @@
                     </div>
                 </td>
             </tr>
+
         </tbody>
     </table>
 </div>
@@ -175,69 +176,66 @@
     include locate_template('dashboard-templates/client-details-modal.php');
 ?>
 
-<!-- Client Details Modal Structure -->
-<div class="modal-overlay-address-book" id="clientDetailsModal">
-    <div class="modal-container">
-        <div class="modal-header">
-            <h1 class="ab-header-title" style="margin-bottom: 20px">Client Details</h1>
-            <div class="client-profile-container">
-                <img class="client-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Client Photo">
-                <span class="client-info"><span class="client-name">Afsana Hamid Mim</span><br>Client</span>
-            </div>
-        </div>
-        <div class="modal-body">
-            <table class="client-details">
-                <tr><td>Client Name</td><td>Afsana Hamid Mim</td></tr>
-                <tr><td>Email</td><td>Support.info@gmail.com</td></tr>
-                <tr><td>Phone Number</td><td>999-888-666</td></tr>
-                <tr><td>Address</td><td>Le Marais, Paris</td></tr>
-                <tr><td>Date of Birth</td><td>11 Oct 24, 1995</td></tr>
-                <tr><td>House Closing Date</td><td>11 Aug 25, 2025</td></tr>
-            </table>
+<style>
 
-            <h2 class="modal-title" style="margin-bottom: 10px">Assigned Property</h2>
-            <div class="property-item-modal">
-                <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard.png" alt="Lakeview Standard" class="main-image client-details-property-details">
-                <div class="property-details">
-                    <h3 class="property-title">Lakeview Standard Apartment</h3>
-                    <div class="property-price">$1,600</div>
-                    <div class="property-location">
-                        <span class="dashicons dashicons-location"></span> Midtown, New York
-                    </div>
-                    <div class="gallery">
-                        <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-4.png" alt="Gallery Image 1">
-                        <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-5.png" alt="Gallery Image 2">
-                        <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-6.png" alt="Gallery Image 3">
-                    </div>
-                    <button class="view-details-btn">View Details</button>
-                </div>
-            </div>
+/* Mobile Responsive (Card Layout) */
 
-            <h2 class="modal-title" style="margin: 20px 0 10px;">Suggested Clients</h2>
-            <div class="client-card-container">
-                <div class="client-card">
-                    <img class="client-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Client Photo">
-                    <div class="client-info">
-                        <div class="client-name">Ariyana</div>
-                        <div class="client-role">Client</div>
-                        <div class="client-location">Le Marais, Paris</div>
-                    </div>
-                </div>
-                <div class="client-card">
-                    <img class="client-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Client Photo">
-                    <div class="client-info">
-                        <div class="client-name">Ayesha</div>
-                        <div class="client-role">Client</div>
-                        <div class="client-location">Le Marais, Paris</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button class="close-btn" id="closeClientDetailsModal">Close</button>
-        </div>
-    </div>
-</div>
+@media screen and (max-width: 768px) {
+  table:not(.client-details),
+  table:not(.client-details) thead,
+  table:not(.client-details) tbody,
+  table:not(.client-details) th,
+  table:not(.client-details) tr {
+    display: block;
+    width: 100%;
+  }
+
+  table:not(.client-details) thead {
+    display: none;
+  }
+
+  table:not(.client-details) tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    background: #f9f9ff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  table:not(.client-details) td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  table:not(.client-details) td:last-child {
+    border-bottom: none;
+  }
+
+  table:not(.client-details) td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    text-align: left;
+  }
+
+  table:not(.client-details) .ab-actions-column {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  table:not(.client-details) .ab-action-icons {
+    gap: 10px;
+  }
+}
+
+</style>
 
 <script>
     const clientDetailsModal = document.getElementById('clientDetailsModal');

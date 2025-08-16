@@ -31,10 +31,10 @@
                 <tbody>
                     <?php for ($i = 0; $i < 6; $i++): ?>
                     <tr>
-                        <td>Insurance</td>
-                        <td>New York</td>
-                        <td>22 July</td>
-                        <td>Just a quick follow-up on documents.</td>
+                        <td data-label="Client Name">Insurance</td>
+                        <td data-label="Address">New York</td>
+                        <td data-label="Closing Date">22 July</td>
+                        <td data-label="Notes">Just a quick follow-up on documents.</td>
                     </tr>
                     <?php endfor; ?>
                 </tbody>
@@ -48,3 +48,91 @@
 </div>
 
 <?php include locate_template('dashboard-templates/leads-section.php'); ?>
+
+<style>
+/* General Styling */
+.dashboard-section {
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+.ab-header-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #333;
+}
+
+/* Table Styling (Desktop) */
+.active-clients-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.active-clients-table th,
+.active-clients-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.active-clients-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #444;
+}
+
+/* Mobile Responsive (Card Style) */
+@media screen and (max-width: 480px) {
+  .active-clients-table,
+  .active-clients-table thead,
+  .active-clients-table tbody,
+  .active-clients-table th,
+  .active-clients-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .active-clients-table thead {
+    display: none;
+  }
+
+  .active-clients-table tr {
+    margin-bottom: 15px;
+    border-radius: 8px;
+    background: #f9f9ff;
+    padding: 0 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .active-clients-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+  }
+
+  .active-clients-table td:last-child {
+    border-bottom: none;
+  }
+
+  .active-clients-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #333;
+  }
+
+  .dashboard-section {
+    padding: 10px;
+   }
+
+   table {
+        border-width: 0!important;
+    }
+
+}
+</style>

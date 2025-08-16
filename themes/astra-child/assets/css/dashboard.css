@@ -110,6 +110,11 @@
     .dashboard-main {
         padding: 10px;
     }
+
+    .desktop-header {
+        padding: 0!important;
+    }
+
 }
 
 /* css for hamburger menu start */
@@ -140,6 +145,11 @@
 @media (max-width: 768px) {
     .header-row-2 {
         display: flex;
+        padding-bottom: 10px;
+    }
+
+    .header-row-1 {
+        padding: 10px;
     }
 }
 
@@ -419,6 +429,7 @@
     
     .stats-grid {
         grid-template-columns: 1fr;
+        padding-top: 10px;
     }
 }
 

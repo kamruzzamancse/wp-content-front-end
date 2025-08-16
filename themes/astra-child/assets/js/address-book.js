@@ -1,10 +1,17 @@
-// Search functionality
-document.querySelector('.ab-search-input').addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
+// Updated Search functionality
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.querySelector('.pt-search-input');
     const rows = document.querySelectorAll('tbody tr');
-    
-    rows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(searchTerm) ? '' : 'none';
+
+    searchInput.addEventListener('input', function () {
+        const searchTerm = this.value.toLowerCase().trim();
+
+        rows.forEach(row => {
+            const clientNameCell = row.querySelector('td[data-label="Client Name"]');
+            if (clientNameCell) {
+                const clientName = clientNameCell.textContent.toLowerCase();
+                row.style.display = clientName.includes(searchTerm) ? '' : 'none';
+            }
+        });
     });
 });

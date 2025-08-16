@@ -28,15 +28,40 @@
             Discover luxury living at the heart of the city with this stunning Lakeview Premium Apartment, offering breathtaking views of the lake and a modern, high-end finish throughout.
         </div>
 
-        <div class="pd-property-features">
-            <div class="pd-feature-box"><i class="fas fa-map-marker-alt"></i> Le Marais, Paris, France</div>
-            <div class="pd-feature-box"><i class="fas fa-building"></i> Apartment</div>
-            <div class="pd-feature-box"><i class="fas fa-euro-sign"></i> 450,000</div>
-            <div class="pd-feature-box"><i class="fas fa-bed"></i> 3 Bedrooms</div>
-            <div class="pd-feature-box"><i class="fas fa-bath"></i> 2 Bathrooms</div>
-            <div class="pd-feature-box"><i class="fas fa-ruler-combined"></i> 140 m²</div>
-            <div class="pd-feature-box"><i class="fas fa-couch"></i> Fully Furnished</div>
-            <div class="pd-feature-box"><i class="fas fa-parking"></i> Underground Parking</div>
+        <!-- Property Features Grid -->
+        <div class="property-features">
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-location"></span> Location</div>
+                <div class="feature-value">Le Marais, Paris, France</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-admin-home"></span> Property Type</div>
+                <div class="feature-value">Apartment</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-money"></span> Price</div>
+                <div class="feature-value">450,000</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bedrooms</div>
+                <div class="feature-value">3</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-admin-tools"></span> Bathrooms</div>
+                <div class="feature-value">2</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-randomize"></span> Property Size</div>
+                <div class="feature-value">140 m²</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-admin-site"></span> Furnished</div>
+                <div class="feature-value">Fully Furnished</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-car"></span> Parking Available</div>
+                <div class="feature-value">Underground</div>
+            </div>
         </div>
     </div>
 
@@ -73,3 +98,91 @@
 </div>
 
 <?php include locate_template('dashboard-templates/property-edit-modal.php'); ?>
+
+
+<style>
+
+/* Property features grid - 2 rows */
+/* Property Features Grid - Exact Match to Screenshot */
+.property-features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.feature-box {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    min-height: 60px;
+    box-sizing: border-box;
+}
+
+.feature-label {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.feature-value {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    padding-left: 28px;
+}
+
+/* Specific icon colors */
+.dashicons-location { color: #e74c3c; }
+.dashicons-admin-home { color: #3498db; }
+.dashicons-money { color: #2ecc71; }
+.dashicons-admin-users { color: #9b59b6; }
+.dashicons-admin-tools { color: #1abc9c; }
+.dashicons-randomize { color: #f39c12; }
+.dashicons-admin-site { color: #d35400; }
+.dashicons-car { color: #27ae60; }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .property-features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .property-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .image-gallery-container {
+        flex-direction: column-reverse;
+    }
+    
+    .thumbnail-gallery {
+        flex-direction: row;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .property-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .property-modal-content {
+        padding: 15px;
+    }
+}
+</style>

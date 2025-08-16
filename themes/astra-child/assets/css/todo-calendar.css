@@ -245,6 +245,12 @@
     }
 }
 
+@media (max-width: 480px) {
+    .todo-calendar-container {
+        margin-top: -140px;
+    }
+}
+
 /* Scrollbar Styling */
 .todos-container::-webkit-scrollbar {
     width: 3px;

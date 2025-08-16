@@ -1,8 +1,12 @@
 <!-- Profile Modal -->
+<?php
+    $upload_dir = wp_upload_dir();
+    $image_url = $upload_dir['baseurl'];
+?>
 <div class="profile-modal-overlay" id="profileModal">
     <div class="modal">
         <?php $current_user = wp_get_current_user(); ?>
-        <img class="realtor-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Realtor Profile Pic">
+        <img class="realtor-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Realtor Profile Pic">
         <h3><?php echo esc_html($current_user->display_name); ?></h3>
         <p><?php echo esc_html($current_user->user_email); ?></p>
 

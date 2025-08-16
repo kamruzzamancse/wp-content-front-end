@@ -4,6 +4,8 @@
  */
 $current_user = wp_get_current_user();
 $dashboard_url = current_user_can('realtor') ? home_url('/realtor-dashboard') : home_url('/');
+$upload_dir = wp_upload_dir();
+$image_url = $upload_dir['baseurl'];
 ?>
 
 <!-- Desktop Header -->
@@ -24,7 +26,7 @@ $dashboard_url = current_user_can('realtor') ? home_url('/realtor-dashboard') : 
 
             <div class="profile-header">
                 <div class="profile-pic">
-                    <img class="realtor-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Realtor Profile Pic">
+                    <img class="realtor-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Realtor Profile Pic">
                 </div>
             </div>
 
