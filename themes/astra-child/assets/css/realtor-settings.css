@@ -157,6 +157,10 @@
     .piv-detail-label {
         width: 100%;
     }
+
+    .piv-profile-header h2 {
+        font-size: 18px;
+    }
 }
 
 /* css for realtor profile pic */

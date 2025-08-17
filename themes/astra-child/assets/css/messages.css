@@ -12,14 +12,13 @@
   background: #fff;
   border-bottom: 1px solid #ddd;
   padding: 15px 20px;
-  border-radius: 8px 8px 8px 0px;
 }
 
-.top-bar h2 {
-  margin: 0;
+.top-bar h1 {
+  font-size: 20px;
 }
 
-.search-box {
+.pt-search-box {
   display: flex;
   align-items: center;
   width: 250px;
@@ -29,14 +28,14 @@
   padding: 5px 8px;
 }
 
-.search-box input {
+.pt-search-input {
   border: none;
   outline: none;
   flex: 1;
   font-size: 14px;
 }
 
-.search-icon {
+.pt-search-icon {
   margin-right: 5px;
   color: #888;
 }
@@ -55,13 +54,13 @@
   padding: 20px;
   border-right: 1px solid #ddd;
   overflow-y: auto;
-  border-radius: 0px 0px 8px 8px;
 }
 
 .client {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .client img {
@@ -83,13 +82,8 @@
 }
 
 .client-info span {
-  font-size: 16px;
-}
-
-@media (max-width: 768px) {
-    .client-info span {
-      font-size: 10px;
-    }
+  font-size: 12px;
+  color: #555;
 }
 
 /* Chat Area */
@@ -102,13 +96,13 @@
 }
 
 .chat-box {
-  max-width: 500px;
+  flex: 1;
   background: #fff;
   padding: 15px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  margin-bottom: auto;
+  overflow-y: auto;
 }
 
 .message {
@@ -126,13 +120,12 @@
 
 .right {
   align-self: flex-end;
-  background: #d9ecfa;
+  background: #c3e6cb;
 }
 
 /* Input Area */
 .input-area {
   display: flex;
-  max-width: 500px;
   width: 100%;
   padding: 10px;
   border-top: 1px solid #ddd;
@@ -156,4 +149,34 @@
   border-radius: 50%;
   cursor: pointer;
   font-size: 16px;
+}
+
+/* Back button for mobile */
+.back-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* ----------- Mobile Responsive ----------- */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .chat-area {
+    display: none; /* hidden by default */
+  }
+
+  .back-btn {
+    display: block;
+    color: black
+  }
 }

@@ -1,8 +1,6 @@
 <!-- Property Details Modal -->
-
 <div id="propertyDetailsModal" class="property-modal">
     <div class="property-modal-content">
-        <h1 class="property-title">Property Details</h1>
         <span class="close-property-modal">&times;</span>
 
         <div class="container">
@@ -38,7 +36,7 @@
                 </div>
                 
                 <!-- Property Features Grid -->
-                <div class="property-features">
+                <div class="property-features-modal">
                     <div class="feature-box">
                         <div class="feature-label"><span class="dashicons dashicons-location"></span> Location</div>
                         <div class="feature-value">Le Marais, Paris, France</div>
@@ -72,7 +70,6 @@
                         <div class="feature-value">Underground</div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -87,21 +84,31 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.85); /* darker backdrop */
+    z-index: 10000;
+    overflow-y: auto; /* allow scrolling */
     padding: 20px;
     box-sizing: border-box;
 }
 
 .property-modal-content {
-    background-color: white;
+    background-color: #fff;
     border-radius: 10px;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 40px auto;
     position: relative;
-    padding: 25px;
+    padding: 35px; /* increased padding */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+}
+
+/* Add extra bottom spacing inside modal */
+.property-modal-content::after {
+    content: "";
+    display: block;
+    height: 20px; /* ensures content never sticks to bottom */
 }
 
 .close-property-modal {
@@ -113,6 +120,7 @@
     color: #333;
     cursor: pointer;
     transition: color 0.3s;
+    z-index: 10001;
 }
 
 .close-property-modal:hover {
@@ -145,8 +153,8 @@
 }
 
 .thumbnail-gallery img {
-    width: 200px;
-    height: 100px;
+    width: 80px;
+    height: 60px;
     object-fit: cover;
     border-radius: 5px;
     cursor: pointer;
@@ -193,22 +201,21 @@
     border-bottom: 1px solid #eee;
 }
 
-/* Property features grid - 2 rows */
-/* Property Features Grid - Exact Match to Screenshot */
-.property-features {
+/* Property Features Grid */
+.property-features-modal {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+    gap: 20px; /* more spacing between boxes */
+    margin-top: 30px; /* extra breathing room */
 }
 
 .feature-box {
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 16px; /* more padding inside boxes */
     background-color: #f5f5f5;
-    border-radius: 6px;
-    min-height: 60px;
+    border-radius: 8px;
+    min-height: 70px; /* slightly taller */
     box-sizing: border-box;
 }
 
@@ -239,18 +246,11 @@
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-    .property-features {
+    .property-features-modal {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
-    .property-features {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -267,50 +267,52 @@
         padding-bottom: 10px;
     }
     
-    .property-features {
+    .property-features-modal {
         grid-template-columns: 1fr;
     }
     
     .property-modal-content {
         padding: 15px;
+        margin: 20px auto;
+        max-height: calc(100vh - 40px); /* adjust for small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .property-features-modal {
+        grid-template-columns: 1fr;
+    }
+    
+    .property-modal {
+        padding: 0;
+    }
+    
+    .property-modal-content {
+        border-radius: 0;
+        margin: 0;
+        min-height: 100vh;
+        max-height: 100vh;
     }
 }
 </style>
 
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    // Get modal and buttons
+document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('propertyDetailsModal');
     const viewButtons = document.querySelectorAll('.view-details-btn');
     const closeBtn = document.querySelector('.close-property-modal');
     
-    // Add click event to all view buttons
-    /* viewButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Show the modal
-            modal.style.display = 'block';
-            
-            // Set first thumbnail as active (if needed)
-            const firstThumbnail = document.querySelector('.thumbnail-gallery img');
-            if (firstThumbnail && !firstThumbnail.classList.contains('active')) {
-                firstThumbnail.classList.add('active');
-            }
-        });
-    }); */
-
-    // Add click event to all view buttons
     viewButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Show the property modal
             modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
             
-            // Hide the address book modal if it exists
             const addressBookModal = document.getElementById('clientDetailsModal');
             if (addressBookModal) {
                 addressBookModal.style.display = 'none';
             }
             
-            // Set first thumbnail as active (if needed)
             const firstThumbnail = document.querySelector('.thumbnail-gallery img');
             if (firstThumbnail && !firstThumbnail.classList.contains('active')) {
                 firstThumbnail.classList.add('active');
@@ -318,32 +320,27 @@
         });
     });
     
-    // Close modal when clicking close button
     closeBtn.addEventListener('click', function() {
         modal.style.display = 'none';
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
     });
     
-    // Close when clicking outside modal
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
             modal.style.display = 'none';
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
         }
     });
     
-    // Thumbnail image switching functionality
     function changeImage(src, clickedElement) {
-        // Update main image
         document.getElementById('mainPreview').src = src;
-        
-        // Remove active class from all thumbnails
         const thumbnails = document.querySelectorAll('.thumbnail-gallery img');
         thumbnails.forEach(thumb => thumb.classList.remove('active'));
-        
-        // Add active class to clicked thumbnail
         clickedElement.classList.add('active');
     }
     
-    // Attach click events to thumbnails (if not already in HTML)
     const thumbnails = document.querySelectorAll('.thumbnail-gallery img');
     thumbnails.forEach(thumb => {
         thumb.addEventListener('click', function() {
