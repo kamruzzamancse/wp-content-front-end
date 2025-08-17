@@ -1,5 +1,11 @@
+<?php 
+    $upload_dir = wp_upload_dir(); 
+    $image_url = $upload_dir['baseurl']; 
+    $site_url = site_url();
+?>
+
 <div class="back-link">
-    <a href="http://localhost/mary/realtor-dashboard/?tab=properties" class="pd-back-link">
+    <a href="<?php echo esc_url( $site_url . '/realtor-dashboard/?tab=properties' ); ?>" class="pd-back-link">
         <span class="pd-back-link__arrow">←</span>
         <h1 class="pd-back-link__title">Property Details</h1>
     </a>
@@ -14,12 +20,12 @@
 
         <div class="pd-image-gallery-container">
             <div class="pd-thumbnail-gallery">
-                <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-4.png" onclick="changeImage(this.src)" alt="Gallery Image 1">
-                <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-5.png" onclick="changeImage(this.src)" alt="Gallery Image 2">
-                <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-6.png" onclick="changeImage(this.src)" alt="Gallery Image 3">
+                <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-4.png' ); ?>" onclick="changeImage(this.src)" alt="Gallery Image 1">
+                <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-5.png' ); ?>" onclick="changeImage(this.src)" alt="Gallery Image 2">
+                <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-6.png' ); ?>" onclick="changeImage(this.src)" alt="Gallery Image 3">
             </div>
             <div class="pd-main-image-container">
-                <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard.png" id="pd-mainPreview" class="pd-main-image" alt="Main Image">
+                <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" id="pd-mainPreview" class="pd-main-image" alt="Main Image">
             </div>
         </div>
 
@@ -69,7 +75,7 @@
         <div class="pd-right-box pd-assigned-client">
             <strong style="font-size: 16px; margin-bottom: 10px; display: block;">Assigned Client</strong>
             <div class="pd-client-name">
-                <img style="border-radius: 50%; width:50px; margin-right: 12px" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Client Photo">
+                <img style="border-radius: 50%; width:50px; margin-right: 12px" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Client Photo">
                 Afsana Hamid mim
             </div>
             <div class="pd-info-row"><span>Phone Number:</span><span>999-888-666</span></div>
@@ -87,7 +93,7 @@
             <div class="pd-task-row"><label>Due Date</label><span>11 Oct, 2025</span></div>
             <div class="pd-task-notes">
                 <label>Notes</label>
-                <textarea rows="4" readonly>Just a quick reminder to review the listings I sent and let me know which properties you’d like to visit. Also, please have your pre-approval letter ready if you’re planning to make an offer soon!</textarea>
+                <textarea rows="4" readonly>Just a quick reminder to review the listings I sent and let me know which properties you'd like to visit. Also, please have your pre-approval letter ready if you're planning to make an offer soon!</textarea>
             </div>
             <div class="pd-pdf-file">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="PDF Icon">

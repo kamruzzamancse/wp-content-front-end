@@ -1,3 +1,7 @@
+<?php 
+    $upload_dir = wp_upload_dir(); 
+    $image_url = $upload_dir['baseurl']; 
+?>
 <div class="back-link">
     <a href="?tab=settings" class="pd-back-link">
         <span class="pd-back-link__arrow">←</span>
@@ -15,7 +19,7 @@
     
     <div class="piv-profile-content">
         <div class="piv-profile-pic-container">
-            <img class="realtor-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Realtor Profile Pic">
+            <img class="realtor-avatar" src=<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?> alt="Realtor Profile Pic">
             <span class="user-role-name">Realtor</span>
         </div>
         

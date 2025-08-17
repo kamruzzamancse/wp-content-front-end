@@ -1,3 +1,8 @@
+<?php 
+    $upload_dir = wp_upload_dir(); 
+    $image_url = $upload_dir['baseurl']; 
+?>
+
 <div class="back-link">
   <a href="?tab=settings-realtor-pi" class="pd-back-link">
     <span class="pd-back-link__arrow">←</span>
@@ -10,7 +15,7 @@
     <div class="rpe-header-content">
       <div class="piv-profile-pic-container">
         <div class="piv-profile-pic-wrapper">
-          <img class="realtor-avatar" src="http://localhost/mary/wp-content/uploads/2025/08/client-photo.jpg" alt="Realtor Profile Pic">
+          <img class="realtor-avatar" src=<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?> alt="Realtor Profile Pic">
           <label for="profile-pic-upload" class="piv-edit-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>

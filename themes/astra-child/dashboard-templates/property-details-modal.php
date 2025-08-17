@@ -1,4 +1,9 @@
 <!-- Property Details Modal -->
+<?php 
+    $upload_dir = wp_upload_dir(); 
+    $image_url = $upload_dir['baseurl']; 
+?>
+
 <div id="propertyDetailsModal" class="property-modal">
     <div class="property-modal-content">
         <span class="close-property-modal">&times;</span>
@@ -8,24 +13,23 @@
                 <!-- Image Gallery -->
                 <div class="image-gallery-container">
                     <div class="thumbnail-gallery">
-                        <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-4.png" 
-                             onclick="changeImage(this.src, this)" 
-                             alt="Gallery Image 1">
-                        <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-5.png" 
-                             onclick="changeImage(this.src, this)" 
-                             alt="Gallery Image 2">
-                        <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-6.png" 
-                             onclick="changeImage(this.src, this)" 
-                             alt="Gallery Image 3">
+                        <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-4.png' ); ?>" 
+                            onclick="changeImage(this.src, this)" 
+                            alt="Gallery Image 1">
+                        <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-5.png' ); ?>" 
+                            onclick="changeImage(this.src, this)" 
+                            alt="Gallery Image 2">
+                        <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-6.png' ); ?>" 
+                            onclick="changeImage(this.src, this)" 
+                            alt="Gallery Image 3">
                     </div>
                     <div class="main-image-container">
-                        <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard.png" 
-                             id="mainPreview" 
-                             class="main-image" 
-                             alt="Main Image">
+                        <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" 
+                            id="mainPreview" 
+                            class="main-image" 
+                            alt="Main Image">
                     </div>
                 </div>
-                
                 <!-- Property Header -->
                 <div class="property-header">
                     <h1 class="property-title">Lakeview Premium Apartment</h1>

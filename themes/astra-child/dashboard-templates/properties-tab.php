@@ -1,3 +1,8 @@
+<?php
+    $upload_dir = wp_upload_dir();
+    $image_url  = $upload_dir['baseurl'];
+?>
+
 <div class="pt-toolbar-container">
   <div class="pt-left-section">
     <h1 class="ab-header-title">All Properties</h1>
@@ -25,16 +30,11 @@
   </div>
 </div>
 
-
 <div class="pt-property-container">
     <div class="pt-property-list">
-
-        <!-- Property cards repeated -->
-        <!-- You can dynamically generate these using PHP in a WordPress loop -->
-
         <!-- Property Example -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic.png" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-08-15</span>
@@ -44,20 +44,17 @@
                     <span>Downtown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-8.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9-1.png" alt="Gallery Image 3">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9.png" alt="Gallery Image 4">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-8.png" alt="Gallery Image 5">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 4">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 5">
                 </div>
             </div>
         </div>
 
-        <!-- Duplicate the pt-property-item block below for more properties -->
-        <!-- For demonstration, we'll include 6 total -->
-
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard.png" alt="Lakeview Standard" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Standard Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-07-20</span>
@@ -67,15 +64,15 @@
                     <span>Midtown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-4.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-5.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-6.png" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-4.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-5.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-6.png' ); ?>" alt="Gallery Image 3">
                 </div>
             </div>
         </div>
 
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium.png" alt="Lakeview Premium" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Premium Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-08-01</span>
@@ -85,16 +82,16 @@
                     <span>Uptown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium-1.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium-2.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium-3.png" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-1.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-2.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-3.png' ); ?>" alt="Gallery Image 3">
                 </div>
             </div>
         </div>
 
-        <!-- 4th Property to complete 1 full row -->
+        <!-- 4th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic.png" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-05-15</span>
@@ -104,19 +101,16 @@
                     <span>Downtown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-8.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9-1.png" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
                 </div>
             </div>
         </div>
 
-        <!-- Property cards repeated -->
-        <!-- You can dynamically generate these using PHP in a WordPress loop -->
-
-        <!-- Property Example -->
+        <!-- 5th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic.png" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-06-14</span>
@@ -126,20 +120,18 @@
                     <span>Downtown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-8.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9-1.png" alt="Gallery Image 3">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-8.png" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                 </div>
             </div>
         </div>
 
-        <!-- Duplicate the pt-property-item block below for more properties -->
-        <!-- For demonstration, we'll include 6 total -->
-
+        <!-- 6th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard.png" alt="Lakeview Standard" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Standard Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-05-19</span>
@@ -149,15 +141,16 @@
                     <span>Midtown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-4.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-5.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-standard-6.png" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-4.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-5.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-6.png' ); ?>" alt="Gallery Image 3">
                 </div>
             </div>
         </div>
 
+        <!-- 7th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium.png" alt="Lakeview Premium" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Premium Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-02-15</span>
@@ -167,16 +160,16 @@
                     <span>Uptown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium-1.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium-2.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-premium-3.png" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-1.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-2.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-3.png' ); ?>" alt="Gallery Image 3">
                 </div>
             </div>
         </div>
 
-        <!-- 4th Property to complete 1 full row -->
+        <!-- 8th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic.png" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-08-23</span>
@@ -186,15 +179,12 @@
                     <span>Downtown, New York</span>
                 </div>
                 <div class="pt-gallery">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9.png" alt="Gallery Image 1">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-8.png" alt="Gallery Image 2">
-                    <img src="http://localhost/mary/wp-content/uploads/2025/08/lakeview-basic-9-1.png" alt="Gallery Image 3">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
                 </div>
             </div>
         </div>
-
-        <!-- Add more properties as needed... -->
-
     </div>
 </div>
 
