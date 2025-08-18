@@ -99,11 +99,11 @@
   border-bottom: 1px solid #eee;
 }
 
-.leads-table th {
+/* .leads-table th {
   background: #f5f5f5;
   font-weight: 600;
   color: #444;
-}
+} */
 
 /* Status Dots */
 .status-dot {

@@ -108,7 +108,7 @@ class Enhanced_Register_Handler {
     private function get_redirect_url_by_role($role) {
         $urls = [
             'realtor' => site_url('/realtor-dashboard/'),
-            'client' => site_url('/client-dashboard/'),
+            'client' => site_url('/cl/client-dashboard/'),
             'administrator' => admin_url()
         ];
         return $urls[$role] ?? home_url();

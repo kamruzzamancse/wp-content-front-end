@@ -236,7 +236,7 @@ function closeCreateModal() {
 }
 
 // Edit Property Modal
-function openEditModal() {
+function propertyEditModal() {
     document.getElementById("propertyEditModal").style.display = "flex";
 }
 

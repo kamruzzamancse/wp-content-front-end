@@ -173,7 +173,7 @@
 </div>
 
 <?php 
-    include locate_template('dashboard-templates/client-details-modal.php');
+    include locate_template('dashboard-templates/rt-client-details-modal.php');
 ?>
 
 <style>

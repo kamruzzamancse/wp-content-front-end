@@ -34,9 +34,9 @@
     <div class="pt-property-list">
         <!-- Property Example -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-08-15</span>
                 <div class="pt-property-price">$1,100</div>
                 <div class="pt-property-location">
@@ -54,9 +54,9 @@
         </div>
 
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Standard Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Standard Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-07-20</span>
                 <div class="pt-property-price">$1,600</div>
                 <div class="pt-property-location">
@@ -72,9 +72,9 @@
         </div>
 
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Premium Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Premium Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-08-01</span>
                 <div class="pt-property-price">$2,900</div>
                 <div class="pt-property-location">
@@ -91,9 +91,9 @@
 
         <!-- 4th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-05-15</span>
                 <div class="pt-property-price">$1,100</div>
                 <div class="pt-property-location">
@@ -110,9 +110,9 @@
 
         <!-- 5th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-06-14</span>
                 <div class="pt-property-price">$1,800</div>
                 <div class="pt-property-location">
@@ -131,9 +131,9 @@
 
         <!-- 6th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Standard Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Standard Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-05-19</span>
                 <div class="pt-property-price">$1,800</div>
                 <div class="pt-property-location">
@@ -150,9 +150,9 @@
 
         <!-- 7th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Premium Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Premium Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-02-15</span>
                 <div class="pt-property-price">$2,500</div>
                 <div class="pt-property-location">
@@ -169,9 +169,9 @@
 
         <!-- 8th Property -->
         <div class="pt-property-item">
-            <a href="?tab=property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
+            <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
-                <a href="?tab=property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
+                <a href="?tab=rt-property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
                 <span class="pt-property-date" style="display: none;">2025-08-23</span>
                 <div class="pt-property-price">$1,400</div>
                 <div class="pt-property-location">
@@ -276,4 +276,4 @@
     </div>
 </div>
 
-<?php include locate_template('dashboard-templates/property-create-modal.php'); ?>
+<?php include locate_template('dashboard-templates/rt-property-create-modal.php'); ?>

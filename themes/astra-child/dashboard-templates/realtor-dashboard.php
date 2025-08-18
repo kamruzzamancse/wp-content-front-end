@@ -1,6 +1,6 @@
 <?php
 /**
- * Realtor Dashboard Main Template ()
+ * Realtor Dashboard Main Template
  */
 
 if (!defined('ABSPATH')) exit;
@@ -11,10 +11,50 @@ if (!is_user_logged_in() || !current_user_can('realtor')) {
     exit;
 }
 
+// Current tab
 $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
+
+// Load dashboard data (define function if missing)
+if (!function_exists('load_realtor_dashboard_data')) {
+    function load_realtor_dashboard_data($tab) {
+        $user_id = get_current_user_id();
+
+        // Example data structure; customize as needed
+        switch ($tab) {
+            case 'dashboard':
+                return [
+                    'properties_count' => count(get_posts([
+                        'post_type' => 'property',
+                        'author' => $user_id,
+                        'post_status' => 'publish'
+                    ])),
+                    'messages_count' => 0, // Replace with actual query
+                ];
+            case 'properties':
+                return get_posts([
+                    'post_type' => 'property',
+                    'author' => $user_id,
+                    'post_status' => 'publish',
+                ]);
+            case 'address-book':
+            case 'messages':
+            case 'settings':
+            case 'notifications':
+            case 'rt-property-details':
+            case 'rt-settings-pi':
+            case 'rt-settings-cp':
+            case 'rt-settings-pi-edit':
+            case 'rt-settings-support':
+                return []; // Placeholder, replace with actual data queries
+            default:
+                return null;
+        }
+    }
+}
+
 $dashboard_data = load_realtor_dashboard_data($current_tab);
 
-if (!$dashboard_data) {
+if ($dashboard_data === null) {
     echo '<div class="error">Failed to load dashboard data.</div>';
     get_footer();
     exit;
@@ -24,58 +64,47 @@ get_header();
 ?>
 
 <div class="dashboard-container">
-    <?php include locate_template('dashboard-templates/dashboard-header.php'); ?>
+    <?php include locate_template('dashboard-templates/rt-dashboard-header.php'); ?>
     
     <div class="dashboard-content">
-        <?php include locate_template('dashboard-templates/dashboard-sidebar.php'); ?>
+        <?php include locate_template('dashboard-templates/rt-dashboard-sidebar.php'); ?>
         
         <main class="dashboard-main">
             <?php
             switch($current_tab) {
                 case 'dashboard':
-                    include locate_template('dashboard-templates/dashboard-tab.php');
+                    include locate_template('dashboard-templates/rt-tab-dashboard.php');
                     break;
-                    
                 case 'properties':
-                    include locate_template('dashboard-templates/properties-tab.php');
+                    include locate_template('dashboard-templates/rt-tab-properties.php');
                     break;
-                    
                 case 'address-book':
-                    include locate_template('dashboard-templates/address-book-tab.php');
+                    include locate_template('dashboard-templates/rt-tab-address-book.php');
                     break;
-                    
                 case 'messages':
-                    include locate_template('dashboard-templates/messages-tab.php');
+                    include locate_template('dashboard-templates/rt-tab-messages.php');
                     break;
-                    
                 case 'settings':
-                    include locate_template('dashboard-templates/settings-tab.php');
+                    include locate_template('dashboard-templates/rt-tab-settings.php');
                     break;
-
                 case 'notifications':
-                    include locate_template('dashboard-templates/notifications-tab.php');
+                    include locate_template('dashboard-templates/rt-tab-notifications.php');
                     break;
-
-                case 'property-details':
-                    include locate_template('dashboard-templates/property-details.php');
+                case 'rt-property-details':
+                    include locate_template('dashboard-templates/rt-property-details.php');
                     break;
-
-                case 'settings-realtor-pi':
-                    include locate_template('dashboard-templates/settings-realtor-pi.php');
+                case 'rt-settings-pi':
+                    include locate_template('dashboard-templates/rt-settings-pi.php');
                     break;
-
-                 case 'settings-realtor-cp':
-                    include locate_template('dashboard-templates/settings-realtor-cp.php');
+                case 'rt-settings-cp':
+                    include locate_template('dashboard-templates/rt-settings-cp.php');
                     break;
-
-                case 'settings-realtor-pi-edit':
-                    include locate_template('dashboard-templates/settings-realtor-pi-edit.php');
+                case 'rt-settings-pi-edit':
+                    include locate_template('dashboard-templates/rt-settings-pi-edit.php');
                     break;
-
-                 case 'settings-support':
-                    include locate_template('dashboard-templates/settings-support.php');
+                case 'rt-settings-support':
+                    include locate_template('dashboard-templates/rt-settings-support.php');
                     break;
-                    
                 default:
                     wp_redirect(add_query_arg('tab', 'dashboard'));
                     exit;
@@ -86,6 +115,6 @@ get_header();
 </div>
 
 <?php 
-include locate_template('dashboard-templates/profile-modal.php');
+include locate_template('dashboard-templates/rt-profile-modal.php');
 get_footer(); 
 ?>

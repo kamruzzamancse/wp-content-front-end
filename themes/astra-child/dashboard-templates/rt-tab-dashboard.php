@@ -47,7 +47,7 @@
     </div>
 </div>
 
-<?php include locate_template('dashboard-templates/leads-section.php'); ?>
+<?php include locate_template('dashboard-templates/rt-leads-section.php'); ?>
 
 <style>
 /* General Styling */
@@ -80,11 +80,11 @@
   border-bottom: 1px solid #eee;
 }
 
-.active-clients-table th {
+/* .active-clients-table th {
   background: #f5f5f5;
   font-weight: 600;
   color: #444;
-}
+} */
 
 /* Mobile Responsive (Card Style) */
 @media screen and (max-width: 480px) {

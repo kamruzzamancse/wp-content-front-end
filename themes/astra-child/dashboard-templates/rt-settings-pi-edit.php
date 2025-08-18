@@ -4,7 +4,7 @@
 ?>
 
 <div class="back-link">
-  <a href="?tab=settings-realtor-pi" class="pd-back-link">
+  <a href="?tab=rt-settings-pi" class="pd-back-link">
     <span class="pd-back-link__arrow">←</span>
     <h1 class="pd-back-link__title">Personal Information</h1>
   </a>
@@ -310,6 +310,6 @@
 
   // Cancel button functionality - go back to previous page
   document.querySelector('.rpe-cancel-button').addEventListener('click', function() {
-    window.location.href = '?tab=settings-realtor-pi';
+    window.location.href = '?tab=rt-settings-pi';
   });
 </script>

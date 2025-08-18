@@ -3,7 +3,7 @@
  * Dashboard Header Component
  */
 $current_user = wp_get_current_user();
-$dashboard_url = current_user_can('realtor') ? home_url('/realtor-dashboard') : home_url('/');
+$dashboard_url = current_user_can('realtor') ? home_url('/realtor-dashboard/rd/') : home_url('/');
 $upload_dir = wp_upload_dir();
 $image_url = $upload_dir['baseurl'];
 ?>

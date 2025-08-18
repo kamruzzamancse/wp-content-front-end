@@ -11,8 +11,8 @@
         <p><?php echo esc_html($current_user->user_email); ?></p>
 
         <div class="modal-buttons">
-            <button onclick="location.href='?tab=settings-realtor-pi'">View Profile</button>
-            <button onclick="location.href='?tab=settings-realtor-pi-edit'">Edit Profile</button>
+            <button onclick="location.href='?tab=rt-settings-pi'">View Profile</button>
+            <button onclick="location.href='?tab=rt-settings-pi-edit'">Edit Profile</button>
             <button onclick="location.href='<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>'">Log out</button>
         </div>
     </div>

@@ -14,7 +14,7 @@
 <div class="pd-container">
     <div class="pd-left-column">
         <div class="pd-top-controls">
-            <button class="pd-btn pd-btn-edit" onclick="openEditModal()">Edit</button>
+            <button class="pd-btn pd-btn-edit" onclick="propertyEditModal()">Edit</button>
             <button class="pd-btn pd-btn-delete">Delete</button>
         </div>
 
@@ -103,7 +103,7 @@
     </div>
 </div>
 
-<?php include locate_template('dashboard-templates/property-edit-modal.php'); ?>
+<?php include locate_template('dashboard-templates/rt-property-edit-modal.php'); ?>
 
 
 <style>

@@ -67,5 +67,5 @@
 </div>
 
 <?php 
-    include locate_template('dashboard-templates/property-details-modal.php');
+    include locate_template('dashboard-templates/rt-property-details-modal.php');
 ?>

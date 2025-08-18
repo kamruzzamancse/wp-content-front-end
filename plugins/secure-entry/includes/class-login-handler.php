@@ -106,10 +106,11 @@ class Enhanced_Login_Handler {
         
         $redirect_urls = apply_filters('enhanced_login_redirect_urls', [
             'administrator' => admin_url(),
-            'realtor'      => home_url('/realtor-dashboard/'),
-            'client'       => home_url('/client-dashboard/'),
-            'subscriber'   => home_url('/my-account/')
+            'realtor'       => home_url('/realtor-dashboard/'),
+            'client'        => home_url('/cl/client-dashboard/'), // <-- correct path
+            'subscriber'    => home_url('/my-account/')
         ]);
+
         
         foreach ($roles as $role) {
             if (isset($redirect_urls[$role])) {

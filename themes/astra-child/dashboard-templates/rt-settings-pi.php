@@ -12,7 +12,7 @@
 <div class="piv-realtor-profile-container">
     <div class="piv-profile-header">
         <h2>Personal Information</h2>
-        <a href="?tab=settings-realtor-pi-edit" class="piv-edit-button-link">
+        <a href="?tab=rt-settings-pi-edit" class="piv-edit-button-link">
             <button class="piv-edit-button">Edit Profile</button>
         </a>
     </div>
