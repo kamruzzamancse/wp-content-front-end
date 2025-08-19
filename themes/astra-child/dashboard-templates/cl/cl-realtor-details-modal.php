@@ -74,6 +74,35 @@
     </div>
 </div>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Open modal
+    document.querySelectorAll(".cld-action").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if(modal) modal.classList.add("show");
+        });
+    });
+
+    // Close modal (button)
+    document.querySelectorAll(".cldoc-close").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modal = this.closest(".cldoc-modal");
+            if(modal) modal.classList.remove("show");
+        });
+    });
+
+    // Close modal (overlay)
+    document.querySelectorAll(".cldoc-modal-overlay").forEach(overlay => {
+        overlay.addEventListener("click", function () {
+            const modal = this.closest(".cldoc-modal");
+            if(modal) modal.classList.remove("show");
+        });
+    });
+});
+</script>
+
 <style>
 /* Modal Base */
 .cldoc-modal {
@@ -93,6 +122,7 @@
     inset: 0;
     background: rgba(0,0,0,0.6);
     cursor: pointer;
+    z-index: 1000;
 }
 
 /* Modal Box */
@@ -220,22 +250,3 @@
     margin-top: 25px;
 }
 </style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Open modal
-    document.querySelectorAll(".cld-action").forEach(btn => {
-        btn.addEventListener("click", function () {
-            const modalId = this.getAttribute("data-modal");
-            document.getElementById(modalId).classList.add("show");
-        });
-    });
-
-    // Close modal (close button + overlay)
-    document.querySelectorAll(".cldoc-close, .cldoc-modal-overlay").forEach(el => {
-        el.addEventListener("click", function () {
-            this.closest(".cldoc-modal").classList.remove("show");
-        });
-    });
-});
-</script>

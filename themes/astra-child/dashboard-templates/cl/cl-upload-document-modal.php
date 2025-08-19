@@ -263,49 +263,42 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const modal = document.getElementById("clup-modal");
+    const modal = document.getElementById("cl-upload-document-modal");
 
-  // Open modal
-  document.querySelectorAll(".clup-open").forEach(btn => {
-    btn.addEventListener("click", function () {
-      modal.classList.add("show");
-    });
-  });
-
-  // Close modal (clicking close button, cancel button, or overlay)
-  document.querySelectorAll(".clup-close, .clup-overlay, .clup-cancel").forEach(el => {
-    el.addEventListener("click", function () {
-      modal.classList.remove("show");
-    });
-  });
-
-  // Extra: close with ESC key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.classList.contains("show")) {
-      modal.classList.remove("show");
-    }
-  });
-});
-</script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-    const browseBtn = document.querySelector(".clup-browse");
-    const fileInput = document.getElementById("clup-file-input");
-
-    // Trigger hidden input on button click
-    browseBtn.addEventListener("click", function () {
-        fileInput.click();
+    // Open modal
+    document.querySelectorAll(".clup-open").forEach(btn => {
+        btn.addEventListener("click", function () {
+            modal.classList.add("show");
+        });
     });
 
-    // Handle file selection
-    fileInput.addEventListener("change", function () {
-        if (fileInput.files.length > 0) {
-        const fileName = fileInput.files[0].name;
-        alert("Selected file: " + fileName);
-        // 👉 You can update UI here instead of alert (e.g. show filename inside modal)
+    // Close modal with close button
+    modal.querySelectorAll(".clup-close-btn").forEach(btn => {
+        btn.addEventListener("click", function () {
+            modal.classList.remove("show");
+        });
+    });
+
+    // Close modal with cancel button
+    modal.querySelectorAll(".clup-cancel").forEach(btn => {
+        btn.addEventListener("click", function (e) {
+            e.preventDefault(); // Prevent any default form behavior
+            modal.classList.remove("show");
+        });
+    });
+
+    // Close modal by clicking outside (overlay)
+    modal.addEventListener("click", function (e) {
+        if (e.target === modal) { // Only overlay
+            modal.classList.remove("show");
         }
     });
-    });
-</script>
 
+    // Close modal with ESC key
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.classList.contains("show")) {
+            modal.classList.remove("show");
+        }
+    });
+});
+</script>
