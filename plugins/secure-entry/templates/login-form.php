@@ -38,3 +38,11 @@
 
     <div class="enhanced-login-message"></div>
 </div>
+
+<style>
+    .entry-content[data-ast-blocks-layout] > * {
+        max-width: 600px!important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>

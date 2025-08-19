@@ -1,187 +1,120 @@
-<!-- HEADER (updated to match screenshot) -->
-    <header class="cd-header">
-        <div class="cd-header-left">
-            <div class="cd-header-logo">SynchroNest</div>
-        </div>
-        <div class="cd-header-right">
-            <div class="cd-user-avatar">A</div>
-            <span>Anisur Rahman</span>
-        </div>
-    </header>
+<?php
+/**
+ * Realtor Dashboard Main Template
+ */
 
-    <!-- MAIN CONTAINER -->
-    <div class="cd-container">
-        <!-- LEFT SIDEBAR -->
-        <div class="cd-sidebar">
-            <div class="cd-logo">SynchroNest</div>
-            <div class="cd-sublogo">STAY SYNCHED. STAY AHEAD.</div>
-            
-            <div class="cd-user-info">
-                <span class="cd-user-name">Anisur Rahman</span>
-                <span class="cd-user-title">Realtor</span>
-            </div>
-            
-            <ul class="cd-menu">
-                <li class="cd-menu-item">
-                    <input type="checkbox" id="cd-dashboard">
-                    <label for="cd-dashboard">Dashboard</label>
-                </li>
-                <li class="cd-menu-item">
-                    <input type="checkbox" id="cd-properties" checked>
-                    <label for="cd-properties">My Properties</label>
-                </li>
-                <li class="cd-menu-item">
-                    <input type="checkbox" id="cd-address-book">
-                    <label for="cd-address-book">Address Book</label>
-                </li>
-                <li class="cd-menu-item">
-                    <input type="checkbox" id="cd-message">
-                    <label for="cd-message">Message</label>
-                </li>
-                <li class="cd-menu-item">
-                    <input type="checkbox" id="cd-setting">
-                    <label for="cd-setting">Setting</label>
-                </li>
-                <li class="cd-menu-item">
-                    <input type="checkbox" id="cd-logout">
-                    <label for="cd-logout">Logout</label>
-                </li>
-            </ul>
-        </div>
+if (!defined('ABSPATH')) exit;
 
-        <!-- MAIN CONTENT AREA -->
-        <main class="cd-content">
-            <!-- Page content would go here -->
+// Authentication check
+if (!is_user_logged_in() || !current_user_can('client')) {
+    wp_redirect(home_url('/login/'));
+    exit;
+}
+
+// Current tab
+$current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
+
+// Load dashboard data (define function if missing)
+if (!function_exists('load_realtor_dashboard_data')) {
+    function load_realtor_dashboard_data($tab) {
+        $user_id = get_current_user_id();
+
+        // Example data structure; customize as needed
+        switch ($tab) {
+            case 'dashboard':
+                return [
+                    'properties_count' => count(get_posts([
+                        'post_type' => 'property',
+                        'author' => $user_id,
+                        'post_status' => 'publish'
+                    ])),
+                    'messages_count' => 0, // Replace with actual query
+                ];
+            case 'properties':
+                return get_posts([
+                    'post_type' => 'property',
+                    'author' => $user_id,
+                    'post_status' => 'publish',
+                ]);
+            case 'address-book':
+            case 'messages':
+            case 'settings':
+            case 'notifications':
+            case 'cl-property-details':
+            case 'cl-settings-pi':
+            case 'cl-settings-cp':
+            case 'cl-settings-pi-edit':
+            case 'cl-settings-support':
+                return []; // Placeholder, replace with actual data queries
+            default:
+                return null;
+        }
+    }
+}
+
+$dashboard_data = load_realtor_dashboard_data($current_tab);
+
+if ($dashboard_data === null) {
+    echo '<div class="error">Failed to load dashboard data.</div>';
+    get_footer();
+    exit;
+}
+
+get_header();
+?>
+
+<div class="dashboard-container">
+    <?php include locate_template('dashboard-templates/cl/cl-dashboard-header.php'); ?>
+    
+    <div class="dashboard-content">
+        <?php include locate_template('dashboard-templates/cl/cl-dashboard-sidebar.php'); ?>
+        
+        <main class="dashboard-main">
+            <?php
+             switch($current_tab) {
+                case 'dashboard':
+                    include locate_template('dashboard-templates/cl/cl-tab-dashboard.php');
+                    break;
+                case 'notifications':
+                    include locate_template('dashboard-templates/cl/cl-tab-notifications.php');
+                    break;
+                case 'properties':
+                    include locate_template('dashboard-templates/cl/cl-tab-properties.php');
+                    break;
+                case 'cl-property-details':
+                    include locate_template('dashboard-templates/cl/cl-property-details.php');
+                    break;
+                case 'address-book':
+                    include locate_template('dashboard-templates/cl/cl-tab-document.php');
+                    break;
+                /*case 'messages':
+                    include locate_template('dashboard-templates/cl/cl-tab-messages.php');
+                    break;
+                case 'settings':
+                    include locate_template('dashboard-templates/cl/cl-tab-settings.php');
+                    break;
+                case 'cl-settings-pi':
+                    include locate_template('dashboard-templates/cl/cl-settings-pi.php');
+                    break;
+                case 'cl-settings-cp':
+                    include locate_template('dashboard-templates/cl/cl-settings-cp.php');
+                    break;
+                case 'cl-settings-pi-edit':
+                    include locate_template('dashboard-templates/cl/cl-settings-pi-edit.php');
+                    break;
+                case 'cl-settings-support':
+                    include locate_template('dashboard-templates/cl/cl-settings-support.php');
+                    break;*/
+                default:
+                    wp_redirect(add_query_arg('tab', 'dashboard'));
+                    exit;
+            } 
+            ?>
         </main>
     </div>
+</div>
 
-<style>
-        /* BACKGROUND COLOR (applies to whole page) */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-
-        /* HEADER SECTION - updated to match screenshot */
-        .cd-header {
-            background-color: white;
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .cd-header-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cd-header-logo {
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        .cd-header-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .cd-user-avatar {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        /* MAIN CONTAINER - holds both sidebar and content */
-        .cd-container {
-            display: flex;
-            min-height: calc(100vh - 61px); /* Subtract header height */
-        }
-
-        /* LEFT SIDEBAR (the visible panel in your screenshot) */
-        .cd-sidebar {
-            width: 250px;
-            background-color: white;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-        }
-
-        /* CONTENT AREA (empty in your screenshot) */
-        .cd-content {
-            flex-grow: 1;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-
-        /* Logo styles */
-        .cd-logo {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 30px;
-            color: #333;
-        }
-        
-        .cd-sublogo {
-            font-size: 14px;
-            color: #666;
-            margin-top: 5px;
-            margin-bottom: 30px;
-        }
-        
-        /* User info section */
-        .cd-user-info {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .cd-user-name {
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        .cd-user-title {
-            font-size: 14px;
-            color: #666;
-        }
-        
-        /* Menu styles */
-        .cd-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .cd-menu-item {
-            padding: 12px 0;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-        
-        .cd-menu-item input[type="checkbox"] {
-            margin-right: 10px;
-        }
-        
-        .cd-menu-item label {
-            cursor: pointer;
-        }
-        
-        .cd-menu-item:hover {
-            color: #000;
-        }
-    </style>
+<?php 
+//include locate_template('dashboard-templates/cl/cl-profile-modal.php');
+get_footer(); 
+?>

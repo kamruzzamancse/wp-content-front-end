@@ -1,0 +1,241 @@
+<?php
+    $upload_dir = wp_upload_dir();
+    $image_url = $upload_dir['baseurl'];
+?>
+<div id="cldoc-modal-1" class="cldoc-modal">
+    <div class="cldoc-modal-overlay"></div>
+    <div class="cldoc-modal-box">
+        <button class="cldoc-close">&times;</button>
+
+        <div class="cldoc-details-container">
+            <!-- Realtor Section -->
+            <div class="cldoc-realtor-section">
+                <h2 class="cldoc-section-title">Realtor Details</h2>
+                
+                <div class="cldoc-realtor-header">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Realtor" class="cldoc-realtor-img">
+                    <div>
+                        <h3 class="cldoc-realtor-name">Donnelly</h3>
+                        <p class="cldoc-realtor-title">Realtor</p>
+                    </div>
+                </div>
+
+                <div class="cldoc-contact-info">
+                    <div class="cldoc-contact-row">
+                        <label>Email</label>
+                        <span>Support.info@gmail.com</span>
+                    </div>
+                    <div class="cldoc-contact-row">
+                        <label>Phone Number</label>
+                        <span>000-998-23287</span>
+                    </div>
+                    <div class="cldoc-contact-row">
+                        <label>Address</label>
+                        <span>Le Marais, Paris</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Property Section -->
+            <div class="cldoc-property-section">
+                <h2 class="cldoc-section-title">Property Details</h2>
+                
+                <div class="cldoc-property-info">
+                    <div class="cldoc-property-row">
+                        <label>Property Name</label>
+                        <span>1234 Elm Street, NY 10001</span>
+                    </div>
+                    <div class="cldoc-property-row">
+                        <label>Document Title</label>
+                        <span>Final Inspection Report</span>
+                    </div>
+                    <div class="cldoc-property-row">
+                        <label>Document Type</label>
+                        <span>Inspection Report</span>
+                    </div>
+                    <div class="cldoc-property-row">
+                        <label>Due Date</label>
+                        <span>11 Aug 2025</span>
+                    </div>
+                    <div class="cldoc-property-row cldoc-notes-row">
+                        <label>Notes</label>
+                        <span class="cldoc-notes">
+                            Just a quick reminder to review the listings I sent and let me know which properties you'd like to visit. Also, please have your pre-approval letter ready if you're planning to make an offer soon!
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="cldoc-pdf-section">
+                    <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF" class="cldoc-pdf-icon">
+                    <span>Pdf File</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Modal Base */
+.cldoc-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    font-family: "Arial", sans-serif;
+}
+.cldoc-modal.show { display: flex; }
+
+/* Overlay */
+.cldoc-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    cursor: pointer;
+}
+
+/* Modal Box */
+.cldoc-modal-box {
+    position: relative;
+    background: #fff;
+    max-width: 500px;
+    width: 95%;
+    max-height: 95vh;
+    overflow-y: auto;
+    padding: 20px;
+    border-radius: 12px;
+    z-index: 1001;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Close Button */
+.cldoc-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+    border: none;
+    background: none;
+}
+
+/* Section Titles */
+.cldoc-section-title {
+    font-size: 22px!important;
+    font-weight: bold;
+    margin: 10px 0 18px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 6px;
+}
+
+/* Realtor Header */
+.cldoc-realtor-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.cldoc-realtor-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.cldoc-realtor-name {
+    margin-top: 25px;
+    font-size: 16px!important;
+    font-weight: bold;
+}
+.cldoc-realtor-title {
+    color: #007bff;
+    font-size: 14px;
+}
+.entry-content h3 {
+    margin-bottom: 0px!important;
+}
+
+/* Info Rows */
+.cldoc-contact-info,
+.cldoc-property-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.cldoc-contact-row,
+.cldoc-property-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+.cldoc-contact-row label,
+.cldoc-property-row label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+    min-width: 130px;
+}
+.cldoc-contact-row span,
+.cldoc-property-row span,
+.cldoc-notes {
+    font-size: 14px;
+    color: #222;
+    flex: 1;
+}
+
+/* Notes */
+.cldoc-notes {
+    line-height: 1.4;
+    display: block;
+}
+
+/* PDF Section */
+.cldoc-pdf-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+    gap: 8px;
+}
+.cldoc-pdf-icon {
+    width: 40px;
+    height: 40px;
+}
+.cldoc-pdf-section span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+.cldoc-property-section{
+    margin-top: 25px;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Open modal
+    document.querySelectorAll(".cld-action").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal");
+            document.getElementById(modalId).classList.add("show");
+        });
+    });
+
+    // Close modal (close button + overlay)
+    document.querySelectorAll(".cldoc-close, .cldoc-modal-overlay").forEach(el => {
+        el.addEventListener("click", function () {
+            this.closest(".cldoc-modal").classList.remove("show");
+        });
+    });
+});
+</script>
