@@ -281,30 +281,69 @@
 </style>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // open modal buttons
+        const modalTriggers = document.querySelectorAll("[data-modal]");
+        modalTriggers.forEach(trigger => {
+            trigger.addEventListener("click", function () {
+                const target = document.getElementById(this.getAttribute("data-modal"));
+                if (target) target.style.display = "flex";
+            });
+        });
+
+        // close buttons (x button)
+        const closeButtons = document.querySelectorAll(".clup-close-btn");
+        closeButtons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                this.closest(".clup-modal-overlay").style.display = "none";
+            });
+        });
+
+        // cancel buttons
+        const cancelButtons = document.querySelectorAll(".clup-cancel");
+        cancelButtons.forEach(btn => {
+            btn.addEventListener("click", function () {
+                this.closest(".clup-modal-overlay").style.display = "none";
+            });
+        });
+
+        // click outside to close
+        const modals = document.querySelectorAll(".clup-modal-overlay");
+        modals.forEach(modal => {
+            modal.addEventListener("click", function (e) {
+                if (e.target === modal) modal.style.display = "none";
+            });
+        });
+    });
+</script>
+
+<script>
 document.addEventListener("DOMContentLoaded", function () {
-    // open modal buttons
-    const modalTriggers = document.querySelectorAll("[data-modal]");
-    modalTriggers.forEach(trigger => {
-        trigger.addEventListener("click", function () {
-            const target = document.getElementById(this.getAttribute("data-modal"));
-            if (target) target.style.display = "flex";
-        });
-    });
+    // Trigger file input when Browse button is clicked
+    const browseButtons = document.querySelectorAll(".clup-browse");
 
-    // close buttons
-    const closeButtons = document.querySelectorAll(".clup-close-btn");
-    closeButtons.forEach(btn => {
+    browseButtons.forEach(btn => {
         btn.addEventListener("click", function () {
-            this.closest(".clup-modal-overlay").style.display = "none";
+            // Find the closest modal
+            const modal = btn.closest(".clup-modal-overlay");
+            if (!modal) return;
+
+            // Find the hidden file input inside this modal
+            const fileInput = modal.querySelector(".clup-file-input");
+            if (fileInput) fileInput.click();
         });
     });
 
-    // click outside to close
-    const modals = document.querySelectorAll(".clup-modal-overlay");
-    modals.forEach(modal => {
-        modal.addEventListener("click", function (e) {
-            if (e.target === modal) modal.style.display = "none";
+    // Optional: handle file selection
+    const fileInputs = document.querySelectorAll(".clup-file-input");
+    fileInputs.forEach(input => {
+        input.addEventListener("change", function () {
+            if (input.files.length > 0) {
+                const fileName = input.files[0].name;
+                alert("Selected file: " + fileName); // Or update UI inside modal
+            }
         });
     });
 });
 </script>
+

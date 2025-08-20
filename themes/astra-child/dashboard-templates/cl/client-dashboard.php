@@ -87,7 +87,7 @@ get_header();
                 case 'document':
                     include locate_template('dashboard-templates/cl/cl-tab-document.php');
                     break;
-                /*case 'messages':
+                case 'messages':
                     include locate_template('dashboard-templates/cl/cl-tab-messages.php');
                     break;
                 case 'settings':
@@ -104,7 +104,7 @@ get_header();
                     break;
                 case 'cl-settings-support':
                     include locate_template('dashboard-templates/cl/cl-settings-support.php');
-                    break;*/
+                    break;
                 default:
                     wp_redirect(add_query_arg('tab', 'dashboard'));
                     exit;
@@ -115,6 +115,6 @@ get_header();
 </div>
 
 <?php 
-//include locate_template('dashboard-templates/cl/cl-profile-modal.php');
+    include locate_template('dashboard-templates/cl/cl-profile-modal.php');
 get_footer(); 
 ?>

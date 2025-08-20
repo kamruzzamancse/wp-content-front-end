@@ -68,9 +68,32 @@
         </div>
     </div>
     
-    <!-- RIGHT SIDE -->
+   <!-- RIGHT SIDE -->
     <div class="dashboard-top-right">
-        <?php echo do_shortcode('[todo_calendar]'); ?>
+        <?php
+        $current_user = wp_get_current_user();
+        $user_email   = $current_user->user_email;
+
+        if ($user_email) {
+            global $wpdb;
+            $calendar_id = $wpdb->get_var($wpdb->prepare("
+                SELECT ID 
+                FROM $wpdb->posts 
+                WHERE post_type = 'calendar' 
+                  AND post_status = 'publish'
+                  AND post_title = %s
+                LIMIT 1
+            ", $user_email));
+
+            if ($calendar_id) {
+                echo do_shortcode('[calendar id="' . intval($calendar_id) . '"]');
+            } else {
+                echo '<p>No calendar found for your account.</p>';
+            }
+        } else {
+            echo '<p>Please login to see your calendar.</p>';
+        }
+        ?>
 
         <!-- Notes under the calendar -->
         <div class="cld-box cld-notes-box">
@@ -82,6 +105,7 @@
             </div>
         </div>
     </div>
+
 </div>
 
 <?php //include locate_template('dashboard-templates/rt-leads-section.php'); ?>

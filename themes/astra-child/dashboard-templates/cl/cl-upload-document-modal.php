@@ -42,21 +42,20 @@
         </div>
       </div>
 
-    <!-- File Upload -->
-    <div class="clup-upload-box">
+      <!-- File Upload -->
+      <div class="clup-upload-box">
         <div class="clup-upload-content">
-            <div class="clup-upload-icon">⬆</div>
-            <p>Upload File</p>
-            <span>Format: .jpeg, .png & Max file size: 25 MB</span>
+          <div class="clup-upload-icon">⬆</div>
+          <p>Upload File</p>
+          <span>Format: .jpeg, .png & Max file size: 25 MB</span>
 
-            <!-- Browse Button -->
-            <button type="button" class="clup-browse">Browse</button>
+          <!-- Browse Button -->
+          <button type="button" class="clup-browse">Browse</button>
 
-            <!-- Hidden File Input -->
-            <input type="file" id="clup-file-input" class="clup-file-input" accept=".jpeg,.jpg,.png,.pdf" style="display:none;">
+          <!-- Hidden File Input -->
+          <input type="file" id="clup-file-input" class="clup-file-input" accept=".jpeg,.jpg,.png,.pdf" style="display:none;">
         </div>
-    </div>
-
+      </div>
 
       <!-- Actions -->
       <div class="clup-actions">
@@ -80,6 +79,11 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+}
+
+/* Show modal */
+.clup-modal-overlay.show {
+  display: flex !important;
 }
 
 /* =========================
@@ -258,47 +262,4 @@
     padding: 20px;
   }
 }
-
 </style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("cl-upload-document-modal");
-
-    // Open modal
-    document.querySelectorAll(".clup-open").forEach(btn => {
-        btn.addEventListener("click", function () {
-            modal.classList.add("show");
-        });
-    });
-
-    // Close modal with close button
-    modal.querySelectorAll(".clup-close-btn").forEach(btn => {
-        btn.addEventListener("click", function () {
-            modal.classList.remove("show");
-        });
-    });
-
-    // Close modal with cancel button
-    modal.querySelectorAll(".clup-cancel").forEach(btn => {
-        btn.addEventListener("click", function (e) {
-            e.preventDefault(); // Prevent any default form behavior
-            modal.classList.remove("show");
-        });
-    });
-
-    // Close modal by clicking outside (overlay)
-    modal.addEventListener("click", function (e) {
-        if (e.target === modal) { // Only overlay
-            modal.classList.remove("show");
-        }
-    });
-
-    // Close modal with ESC key
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && modal.classList.contains("show")) {
-            modal.classList.remove("show");
-        }
-    });
-});
-</script>

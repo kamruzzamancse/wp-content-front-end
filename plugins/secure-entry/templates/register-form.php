@@ -50,7 +50,7 @@
         </div>
 
         <div class="form-links">
-            <a href="<?php echo wp_login_url(); ?>"><?php _e('Already have an account? Login', 'enhanced-login'); ?></a>
+            <a href="<?php echo home_url('/login/'); ?>"><?php _e('Already have an account? Login', 'enhanced-login'); ?></a>
         </div>
 
         <input type="hidden" name="redirect" value="<?php echo esc_url($redirect); ?>">
@@ -60,3 +60,11 @@
 
     <div class="enhanced-register-message"></div>
 </div>
+
+<style>
+    .entry-content[data-ast-blocks-layout] > * {
+        max-width: 600px!important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>

@@ -250,3 +250,103 @@ document.addEventListener("DOMContentLoaded", function () {
     margin-top: 25px;
 }
 </style>
+
+<script>
+/* document.addEventListener("DOMContentLoaded", function () {
+    // Open modal
+    document.querySelectorAll(".cld-action").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if (modal) modal.classList.add("show");
+        });
+    });
+
+    // Close modal when clicking the close button
+    document.querySelectorAll(".cldoc-close").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modal = this.closest(".cldoc-modal");
+            if (modal) modal.classList.remove("show");
+        });
+    });
+
+    // Close modal when clicking outside the modal box (overlay)
+    document.querySelectorAll(".cldoc-modal-overlay").forEach(overlay => {
+        overlay.addEventListener("click", function () {
+            const modal = this.closest(".cldoc-modal");
+            if (modal) modal.classList.remove("show");
+        });
+    });
+
+    // Optional: Close modal with ESC key
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+            document.querySelectorAll(".cldoc-modal.show").forEach(modal => {
+                modal.classList.remove("show");
+            });
+        }
+    });
+}); */
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // ===== OPEN MODAL =====
+    document.querySelectorAll("[data-modal]").forEach(trigger => {
+        trigger.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-modal");
+            const modal = document.getElementById(modalId);
+            if (modal) modal.style.display = "flex"; // show modal
+        });
+    });
+
+    // ===== CLOSE MODAL =====
+    function closeModal(modal) {
+        if(modal) modal.style.display = "none";
+    }
+
+    // Close via "x" buttons
+    document.querySelectorAll(".clup-close-btn, .cldoc-close").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modal = this.closest(".clup-modal-overlay, .cldoc-modal");
+            closeModal(modal);
+        });
+    });
+
+    // Close via cancel buttons
+    document.querySelectorAll(".clup-cancel").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modal = this.closest(".clup-modal-overlay");
+            closeModal(modal);
+        });
+    });
+
+    // Close when clicking outside modal content
+    document.querySelectorAll(".clup-modal-overlay, .cldoc-modal-overlay").forEach(overlay => {
+        overlay.addEventListener("click", function (e) {
+            if (e.target === overlay) closeModal(overlay.closest(".clup-modal-overlay, .cldoc-modal"));
+        });
+    });
+
+    // ===== FILE UPLOAD TRIGGER =====
+    document.querySelectorAll(".clup-browse").forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modal = btn.closest(".clup-modal-overlay");
+            if (!modal) return;
+            const fileInput = modal.querySelector(".clup-file-input");
+            if (fileInput) fileInput.click();
+        });
+    });
+
+    // Optional: show selected file name
+    document.querySelectorAll(".clup-file-input").forEach(input => {
+        input.addEventListener("change", function () {
+            if (input.files.length > 0) {
+                const fileName = input.files[0].name;
+                console.log("Selected file:", fileName); // replace with UI update if needed
+            }
+        });
+    });
+});
+</script>
+

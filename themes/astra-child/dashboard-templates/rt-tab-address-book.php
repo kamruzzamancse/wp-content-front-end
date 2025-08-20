@@ -235,6 +235,104 @@
   }
 }
 
+
+
+
+/* Base Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background: #fff;
+}
+
+/* Table Head */
+thead th {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 2px solid #ddd;
+  font-weight: 600;
+}
+
+/* Table Body */
+tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+
+  /* overflow handling */
+  max-width: 200px;              /* adjust per column */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tooltip style */
+tbody td:hover::after {
+  content: attr(title); /* will show text from title attribute */
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: normal;
+  min-width: 200px;
+  max-width: 400px;
+  z-index: 1000;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Responsive: Add data-label before content on small screens */
+@media (max-width: 768px) {
+  table thead {
+    display: none; /* hide headers */
+  }
+  table, tbody, tr, td {
+    display: block;
+    width: 100%;
+  }
+  tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  tbody td {
+    white-space: normal;          /* allow wrapping in mobile */
+    text-overflow: clip;
+    overflow: visible;
+    position: relative;
+    padding-left: 120px;          /* space for label */
+  }
+  tbody td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+}
+
+/* Action Icons */
+.ab-action-icons {
+  display: flex;
+  gap: 8px;
+}
+.ab-action-icon {
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+.ab-action-icon:hover {
+  transform: scale(1.2);
+}
+
+
 </style>
 
 <script>
