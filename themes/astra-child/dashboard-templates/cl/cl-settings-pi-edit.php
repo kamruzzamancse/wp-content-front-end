@@ -1,6 +1,24 @@
-<?php 
+<?php
+// Get current user data for initial page load
+$current_user = wp_get_current_user();
+$user_id = $current_user->ID;
+
+// Get user meta data
+$broker_number = get_user_meta($user_id, 'broker_number', true);
+$company_name = get_user_meta($user_id, 'company_name', true);
+$profile_picture = get_user_meta($user_id, 'profile_picture', true);
+
+// Set default values if empty
+if (empty($broker_number)) $broker_number = '';
+if (empty($company_name)) $company_name = '';
+if (empty($profile_picture)) {
     $upload_dir = wp_upload_dir(); 
-    $image_url = $upload_dir['baseurl']; 
+    $profile_picture = esc_url($upload_dir['baseurl'] . '/2025/08/client-photo.jpg');
+}
+
+// Get user role for display
+$user_roles = $current_user->roles;
+$user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
 ?>
 
 <div class="cl-back-link">
@@ -10,12 +28,14 @@
     </a>
 </div>
 
+<div id="profile-notice" class="profile-notice" style="display: none;"></div>
+
 <div class="rpe-profile-container">
   <div class="rpe-profile-header">
     <div class="rpe-header-content">
       <div class="piv-profile-pic-container">
         <div class="piv-profile-pic-wrapper">
-          <img class="realtor-avatar" src=<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?> alt="Realtor Profile Pic">
+          <img class="realtor-avatar" id="profile-avatar" src="<?php echo $profile_picture; ?>" alt="Realtor Profile Pic">
           <label for="profile-pic-upload" class="piv-edit-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
@@ -26,27 +46,27 @@
         </div>
       </div>
       <div class="rpe-profile-info">
-        <h1 class="rpe-profile-name">Anisur Rahman</h1>
-        <span class="rpe-profile-role">Realtor</span>
+        <h1 class="rpe-profile-name" id="profile-display-name"><?php echo esc_html($current_user->display_name); ?></h1>
+        <span class="rpe-profile-role"><?php echo esc_html($user_role_name); ?></span>
       </div>
     </div>
   </div>
-  <form class="rpe-profile-form">
+  <form class="rpe-profile-form" id="profile-form">
     <div class="rpe-form-section">
       <label class="rpe-form-label">Full name</label>
-      <input type="text" class="rpe-form-input" value="Anisur Rahman">
+      <input type="text" class="rpe-form-input" id="full-name" value="<?php echo esc_attr($current_user->display_name); ?>" disabled>
     </div>
     <div class="rpe-form-section">
       <label class="rpe-form-label">Broker Number</label>
-      <input type="text" class="rpe-form-input" value="345 67798">
+      <input type="text" class="rpe-form-input" id="broker-number" name="broker_number" value="<?php echo esc_attr($broker_number); ?>">
     </div>
     <div class="rpe-form-section">
       <label class="rpe-form-label">Email</label>
-      <input type="email" class="rpe-form-input" value="anis@gmail.com">
+      <input type="email" class="rpe-form-input" id="email" value="<?php echo esc_attr($current_user->user_email); ?>" disabled>
     </div>
     <div class="rpe-form-section">
       <label class="rpe-form-label">Company Name</label>
-      <input type="text" class="rpe-form-input" value="Emily">
+      <input type="text" class="rpe-form-input" id="company-name" name="company_name" value="<?php echo esc_attr($company_name); ?>">
     </div>
     <div class="rpe-form-actions">
       <button type="submit" class="rpe-save-button">Save Changes</button>
@@ -57,26 +77,43 @@
 
 <style>
   /* Back Link Styles */
-  .back-link {
-    margin-bottom: 20px;
-  }
-  
-  .pd-back-link {
+ 
+  .cl-back-link {
     display: flex;
     align-items: center;
     text-decoration: none;
     color: #333;
   }
   
-  .pd-back-link__arrow {
+  .cl-header-arrow {
     font-size: 20px;
     margin-right: 10px;
   }
   
-  .pd-back-link__title {
+  .cl-header-title {
     font-size: 20px;
     margin: 0;
     font-weight: 600;
+  }
+  
+  /* Notification Styles */
+  .profile-notice {
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    display: none;
+  }
+  
+  .profile-notice.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  
+  .profile-notice.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
   }
   
   /* Main Profile Container */
@@ -163,17 +200,15 @@
     margin-bottom: 15px;
   }
   
+  .rpe-form-input:disabled {
+    background-color: #f5f5f5;
+    color: #777;
+  }
+  
   .rpe-form-input:focus {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
-  }
-  
-  /* Divider */
-  .rpe-divider {
-    height: 1px;
-    background-color: #eee;
-    margin: 15px 0;
   }
   
   /* Form Actions */
@@ -296,20 +331,131 @@
 </style>
 
 <script>
-  // Profile picture upload functionality
-  document.getElementById('profile-pic-upload').addEventListener('change', function(e) {
-    if (e.target.files && e.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        document.querySelector('.realtor-avatar').src = event.target.result;
-        // Here you would typically also upload the image to your server
-      };
-      reader.readAsDataURL(e.target.files[0]);
+// Wait for the document to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Show notification function
+    function showNotice(message, type) {
+        const notice = document.getElementById('profile-notice');
+        notice.textContent = message;
+        notice.className = `profile-notice ${type}`;
+        notice.style.display = 'block';
+        
+        // Hide notice after 5 seconds
+        setTimeout(() => {
+            notice.style.display = 'none';
+        }, 5000);
     }
-  });
-
-  // Cancel button functionality - go back to previous page
-  document.querySelector('.rpe-cancel-button').addEventListener('click', function() {
-    window.location.href = '?tab=cl-settings-pi';
-  });
+    
+    // Load profile data from server
+    function loadProfileData() {
+        const data = new FormData();
+        data.append('action', 'load_profile_data');
+        data.append('nonce', '<?php echo wp_create_nonce("profile_ajax_nonce"); ?>');
+        
+        fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: 'POST',
+            body: data
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                // Update form fields with data
+                document.getElementById('full-name').value = result.data.full_name;
+                document.getElementById('email').value = result.data.email;
+                document.getElementById('broker-number').value = result.data.broker_number;
+                document.getElementById('company-name').value = result.data.company_name;
+                document.getElementById('profile-display-name').textContent = result.data.full_name;
+                
+                // Update profile picture if available
+                if (result.data.profile_picture) {
+                    document.getElementById('profile-avatar').src = result.data.profile_picture;
+                }
+            } else {
+                showNotice('Error loading profile data: ' + result.data, 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showNotice('Error loading profile data', 'error');
+        });
+    }
+    
+    // Save profile data to server
+    function saveProfileData(formData) {
+        formData.append('action', 'save_profile_data');
+        formData.append('nonce', '<?php echo wp_create_nonce("profile_ajax_nonce"); ?>');
+        
+        fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                showNotice('Profile updated successfully', 'success');
+            } else {
+                showNotice('Error saving profile: ' + result.data, 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showNotice('Error saving profile', 'error');
+        });
+    }
+    
+    // Upload profile picture to server
+    function uploadProfilePicture(file) {
+        const formData = new FormData();
+        formData.append('action', 'upload_profile_picture');
+        formData.append('nonce', '<?php echo wp_create_nonce("profile_ajax_nonce"); ?>');
+        formData.append('profile_picture', file);
+        
+        fetch('<?php echo admin_url("admin-ajax.php"); ?>', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(result => {
+            if (result.success) {
+                document.getElementById('profile-avatar').src = result.data.url;
+                showNotice('Profile picture updated successfully', 'success');
+            } else {
+                showNotice('Error uploading picture: ' + result.data, 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showNotice('Error uploading picture', 'error');
+        });
+    }
+    
+    // Profile picture upload functionality
+    document.getElementById('profile-pic-upload').addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                document.getElementById('profile-avatar').src = event.target.result;
+                // Upload the image to server
+                uploadProfilePicture(e.target.files[0]);
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        }
+    });
+    
+    // Form submit handler
+    document.getElementById('profile-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        saveProfileData(formData);
+    });
+    
+    // Cancel button functionality - go back to previous page
+    document.querySelector('.rpe-cancel-button').addEventListener('click', function() {
+        window.location.href = '?tab=cl-settings-pi';
+    });
+    
+    // Load profile data when page loads
+    loadProfileData();
+});
 </script>

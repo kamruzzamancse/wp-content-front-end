@@ -515,6 +515,14 @@
     height: auto;
 }
 
+.site-logo {
+    transition: transform 0.3s ease; /* smooth animation */
+}
+
+.site-logo:hover {
+    transform: scale(0.9); /* shrinks to 90% */
+}
+
 @media (max-width: 768px) {
     .site-logo {
         width: 160px;

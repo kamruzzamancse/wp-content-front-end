@@ -36,7 +36,7 @@ if (!function_exists('load_realtor_dashboard_data')) {
                     'author' => $user_id,
                     'post_status' => 'publish',
                 ]);
-            case 'document':
+            case 'documents':
             case 'messages':
             case 'settings':
             case 'notifications':
@@ -84,8 +84,8 @@ get_header();
                 case 'cl-property-details':
                     include locate_template('dashboard-templates/cl/cl-property-details.php');
                     break;
-                case 'document':
-                    include locate_template('dashboard-templates/cl/cl-tab-document.php');
+                case 'documents':
+                    include locate_template('dashboard-templates/cl/cl-tab-documents.php');
                     break;
                 case 'messages':
                     include locate_template('dashboard-templates/cl/cl-tab-messages.php');

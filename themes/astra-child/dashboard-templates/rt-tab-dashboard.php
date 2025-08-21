@@ -1,6 +1,6 @@
 <div class="dashboard-top">
     <div class="dashboard-top-left">
-        <div class="stats-grid">
+        <!-- <div class="stats-grid">
             <div class="stat-card">
                 <h3><span class="dashicons dashicons-admin-home"></span> Total Properties</h3>
                 <p>50</p>
@@ -15,31 +15,50 @@
                     <span class="dashicons dashicons-upload" title="Upload"></span>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="dashboard-section active-clients-section">
-            <h1 class="ab-header-title">Active Clients</h1>
-            <table class="active-clients-table">
-                <thead>
-                    <tr>
-                        <th>Client Name</th>
-                        <th>Address</th>
-                        <th>Closing Date</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php for ($i = 0; $i < 6; $i++): ?>
-                    <tr>
-                        <td data-label="Client Name">Insurance</td>
-                        <td data-label="Address">New York</td>
-                        <td data-label="Closing Date">22 July</td>
-                        <td data-label="Notes">Just a quick follow-up on documents.</td>
-                    </tr>
-                    <?php endfor; ?>
-                </tbody>
-            </table>
+          <h1 class="ab-header-title">Active Clients</h1>
+          <table class="active-clients-table">
+              <thead>
+                  <tr>
+                      <th>Client Name</th>
+                      <th>Address</th>
+                      <th>Closing Date</th>
+                      <th>Notes</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <?php
+                  $clients = ["Insurance Co", "Tech Solutions", "Green Energy", "HealthPlus", "Bright Finance", "Global Trade"];
+                  $cities = ["New York", "Los Angeles", "Chicago", "Houston", "Miami", "San Francisco"];
+                  $notesArr = [
+                      "Follow-up required next week.",
+                      "Client requested a meeting.",
+                      "Pending documents.",
+                      "Urgent response needed.",
+                      "Initial contact completed.",
+                      "Schedule demo session."
+                  ];
+
+                  for ($i = 0; $i < 6; $i++):
+                      $clientName = $clients[array_rand($clients)];
+                      $address = $cities[array_rand($cities)];
+                      // Random closing date within next 60 days
+                      $closingDate = date("d F", strtotime("+".rand(1,60)." days"));
+                      $notes = $notesArr[array_rand($notesArr)];
+                  ?>
+                  <tr>
+                      <td data-label="Client Name"><?= $clientName ?></td>
+                      <td data-label="Address"><?= $address ?></td>
+                      <td data-label="Closing Date"><?= $closingDate ?></td>
+                      <td data-label="Notes"><?= $notes ?></td>
+                  </tr>
+                  <?php endfor; ?>
+              </tbody>
+          </table>
         </div>
+
     </div>
     
     <!-- RIGHT SIDE -->

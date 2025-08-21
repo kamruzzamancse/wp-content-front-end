@@ -1,15 +1,34 @@
 <?php
 /**
- * Dashboard Header Component
+ * Dashboard Header Component (Client)
  */
 $current_user = wp_get_current_user();
+$user_id = $current_user->ID;
+
+// Dashboard URL based on role
 $dashboard_url = current_user_can('client') ? home_url('/cl/client-dashboard/') : home_url('/');
+
+// Upload directory for profile picture fallback
 $upload_dir = wp_upload_dir();
 $image_url = $upload_dir['baseurl'];
+
+// Get company name from user meta
+$company_name = get_user_meta($user_id, 'company_name', true);
+
+// If company name is empty, fallback to role name
+if (empty($company_name)) {
+    $role_names = [
+        'client'     => 'Client',
+        'subscriber' => 'Subscriber',
+        'realtor'    => 'Realtor',
+        'agent'      => 'Agent'
+    ];
+    $user_roles = $current_user->roles;
+    $company_name = $role_names[$user_roles[0]] ?? ucfirst($user_roles[0]);
+}
 ?>
 
 <!-- Desktop Header -->
-
 <header class="dashboard-header desktop-header">
     
     <div class="header-row-1">
@@ -26,22 +45,14 @@ $image_url = $upload_dir['baseurl'];
 
             <div class="profile-header">
                 <div class="profile-pic">
-                    <img class="realtor-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Realtor Profile Pic">
+                    <img class="realtor-avatar" src="<?php echo esc_url($image_url . '/2025/08/client-photo.jpg'); ?>" alt="Client Profile Pic">
                 </div>
             </div>
 
             <div class="user-details">
                 <span class="user-name"><?php echo esc_html($current_user->display_name); ?></span>
                 <span class="user-role-dashboard-header">
-                    <?php
-                    $role_names = [
-                        'realtor' => 'Realtor',
-                        'agent' => 'Agent',
-                        'subscriber' => 'Subscriber'
-                    ];
-                    $user_roles = $current_user->roles;
-                    echo esc_html($role_names[$user_roles[0]] ?? ucfirst($user_roles[0]));
-                    ?>
+                    <?php echo esc_html($company_name); ?>
                 </span>
             </div>
         </div>
@@ -73,7 +84,7 @@ $image_url = $upload_dir['baseurl'];
                 </li>
                 <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
                     <a href="?tab=properties">
-                        <span class="dashicons dashicons-building"></span> My Properties
+                        <span class="dashicons dashicons-building"></span> Properties
                     </a>
                 </li>
                 <li class="<?php echo $current_tab === 'address-book' ? 'active' : ''; ?>">

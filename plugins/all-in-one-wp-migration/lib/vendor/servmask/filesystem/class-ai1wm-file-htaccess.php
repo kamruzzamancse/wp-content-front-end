@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2018 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
+ *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
  * ███████╗█████╗  ██████╔╝██║   ██║██╔████╔██║███████║███████╗█████╔╝
@@ -22,6 +24,10 @@
  * ███████║███████╗██║  ██║ ╚████╔╝ ██║ ╚═╝ ██║██║  ██║███████║██║  ██╗
  * ╚══════╝╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Kangaroos cannot jump here' );
+}
 
 class Ai1wm_File_Htaccess {
 
@@ -32,17 +38,23 @@ class Ai1wm_File_Htaccess {
 	 * @return boolean
 	 */
 	public static function create( $path ) {
-		return Ai1wm_File::create( $path, implode( PHP_EOL, array(
-			'<IfModule mod_mime.c>',
-			'AddType application/octet-stream .wpress',
-			'</IfModule>',
-			'<IfModule mod_dir.c>',
-			'DirectoryIndex index.php',
-			'</IfModule>',
-			'<IfModule mod_autoindex.c>',
-			'Options -Indexes',
-			'</IfModule>',
-		) ) );
+		return Ai1wm_File::create(
+			$path,
+			implode(
+				PHP_EOL,
+				array(
+					'<IfModule mod_mime.c>',
+					'AddType application/octet-stream .wpress',
+					'</IfModule>',
+					'<IfModule mod_dir.c>',
+					'DirectoryIndex index.php',
+					'</IfModule>',
+					'<IfModule mod_autoindex.c>',
+					'Options -Indexes',
+					'</IfModule>',
+				)
+			)
+		);
 	}
 
 	/**
@@ -52,10 +64,14 @@ class Ai1wm_File_Htaccess {
 	 * @return boolean
 	 */
 	public static function litespeed( $path ) {
-		return Ai1wm_File::create_with_markers( $path, 'LiteSpeed', array(
-			'<IfModule Litespeed>',
-			'SetEnv noabort 1',
-			'</IfModule>',
-		) );
+		return Ai1wm_File::create_with_markers(
+			$path,
+			'LiteSpeed',
+			array(
+				'<IfModule Litespeed>',
+				'SetEnv noabort 1',
+				'</IfModule>',
+			)
+		);
 	}
 }
