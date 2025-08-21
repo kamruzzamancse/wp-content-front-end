@@ -1,0 +1,496 @@
+.ab-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.ab-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.ab-header-left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.ab-header-title {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+@media (max-width: 768px) {
+  .ab-header-title {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+  }
+  .ab-header-title::after {
+    content: "";
+    display: block;
+  }
+}
+
+.ab-header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.ab-search-box {
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+}
+
+.ab-search-box .dashicons {
+    color: #777;
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.ab-search-box input.ab-search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+
+.ab-action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ab-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.ab-btn-import {
+    background-color: #ffffff;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.ab-btn-export {
+    background-color: #1a73e8;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th {
+    background-color: #2271b1;
+    text-align: left;
+    padding: 12px 15px;
+    font-weight: bold;
+    color: white;
+    border-bottom: 1px solid #1d5f96;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+.ab-sl-column {
+    width: 50px;
+    text-align: center;
+}
+
+.ab-actions-column {
+    width: 140px;
+}
+
+.ab-action-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.ab-action-icon {
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.ab-action-icon:hover {
+    color: #2271b1;
+}
+
+.dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+@media (max-width: 768px) {
+    .ab-table-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .ab-header-left, .ab-header-right {
+        width: 100%;
+    }
+    .ab-header-right {
+        justify-content: space-between;
+    }
+    .ab-search-box {
+        min-width: 100%;
+    }
+    .modal-header {
+        display: block!important;
+    }
+     .client-info span {
+        font-size: 14px;
+    }
+}
+
+/* css for client details modal */
+
+.action-icon {
+    color: #666;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.action-icon:hover {
+    color: #2271b1;
+}
+
+/* css for client-details modal */
+
+/* Modal overlay */
+.modal-overlay-address-book {
+    display: none; /* hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-container {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 600px;
+    max-width: 90%;
+    max-height: 90vh; /* limit modal height to viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header,
+.modal-footer {
+    padding: 20px;
+    flex-shrink: 0; /* prevent shrinking */
+}
+
+.modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #222;
+}
+
+.client-role {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto; /* make body scrollable */
+    flex-grow: 1; /* take remaining space */
+}
+
+.client-details {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.client-details tr {
+    border-bottom: 1px solid #eee;
+}
+
+.client-details td {
+    padding: 10px;
+    vertical-align: top;
+}
+
+.client-details td:first-child {
+    font-weight: 500;
+    color: #555;
+    width: 40%;
+}
+
+.modal-footer {
+    padding: 15px 20px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+}
+
+.close-btn {
+    background-color: #2271b1;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.close-btn:hover {
+    background-color: #1a5f96;
+}
+
+.client-profile-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.client-avatar {
+    border-radius: 50%;
+    width: 80px;
+    margin-right: 12px;
+}
+
+/* css for suggested client */
+
+/* Section Title */
+.section-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding-bottom: 2px;
+}
+
+/* Container for Cards */
+.client-card-container {
+    display: flex;
+    flex-wrap: wrap;   /* ✅ Allow wrapping on smaller screens */
+    gap: 20px;
+}
+
+/* Card Styling */
+.client-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px 20px;
+    width: 260px;   /* default desktop width */
+    box-sizing: border-box;
+    flex-shrink: 0; /* prevent shrinking too much */
+}
+
+/* Client Photo */
+.client-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+/* Client Info */
+.client-info {
+    flex-grow: 1;
+}
+
+.client-name {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.client-role {
+    font-size: 14px;
+    color: #1976d2;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.client-location {
+    font-size: 14px;
+    color: #555;
+}
+
+/* ✅ Mobile Responsive */
+@media screen and (max-width: 768px) {
+    .client-card-container {
+        flex-direction: column; /* stack vertically */
+        align-items: stretch;
+    }
+
+    .client-card {
+        width: 100%;  /* full width */
+    }
+
+    .client-avatar {
+        width: 50px;
+        height: 50px;
+        margin-right: 12px;
+    }
+
+    .client-name {
+        font-size: 16px;
+    }
+
+    .client-location {
+        font-size: 13px;
+    }
+}
+
+.main-image {
+    width: 100%;
+    min-width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+    transform: scale(1.02);
+}
+
+/* Reuse your modal styles */
+
+.modal-container.large {
+    background: white;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1; /* Makes it scrollable if content is too tall */
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* css for client-details-modal */
+
+.property-item-modal {
+    border: 1px solid #CCC;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.gallery {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.gallery img {
+    flex: 1;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+.view-details-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.view-details-btn:hover {
+    background-color: #0056b3;
+}
+
+
