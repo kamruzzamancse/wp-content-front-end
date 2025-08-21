@@ -300,4 +300,162 @@ function mdk_deactivate() {
 }
 register_deactivation_hook(__FILE__, 'mdk_deactivate');
 
+// for profile updating starts ========================================================================================
+// Enqueue scripts and styles
+function enqueue_profile_scripts() {
+    wp_enqueue_script('profile-ajax', get_template_directory_uri() . '/js/profile-ajax.js', array('jquery'), null, true);
+    wp_localize_script('profile-ajax', 'profile_ajax', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('profile_ajax_nonce')
+    ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_profile_scripts');
+
+// Handle profile data loading
+function load_profile_data() {
+    // Verify nonce for security
+    if (!wp_verify_nonce($_POST['nonce'], 'profile_ajax_nonce')) {
+        wp_die('Security check failed');
+    }
+    
+    $user_id = get_current_user_id();
+    
+    if ($user_id == 0) {
+        wp_send_json_error('User not logged in');
+    }
+    
+    $user_info = get_userdata($user_id);
+    $broker_number = get_user_meta($user_id, 'broker_number', true);
+    $company_name = get_user_meta($user_id, 'company_name', true);
+    
+    // Get profile picture
+    $profile_picture = get_user_meta($user_id, 'profile_picture', true);
+    $default_picture = get_template_directory_uri() . '/images/default-avatar.jpg';
+    
+    $response = array(
+        'full_name' => $user_info->display_name,
+        'email' => $user_info->user_email,
+        'broker_number' => $broker_number,
+        'company_name' => $company_name,
+        'profile_picture' => $profile_picture ? $profile_picture : $default_picture
+    );
+    
+    wp_send_json_success($response);
+}
+add_action('wp_ajax_load_profile_data', 'load_profile_data');
+
+// Handle profile data saving
+function save_profile_data() {
+    // Verify nonce for security
+    if (!wp_verify_nonce($_POST['nonce'], 'profile_ajax_nonce')) {
+        wp_die('Security check failed');
+    }
+    
+    $user_id = get_current_user_id();
+    
+    if ($user_id == 0) {
+        wp_send_json_error('User not logged in');
+    }
+    
+    if (isset($_POST['broker_number'])) {
+        update_user_meta($user_id, 'broker_number', sanitize_text_field($_POST['broker_number']));
+    }
+    
+    if (isset($_POST['company_name'])) {
+        update_user_meta($user_id, 'company_name', sanitize_text_field($_POST['company_name']));
+    }
+    
+    wp_send_json_success('Profile updated successfully');
+}
+add_action('wp_ajax_save_profile_data', 'save_profile_data');
+
+// Handle profile picture upload
+function upload_profile_picture() {
+    // Verify nonce for security
+    if (!wp_verify_nonce($_POST['nonce'], 'profile_ajax_nonce')) {
+        wp_die('Security check failed');
+    }
+    
+    $user_id = get_current_user_id();
+    
+    if ($user_id == 0) {
+        wp_send_json_error('User not logged in');
+    }
+    
+    if (!function_exists('wp_handle_upload')) {
+        require_once(ABSPATH . 'wp-admin/includes/file.php');
+    }
+    
+    $uploadedfile = $_FILES['profile_picture'];
+    $upload_overrides = array('test_form' => false);
+    
+    $movefile = wp_handle_upload($uploadedfile, $upload_overrides);
+    
+    if ($movefile && !isset($movefile['error'])) {
+        update_user_meta($user_id, 'profile_picture', $movefile['url']);
+        wp_send_json_success(array('url' => $movefile['url']));
+    } else {
+        wp_send_json_error($movefile['error']);
+    }
+}
+add_action('wp_ajax_upload_profile_picture', 'upload_profile_picture');
+
+
+
+
+
+// Add custom user fields
+function add_custom_user_fields($user) {
+    ?>
+    <h3>Broker Information</h3>
+    <table class="form-table">
+        <tr>
+            <th><label for="broker_number">Broker Number</label></th>
+            <td>
+                <input type="text" name="broker_number" id="broker_number" value="<?php echo esc_attr(get_user_meta($user->ID, 'broker_number', true)); ?>" class="regular-text" /><br />
+                <span class="description">Enter your broker license number.</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="company_name">Company Name</label></th>
+            <td>
+                <input type="text" name="company_name" id="company_name" value="<?php echo esc_attr(get_user_meta($user->ID, 'company_name', true)); ?>" class="regular-text" /><br />
+                <span class="description">Enter your company name.</span>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="profile_picture">Profile Picture URL</label></th>
+            <td>
+                <input type="text" name="profile_picture" id="profile_picture" value="<?php echo esc_attr(get_user_meta($user->ID, 'profile_picture', true)); ?>" class="regular-text" /><br />
+                <span class="description">Enter the URL of your profile picture.</span>
+            </td>
+        </tr>
+    </table>
+    <?php
+}
+add_action('show_user_profile', 'add_custom_user_fields');
+add_action('edit_user_profile', 'add_custom_user_fields');
+
+// Save custom user fields
+function save_custom_user_fields($user_id) {
+    if (!current_user_can('edit_user', $user_id)) {
+        return false;
+    }
+    
+    if (isset($_POST['broker_number'])) {
+        update_user_meta($user_id, 'broker_number', sanitize_text_field($_POST['broker_number']));
+    }
+    
+    if (isset($_POST['company_name'])) {
+        update_user_meta($user_id, 'company_name', sanitize_text_field($_POST['company_name']));
+    }
+    
+    if (isset($_POST['profile_picture'])) {
+        update_user_meta($user_id, 'profile_picture', esc_url_raw($_POST['profile_picture']));
+    }
+}
+add_action('personal_options_update', 'save_custom_user_fields');
+add_action('edit_user_profile_update', 'save_custom_user_fields');
+
+// for profile updating end ========================================================================================
 

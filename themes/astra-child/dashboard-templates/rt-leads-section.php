@@ -1,5 +1,8 @@
 <div class="dashboard-section leads-section">
-    <h1 class="ab-header-title">Leads</h1>
+    <div class="leads-header">
+        <h1 class="ab-header-title">Leads</h1>
+        <button id="addLeadBtn" class="add-lead-btn">+</button>
+    </div>
     <table class="leads-table">
         <thead>
             <tr>
@@ -67,6 +70,155 @@
     </div>
 </div>
 
+<div class="lead-add-modal" id="leadAddModal">
+  <div class="lead-add-content">
+
+    <!-- header row -->
+    <div class="lead-add-header">
+      <h3 class="add-lead-title">Add New Lead</h3>
+      <span class="close-lead-modal">&times;</span>
+    </div>
+
+    <label for="clientSelect">Select Client:</label>
+    <select id="clientSelect">
+        <option value="">-- Choose from Address Book --</option>
+        <option>John D. Smith</option>
+        <option>Emily Carter</option>
+        <option>Michael Johnson</option>
+        <option>Sophia Williams</option>
+    </select><br />
+
+    <label for="statusSelect">Status:</label>
+    <select id="statusSelect">
+        <option value="hot">Hot</option>
+        <option value="warm">Warm</option>
+        <option value="cold">Cold</option>
+    </select><br />
+
+    <label for="notesInput">Notes:</label>
+    <textarea id="notesInput" placeholder="Write notes..." rows="4"></textarea><br />
+
+    <!-- footer row -->
+    <div class="lead-add-footer">
+      <button id="saveLeadBtn">Save Lead</button>
+    </div>
+
+  </div>
+</div>
+
+<style>
+
+/* css for lead add modal */
+.add-lead-title, #clientSelect, #statusSelect, #notesInput {
+  margin-bottom: 20px
+}
+/* header */
+.lead-add-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.close-lead-modal {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* footer */
+.lead-add-footer {
+  display: flex;
+  justify-content: flex-end; /* aligns button to right */
+  margin-top: 16px;
+}
+
+#saveLeadBtn {
+  background: #2980b9;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+#saveLeadBtn:hover {
+  background: #096cad;
+}
+.lead-add-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.lead-add-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+}
+#notesInput {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: vertical; /* allow vertical resizing only */
+  font-family: inherit;
+  font-size: 14px;
+}
+#notesInput:focus {
+  outline: none;
+  border-color: #2980b9;
+  box-shadow: 0 0 4px rgba(41, 128, 185, 0.5);
+}
+</style>
+
+<script>
+  /* js for modal control new row insert*/
+  const modal = document.getElementById('leadAddModal');
+  const openBtn = document.getElementById('addLeadBtn');
+  const closeBtn = document.querySelector('.close-lead-modal');
+  const saveBtn = document.getElementById('saveLeadBtn');
+  const leadsTable = document.querySelector('.leads-table tbody');
+
+  openBtn.addEventListener('click', () => modal.style.display = 'flex');
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+
+  saveBtn.addEventListener('click', () => {
+    const client = document.getElementById('clientSelect').value;
+    const status = document.getElementById('statusSelect').value;
+    const notes = document.getElementById('notesInput').value;
+
+    if (!client) return alert("Please select a client!");
+
+     // Custom date formatting
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.toLocaleString('default', { month: 'long' }); // e.g., "July"
+    const year = now.getFullYear().toString().slice(-2); // last 2 digits of year
+    let hours = now.getHours();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12 || 12; // convert to 12-hour format
+
+    const formattedDate = `${day} ${month} ${year}, ${hours}${ampm}`;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td data-label="Client Name">${client}</td>
+      <td data-label="Last Touch">${formattedDate}</td>
+      <td data-label="Status">
+          <span class="status-dot status-${status}"></span>
+          ${status.charAt(0).toUpperCase() + status.slice(1)}
+      </td>
+      <td data-label="Notes">${notes}</td>
+    `;
+
+    leadsTable.appendChild(row);
+    modal.style.display = 'none';
+  });
+</script>
+
 
 <style>
 /* General Styling */
@@ -117,6 +269,26 @@
 .status-hot { background-color: #e74c3c; }   /* Red */
 .status-warm { background-color: #f39c12; }  /* Orange */
 .status-cold { background-color: #3498db; }  /* Blue */
+
+.add-lead-btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    white-space: nowrap;
+    min-width: 100px;
+}
+.add-lead-btn:hover {
+  background: #2980b9;
+}
+.leads-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 
 /* Mobile Responsive (Card Style) */
 @media screen and (max-width: 768px) {

@@ -3,13 +3,26 @@
  * Dashboard Header Component
  */
 $current_user = wp_get_current_user();
+$user_id = $current_user->ID;
 $dashboard_url = current_user_can('realtor') ? home_url('/realtor-dashboard/') : home_url('/');
 $upload_dir = wp_upload_dir();
 $image_url = $upload_dir['baseurl'];
+
+// Get company name from user meta
+$company_name = get_user_meta($user_id, 'company_name', true);
+// If company name is empty, fall back to the role name
+if (empty($company_name)) {
+    $role_names = [
+        'realtor' => 'Realtor',
+        'agent' => 'Agent',
+        'subscriber' => 'Subscriber'
+    ];
+    $user_roles = $current_user->roles;
+    $company_name = $role_names[$user_roles[0]] ?? ucfirst($user_roles[0]);
+}
 ?>
 
 <!-- Desktop Header -->
-
 <header class="dashboard-header desktop-header">
     
     <div class="header-row-1">
@@ -33,15 +46,7 @@ $image_url = $upload_dir['baseurl'];
             <div class="user-details">
                 <span class="user-name"><?php echo esc_html($current_user->display_name); ?></span>
                 <span class="user-role-dashboard-header">
-                    <?php
-                    $role_names = [
-                        'realtor' => 'Realtor',
-                        'agent' => 'Agent',
-                        'subscriber' => 'Subscriber'
-                    ];
-                    $user_roles = $current_user->roles;
-                    echo esc_html($role_names[$user_roles[0]] ?? ucfirst($user_roles[0]));
-                    ?>
+                    <?php echo esc_html($company_name); ?>
                 </span>
             </div>
         </div>
@@ -73,7 +78,7 @@ $image_url = $upload_dir['baseurl'];
                 </li>
                 <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
                     <a href="?tab=properties">
-                        <span class="dashicons dashicons-building"></span> My Properties
+                        <span class="dashicons dashicons-building"></span> Properties
                     </a>
                 </li>
                 <li class="<?php echo $current_tab === 'address-book' ? 'active' : ''; ?>">
