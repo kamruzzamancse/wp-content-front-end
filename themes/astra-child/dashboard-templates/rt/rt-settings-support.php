@@ -1,7 +1,7 @@
 <div class="back-link">
     <a href="?tab=settings" class="pd-back-link">
         <span class="pd-back-link__arrow">←</span>
-        <h1 class="pd-back-link__title">Settings</h1>
+        <h1 class="header-title">Settings</h1>
     </a>
 </div>
 
@@ -45,7 +45,7 @@
 }
 
 .ss-contact-form-title {
-    font-size: 24px;
+    font-size: 1.375rem!important;
     font-weight: bold;
     margin-bottom: 25px;
     color: #333;

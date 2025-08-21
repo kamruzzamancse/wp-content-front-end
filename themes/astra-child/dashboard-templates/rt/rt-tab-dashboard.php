@@ -18,7 +18,7 @@
         </div> -->
 
         <div class="dashboard-section active-clients-section">
-          <h1 class="ab-header-title">Active Clients</h1>
+          <h1 class="header-title">Active Clients</h1>
           <table class="active-clients-table">
               <thead>
                   <tr>
@@ -89,7 +89,7 @@
         ?>
     </div>
 
-<?php include locate_template('dashboard-templates/rt-leads-section.php'); ?>
+<?php include locate_template('dashboard-templates/rt/rt-leads-section.php'); ?>
 
 <style>
 /* General Styling */
@@ -99,13 +99,6 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   overflow-x: auto;
-}
-
-.ab-header-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #333;
 }
 
 /* Table Styling (Desktop) */

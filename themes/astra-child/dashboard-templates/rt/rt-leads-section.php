@@ -1,6 +1,6 @@
 <div class="dashboard-section leads-section">
     <div class="leads-header">
-        <h1 class="ab-header-title">Leads</h1>
+        <h1 class="header-title">Leads</h1>
         <button id="addLeadBtn" class="add-lead-btn">+</button>
     </div>
     <table class="leads-table">
@@ -75,7 +75,7 @@
 
     <!-- header row -->
     <div class="lead-add-header">
-      <h3 class="add-lead-title">Add New Lead</h3>
+      <h1 class="header-title">Add New Lead</h1>
       <span class="close-lead-modal">&times;</span>
     </div>
 
@@ -228,13 +228,6 @@
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   overflow-x: auto;
-}
-
-.ab-header-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #333;
 }
 
 /* Table Styling (Desktop) */

@@ -1,7 +1,7 @@
 <div class="cl-back-link">
     <a href="?tab=settings" class="cl-back-link">
         <span class="cl-header-arrow">←</span>
-        <h1 class="cl-header-title">Settings</h1>
+        <h1 class="header-title">Settings</h1>
     </a>
 </div>
 
@@ -40,7 +40,7 @@
 }
 
 .sup-form-title {
-    font-size: 24px;
+    font-size: 1.375rem!important;
     font-weight: bold;
     margin-bottom: 25px;
     color: #333;

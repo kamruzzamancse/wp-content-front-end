@@ -24,7 +24,7 @@ $user_roles = $current_user->roles;
 <div class="back-link">
     <a href="?tab=settings" class="pd-back-link">
         <span class="pd-back-link__arrow">←</span>
-        <h1 class="pd-back-link__title">Settings</h1>
+        <h1 class="header-title">Settings</h1>
     </a>
 </div>
 

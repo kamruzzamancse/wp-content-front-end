@@ -15,8 +15,8 @@ if (!is_user_logged_in() || !current_user_can('client')) {
 $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
 
 // Load dashboard data (define function if missing)
-if (!function_exists('load_realtor_dashboard_data')) {
-    function load_realtor_dashboard_data($tab) {
+if (!function_exists('load_client_dashboard_data')) {
+    function load_client_dashboard_data($tab) {
         $user_id = get_current_user_id();
 
         // Example data structure; customize as needed
@@ -52,7 +52,7 @@ if (!function_exists('load_realtor_dashboard_data')) {
     }
 }
 
-$dashboard_data = load_realtor_dashboard_data($current_tab);
+$dashboard_data = load_client_dashboard_data($current_tab);
 
 if ($dashboard_data === null) {
     echo '<div class="error">Failed to load dashboard data.</div>';

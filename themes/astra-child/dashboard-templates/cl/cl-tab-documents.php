@@ -1,6 +1,6 @@
 <div class="cld-task-section">
     <div class="cld-task-header">
-        <h2 class="cld-task-title">Task Assigned</h2>
+        <h2 class="header-title">Task Assigned</h2>
         <button class="cld-upload-btn" data-modal="cl-upload-document-modal">
             Upload Document <span class="dashicons dashicons-media-document"></span>
         </button>
@@ -187,12 +187,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 12px;
-}
-
-.cld-task-title {
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0;
 }
 
 .cld-upload-btn {

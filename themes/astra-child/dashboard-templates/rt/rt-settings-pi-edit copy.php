@@ -6,7 +6,7 @@
 <div class="back-link">
   <a href="?tab=rt-settings-pi" class="pd-back-link">
     <span class="pd-back-link__arrow">←</span>
-    <h1 class="pd-back-link__title">Personal Information</h1>
+    <h1 class="header-title">Personal Information</h1>
   </a>
 </div>
 
@@ -73,12 +73,6 @@
     margin-right: 10px;
   }
   
-  .pd-back-link__title {
-    font-size: 20px;
-    margin: 0;
-    font-weight: 600;
-  }
-  
   /* Main Profile Container */
   .rpe-profile-container {
     max-width: 700px;
@@ -121,7 +115,7 @@
   }
   
   .rpe-profile-name {
-    font-size: 28px;
+    font-size: 1.375rem!important;
     font-weight: bold;
     margin: 0;
     color: #000;

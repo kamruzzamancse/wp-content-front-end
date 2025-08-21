@@ -24,7 +24,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
 <div class="cl-back-link">
     <a href="?tab=settings" class="cl-back-link">
         <span class="cl-header-arrow">←</span>
-        <h1 class="cl-header-title">Settings</h1>
+        <h1 class="header-title">Settings</h1>
     </a>
 </div>
 
@@ -39,7 +39,6 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     <div class="piv-profile-content">
         <div class="piv-profile-pic-container">
             <img class="realtor-avatar" src="<?php echo esc_url($profile_picture); ?>" alt="Realtor Profile Pic">
-            <span class="user-role-name"><?php echo esc_html($user_role_name); ?></span>
         </div>
         
         <div class="piv-profile-details">

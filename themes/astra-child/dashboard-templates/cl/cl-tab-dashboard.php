@@ -20,7 +20,7 @@
             <!-- Tracking Property Section -->
             <div class="tpg-tracking-section">
                 <div class="tpg-tracking-header">
-                    <h2 class="tpg-section-title">Tracking Property</h2>
+                    <h1 class="tpg-section-title">Tracking Property</h1>
                     <div class="tpg-tracking-summary">
                         <span class="tpg-amount">$8.24k</span>
                         <span class="tpg-year">2025</span>
@@ -120,13 +120,6 @@
   overflow-x: auto;
 }
 
-.ab-header-title {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #333;
-}
-
 /* Table Styling (Desktop) */
 .active-clients-table {
   width: 100%;
@@ -216,7 +209,7 @@
 
 .tpg-section-title {
     margin: 0;
-    font-size: 18px;
+    font-size: 1.375rem!important;
     color: #2c3e50;
 }
 

@@ -64,46 +64,46 @@ get_header();
 ?>
 
 <div class="dashboard-container">
-    <?php include locate_template('dashboard-templates/rt-dashboard-header.php'); ?>
+    <?php include locate_template('dashboard-templates/rt/rt-dashboard-header.php'); ?>
     
     <div class="dashboard-content">
-        <?php include locate_template('dashboard-templates/rt-dashboard-sidebar.php'); ?>
+        <?php include locate_template('dashboard-templates/rt/rt-dashboard-sidebar.php'); ?>
         
         <main class="dashboard-main">
             <?php
             switch($current_tab) {
                 case 'dashboard':
-                    include locate_template('dashboard-templates/rt-tab-dashboard.php');
+                    include locate_template('dashboard-templates/rt/rt-tab-dashboard.php');
                     break;
                 case 'properties':
-                    include locate_template('dashboard-templates/rt-tab-properties.php');
+                    include locate_template('dashboard-templates/rt/rt-tab-properties.php');
                     break;
                 case 'address-book':
-                    include locate_template('dashboard-templates/rt-tab-address-book.php');
+                    include locate_template('dashboard-templates/rt/rt-tab-address-book.php');
                     break;
                 case 'messages':
-                    include locate_template('dashboard-templates/rt-tab-messages.php');
+                    include locate_template('dashboard-templates/rt/rt-tab-messages.php');
                     break;
                 case 'settings':
-                    include locate_template('dashboard-templates/rt-tab-settings.php');
+                    include locate_template('dashboard-templates/rt/rt-tab-settings.php');
                     break;
                 case 'notifications':
-                    include locate_template('dashboard-templates/rt-tab-notifications.php');
+                    include locate_template('dashboard-templates/rt/rt-tab-notifications.php');
                     break;
                 case 'rt-property-details':
-                    include locate_template('dashboard-templates/rt-property-details.php');
+                    include locate_template('dashboard-templates/rt/rt-property-details.php');
                     break;
                 case 'rt-settings-pi':
-                    include locate_template('dashboard-templates/rt-settings-pi.php');
+                    include locate_template('dashboard-templates/rt/rt-settings-pi.php');
                     break;
                 case 'rt-settings-cp':
-                    include locate_template('dashboard-templates/rt-settings-cp.php');
+                    include locate_template('dashboard-templates/rt/rt-settings-cp.php');
                     break;
                 case 'rt-settings-pi-edit':
-                    include locate_template('dashboard-templates/rt-settings-pi-edit.php');
+                    include locate_template('dashboard-templates/rt/rt-settings-pi-edit.php');
                     break;
                 case 'rt-settings-support':
-                    include locate_template('dashboard-templates/rt-settings-support.php');
+                    include locate_template('dashboard-templates/rt/rt-settings-support.php');
                     break;
                 default:
                     wp_redirect(add_query_arg('tab', 'dashboard'));
@@ -115,6 +115,6 @@ get_header();
 </div>
 
 <?php 
-include locate_template('dashboard-templates/rt-profile-modal.php');
+include locate_template('dashboard-templates/rt/rt-profile-modal.php');
 get_footer(); 
 ?>

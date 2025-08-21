@@ -5,7 +5,7 @@
     <button class="clup-close-btn">&times;</button>
 
     <!-- Modal Header -->
-    <h2 class="clup-title">Upload Document</h2>
+    <h1 class="clup-title">Upload Document</h1>
 
     <!-- Form -->
     <form class="clup-form">
@@ -135,11 +135,14 @@
    Title
 ========================= */
 .clup-title {
-  font-size: 22px;
+  font-size: 1.375rem!important;
   font-weight: bold;
-  margin-bottom: 20px;
   text-align: left;
   color: #222;
+}
+
+.entry-content h1 {
+  margin-bottom: 20px!important;
 }
 
 /* =========================

@@ -185,7 +185,7 @@
 }
 
 .pt-property-title {
-    font-size: 18px;
+    font-size: 1rem!important;
     font-weight: 600;
     margin-bottom: 8px;
     color: #333;
@@ -589,12 +589,6 @@ h1 {
 
 .pd-back-link__arrow {
     font-size: 24px;
-}
-
-.pd-back-link__title {
-    margin: 0;
-    font-size: 1.5em;
-    font-weight: bold;
 }
 
 .back-link {

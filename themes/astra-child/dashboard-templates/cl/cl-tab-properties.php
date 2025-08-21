@@ -5,7 +5,7 @@
 
 <div class="pt-toolbar-container">
   <div class="pt-left-section">
-    <h1 class="cl-header-title">All Properties</h1>
+    <h1 class="header-title">All Properties</h1>
     <div class="pt-search-box">
       <span class="pt-search-icon">🔍</span>
       <input type="text" class="pt-search-input" placeholder="Search: Property Name" />

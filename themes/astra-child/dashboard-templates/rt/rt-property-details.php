@@ -7,7 +7,7 @@
 <div class="back-link">
     <a href="<?php echo esc_url( $site_url . '/realtor-dashboard/?tab=properties' ); ?>" class="pd-back-link">
         <span class="pd-back-link__arrow">←</span>
-        <h1 class="pd-back-link__title">Property Details</h1>
+        <h1 class="header-title">Property Details</h1>
     </a>
 </div>
 
@@ -103,7 +103,7 @@
     </div>
 </div>
 
-<?php include locate_template('dashboard-templates/rt-property-edit-modal.php'); ?>
+<?php include locate_template('dashboard-templates/rt/rt-property-edit-modal.php'); ?>
 
 
 <style>

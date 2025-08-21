@@ -6,7 +6,7 @@
 <div class="modal-overlay-address-book" id="clientDetailsModal">
     <div class="modal-container">
         <div class="modal-header">
-            <h1 class="ab-header-title" style="margin-bottom: 20px">Client Details</h1>
+            <h1 class="header-title" style="margin-bottom: 20px">Client Details</h1>
             <div class="client-profile-container">
                 <img class="client-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Client Photo">
                 <span class="client-info"><span class="client-name">Afsana Hamid Mim</span><br>Client</span>
@@ -67,5 +67,5 @@
 </div>
 
 <?php 
-    include locate_template('dashboard-templates/rt-property-details-modal.php');
+    include locate_template('dashboard-templates/rt/rt-property-details-modal.php');
 ?>

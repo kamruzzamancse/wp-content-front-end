@@ -24,7 +24,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
 <div class="cl-back-link">
     <a href="?tab=cl-settings-pi" class="cl-back-link">
         <span class="cl-header-arrow">←</span>
-        <h1 class="cl-header-title">Personal Information</h1>
+        <h1 class="header-title">Personal Information</h1>
     </a>
 </div>
 
@@ -90,12 +90,6 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     margin-right: 10px;
   }
   
-  .cl-header-title {
-    font-size: 20px;
-    margin: 0;
-    font-weight: 600;
-  }
-  
   /* Notification Styles */
   .profile-notice {
     padding: 12px 15px;
@@ -158,7 +152,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
   }
   
   .rpe-profile-name {
-    font-size: 28px;
+    font-size: 1.375rem!important;
     font-weight: bold;
     margin: 0;
     color: #000;
@@ -306,10 +300,6 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     .realtor-avatar {
       width: 60px;
       height: 60px;
-    }
-    
-    .rpe-profile-name {
-      font-size: 24px;
     }
     
     .rpe-form-label {

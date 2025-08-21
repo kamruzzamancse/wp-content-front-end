@@ -190,10 +190,10 @@
 }
 
 .property-title {
-    font-size: 28px;
+    font-size: 1.375rem!important;
     font-weight: 700;
     color: #222;
-    margin-bottom: 5px;
+    margin: 20px 0 5px 0;
 }
 
 .property-description {
@@ -209,8 +209,8 @@
 .property-features-modal {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* more spacing between boxes */
-    margin-top: 30px; /* extra breathing room */
+    gap: 20px;
+    margin: 30px 0 30px 0;
 }
 
 .feature-box {

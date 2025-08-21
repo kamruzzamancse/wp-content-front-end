@@ -106,7 +106,7 @@ add_action('wp_enqueue_scripts', 'mdk_enqueue_dashboard_assets');
 add_action('wp_ajax_get_property_details', 'load_property_details');
 add_action('wp_ajax_nopriv_get_property_details', 'load_property_details');
 function load_property_details() {
-    $template = locate_template('dashboard-templates/rt-property-details-modal.php');
+    $template = locate_template('dashboard-templates/rt/rt-property-details-modal.php');
     if ($template) {
         include $template;
     }
@@ -209,10 +209,10 @@ function mdk_dashboard_shortcode($atts, $content = null, $tag = '') {
         $template = locate_template("dashboard-templates/cl/{$role}-dashboard.php");
     } 
     elseif ($role === 'realtor') {
-       $template = locate_template("dashboard-templates/{$role}-dashboard.php");
+       $template = locate_template("dashboard-templates/rt/{$role}-dashboard.php");
     }
     elseif ($role === 'administrator') {
-        $template = locate_template("dashboard-templates/{$role}-dashboard.php");
+        $template = locate_template("dashboard-templates/am/{$role}-dashboard.php");
     }
 
     if ($template) {
@@ -249,7 +249,8 @@ function mdk_login_redirect($redirect_to, $request, $user) {
     $role = $user->roles[0];
 
     $dashboards = [
-        'realtor' => home_url('/realtor-dashboard/'),
+        'administrator' => home_url('/am/admin-dashboard/'),
+        'realtor' => home_url('/rt/realtor-dashboard/'),
         'client'  => home_url('/cl/client-dashboard/')
     ];
 

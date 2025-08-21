@@ -1,7 +1,7 @@
 <div class="ab-container">
     <div class="ab-table-header">
         <div class="ab-header-left">
-            <h1 class="ab-header-title">Address Book</h1>
+            <h1 class="header-title">Address Book</h1>
         </div>
         <div class="ab-header-right">
             <div class="ab-search-box">
@@ -173,7 +173,7 @@
 </div>
 
 <?php 
-    include locate_template('dashboard-templates/rt-client-details-modal.php');
+    include locate_template('dashboard-templates/rt/rt-client-details-modal.php');
 ?>
 
 <style>

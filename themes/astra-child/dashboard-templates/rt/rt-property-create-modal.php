@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="section-title"><h1 class="ab-header-title">Add Task</h1></div>
+    <div class="section-title"><h1 class="header-title">Add Task</h1></div>
 
     <div class="form-grid">
       <div class="form-group">

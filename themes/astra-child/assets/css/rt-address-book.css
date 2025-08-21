@@ -21,17 +21,22 @@
     gap: 25px;
 }
 
-.ab-header-title {
-    font-weight: bold;
-    font-size: 22px;
+.header-title {
+    font-weight: bold!important;
+    font-size: 1.375rem!important;
+    white-space: nowrap;
+}
+
+.entry-content h1 {
+    margin-bottom: 0!important;
 }
 
 @media (max-width: 768px) {
-  .ab-header-title {
+  .header-title {
     flex-basis: 100%;
     margin-bottom: 10px;
   }
-  .ab-header-title::after {
+  .header-title::after {
     content: "";
     display: block;
   }
@@ -228,14 +233,13 @@ tr:last-child td {
     flex-direction: column;
 }
 
-.modal-header,
 .modal-footer {
     padding: 20px;
     flex-shrink: 0; /* prevent shrinking */
 }
 
 .modal-title {
-    font-size: 20px;
+    font-size: 1.375rem!important;
     font-weight: 600;
     margin: 0;
     color: #222;
@@ -313,7 +317,7 @@ tr:last-child td {
 
 /* Section Title */
 .section-title {
-    font-size: 22px;
+    font-size: 1.375rem!important;
     font-weight: bold;
     margin-bottom: 15px;
     display: inline-block;
@@ -428,7 +432,6 @@ tr:last-child td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
     border-bottom: 1px solid #ddd;
 }
 

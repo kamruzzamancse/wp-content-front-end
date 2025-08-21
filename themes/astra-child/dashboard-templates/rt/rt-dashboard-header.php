@@ -4,7 +4,7 @@
  */
 $current_user = wp_get_current_user();
 $user_id = $current_user->ID;
-$dashboard_url = current_user_can('realtor') ? home_url('/realtor-dashboard/') : home_url('/');
+$dashboard_url = current_user_can('realtor') ? home_url('/rt/realtor-dashboard/') : home_url('/');
 $upload_dir = wp_upload_dir();
 $image_url = $upload_dir['baseurl'];
 
@@ -14,7 +14,7 @@ $company_name = get_user_meta($user_id, 'company_name', true);
 if (empty($company_name)) {
     $role_names = [
         'realtor' => 'Realtor',
-        'agent' => 'Agent',
+        'client' => 'Client',
         'subscriber' => 'Subscriber'
     ];
     $user_roles = $current_user->roles;

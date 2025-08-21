@@ -5,7 +5,7 @@
 
 <div class="pt-toolbar-container">
   <div class="pt-left-section">
-    <h1 class="ab-header-title">All Properties</h1>
+    <h1 class="header-title">All Properties</h1>
     <div class="pt-search-box">
       <span class="pt-search-icon">🔍</span>
       <input type="text" class="pt-search-input" placeholder="Search: Property Name" />
@@ -188,7 +188,7 @@
     </div>
 </div>
 
-<h1 class="ab-header-title">Recent Document</h1>
+<h1 class="header-title">Recent Document</h1>
 
 <div class="pt-documents-container">
     <!-- Document 1 -->
@@ -276,4 +276,4 @@
     </div>
 </div>
 
-<?php include locate_template('dashboard-templates/rt-property-create-modal.php'); ?>
+<?php include locate_template('dashboard-templates/rt/rt-property-create-modal.php'); ?>

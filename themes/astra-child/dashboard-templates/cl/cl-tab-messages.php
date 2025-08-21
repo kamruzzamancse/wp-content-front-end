@@ -2,7 +2,7 @@
 
     <!-- Top Bar -->
     <div class="top-bar">
-      <h1 class="ab-header-title">Message</h1>
+      <h1 class="header-title">Message</h1>
       <div class="pt-search-box">
         <span class="pt-search-icon">🔍</span>
         <input type="text" id="searchInput" class="pt-search-input" placeholder="Search: Client Name">

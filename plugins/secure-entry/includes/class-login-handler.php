@@ -105,10 +105,9 @@ class Enhanced_Login_Handler {
         $roles = array_map('strtolower', $roles);
         
         $redirect_urls = apply_filters('enhanced_login_redirect_urls', [
-            'administrator' => admin_url(),
-            'realtor'       => home_url('/realtor-dashboard/'),
-            'client'        => home_url('/cl/client-dashboard/'), // <-- correct path
-            'subscriber'    => home_url('/my-account/')
+            'administrator' => home_url('/am/admin-dashboard/'),
+            'realtor'       => home_url('/rt/realtor-dashboard/'),
+            'client'        => home_url('/cl/client-dashboard/')
         ]);
 
         
