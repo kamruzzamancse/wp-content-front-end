@@ -4,12 +4,10 @@ $current_user = wp_get_current_user();
 $user_id = $current_user->ID;
 
 // Get user meta data
-$broker_number = get_user_meta($user_id, 'broker_number', true);
 $company_name  = get_user_meta($user_id, 'company_name', true);
 $profile_picture = get_user_meta($user_id, 'profile_picture', true);
 
 // Set default values if empty
-if (empty($broker_number)) $broker_number = 'BRK-2023-5876';
 if (empty($company_name))  $company_name  = 'Prime Realty Associates';
 if (empty($profile_picture)) {
     $upload_dir = wp_upload_dir(); 
@@ -45,11 +43,6 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
             <div class="piv-detail-row">
                 <span class="piv-detail-label">Full Name:</span>
                 <span class="piv-detail-value"><?php echo esc_html($current_user->display_name); ?></span>
-            </div>
-            
-            <div class="piv-detail-row">
-                <span class="piv-detail-label">Broker Number:</span>
-                <span class="piv-detail-value"><?php echo esc_html($broker_number); ?></span>
             </div>
             
             <div class="piv-detail-row">

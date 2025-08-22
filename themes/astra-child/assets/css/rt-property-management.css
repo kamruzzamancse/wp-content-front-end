@@ -642,11 +642,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.section-title {
-    font-size: 18px;
-    margin: 30px 0 10px;
-}
-
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

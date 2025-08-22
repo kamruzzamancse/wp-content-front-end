@@ -1296,3 +1296,7 @@
 .modal button:last-child:hover {
   background-color: #dd3333;
 }
+
+.simcal-align-right {
+    display: none;
+}

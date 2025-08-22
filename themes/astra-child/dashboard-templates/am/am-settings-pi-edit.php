@@ -4,13 +4,9 @@ $current_user = wp_get_current_user();
 $user_id = $current_user->ID;
 
 // Get user meta data
-$broker_number = get_user_meta($user_id, 'broker_number', true);
-$company_name = get_user_meta($user_id, 'company_name', true);
 $profile_picture = get_user_meta($user_id, 'profile_picture', true);
 
 // Set default values if empty
-if (empty($broker_number)) $broker_number = '';
-if (empty($company_name)) $company_name = '';
 if (empty($profile_picture)) {
     $upload_dir = wp_upload_dir(); 
     $profile_picture = esc_url($upload_dir['baseurl'] . '/2025/08/client-photo.jpg');
@@ -22,7 +18,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
 ?>
 
 <div class="cl-back-link">
-    <a href="?tab=cl-settings-pi" class="cl-back-link">
+    <a href="?tab=am-settings-pi" class="cl-back-link">
         <span class="cl-header-arrow">←</span>
         <h1 class="header-title">Personal Information</h1>
     </a>
@@ -51,24 +47,15 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
       </div>
     </div>
   </div>
-
   <form class="rpe-profile-form" id="profile-form">
     <div class="rpe-form-section">
       <label class="rpe-form-label">Full name</label>
-      <input type="text" class="rpe-form-input" id="full-name" value="<?php echo esc_attr($current_user->display_name); ?>">
+      <input type="text" class="rpe-form-input" id="full-name" name="full_name" value="<?php echo esc_attr($current_user->display_name); ?>">
     </div>
-
-    <!-- Removed Broker Number Field -->
     <div class="rpe-form-section">
       <label class="rpe-form-label">Email</label>
       <input type="email" class="rpe-form-input" id="email" value="<?php echo esc_attr($current_user->user_email); ?>" disabled>
     </div>
-
-    <div class="rpe-form-section">
-      <label class="rpe-form-label">Company Name</label>
-      <input type="text" class="rpe-form-input" id="company-name" name="company_name" value="<?php echo esc_attr($company_name); ?>">
-    </div>
-
     <div class="rpe-form-actions">
       <button type="submit" class="rpe-save-button">Save Changes</button>
       <button type="button" class="rpe-cancel-button">Cancel</button>
@@ -78,7 +65,6 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
 
 <style>
   /* Back Link Styles */
- 
   .cl-back-link {
     display: flex;
     align-items: center;
@@ -90,7 +76,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     font-size: 20px;
     margin-right: 10px;
   }
-  
+
   /* Notification Styles */
   .profile-notice {
     padding: 12px 15px;
@@ -98,19 +84,19 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     border-radius: 4px;
     display: none;
   }
-  
+
   .profile-notice.success {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
   }
-  
+
   .profile-notice.error {
     background-color: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
   }
-  
+
   /* Main Profile Container */
   .rpe-profile-container {
     max-width: 700px;
@@ -120,24 +106,24 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   /* Profile Header */
   .rpe-profile-header {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
   }
-  
+
   .rpe-header-content {
     display: flex;
     align-items: center;
   }
-  
+
   /* Profile Picture */
   .piv-profile-pic-container {
     flex: 0 0 auto;
   }
-  
+
   .realtor-avatar {
     width: 80px;
     height: 80px;
@@ -145,20 +131,20 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     object-fit: cover;
     border: 2px solid #f1f1f1;
   }
-  
+
   /* Profile Info (right-aligned) */
   .rpe-profile-info {
     flex: 1;
     text-align: right;
   }
-  
+
   .rpe-profile-name {
     font-size: 1.375rem!important;
     font-weight: bold;
     margin: 0;
     color: #000;
   }
-  
+
   .rpe-profile-role {
     display: block;
     font-size: 16px;
@@ -166,17 +152,17 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     color: #666;
     margin-top: 5px;
   }
-  
+
   /* Form Sections */
   .rpe-profile-form {
     display: flex;
     flex-direction: column;
   }
-  
+
   .rpe-form-section {
     margin-bottom: 5px;
   }
-  
+
   .rpe-form-label {
     display: block;
     font-size: 14px;
@@ -184,7 +170,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     margin-bottom: 8px;
     color: #555;
   }
-  
+
   .rpe-form-input {
     width: 100%;
     padding: 10px 12px;
@@ -194,18 +180,18 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     box-sizing: border-box;
     margin-bottom: 15px;
   }
-  
+
   .rpe-form-input:disabled {
     background-color: #f5f5f5;
     color: #777;
   }
-  
+
   .rpe-form-input:focus {
     outline: none;
     border-color: #3498db;
     box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
   }
-  
+
   /* Form Actions */
   .rpe-form-actions {
     display: flex;
@@ -215,7 +201,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     padding-top: 20px;
     border-top: 1px solid #eee;
   }
-  
+
   .rpe-save-button {
     background-color: #3498db;
     color: white;
@@ -227,11 +213,11 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     cursor: pointer;
     transition: all 0.2s ease;
   }
-  
+
   .rpe-save-button:hover {
     background-color: #2980b9;
   }
-  
+
   .rpe-cancel-button {
     background-color: #f8f9fa;
     color: #333;
@@ -243,17 +229,17 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     cursor: pointer;
     transition: all 0.2s ease;
   }
-  
+
   .rpe-cancel-button:hover {
     background-color: #e9ecef;
   }
-  
+
   /* Profile Picture Edit Icon */
   .piv-profile-pic-wrapper {
     position: relative;
     display: inline-block;
   }
-  
+
   .piv-edit-icon {
     position: absolute;
     bottom: 5px;
@@ -270,51 +256,51 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     transition: all 0.2s ease;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
-  
+
   .piv-edit-icon:hover {
     background: #2980b9;
     transform: scale(1.1);
   }
-  
+
   .piv-edit-icon svg {
     width: 16px;
     height: 16px;
   }
-  
+
   /* Responsive adjustments */
   @media (max-width: 600px) {
     .rpe-profile-container {
       padding: 15px;
     }
-    
+
     .rpe-header-content {
       flex-direction: column;
       align-items: flex-start;
       gap: 10px;
     }
-    
+
     .rpe-profile-info {
       text-align: left;
       width: 100%;
     }
-    
+
     .realtor-avatar {
       width: 60px;
       height: 60px;
     }
-    
+
     .rpe-form-label {
       font-size: 13px;
     }
-    
+
     .rpe-form-input {
       font-size: 15px;
     }
-    
+
     .rpe-form-actions {
       flex-direction: column;
     }
-    
+
     .rpe-save-button, .rpe-cancel-button {
       width: 100%;
     }
@@ -353,8 +339,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Update form fields with data
                 document.getElementById('full-name').value = result.data.full_name;
                 document.getElementById('email').value = result.data.email;
-                document.getElementById('broker-number').value = result.data.broker_number;
-                document.getElementById('company-name').value = result.data.company_name;
                 document.getElementById('profile-display-name').textContent = result.data.full_name;
                 
                 // Update profile picture if available
@@ -443,7 +427,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Cancel button functionality - go back to previous page
     document.querySelector('.rpe-cancel-button').addEventListener('click', function() {
-        window.location.href = '?tab=cl-settings-pi';
+        window.location.href = '?tab=am-settings-pi';
     });
     
     // Load profile data when page loads

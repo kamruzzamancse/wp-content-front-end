@@ -191,7 +191,7 @@ function mdk_dashboard_shortcode($atts, $content = null, $tag = '') {
     $role = str_replace(['mdk_', '_dashboard'], '', $tag);
 
     $capabilities = [
-        'admin'   => 'manage_options',
+        'administrator' => 'edit_properties',
         'realtor' => 'edit_properties',
         'client'  => 'read_properties',
     ];
@@ -210,9 +210,9 @@ function mdk_dashboard_shortcode($atts, $content = null, $tag = '') {
         $template = locate_template("dashboard-templates/cl/{$role}-dashboard.php");
     } 
     elseif ($role === 'realtor') {
-        $template = locate_template("dashboard-templates/rt/{$role}-dashboard.php");
+       $template = locate_template("dashboard-templates/rt/{$role}-dashboard.php");
     }
-    elseif ($role === 'admin') {
+    elseif ($role === 'administrator') {
         $template = locate_template("dashboard-templates/am/admin-dashboard.php");
     }
 
@@ -226,7 +226,6 @@ function mdk_dashboard_shortcode($atts, $content = null, $tag = '') {
 }
 add_shortcode('mdk_realtor_dashboard', 'mdk_dashboard_shortcode');
 add_shortcode('mdk_client_dashboard', 'mdk_dashboard_shortcode');
-add_shortcode('mdk_admin_dashboard', 'mdk_dashboard_shortcode');
 
 /**
  * Login message helper
@@ -251,9 +250,9 @@ function mdk_login_redirect($redirect_to, $request, $user) {
     $role = $user->roles[0];
 
     $dashboards = [
-        'admin'   => home_url('/am/admin-dashboard/'),
+        'administrator' => home_url('/am/admin-dashboard/'),
         'realtor' => home_url('/rt/realtor-dashboard/'),
-        'client'  => home_url('/cl/client-dashboard/'),
+        'client'  => home_url('/cl/client-dashboard/')
     ];
 
     if (isset($dashboards[$role])) {
@@ -270,7 +269,7 @@ add_filter('login_redirect', 'mdk_login_redirect', 10, 3);
 function add_user_role_body_class($classes) {
     if (is_user_logged_in()) {
         $user = wp_get_current_user();
-        if (array_intersect(['realtor', 'client', 'admin'], $user->roles)) {
+        if (array_intersect(['realtor', 'client'], $user->roles)) {
             $classes[] = 'hide-header-footer';
         }
     }
@@ -282,11 +281,6 @@ add_filter('body_class', 'add_user_role_body_class');
  * Add custom user roles
  */
 function mdk_add_user_roles() {
-    add_role('admin', 'Admin', [
-        'read'            => true,
-        'manage_options'  => true,
-    ]);
-
     add_role('realtor', 'Realtor', [
         'read'            => true,
         'edit_properties' => true,
@@ -308,10 +302,7 @@ function mdk_deactivate() {
 }
 register_deactivation_hook(__FILE__, 'mdk_deactivate');
 
-/* ===========================
-   Profile Updating Section
-   =========================== */
-
+// for profile updating starts ========================================================================================
 // Enqueue scripts and styles
 function enqueue_profile_scripts() {
     wp_enqueue_script('profile-ajax', get_template_directory_uri() . '/js/profile-ajax.js', array('jquery'), null, true);
@@ -324,11 +315,13 @@ add_action('wp_enqueue_scripts', 'enqueue_profile_scripts');
 
 // Handle profile data loading
 function load_profile_data() {
+    // Verify nonce for security
     if (!wp_verify_nonce($_POST['nonce'], 'profile_ajax_nonce')) {
         wp_die('Security check failed');
     }
     
     $user_id = get_current_user_id();
+    
     if ($user_id == 0) {
         wp_send_json_error('User not logged in');
     }
@@ -336,6 +329,8 @@ function load_profile_data() {
     $user_info = get_userdata($user_id);
     $broker_number = get_user_meta($user_id, 'broker_number', true);
     $company_name = get_user_meta($user_id, 'company_name', true);
+    
+    // Get profile picture
     $profile_picture = get_user_meta($user_id, 'profile_picture', true);
     $default_picture = get_template_directory_uri() . '/images/default-avatar.jpg';
     
@@ -353,11 +348,13 @@ add_action('wp_ajax_load_profile_data', 'load_profile_data');
 
 // Handle profile data saving
 function save_profile_data() {
+    // Verify nonce for security
     if (!wp_verify_nonce($_POST['nonce'], 'profile_ajax_nonce')) {
         wp_die('Security check failed');
     }
     
     $user_id = get_current_user_id();
+    
     if ($user_id == 0) {
         wp_send_json_error('User not logged in');
     }
@@ -376,11 +373,13 @@ add_action('wp_ajax_save_profile_data', 'save_profile_data');
 
 // Handle profile picture upload
 function upload_profile_picture() {
+    // Verify nonce for security
     if (!wp_verify_nonce($_POST['nonce'], 'profile_ajax_nonce')) {
         wp_die('Security check failed');
     }
     
     $user_id = get_current_user_id();
+    
     if ($user_id == 0) {
         wp_send_json_error('User not logged in');
     }
@@ -391,6 +390,7 @@ function upload_profile_picture() {
     
     $uploadedfile = $_FILES['profile_picture'];
     $upload_overrides = array('test_form' => false);
+    
     $movefile = wp_handle_upload($uploadedfile, $upload_overrides);
     
     if ($movefile && !isset($movefile['error'])) {
@@ -402,9 +402,11 @@ function upload_profile_picture() {
 }
 add_action('wp_ajax_upload_profile_picture', 'upload_profile_picture');
 
-/**
- * Add custom user fields
- */
+
+
+
+
+// Add custom user fields
 function add_custom_user_fields($user) {
     ?>
     <h3>Broker Information</h3>
@@ -436,9 +438,7 @@ function add_custom_user_fields($user) {
 add_action('show_user_profile', 'add_custom_user_fields');
 add_action('edit_user_profile', 'add_custom_user_fields');
 
-/**
- * Save custom user fields
- */
+// Save custom user fields
 function save_custom_user_fields($user_id) {
     if (!current_user_can('edit_user', $user_id)) {
         return false;
@@ -458,3 +458,6 @@ function save_custom_user_fields($user_id) {
 }
 add_action('personal_options_update', 'save_custom_user_fields');
 add_action('edit_user_profile_update', 'save_custom_user_fields');
+
+// for profile updating end ========================================================================================
+

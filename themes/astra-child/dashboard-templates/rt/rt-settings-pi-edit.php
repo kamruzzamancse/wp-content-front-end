@@ -131,7 +131,7 @@
   }
   
   .rpe-profile-name {
-    font-size: 1.375rem!important;
+    font-size: 28px;
     font-weight: bold;
     margin: 0;
     color: #000;

@@ -28,11 +28,19 @@
     /* display: none; */
 }
 
+.site-footer {
+    display: none!important;
+}
+
 /* css for show/hide header and footer */
 body.hide-header-footer .ast-primary-header,
 body.hide-header-footer .ast-mobile-header,
 body.hide-header-footer .site-footer {
     display: none !important;
+}
+
+.ast-primary-header-bar {
+    display: none!important;
 }
 
 /* Content Area Adjustments */
