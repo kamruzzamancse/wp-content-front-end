@@ -170,7 +170,7 @@
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
-    width: 32%; /* Ensure cards span full width */
+    width: 33%; /* Ensure cards span full width */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

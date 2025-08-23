@@ -38,6 +38,8 @@ if (!function_exists('load_admin_dashboard_data')) {
             case 'messages':
             case 'settings':
             case 'notifications':
+            case 'realtors':
+            case 'clients':
             case 'am-property-details':
             case 'am-settings-pi':
             case 'am-settings-cp':
@@ -85,31 +87,15 @@ get_header();
                 case 'properties':
                     include locate_template('dashboard-templates/am/am-tab-properties.php');
                     break;
-                /* case 'users':
-                    include locate_template('dashboard-templates/am/am-tab-users.php');
-                    break;
-                
-                case 'messages':
-                    include locate_template('dashboard-templates/am/am-tab-messages.php');
-                    break;
-                case 'settings':
-                    include locate_template('dashboard-templates/am/am-tab-settings.php');
-                    break;
                 case 'am-property-details':
                     include locate_template('dashboard-templates/am/am-property-details.php');
                     break;
-                case 'am-settings-pi':
-                    include locate_template('dashboard-templates/am/am-settings-pi.php');
+                case 'realtors':
+                    include locate_template('dashboard-templates/am/am-tab-realtors.php');
                     break;
-                case 'am-settings-cp':
-                    include locate_template('dashboard-templates/am/am-settings-cp.php');
+                case 'clients':
+                    include locate_template('dashboard-templates/am/am-tab-clients.php');
                     break;
-                case 'am-settings-pi-edit':
-                    include locate_template('dashboard-templates/am/am-settings-pi-edit.php');
-                    break;
-                case 'am-settings-support':
-                    include locate_template('dashboard-templates/am/am-settings-support.php');
-                    break; */
                 default:
                     wp_redirect(add_query_arg('tab', 'dashboard'));
                     exit;
