@@ -241,7 +241,6 @@
 <style>
 /* Task Monitoring Specific Styles - Won't interfere with existing styles */
 .task-monitoring-content {
-    padding: 20px;
     background-color: #F5F9FF;
     min-height: calc(100vh - 60px);
 }

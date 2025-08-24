@@ -32,6 +32,18 @@
 
         <!-- Task Status Overview Section -->
         <div class="task-status-overview">
+            <!-- Total Tasks Card -->
+            <div class="status-card total">
+                <div class="status-icon">
+                    <span class="dashicons dashicons-clipboard"></span>
+                </div>
+                <h3>Total Tasks</h3>
+                <p class="task-count">105 Tasks</p>
+                <p class="description">Overall tasks including pending, in-progress, and completed.</p>
+                <button class="view-tasks">View All Tasks</button>
+                <div class="progress-bar" style="width: 100%;"></div>
+            </div>
+
             <div class="status-card pending">
                 <div class="status-icon">
                     <span class="dashicons dashicons-clock"></span>
@@ -95,10 +107,10 @@
                         $user = $users[array_rand($users)];
                         $date = date("Y-m-d H:i:s", strtotime("-" . rand(1, 7) . " days"));
                         echo "<tr>
-                                <td>$activity_type</td>
-                                <td>$activity</td>
-                                <td>$date</td>
-                              </tr>";
+                                <td data-label='Log Type'>$activity_type</td>
+                                <td data-label='Details'>$activity</td>
+                                <td data-label='Date'>$date</td>
+                            </tr>";
                     }
                     ?>
                 </tbody>
@@ -110,11 +122,13 @@
 
 <style>
 /* General Styling for Dashboard */
+button {
+    color: #FFF!important;
+}
 .dashboard-top {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin: 20px 0;
     width: 100%; /* Ensure the content spans full width */
     max-width: 100%; /* Prevent unnecessary constraining */
 }
@@ -246,6 +260,12 @@
     color: #FFF;
 }
 
+/* Total Tasks Custom Style */
+.total {
+    background-color: #f0f4f8;
+    border-left: 6px solid #34495e;
+}
+
 /* Mobile Responsive */
 @media screen and (max-width: 768px) {
     .stats-grid, .task-status-overview {
@@ -266,4 +286,45 @@
         width: 100%;
     }
 }
+
+/* Responsive Table → Card view on mobile */
+@media screen and (max-width: 768px) {
+    .activity-logs-table,
+    .activity-logs-table thead,
+    .activity-logs-table tbody,
+    .activity-logs-table th,
+    .activity-logs-table td,
+    .activity-logs-table tr {
+        display: block;
+        width: 100%;
+    }
+
+    .activity-logs-table thead {
+        display: none; /* hide table headers */
+    }
+
+    .activity-logs-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+        background: #fafafa;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    }
+
+    .activity-logs-table td {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 10px;
+        border: none;
+        font-size: 14px;
+    }
+
+    .activity-logs-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #333;
+    }
+}
+
 </style>

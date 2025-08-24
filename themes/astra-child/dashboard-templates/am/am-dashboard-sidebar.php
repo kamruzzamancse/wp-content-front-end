@@ -77,7 +77,7 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 
         <!-- Logout -->
         <li>
-            <a href="#" id="sup-logout-trigger">
+            <a href="#" id="sup-am-logout-trigger">
                 <span class="dashicons dashicons-migrate"></span>
                 <span>Logout</span>
             </a>
@@ -87,24 +87,24 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 
 
 <!-- Logout Confirmation Modal -->
-<div class="sup-modal" id="sup-logout-modal">
-    <div class="sup-modal-content">
-        <div class="sup-modal-header">
-            <h2 class="sup-modal-title">Confirm Logout</h2>
+<div class="sup-am-modal" id="sup-am-logout-modal">
+    <div class="sup-am-modal-content">
+        <div class="sup-am-modal-header">
+            <h2 class="sup-am-modal-title">Confirm Logout</h2>
         </div>
-        <div class="sup-modal-body">
-            <p class="sup-modal-text">Are you sure you want to logout?</p>
+        <div class="sup-am-modal-body">
+            <p class="sup-am-modal-text">Are you sure you want to logout?</p>
         </div>
-        <div class="sup-modal-footer">
-            <button type="button" class="sup-modal-button" id="sup-logout-cancel">No</button>
-            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="sup-modal-button sup-modal-button-primary" id="sup-logout-confirm">Logout</a>
+        <div class="sup-am-modal-footer">
+            <button type="button" class="sup-am-modal-button" id="sup-am-logout-cancel">No</button>
+            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="sup-am-modal-button sup-am-modal-button-primary" id="sup-am-logout-confirm">Logout</a>
         </div>
     </div>
 </div>
 
 <style>
 /* Modal Styles */
-.sup-modal {
+.sup-am-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -117,7 +117,7 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     align-items: center;
 }
 
-.sup-modal-content {
+.sup-am-modal-content {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -126,12 +126,12 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     overflow: hidden;
 }
 
-.sup-modal-header {
+.sup-am-modal-header {
     padding: 20px;
     border-bottom: 1px solid #eee;
 }
 
-.sup-modal-title {
+.sup-am-modal-title {
     font-size: 20px;
     font-weight: 600;
     margin: 0;
@@ -139,18 +139,18 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     text-align: center;
 }
 
-.sup-modal-body {
+.sup-am-modal-body {
     padding: 20px;
 }
 
-.sup-modal-text {
+.sup-am-modal-text {
     font-size: 16px;
     color: #555;
     margin: 0;
     text-align: center;
 }
 
-.sup-modal-footer {
+.sup-am-modal-footer {
     padding: 15px 20px;
     border-top: 1px solid #eee;
     display: flex;
@@ -158,7 +158,7 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     gap: 10px;
 }
 
-.sup-modal-button {
+.sup-am-modal-button {
     padding: 8px 16px;
     border-radius: 4px;
     font-size: 14px;
@@ -171,13 +171,13 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     text-decoration: none;
 }
 
-.sup-modal-button-primary {
+.sup-am-modal-button-primary {
     background-color: #e74c3c;
     color: white;
     border-color: #e74c3c;
 }
 
-.sup-modal-button-primary:hover {
+.sup-am-modal-button-primary:hover {
     background-color: #c0392b;
     border-color: #c0392b;
 }
@@ -186,9 +186,9 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 <script>
 jQuery(document).ready(function($) {
     // Modal elements
-    const logoutModal = $('#sup-logout-modal');
-    const logoutTrigger = $('#sup-logout-trigger');
-    const logoutCancel = $('#sup-logout-cancel');
+    const logoutModal = $('#sup-am-logout-modal');
+    const logoutTrigger = $('#sup-am-logout-trigger');
+    const logoutCancel = $('#sup-am-logout-cancel');
     
     // Show modal when logout is clicked
     logoutTrigger.on('click', function(e) {

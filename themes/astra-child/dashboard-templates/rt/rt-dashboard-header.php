@@ -1,10 +1,10 @@
 <?php
 /**
- * Dashboard Header Component
+ * Dashboard Header Component (Realtor)
  */
 $current_user = wp_get_current_user();
 $user_id = $current_user->ID;
-$dashboard_url = current_user_can('realtor') ? home_url('/rt/realtor-dashboard/') : home_url('/');
+$dashboard_url = in_array('realtor', (array) $current_user->roles) ? home_url('/rt/realtor-dashboard/') : home_url('/');
 $upload_dir = wp_upload_dir();
 $image_url = $upload_dir['baseurl'];
 
@@ -60,9 +60,7 @@ if (empty($company_name)) {
     </div>
 
     <?php
-        /**
-         * Modal Sidebar Navigation
-         */
+        // Modal Sidebar Navigation
         $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
     ?>
 
@@ -72,33 +70,24 @@ if (empty($company_name)) {
         <nav class="sidebar-nav">
             <ul>
                 <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
-                    <a href="?tab=dashboard">
-                        <span class="dashicons dashicons-admin-home"></span> Dashboard
-                    </a>
+                    <a href="?tab=dashboard"><span class="dashicons dashicons-admin-home"></span> Dashboard</a>
                 </li>
                 <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
-                    <a href="?tab=properties">
-                        <span class="dashicons dashicons-building"></span> Properties
-                    </a>
+                    <a href="?tab=properties"><span class="dashicons dashicons-building"></span> Properties</a>
                 </li>
                 <li class="<?php echo $current_tab === 'address-book' ? 'active' : ''; ?>">
-                    <a href="?tab=address-book">
-                        <span class="dashicons dashicons-book"></span> Address Book
-                    </a>
+                    <a href="?tab=address-book"><span class="dashicons dashicons-book"></span> Address Book</a>
                 </li>
                 <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
-                    <a href="?tab=messages">
-                        <span class="dashicons dashicons-email"></span> Message
-                    </a>
+                    <a href="?tab=messages"><span class="dashicons dashicons-email"></span> Messages</a>
                 </li>
                 <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
-                    <a href="?tab=settings">
-                        <span class="dashicons dashicons-admin-settings"></span> Setting
-                    </a>
+                    <a href="?tab=settings"><span class="dashicons dashicons-admin-settings"></span> Settings</a>
                 </li>
+                <!-- Logout Trigger -->
                 <li>
-                    <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>">
-                        <span class="dashicons dashicons-exit"></span> Logout
+                    <a href="#" id="rt-logout-trigger">
+                        <span class="dashicons dashicons-migrate"></span> Logout
                     </a>
                 </li>
             </ul>
@@ -107,5 +96,91 @@ if (empty($company_name)) {
 
     <!-- Overlay background -->
     <div class="modal-overlay" id="modal-overlay" tabindex="-1"></div>
-
 </header>
+
+<!-- Logout Confirmation Modal -->
+<div class="rt-modal" id="rt-logout-modal">
+    <div class="rt-modal-content">
+        <div class="rt-modal-header">
+            <h2 class="rt-modal-title">Confirm Logout</h2>
+        </div>
+        <div class="rt-modal-body">
+            <p class="rt-modal-text">Are you sure you want to logout?</p>
+        </div>
+        <div class="rt-modal-footer">
+            <button type="button" class="rt-modal-button" id="rt-logout-cancel">No</button>
+            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="rt-modal-button rt-modal-button-primary">Logout</a>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Logout Modal Styles */
+button {
+    color: #000!important;
+}
+.rt-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+.rt-modal-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 100%;
+}
+.rt-modal-header, .rt-modal-footer { padding: 20px; }
+.rt-modal-title { margin: 0; text-align: center; font-size: 18px; font-weight: 600; }
+.rt-modal-body { padding: 20px; text-align: center; }
+.rt-modal-button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    cursor: pointer;
+    text-decoration: none;
+}
+.rt-modal-button-primary {
+    background: #e74c3c;
+    color: #fff;
+    border-color: #e74c3c;
+}
+.rt-modal-button-primary:hover { background: #c0392b; }
+.rt-modal-footer { display: flex; justify-content: flex-end; gap: 10px; }
+</style>
+
+<script>
+jQuery(document).ready(function($) {
+    const logoutModal = $('#rt-logout-modal');
+    const logoutTrigger = $('#rt-logout-trigger');
+    const logoutCancel = $('#rt-logout-cancel');
+    
+    // Open modal
+    logoutTrigger.on('click', function(e) {
+        e.preventDefault();
+        logoutModal.css('display', 'flex');
+    });
+    
+    // Cancel button
+    logoutCancel.on('click', function() {
+        logoutModal.css('display', 'none');
+    });
+    
+    // Click outside to close
+    logoutModal.on('click', function(e) {
+        if (e.target === this) $(this).css('display', 'none');
+    });
+    
+    // Escape key to close
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') logoutModal.css('display', 'none');
+    });
+});
+</script>

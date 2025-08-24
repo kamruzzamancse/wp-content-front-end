@@ -338,6 +338,9 @@
     table:not(.client-details) .ab-action-icons {
         gap: 10px;
     }
+    tbody td {
+        max-width: none !important;
+    }
 }
 
 /* ---------------------- Table Styles ---------------------- */

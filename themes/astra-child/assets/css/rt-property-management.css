@@ -109,7 +109,6 @@
 
 @media (max-width: 768px) {
     .pt-toolbar-container {
-        width: 66% !important;
         flex-wrap: wrap;
         gap: 0;
     }
@@ -243,6 +242,9 @@
     .pt-property-item {
         width: calc(50% - 10px);
     }
+    .pt-document-card {
+        width: 100% !important;
+    }
 }
 
 /* Extra small mobile (1 column) */
@@ -271,7 +273,7 @@ h1 {
         display: grid;
     }
     .pt-document-card {
-        width: 370px !important;
+        width: 100% !important;
     }
 }
 

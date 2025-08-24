@@ -1,6 +1,6 @@
 <div class="assignment-dashboard">
     <div class="ad-header">
-        <h1>Assign Realtors to Clients and Clients to Realtors</h1>
+        <h1>Assign Realtors and Clients to Each Other</h1>
         <p>Manage relationships between realtors and their assigned clients</p>
     </div>
 
@@ -335,7 +335,6 @@
 
 <style>
 .assignment-dashboard {
-    padding: 20px;
     background-color: #f5f7f9;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

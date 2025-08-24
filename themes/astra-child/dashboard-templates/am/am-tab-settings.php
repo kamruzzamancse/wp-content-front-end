@@ -518,7 +518,6 @@
 
 <style>
 .settings-management {
-    padding: 20px;
     background-color: #f5f7f9;
     min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

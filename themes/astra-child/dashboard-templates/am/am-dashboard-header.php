@@ -1,6 +1,6 @@
 <?php
 /**
- * Dashboard Header Component
+ * Dashboard Header Component with Logout Confirmation Modal
  */
 $current_user = wp_get_current_user();
 $user_id = $current_user->ID;
@@ -14,8 +14,6 @@ $image_url = $upload_dir['baseurl'];
 
 // Use the WordPress site name for company name
 $company_name = get_bloginfo('name');
-
-// If company name is empty (shouldn't happen now), fall back to the role name
 if (empty($company_name)) {
     $role_names = [
         'realtor' => 'Realtor',
@@ -29,7 +27,6 @@ if (empty($company_name)) {
 
 <!-- Desktop Header -->
 <header class="dashboard-header desktop-header">
-    
     <div class="header-row-1">
         <a href="<?php echo esc_url($dashboard_url); ?>">
             <img src="<?php echo esc_url(content_url('/uploads/2025/08/mary-logo.png')); ?>" 
@@ -50,9 +47,7 @@ if (empty($company_name)) {
 
             <div class="user-details">
                 <span class="user-name"><?php echo esc_html($current_user->display_name); ?></span>
-                <span class="user-role-dashboard-header">
-                    <?php echo esc_html($company_name); ?>
-                </span>
+                <span class="user-role-dashboard-header"><?php echo esc_html($company_name); ?></span>
             </div>
         </div>
     </div>
@@ -64,12 +59,7 @@ if (empty($company_name)) {
         </div>
     </div>
 
-    <?php
-        /**
-         * Modal Sidebar Navigation
-         */
-        $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
-    ?>
+    <?php $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard'; ?>
 
     <!-- Modal sidebar -->
     <div class="modal-sidebar" id="modal-sidebar" aria-hidden="true" role="dialog" aria-label="Sidebar menu">
@@ -77,33 +67,33 @@ if (empty($company_name)) {
         <nav class="sidebar-nav">
             <ul>
                 <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
-                    <a href="?tab=dashboard">
-                        <span class="dashicons dashicons-admin-home"></span> Dashboard
-                    </a>
+                    <a href="?tab=dashboard"><span class="dashicons dashicons-admin-home"></span> Dashboard Overview</a>
                 </li>
                 <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
-                    <a href="?tab=properties">
-                        <span class="dashicons dashicons-building"></span> Properties
-                    </a>
+                    <a href="?tab=properties"><span class="dashicons dashicons-building"></span> Property Management</a>
                 </li>
-                <li class="<?php echo $current_tab === 'address-book' ? 'active' : ''; ?>">
-                    <a href="?tab=address-book">
-                        <span class="dashicons dashicons-book"></span> Address Book
-                    </a>
+                <li class="<?php echo $current_tab === 'realtors' ? 'active' : ''; ?>">
+                    <a href="?tab=realtors"><span class="dashicons dashicons-groups"></span> Realtors</a>
                 </li>
-                <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
-                    <a href="?tab=messages">
-                        <span class="dashicons dashicons-email"></span> Message
-                    </a>
+                <li class="<?php echo $current_tab === 'clients' ? 'active' : ''; ?>">
+                    <a href="?tab=clients"><span class="dashicons dashicons-groups"></span> Clients</a>
+                </li>
+                <li class="<?php echo $current_tab === 'task-status' ? 'active' : ''; ?>">
+                    <a href="?tab=task-status"><span class="dashicons dashicons-clock"></span> Task Status Overview</a>
+                </li>
+                <li class="<?php echo $current_tab === 'user-management' ? 'active' : ''; ?>">
+                    <a href="?tab=user-management"><span class="dashicons dashicons-admin-users"></span> User Management</a>
+                </li>
+                <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
+                    <a href="?tab=documents"><span class="dashicons dashicons-media-document"></span> Documents</a>
                 </li>
                 <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
-                    <a href="?tab=settings">
-                        <span class="dashicons dashicons-admin-settings"></span> Setting
-                    </a>
+                    <a href="?tab=settings"><span class="dashicons dashicons-admin-settings"></span> Settings</a>
                 </li>
+                <!-- Logout with modal -->
                 <li>
-                    <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>">
-                        <span class="dashicons dashicons-exit"></span> Logout
+                    <a href="#" id="am-logout-trigger">
+                        <span class="dashicons dashicons-migrate"></span> Logout
                     </a>
                 </li>
             </ul>
@@ -112,5 +102,84 @@ if (empty($company_name)) {
 
     <!-- Overlay background -->
     <div class="modal-overlay" id="modal-overlay" tabindex="-1"></div>
-
 </header>
+
+<!-- Logout Confirmation Modal -->
+<div class="am-modal" id="am-logout-modal">
+    <div class="am-modal-content">
+        <div class="am-modal-header">
+            <h2 class="am-modal-title">Confirm Logout</h2>
+        </div>
+        <div class="am-modal-body">
+            <p class="am-modal-text">Are you sure you want to logout?</p>
+        </div>
+        <div class="am-modal-footer">
+            <button type="button" class="am-modal-button" id="am-logout-cancel">No</button>
+            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="am-modal-button am-modal-button-primary">Logout</a>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Modal Styles */
+button {
+    color: #000!important;
+}
+.am-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+.am-modal-content {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 100%;
+}
+.am-modal-header, .am-modal-footer { padding: 20px; }
+.am-modal-title { margin: 0; text-align: center; font-size: 18px; font-weight: 600; }
+.am-modal-body { padding: 20px; text-align: center; }
+.am-modal-button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background: #f8f9fa;
+    cursor: pointer;
+    text-decoration: none;
+}
+.am-modal-button-primary {
+    background: #e74c3c;
+    color: #fff;
+    border-color: #e74c3c;
+}
+.am-modal-button-primary:hover { background: #c0392b; }
+.am-modal-footer { display: flex; justify-content: flex-end; gap: 10px; }
+</style>
+
+<script>
+jQuery(document).ready(function($) {
+    const logoutModal = $('#am-logout-modal');
+    const logoutTrigger = $('#am-logout-trigger');
+    const logoutCancel = $('#am-logout-cancel');
+    
+    logoutTrigger.on('click', function(e) {
+        e.preventDefault();
+        logoutModal.css('display', 'flex');
+    });
+    logoutCancel.on('click', function() {
+        logoutModal.css('display', 'none');
+    });
+    logoutModal.on('click', function(e) {
+        if (e.target === this) $(this).css('display', 'none');
+    });
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') logoutModal.css('display', 'none');
+    });
+});
+</script>

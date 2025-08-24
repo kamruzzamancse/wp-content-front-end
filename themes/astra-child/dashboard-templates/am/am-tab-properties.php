@@ -315,43 +315,79 @@
 <?php include locate_template('dashboard-templates/am/am-property-create-modal.php'); ?>
 
 <style>
+
+.pt-export-btn:hover {
+    color: #FFF!important;
+}
+
+.pt-add-task-btn:hover {
+    color: #FFF!important;
+}
+
+.pt-create-property-btn {
+    color: #FFF!important;
+}
+
 .pt-property-actions {
     margin-top: 15px;
     text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    justify-content: center;
+    gap: 10px; /* space between buttons */
 }
 
 .pt-property-actions .pt-btn {
     display: inline-block;
-    margin: 0 5px;
+    padding: 10px 20px;
     font-size: 14px;
     font-weight: 500;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.3s ease;
+    background-color: transparent; /* default transparent */
 }
 
+/* Approve Button */
 .approve-btn {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+.approve-btn:hover {
     background-color: #4CAF50;
     color: white;
 }
 
+/* Edit Button */
 .edit-btn {
+    border-color: #2196F3;
+    color: #2196F3;
+}
+.edit-btn:hover {
     background-color: #2196F3;
     color: white;
 }
 
+/* Delete Button */
 .delete-btn {
+    border-color: #f44336;
+    color: #f44336;
+}
+.delete-btn:hover {
     background-color: #f44336;
     color: white;
 }
 
-.pt-property-actions .pt-btn:hover {
-    opacity: 0.9;
+/* Responsive: stack buttons on very small screens */
+@media screen and (max-width: 480px) {
+    .pt-property-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .pt-property-actions .pt-btn {
+        width: 100%;
+        max-width: 200px;
+    }
 }
-
-button {
-    padding: 10px 20px 10px 20px!important;
-}
-
 </style>
