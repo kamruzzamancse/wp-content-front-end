@@ -44,12 +44,12 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
         </li>
 
         <!-- Task Management -->
-        <li class="<?php echo $current_tab === 'task-management' ? 'active' : ''; ?>">
+        <!-- <li class="<?php //echo $current_tab === 'task-management' ? 'active' : ''; ?>">
             <a href="?tab=task-management">
                 <span class="dashicons dashicons-update"></span>
                 <span>Task Management</span>
             </a>
-        </li>
+        </li> -->
 
         <!-- User Management -->
         <li class="<?php echo $current_tab === 'user-management' ? 'active' : ''; ?>">

@@ -163,20 +163,6 @@
     outline: none;
 }
 
-.edit-submit-btn {
-    background-color: #28a745;
-    border: none;
-    color: white;
-    padding: 14px 32px;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.25s ease;
-}
-.edit-submit-btn:hover {
-    background-color: #1e7e34;
-}
-
 @media (max-width: 600px) {
     .edit-content {
         flex-direction: column;

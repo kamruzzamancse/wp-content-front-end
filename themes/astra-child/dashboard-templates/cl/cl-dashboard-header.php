@@ -18,10 +18,9 @@ $company_name = get_user_meta($user_id, 'company_name', true);
 // If company name is empty, fallback to role name
 if (empty($company_name)) {
     $role_names = [
-        'client'     => 'Client',
-        'subscriber' => 'Subscriber',
-        'realtor'    => 'Realtor',
-        'agent'      => 'Agent'
+        'realtor' => 'Realtor',
+        'client' => 'Client',
+        'administrator' => 'Admin'
     ];
     $user_roles = $current_user->roles;
     $company_name = $role_names[$user_roles[0]] ?? ucfirst($user_roles[0]);

@@ -40,6 +40,9 @@ if (!function_exists('load_admin_dashboard_data')) {
             case 'notifications':
             case 'realtors':
             case 'clients':
+            case 'task-status':
+            case 'user-management':
+            case 'documents':
             case 'am-property-details':
             case 'am-settings-pi':
             case 'am-settings-cp':
@@ -95,6 +98,18 @@ get_header();
                     break;
                 case 'clients':
                     include locate_template('dashboard-templates/am/am-tab-clients.php');
+                    break;
+                case 'task-status':
+                    include locate_template('dashboard-templates/am/am-tab-task-status.php');
+                    break;
+                case 'user-management':
+                    include locate_template('dashboard-templates/am/am-tab-user-management.php');
+                    break;
+                case 'documents':
+                    include locate_template('dashboard-templates/am/am-tab-documents.php');
+                    break;
+                case 'settings':
+                    include locate_template('dashboard-templates/am/am-tab-settings.php');
                     break;
                 default:
                     wp_redirect(add_query_arg('tab', 'dashboard'));

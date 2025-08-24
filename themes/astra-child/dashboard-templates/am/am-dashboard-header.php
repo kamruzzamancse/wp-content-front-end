@@ -6,7 +6,7 @@ $current_user = wp_get_current_user();
 $user_id = $current_user->ID;
 
 // Dashboard URL based on role
-$dashboard_url = current_user_can('realtor') ? home_url('/am/admin-dashboard/') : home_url('/');
+$dashboard_url = current_user_can('administrator') ? home_url('/am/admin-dashboard/') : home_url('/');
 
 // Upload directory for profile picture fallback
 $upload_dir = wp_upload_dir();
@@ -20,7 +20,7 @@ if (empty($company_name)) {
     $role_names = [
         'realtor' => 'Realtor',
         'client' => 'Client',
-        'Administrator' => 'Admin'
+        'administrator' => 'Admin'
     ];
     $user_roles = $current_user->roles;
     $company_name = $role_names[$user_roles[0]] ?? ucfirst($user_roles[0]);

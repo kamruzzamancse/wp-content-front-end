@@ -1,5 +1,5 @@
-<!-- Realtor Edit Modal -->
-<div id="amClientEditModal" class="modal-overlay-edit" style="display:none; align-items:center; justify-content:center; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999;">
+<!-- Client Edit Modal -->
+<div id="amClientEditModal" class="modal-overlay-edit">
     <div class="modal-content-edit">
 
         <div class="realtor-edit-container">
@@ -45,12 +45,11 @@
                             <label class="edit-detail-label" for="edit_realtor_company_name">Company Name:</label>
                             <input class="edit-detail-value" type="text" id="edit_realtor_company_name" name="realtor_company_name" placeholder="Enter company name">
                         </div>
-
                     </div>
                 </div>
 
                 <div style="text-align: right; margin-top: 20px;">
-                    <button type="submit" class="edit-submit-btn">Update Realtor</button>
+                    <button type="submit" class="edit-submit-btn">Update Client</button>
                 </div>
             </form>
         </div>
@@ -158,20 +157,6 @@
     outline: none;
 }
 
-.edit-submit-btn {
-    background-color: #28a745;
-    border: none;
-    color: white;
-    padding: 14px 32px;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.25s ease;
-}
-.edit-submit-btn:hover {
-    background-color: #1e7e34;
-}
-
 @media (max-width: 600px) {
     .edit-content {
         flex-direction: column;
@@ -181,4 +166,3 @@
     }
 }
 </style>
-
