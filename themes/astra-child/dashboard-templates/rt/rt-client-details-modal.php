@@ -2,14 +2,29 @@
 <?php
     $upload_dir = wp_upload_dir();
     $image_url = $upload_dir['baseurl'];
+    $client_id      = 123; // Example ID, replace dynamically
+    // Use the WordPress site name for company name
+    $company_name = get_bloginfo('name');
+    if (empty($company_name)) {
+        $role_names = [
+            'realtor' => 'Realtor',
+            'client' => 'Client',
+            'administrator' => 'Admin'
+        ];
+        $user_roles = $current_user->roles;
+        $company_name = $role_names[$user_roles[0]] ?? ucfirst($user_roles[0]);
+    }
 ?>
 <div class="modal-overlay-address-book" id="clientDetailsModal">
     <div class="modal-container">
-        <div class="modal-header">
+        <div class="modal-header-realtor">
             <h1 class="header-title" style="margin-bottom: 20px">Client Details</h1>
             <div class="client-profile-container">
                 <img class="client-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Client Photo">
-                <span class="client-info"><span class="client-name">Afsana Hamid Mim</span><br>Client</span>
+                <span class="client-info">
+                    <span class="client-name"><?php echo esc_html($current_user->display_name); ?></span><br>
+                    <?php echo esc_html($company_name); ?>
+                </span>
             </div>
         </div>
         <div class="modal-body">

@@ -98,7 +98,7 @@
 
 .sup-submit-button {
     background-color: #3498db;
-    color: white;
+    color: #FFF!important;
     border: none;
     padding: 12px 25px;
     border-radius: 4px;
@@ -331,9 +331,13 @@
     color: #333;
 }
 
+.sup-modal-button:hover {
+    color: #FFF!important;
+}
+
 .sup-modal-button-primary {
     background-color: #3498db;
-    color: white;
+    color: #FFF!important;
     border-color: #3498db;
     margin-left: 10px;
 }

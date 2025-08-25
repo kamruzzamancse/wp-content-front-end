@@ -8,7 +8,7 @@
     <div class="ad-stats-grid">
         <div class="ad-stat-card">
             <div class="ad-stat-icon">
-                <i class="fas fa-user-tie"></i>
+                <span class="dashicons dashicons-businessperson"></span>
             </div>
             <div class="ad-stat-content">
                 <div class="ad-stat-value">24</div>
@@ -19,7 +19,7 @@
 
         <div class="ad-stat-card">
             <div class="ad-stat-icon">
-                <i class="fas fa-users"></i>
+                <span class="dashicons dashicons-groups"></span>
             </div>
             <div class="ad-stat-content">
                 <div class="ad-stat-value">142</div>
@@ -30,7 +30,7 @@
 
         <div class="ad-stat-card">
             <div class="ad-stat-icon">
-                <i class="fas fa-link"></i>
+                <span class="dashicons dashicons-admin-links"></span>
             </div>
             <div class="ad-stat-content">
                 <div class="ad-stat-value">5.9</div>
@@ -41,7 +41,7 @@
 
         <div class="ad-stat-card">
             <div class="ad-stat-icon">
-                <i class="fas fa-user-plus"></i>
+                <span class="dashicons dashicons-plus-alt"></span>
             </div>
             <div class="ad-stat-content">
                 <div class="ad-stat-value">18</div>
@@ -60,7 +60,7 @@
                     <h2>Create New Assignment</h2>
                     <div class="ad-card-actions">
                         <button class="ad-btn ad-btn-icon">
-                            <i class="fas fa-history"></i>
+                            <span class="dashicons dashicons-clock"></span>
                         </button>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                                         <option value="realtor4">Sarah Williams (9 clients)</option>
                                         <option value="realtor5">Robert Davis (4 clients)</option>
                                     </select>
-                                    <i class="fas fa-chevron-down ad-select-arrow"></i>
+                                    <span class="dashicons dashicons-arrow-down-alt2 ad-select-arrow"></span>
                                 </div>
                             </div>
 
@@ -109,7 +109,7 @@
                                         <option value="client4">James Wilson (Emily Johnson)</option>
                                         <option value="client5">Maria Garcia (Unassigned)</option>
                                     </select>
-                                    <i class="fas fa-chevron-down ad-select-arrow"></i>
+                                    <span class="dashicons dashicons-arrow-down-alt2 ad-select-arrow"></span>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                         <div class="ad-form-actions">
                             <button class="ad-btn ad-btn-secondary">Clear</button>
                             <button class="ad-btn ad-btn-primary">
-                                <i class="fas fa-link ad-btn-icon"></i>
+                                <span class="dashicons dashicons-admin-links ad-btn-icon"></span>
                                 Create Assignment
                             </button>
                         </div>
@@ -152,7 +152,7 @@
                             </div>
                             <div class="ad-activity-actions">
                                 <button class="ad-btn ad-btn-icon">
-                                    <i class="fas fa-eye"></i>
+                                    <span class="dashicons dashicons-visibility"></span>
                                 </button>
                             </div>
                         </div>
@@ -169,7 +169,7 @@
                             </div>
                             <div class="ad-activity-actions">
                                 <button class="ad-btn ad-btn-icon">
-                                    <i class="fas fa-eye"></i>
+                                    <span class="dashicons dashicons-visibility"></span>
                                 </button>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                             </div>
                             <div class="ad-activity-actions">
                                 <button class="ad-btn ad-btn-icon">
-                                    <i class="fas fa-eye"></i>
+                                    <span class="dashicons dashicons-visibility"></span>
                                 </button>
                             </div>
                         </div>
@@ -203,10 +203,11 @@
                             </div>
                             <div class="ad-activity-actions">
                                 <button class="ad-btn ad-btn-icon">
-                                    <i class="fas fa-eye"></i>
+                                    <span class="dashicons dashicons-visibility"></span>
                                 </button>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

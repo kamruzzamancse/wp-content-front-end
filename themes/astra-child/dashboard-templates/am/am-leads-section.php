@@ -38,7 +38,7 @@
     <div class="lead-popup">
         <button class="close-popup">&times;</button>
         <div class="popup-header">
-            <h1 class="popup-heading">Leads</h1>
+            <h1 class="popup-heading">Leads</h1><br />
             <h2 class="popup-client-name">John Smith</h2>
         </div>
         
@@ -68,42 +68,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="lead-add-modal" id="leadAddModal">
-  <div class="lead-add-content">
-
-    <!-- header row -->
-    <div class="lead-add-header">
-      <h1 class="header-title">Add New Lead</h1>
-      <span class="close-lead-modal">&times;</span>
-    </div>
-
-    <label for="clientSelect">Select Client:</label>
-    <select id="clientSelect">
-        <option value="">-- Choose from Address Book --</option>
-        <option>John D. Smith</option>
-        <option>Emily Carter</option>
-        <option>Michael Johnson</option>
-        <option>Sophia Williams</option>
-    </select><br />
-
-    <label for="statusSelect">Status:</label>
-    <select id="statusSelect">
-        <option value="hot">Hot</option>
-        <option value="warm">Warm</option>
-        <option value="cold">Cold</option>
-    </select><br />
-
-    <label for="notesInput">Notes:</label>
-    <textarea id="notesInput" placeholder="Write notes..." rows="4"></textarea><br />
-
-    <!-- footer row -->
-    <div class="lead-add-footer">
-      <button id="saveLeadBtn">Save Lead</button>
-    </div>
-
-  </div>
 </div>
 
 <style>
@@ -171,54 +135,8 @@
   border-color: #2980b9;
   box-shadow: 0 0 4px rgba(41, 128, 185, 0.5);
 }
+.
 </style>
-
-<script>
-  /* js for modal control new row insert*/
-  const modal = document.getElementById('leadAddModal');
-  const openBtn = document.getElementById('addLeadBtn');
-  const closeBtn = document.querySelector('.close-lead-modal');
-  const saveBtn = document.getElementById('saveLeadBtn');
-  const leadsTable = document.querySelector('.leads-table tbody');
-
-  openBtn.addEventListener('click', () => modal.style.display = 'flex');
-  closeBtn.addEventListener('click', () => modal.style.display = 'none');
-  window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
-
-  saveBtn.addEventListener('click', () => {
-    const client = document.getElementById('clientSelect').value;
-    const status = document.getElementById('statusSelect').value;
-    const notes = document.getElementById('notesInput').value;
-
-    if (!client) return alert("Please select a client!");
-
-     // Custom date formatting
-    const now = new Date();
-    const day = now.getDate();
-    const month = now.toLocaleString('default', { month: 'long' }); // e.g., "July"
-    const year = now.getFullYear().toString().slice(-2); // last 2 digits of year
-    let hours = now.getHours();
-    const ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12 || 12; // convert to 12-hour format
-
-    const formattedDate = `${day} ${month} ${year}, ${hours}${ampm}`;
-
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td data-label="Client Name">${client}</td>
-      <td data-label="Last Touch">${formattedDate}</td>
-      <td data-label="Status">
-          <span class="status-dot status-${status}"></span>
-          ${status.charAt(0).toUpperCase() + status.slice(1)}
-      </td>
-      <td data-label="Notes">${notes}</td>
-    `;
-
-    leadsTable.appendChild(row);
-    modal.style.display = 'none';
-  });
-</script>
-
 
 <style>
 /* General Styling */
@@ -272,6 +190,7 @@
     font-size: 14px;
     white-space: nowrap;
     min-width: 100px;
+    color: #FFF!important;
 }
 .add-lead-btn:hover {
   background: #2980b9;
@@ -281,7 +200,9 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.popup-client-name {
+  font-size: 20px!important;
+}
 
 /* Mobile Responsive (Card Style) */
 @media screen and (max-width: 768px) {
@@ -327,7 +248,7 @@
     text-align: left;
   }
 
-  /* ✅ FIX: Keep status dot + text together */
+  /* FIX: Keep status dot + text together */
   .leads-table td[data-label="Status"] {
     justify-content: flex-start;
     gap: 10px;
@@ -344,3 +265,49 @@
   }
 }
 </style>
+
+<script>
+  /* js for modal control new row insert*/
+  const modal = document.getElementById('leadAddModal');
+  const openBtn = document.getElementById('addLeadBtn');
+  const closeBtn = document.querySelector('.close-lead-modal');
+  const saveBtn = document.getElementById('saveLeadBtn');
+  const leadsTable = document.querySelector('.leads-table tbody');
+
+  openBtn.addEventListener('click', () => modal.style.display = 'flex');
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+
+  saveBtn.addEventListener('click', () => {
+    const client = document.getElementById('clientSelect').value;
+    const status = document.getElementById('statusSelect').value;
+    const notes = document.getElementById('notesInput').value;
+
+    if (!client) return alert("Please select a client!");
+
+     // Custom date formatting
+    const now = new Date();
+    const day = now.getDate();
+    const month = now.toLocaleString('default', { month: 'long' }); // e.g., "July"
+    const year = now.getFullYear().toString().slice(-2); // last 2 digits of year
+    let hours = now.getHours();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12 || 12; // convert to 12-hour format
+
+    const formattedDate = `${day} ${month} ${year}, ${hours}${ampm}`;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td data-label="Client Name">${client}</td>
+      <td data-label="Last Touch">${formattedDate}</td>
+      <td data-label="Status">
+          <span class="status-dot status-${status}"></span>
+          ${status.charAt(0).toUpperCase() + status.slice(1)}
+      </td>
+      <td data-label="Notes">${notes}</td>
+    `;
+
+    leadsTable.appendChild(row);
+    modal.style.display = 'none';
+  });
+</script>

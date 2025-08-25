@@ -102,9 +102,29 @@
     color: #333;
 }
 
+.ab-btn-export {
+    color: #FFF!important;
+}
+
+.ab-btn-import:hover {
+    color: #FFF!important;
+}
+
+.pt-export-btn:hover {
+    color: #FFF!important;
+}
+
+.pt-add-task-btn:hover {
+    color: #FFF!important;
+}
+
+.pt-create-property-btn {
+    color: #FFF!important;
+}
+
 .pt-create-property-btn {
     background-color: #1a73e8;
-    color: white;
+    color: #FFF!important;
 }
 
 @media (max-width: 768px) {
@@ -575,9 +595,17 @@ h1 {
     color: #d32f2f;
 }
 
+.pd-btn-delete:hover {
+    color: #FFF!important;
+}
+
 .pd-btn-edit {
     background-color: #e3f2fd;
     color: #1976d2;
+}
+
+.pd-btn-edit:hover {
+    color: #FFF!important;
 }
 
 /* styles.css */
@@ -716,5 +744,5 @@ textarea {
 
 .save-btn {
     background: #2f64e2;
-    color: #fff;
+    color: #fff!important;
 }

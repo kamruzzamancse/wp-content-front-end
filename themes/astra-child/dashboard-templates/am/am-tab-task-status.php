@@ -2,21 +2,36 @@
     <!-- Stats Cards -->
     <div class="tm-stats-cards">
         <div class="tm-stat-card">
+            <div class="tm-stat-icon">
+                <span class="dashicons dashicons-clipboard"></span>
+            </div>
             <h3>TOTAL TASKS</h3>
             <div class="tm-number">42</div>
             <div class="tm-indicator tm-up">+5% from last week</div>
         </div>
+
         <div class="tm-stat-card">
+            <div class="tm-stat-icon">
+                <span class="dashicons dashicons-clock"></span>
+            </div>
             <h3>PENDING TASKS</h3>
             <div class="tm-number">18</div>
             <div class="tm-indicator tm-up">+2% from last week</div>
         </div>
+
         <div class="tm-stat-card">
+            <div class="tm-stat-icon">
+                <span class="dashicons dashicons-update"></span>
+            </div>
             <h3>IN PROGRESS</h3>
             <div class="tm-number">12</div>
             <div class="tm-indicator tm-down">-3% from last week</div>
         </div>
+
         <div class="tm-stat-card">
+            <div class="tm-stat-icon">
+                <span class="dashicons dashicons-yes"></span>
+            </div>
             <h3>COMPLETED</h3>
             <div class="tm-number">12</div>
             <div class="tm-indicator tm-up">+8% from last week</div>

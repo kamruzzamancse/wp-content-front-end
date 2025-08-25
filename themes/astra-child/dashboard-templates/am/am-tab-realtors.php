@@ -9,9 +9,15 @@
                 <input type="text" class="pt-search-input" placeholder="Search: Realtor Name">
             </div>
             <div class="ab-action-buttons">
-                <button class="ab-btn ab-btn-import">Import</button>
-                <button class="ab-btn ab-btn-export">Export</button>
-                <button class="ab-btn ab-btn-create ab-openCreateRealtor">+ Add Realtor</button>
+                <button class="ab-btn ab-btn-import">
+                    <span class="dashicons dashicons-upload"></span> Import
+                </button>
+                <button class="ab-btn ab-btn-export">
+                    <span class="dashicons dashicons-download"></span> Export
+                </button>
+                <button class="ab-btn ab-btn-create ab-openCreateRealtor">
+                    <span class="dashicons dashicons-plus-alt"></span> Add Clients
+                </button>
             </div>
         </div>
     </div>

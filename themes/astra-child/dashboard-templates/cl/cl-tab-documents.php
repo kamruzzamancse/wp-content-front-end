@@ -20,17 +20,17 @@
         <tbody>
             <!-- Row 1 -->
             <tr>
-                <td>01</td>
-                <td>
+                <td data-label="#SL">01</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=1" alt="User" class="cld-avatar">
                         <span>Afsana Hamid Mim</span>
                     </div>
                 </td>
-                <td>Inspection Report</td>
-                <td><span class="cld-status cld-pending"></span> Pending</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
-                <td>
+                <td data-label="Task">Inspection Report</td>
+                <td data-label="Status"><span class="cld-status cld-pending"></span> Pending</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -38,17 +38,17 @@
             </tr>
             <!-- Row 2 -->
             <tr>
-                <td>02</td>
-                <td>
+                <td data-label="#SL">02</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=2" alt="User" class="cld-avatar">
                         <span>John Doe</span>
                     </div>
                 </td>
-                <td>Payment Verification</td>
-                <td><span class="cld-status cld-complete"></span> Complete</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
-                <td>
+                <td data-label="Task">Payment Verification</td>
+                <td data-label="Status"><span class="cld-status cld-complete"></span> Complete</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -56,17 +56,17 @@
             </tr>
             <!-- Row 3 -->
             <tr>
-                <td>03</td>
-                <td>
+                <td data-label="#SL">03</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=3" alt="User" class="cld-avatar">
                         <span>Sophia Rahman</span>
                     </div>
                 </td>
-                <td>Property Visit</td>
-                <td><span class="cld-status cld-incomplete"></span> Incomplete</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Property_Images.zip</span></td>
-                <td>
+                <td data-label="Task">Property Visit</td>
+                <td data-label="Status"><span class="cld-status cld-incomplete"></span> Incomplete</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Property_Images.zip</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -74,17 +74,17 @@
             </tr>
             <!-- Row 4 -->
             <tr>
-                <td>04</td>
-                <td>
+                <td data-label="#SL">04</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=4" alt="User" class="cld-avatar">
                         <span>Michael Smith</span>
                     </div>
                 </td>
-                <td>Document Review</td>
-                <td><span class="cld-status cld-complete"></span> Complete</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Final_Document.pdf</span></td>
-                <td>
+                <td data-label="Task">Document Review</td>
+                <td data-label="Status"><span class="cld-status cld-complete"></span> Complete</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Final_Document.pdf</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -92,17 +92,17 @@
             </tr>
             <!-- Row 5 -->
             <tr>
-                <td>05</td>
-                <td>
+                <td data-label="#SL">05</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=5" alt="User" class="cld-avatar">
                         <span>Liam Johnson</span>
                     </div>
                 </td>
-                <td>Inspection Report</td>
-                <td><span class="cld-status cld-pending"></span> Pending</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
-                <td>
+                <td data-label="Task">Inspection Report</td>
+                <td data-label="Status"><span class="cld-status cld-pending"></span> Pending</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -110,17 +110,17 @@
             </tr>
             <!-- Row 6 -->
             <tr>
-                <td>06</td>
-                <td>
+                <td data-label="#SL">06</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=6" alt="User" class="cld-avatar">
                         <span>Emma Wilson</span>
                     </div>
                 </td>
-                <td>Final Handover</td>
-                <td><span class="cld-status cld-incomplete"></span> Incomplete</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Handover_Form.pdf</span></td>
-                <td>
+                <td data-label="Task">Final Handover</td>
+                <td data-label="Status"><span class="cld-status cld-incomplete"></span> Incomplete</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Handover_Form.pdf</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -128,17 +128,17 @@
             </tr>
             <!-- Row 7 -->
             <tr>
-                <td>07</td>
-                <td>
+                <td data-label="#SL">07</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=7" alt="User" class="cld-avatar">
                         <span>Olivia Brown</span>
                     </div>
                 </td>
-                <td>Lease Agreement</td>
-                <td><span class="cld-status cld-pending"></span> Pending</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Docs.pdf</span></td>
-                <td>
+                <td data-label="Task">Lease Agreement</td>
+                <td data-label="Status"><span class="cld-status cld-pending"></span> Pending</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Docs.pdf</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -146,17 +146,17 @@
             </tr>
             <!-- Row 8 -->
             <tr>
-                <td>08</td>
-                <td>
+                <td data-label="#SL">08</td>
+                <td data-label="Property Name">
                     <div class="cld-user-info">
                         <img src="https://i.pravatar.cc/40?img=8" alt="User" class="cld-avatar">
                         <span>Noah Davis</span>
                     </div>
                 </td>
-                <td>Payment Verification</td>
-                <td><span class="cld-status cld-complete"></span> Complete</td>
-                <td><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
-                <td>
+                <td data-label="Task">Payment Verification</td>
+                <td data-label="Status"><span class="cld-status cld-complete"></span> Complete</td>
+                <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
+                <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
                         <span class="dashicons dashicons-visibility"></span>
                     </a>
@@ -201,6 +201,10 @@
     align-items: center;
     gap: 6px;
 }
+.cld-upload-btn:hover {
+    color: #FFF!important;
+    background: #0073e6;
+}
 
 /* Table */
 .cld-task-table {
@@ -208,7 +212,6 @@
     border-spacing: 0;
     width: 100%;
 }
-
 .cld-task-table thead th {
     background: #3273c4;
     color: #fff;
@@ -216,7 +219,6 @@
     text-align: left;
     font-weight: 500;
 }
-
 .cld-task-table tbody td {
     padding: 12px;
     vertical-align: middle;
@@ -229,7 +231,6 @@
     align-items: center;
     gap: 10px;
 }
-
 .cld-avatar {
     width: 35px;
     height: 35px;
@@ -272,43 +273,93 @@
     width: 80px;
     text-align: center;
 }
+
+/* ---------- Mobile Card View ---------- */
+@media (max-width: 768px) {
+  .cld-task-table,
+  .cld-task-table thead,
+  .cld-task-table tbody,
+  .cld-task-table th,
+  .cld-task-table td,
+  .cld-task-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .cld-task-table thead {
+    display: none;
+  }
+
+  .cld-task-table tr {
+    background: #fff;
+    margin-bottom: 15px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .cld-task-table td {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 0;
+    border: none;
+    position: relative;
+    text-align: left;
+  }
+
+  .cld-task-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #333;
+    min-width: 120px;
+    flex-shrink: 0;
+    margin-right: 8px;
+  }
+
+  .cld-task-table th:first-child,
+  .cld-task-table td:first-child {
+    text-align: left;
+   }
+}
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // open modal buttons
-        const modalTriggers = document.querySelectorAll("[data-modal]");
-        modalTriggers.forEach(trigger => {
-            trigger.addEventListener("click", function () {
-                const target = document.getElementById(this.getAttribute("data-modal"));
-                if (target) target.style.display = "flex";
-            });
-        });
-
-        // close buttons (x button)
-        const closeButtons = document.querySelectorAll(".clup-close-btn");
-        closeButtons.forEach(btn => {
-            btn.addEventListener("click", function () {
-                this.closest(".clup-modal-overlay").style.display = "none";
-            });
-        });
-
-        // cancel buttons
-        const cancelButtons = document.querySelectorAll(".clup-cancel");
-        cancelButtons.forEach(btn => {
-            btn.addEventListener("click", function () {
-                this.closest(".clup-modal-overlay").style.display = "none";
-            });
-        });
-
-        // click outside to close
-        const modals = document.querySelectorAll(".clup-modal-overlay");
-        modals.forEach(modal => {
-            modal.addEventListener("click", function (e) {
-                if (e.target === modal) modal.style.display = "none";
-            });
+document.addEventListener("DOMContentLoaded", function () {
+    // open modal buttons
+    const modalTriggers = document.querySelectorAll("[data-modal]");
+    modalTriggers.forEach(trigger => {
+        trigger.addEventListener("click", function () {
+            const target = document.getElementById(this.getAttribute("data-modal"));
+            if (target) target.style.display = "flex";
         });
     });
+
+    // close buttons (x button)
+    const closeButtons = document.querySelectorAll(".clup-close-btn");
+    closeButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+            this.closest(".clup-modal-overlay").style.display = "none";
+        });
+    });
+
+    // cancel buttons
+    const cancelButtons = document.querySelectorAll(".clup-cancel");
+    cancelButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+            this.closest(".clup-modal-overlay").style.display = "none";
+        });
+    });
+
+    // click outside to close
+    const modals = document.querySelectorAll(".clup-modal-overlay");
+    modals.forEach(modal => {
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) modal.style.display = "none";
+        });
+    });
+});
 </script>
 
 <script>
@@ -318,26 +369,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     browseButtons.forEach(btn => {
         btn.addEventListener("click", function () {
-            // Find the closest modal
             const modal = btn.closest(".clup-modal-overlay");
             if (!modal) return;
-
-            // Find the hidden file input inside this modal
             const fileInput = modal.querySelector(".clup-file-input");
             if (fileInput) fileInput.click();
         });
     });
 
-    // Optional: handle file selection
     const fileInputs = document.querySelectorAll(".clup-file-input");
     fileInputs.forEach(input => {
         input.addEventListener("change", function () {
             if (input.files.length > 0) {
                 const fileName = input.files[0].name;
-                alert("Selected file: " + fileName); // Or update UI inside modal
+                alert("Selected file: " + fileName);
             }
         });
     });
 });
 </script>
-

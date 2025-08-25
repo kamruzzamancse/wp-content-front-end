@@ -49,7 +49,6 @@
     font-weight: bold;
     margin-bottom: 25px;
     color: #333;
-    text-align: center;
 }
 
 .ss-contact-form {
@@ -99,7 +98,7 @@
 
 .ss-submit-button {
     background-color: #3498db;
-    color: white;
+    color: #FFF!important;
     border: none;
     padding: 12px 25px;
     border-radius: 4px;

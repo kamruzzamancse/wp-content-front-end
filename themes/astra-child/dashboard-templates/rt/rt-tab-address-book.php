@@ -9,9 +9,14 @@
                 <input type="text" class="pt-search-input" placeholder="Search: Client Name">
             </div>
             <div class="ab-action-buttons">
-                <button class="ab-btn ab-btn-import">Import</button>
-                <button class="ab-btn ab-btn-export">Export</button>
+                <button class="ab-btn ab-btn-import">
+                    <span class="dashicons dashicons-upload"></span> Import
+                </button>
+                <button class="ab-btn ab-btn-export">
+                    <span class="dashicons dashicons-download"></span> Export
+                </button>
             </div>
+
         </div>
     </div>
 
@@ -235,9 +240,6 @@
   }
 }
 
-
-
-
 /* Base Table Styling */
 table {
   width: 100%;
@@ -298,23 +300,36 @@ tbody td:hover::after {
   tbody tr {
     margin-bottom: 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 10px;
+    background: #f9f9ff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
   tbody td {
-    white-space: normal;          /* allow wrapping in mobile */
-    text-overflow: clip;
-    overflow: visible;
-    position: relative;
-    padding-left: 120px;          /* space for label */
+    display: flex;
+    justify-content: space-between;   /* label left, value right */
+    align-items: center;
+    padding: 8px 0;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+  tbody td:last-child {
+    border-bottom: none;
   }
   tbody td::before {
     content: attr(data-label);
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    font-weight: bold;
-    color: #555;
+    font-weight: 600;
+    color: #333;
+    flex: 1;
+    text-align: left;                 /* label left aligned */
+  }
+  tbody td {
+    text-align: right;                /* value right aligned */
+  }
+
+  /* Actions row special style */
+  tbody td.ab-actions-column {
+    justify-content: flex-end;
   }
 }
 
@@ -331,8 +346,6 @@ tbody td:hover::after {
 .ab-action-icon:hover {
   transform: scale(1.2);
 }
-
-
 </style>
 
 <script>

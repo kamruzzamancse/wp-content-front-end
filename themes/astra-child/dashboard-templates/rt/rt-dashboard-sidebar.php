@@ -131,9 +131,13 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     text-decoration: none;
 }
 
+.sup-modal-button:hover {
+    color: #FFF!important;
+}
+
 .sup-modal-button-primary {
     background-color: #e74c3c;
-    color: white;
+    color: #FFF!important;
     border-color: #e74c3c;
 }
 

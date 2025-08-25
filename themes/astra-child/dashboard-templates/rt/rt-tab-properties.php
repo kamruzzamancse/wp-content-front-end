@@ -23,11 +23,18 @@
     </div>
   </div>
 
-  <div class="pt-right-section">
-    <button class="pt-action-button pt-export-btn">Export</button>
-    <button class="pt-action-button pt-add-task-btn">Add Task</button>
-    <button class="pt-action-button pt-create-property-btn" onclick="openCreateModal()">Create Property</button>
-  </div>
+    <div class="pt-right-section">
+        <button class="pt-action-button pt-export-btn">
+            <span class="dashicons dashicons-download"></span> Export
+        </button>
+        <button class="pt-action-button pt-add-task-btn">
+            <span class="dashicons dashicons-plus-alt"></span> Add Task
+        </button>
+        <button class="pt-action-button pt-create-property-btn" onclick="openCreateModal()">
+            <span class="dashicons dashicons-admin-home"></span> Create Property
+        </button>
+    </div>
+
 </div>
 
 <div class="pt-property-container">

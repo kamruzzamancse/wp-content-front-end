@@ -298,6 +298,7 @@ tr:last-child td {
 
 .close-btn:hover {
     background-color: #1a5f96;
+    color: #FFF!important;
 }
 
 .client-profile-container {
@@ -433,6 +434,16 @@ tr:last-child td {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.modal-header-realtor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .modal-body {
@@ -486,7 +497,7 @@ tr:last-child td {
     margin-top: 10px;
     padding: 6px 14px;
     background-color: #007bff;
-    color: white;
+    color: white!important;
     border: none;
     border-radius: 4px;
     cursor: pointer;

@@ -247,7 +247,7 @@
 }
 .clup-upload {
   background: #2f64e2;
-  color: #fff;
+  color: #FFF!important;
 }
 .clup-upload:hover {
   background: #2a5acaff;
