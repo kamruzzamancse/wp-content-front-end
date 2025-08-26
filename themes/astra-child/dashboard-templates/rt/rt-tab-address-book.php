@@ -312,6 +312,7 @@ tbody td:hover::after {
     padding: 8px 0;
     border: none;
     border-bottom: 1px solid #eee;
+    max-width: none!important;
   }
   tbody td:last-child {
     border-bottom: none;

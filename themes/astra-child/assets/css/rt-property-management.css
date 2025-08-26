@@ -28,7 +28,7 @@
 }
 
 .pt-search-box {
-    min-width: 250px;
+    min-width: 225px;
     display: flex;
     align-items: center;
     background-color: #f8f9fa;
@@ -131,6 +131,7 @@
     .pt-toolbar-container {
         flex-wrap: wrap;
         gap: 0;
+        width: 360px;
     }
     .pt-left-section, 
     .pt-right-section {
@@ -147,13 +148,15 @@
     .pt-search-box {
         flex: 1 1 60%;
     }
+    .pt-property-details {
+        width: 100%!important;
+    }
 }
 
 .hidden {
   visibility: hidden;
   opacity: 0;
 }
-
 
 /* css for property listing */
 
@@ -270,7 +273,7 @@
 /* Extra small mobile (1 column) */
 @media (max-width: 480px) {
     .pt-property-item {
-        width: 66%;
+        width: 100%;
     }
 }
 

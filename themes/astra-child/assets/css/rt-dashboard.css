@@ -109,6 +109,7 @@
 @media (max-width: 768px) {
     .dashboard-main {
         padding: 10px;
+        width: 380px;
     }
 
     .desktop-header {

@@ -5,7 +5,7 @@
 $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
 ?>
 
-<aside class="dashboard-sidebar">
+<aside class="dashboard-sidebar" id="dashboard-sidebar-cl">
     <ul class="sidebar-menu">
         <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
             <a href="?tab=dashboard">
@@ -141,6 +141,16 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     background-color: #c0392b;
     border-color: #c0392b;
 }
+
+
+.dashboard-sidebar.collapsed {
+    width: 5px;
+    overflow: hidden;
+}
+
+.dashboard-sidebar.collapsed .sidebar-menu span {
+    display: none;
+}
 </style>
 
 <script>
@@ -176,3 +186,73 @@ jQuery(document).ready(function($) {
     });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('dashboard-sidebar-cl');
+    const toggleBtn = document.getElementById('sidebar-toggle-cl');
+    const dashboardContent = document.querySelector('.dashboard-content');
+
+    // Function to update dashboard layout ONLY on desktop
+    function updateDashboardLayout() {
+        // Apply only if screen width >= 768px (desktop)
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            if (sidebar.classList.contains('collapsed')) {
+                dashboardContent.style.display = 'grid';
+                dashboardContent.style.gridTemplateColumns = '0px 1fr';
+                dashboardContent.style.minHeight = 'calc(100vh - 65px)';
+            } else {
+                dashboardContent.style.display = 'grid';
+                dashboardContent.style.gridTemplateColumns = '250px 1fr';
+                dashboardContent.style.minHeight = 'calc(100vh - 65px)';
+            }
+        } else {
+            // On mobile, remove inline styles so content takes full width
+            dashboardContent.style.display = '';
+            dashboardContent.style.gridTemplateColumns = '';
+            dashboardContent.style.minHeight = '';
+        }
+    }
+
+    // Initial layout update
+    updateDashboardLayout();
+
+    // Toggle sidebar and update layout
+    toggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        sidebar.classList.toggle('collapsed');
+        updateDashboardLayout();
+    });
+
+    // Update layout on window resize
+    window.addEventListener('resize', updateDashboardLayout);
+
+    // Logout modal
+    const logoutModal = document.getElementById('sup-cl-logout-modal');
+    const logoutTrigger = document.getElementById('sup-cl-logout-trigger');
+    const logoutCancel = document.getElementById('sup-cl-logout-cancel');
+
+    logoutTrigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        logoutModal.style.display = 'flex';
+    });
+
+    logoutCancel.addEventListener('click', function() {
+        logoutModal.style.display = 'none';
+    });
+
+    logoutModal.addEventListener('click', function(e) {
+        if (e.target === logoutModal) {
+            logoutModal.style.display = 'none';
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            logoutModal.style.display = 'none';
+        }
+    });
+});
+</script>
+
+

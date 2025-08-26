@@ -37,6 +37,7 @@ if (!function_exists('load_realtor_dashboard_data')) {
                     'post_status' => 'publish',
                 ]);
             case 'address-book':
+            case 'documents':
             case 'messages':
             case 'settings':
             case 'notifications':
@@ -80,6 +81,9 @@ get_header();
                     break;
                 case 'address-book':
                     include locate_template('dashboard-templates/rt/rt-tab-address-book.php');
+                    break;
+                case 'documents':
+                    include locate_template('dashboard-templates/rt/rt-tab-documents.php');
                     break;
                 case 'messages':
                     include locate_template('dashboard-templates/rt/rt-tab-messages.php');

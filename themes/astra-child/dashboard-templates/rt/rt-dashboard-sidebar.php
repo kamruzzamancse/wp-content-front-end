@@ -5,7 +5,7 @@
 $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
 ?>
 
-<aside class="dashboard-sidebar">
+<aside class="dashboard-sidebar" id="dashboard-sidebar">
     <ul class="sidebar-menu">
         <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
             <a href="?tab=dashboard">
@@ -23,6 +23,12 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
             <a href="?tab=address-book">
                 <span class="dashicons dashicons-book-alt"></span>
                 <span>Address Book</span>
+            </a>
+        </li>
+        <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
+            <a href="?tab=documents">
+                <span class="dashicons dashicons-book-alt"></span>
+                <span>Documents</span>
             </a>
         </li>
         <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
@@ -147,6 +153,32 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 }
 </style>
 
+<style>
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dashboard-sidebar.collapsed {
+    width: 5px; /* or 0px if you want full hide */
+    overflow: hidden;
+}
+
+.dashboard-sidebar.collapsed .sidebar-menu span {
+    display: none; /* hide text when collapsed */
+}
+</style>
+
 <script>
 jQuery(document).ready(function($) {
     // Modal elements
@@ -178,5 +210,46 @@ jQuery(document).ready(function($) {
             logoutModal.css('display', 'none');
         }
     });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('dashboard-sidebar');
+    const toggleBtn = document.getElementById('sidebar-toggle');
+    const dashboardContent = document.querySelector('.dashboard-content');
+
+    // Function to update dashboard content layout ONLY on desktop
+    function updateDashboardLayout() {
+        if (window.matchMedia("(min-width: 768px)").matches) { // desktop
+            if (sidebar.classList.contains('collapsed')) {
+                dashboardContent.style.display = 'grid';
+                dashboardContent.style.gridTemplateColumns = '0px 1fr';
+                dashboardContent.style.minHeight = 'calc(100vh - 65px)';
+            } else {
+                dashboardContent.style.display = 'grid';
+                dashboardContent.style.gridTemplateColumns = '250px 1fr';
+                dashboardContent.style.minHeight = 'calc(100vh - 65px)';
+            }
+        } else {
+            // Mobile: remove inline styles so content takes full width
+            dashboardContent.style.display = '';
+            dashboardContent.style.gridTemplateColumns = '';
+            dashboardContent.style.minHeight = '';
+        }
+    }
+
+    // Initial layout update
+    updateDashboardLayout();
+
+    // Toggle sidebar and update layout
+    toggleBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        sidebar.classList.toggle('collapsed');
+        updateDashboardLayout();
+    });
+
+    // Update layout on window resize
+    window.addEventListener('resize', updateDashboardLayout);
 });
 </script>

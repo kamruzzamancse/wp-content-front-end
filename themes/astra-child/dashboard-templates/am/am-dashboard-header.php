@@ -28,7 +28,7 @@ if (empty($company_name)) {
 <!-- Desktop Header -->
 <header class="dashboard-header desktop-header">
     <div class="header-row-1">
-        <a href="<?php echo esc_url($dashboard_url); ?>">
+        <a id="sidebar-toggle-am" href="#">
             <img src="<?php echo esc_url(content_url('/uploads/2025/08/mary-logo.png')); ?>" 
                 alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo" 
                 class="site-logo">

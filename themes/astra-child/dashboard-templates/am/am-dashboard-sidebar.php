@@ -5,7 +5,7 @@
 $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
 ?>
 
-<aside class="dashboard-sidebar">
+<aside class="dashboard-sidebar" id="dashboard-sidebar-am">
     <ul class="sidebar-menu">
         <!-- Dashboard Overview -->
         <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
@@ -181,6 +181,15 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     background-color: #c0392b;
     border-color: #c0392b;
 }
+
+.dashboard-sidebar.collapsed {
+    width: 5px;
+    overflow: hidden;
+}
+
+.dashboard-sidebar.collapsed .sidebar-menu span {
+    display: none;
+}
 </style>
 
 <script>
@@ -214,5 +223,46 @@ jQuery(document).ready(function($) {
             logoutModal.css('display', 'none');
         }
     });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('dashboard-sidebar-am');
+    const toggleBtn = document.getElementById('sidebar-toggle-am');
+    const dashboardContent = document.querySelector('.dashboard-content');
+
+    // Sidebar toggle
+    function updateDashboardLayout() {
+        if (window.innerWidth >= 768) {
+            dashboardContent.style.display = 'grid';
+            dashboardContent.style.gridTemplateColumns = sidebar.classList.contains('collapsed') ? '0px 1fr' : '250px 1fr';
+            dashboardContent.style.minHeight = 'calc(100vh - 65px)';
+        } else {
+            dashboardContent.style.display = '';
+            dashboardContent.style.gridTemplateColumns = '';
+            dashboardContent.style.minHeight = '';
+        }
+    }
+    updateDashboardLayout();
+    toggleBtn.addEventListener('click', e => {
+        e.preventDefault();
+        sidebar.classList.toggle('collapsed');
+        updateDashboardLayout();
+    });
+    window.addEventListener('resize', updateDashboardLayout);
+
+    // Logout modal
+    const logoutModal = document.getElementById('sup-am-logout-modal');
+    const logoutTrigger = document.getElementById('sup-am-logout-trigger');
+    const logoutCancel = document.getElementById('sup-am-logout-cancel');
+
+    logoutTrigger.addEventListener('click', e => {
+        e.preventDefault();
+        logoutModal.style.display = 'flex';
+    });
+    logoutCancel.addEventListener('click', () => logoutModal.style.display = 'none');
+    logoutModal.addEventListener('click', e => { if (e.target === logoutModal) logoutModal.style.display = 'none'; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') logoutModal.style.display = 'none'; });
 });
 </script>

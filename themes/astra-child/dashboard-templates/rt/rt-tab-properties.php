@@ -3,25 +3,26 @@
     $image_url  = $upload_dir['baseurl'];
 ?>
 
-<div class="pt-toolbar-container">
-  <div class="pt-left-section">
-    <h1 class="header-title">All Properties</h1>
-    <div class="pt-search-box">
-      <span class="pt-search-icon">🔍</span>
-      <input type="text" class="pt-search-input" placeholder="Search: Property Name" />
+<div class="pt-toolbar-container rt-toolbar-container">
+    
+    <div class="pt-left-section rt-left-section">
+            <h1 class="header-title rt-header-title">All Properties</h1>
+            <div class="pt-search-box rt-search-box">
+                <span class="pt-search-icon">🔍</span>
+                <input type="text" class="pt-search-input" placeholder="Search: Property Name" />
+            </div>
+        <div class="pt-sort-container rt-sort-container">
+            <select class="pt-sort-select">
+            <option value="">Sort by</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name-asc">Name: A to Z</option>
+            <option value="name-desc">Name: Z to A</option>
+            <option value="date-asc">Date: Oldest First</option>
+            <option value="date-desc">Date: Newest First</option>
+            </select>
+        </div>
     </div>
-    <div class="pt-sort-container">
-      <select class="pt-sort-select">
-        <option value="">Sort by</option>
-        <option value="price-asc">Price: Low to High</option>
-        <option value="price-desc">Price: High to Low</option>
-        <option value="name-asc">Name: A to Z</option>
-        <option value="name-desc">Name: Z to A</option>
-        <option value="date-asc">Date: Oldest First</option>
-        <option value="date-desc">Date: Newest First</option>
-      </select>
-    </div>
-  </div>
 
     <div class="pt-right-section">
         <button class="pt-action-button pt-export-btn">
@@ -284,3 +285,11 @@
 </div>
 
 <?php include locate_template('dashboard-templates/rt/rt-property-create-modal.php'); ?>
+
+<style>
+    @media (max-width: 768px) {
+        .rt-search-box {
+            width: 380px!important;
+        }
+    }
+</style>

@@ -295,7 +295,7 @@
     margin-bottom: 15px;
     border: 1px solid #eaeaea;
     border-radius: 8px;
-    padding: 5px;
+    padding: 12px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   }
 
@@ -322,10 +322,6 @@
   .cld-task-table td:first-child {
     text-align: left;
    }
-
-   .cld-task-section {
-        padding: 10px;
-    }
 }
 </style>
 
