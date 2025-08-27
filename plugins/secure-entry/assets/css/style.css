@@ -253,3 +253,16 @@ button[type="submit"]:hover {
 .enhanced-login-message.success,
 .enhanced-register-message.success { color: #4dff4d; }
 
+/* Logo Styling */
+.form-logo {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-logo img {
+    max-width: 150px; /* Adjust logo size */
+    height: auto;
+    display: inline-block;
+    margin-top: -105px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
+}

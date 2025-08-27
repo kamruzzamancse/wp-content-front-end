@@ -1,6 +1,10 @@
 <div class="form-container">
     <!-- Registration Form -->
     <div class="enhanced-register-form">
+        <div class="form-logo">
+            <img src="http://localhost/mary/wp-content/uploads/2025/07/logo.png" alt="Company Logo">
+        </div>
+        
         <div class="form-header">
             <h2>Registration</h2>
             <p>Create your account to get started.</p>

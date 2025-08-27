@@ -1,6 +1,10 @@
 <div class="enhanced-login-form">  
 
     <form id="enhanced-login" method="post">
+        <div class="form-logo">
+            <img src="http://localhost/mary/wp-content/uploads/2025/07/logo.png" alt="Company Logo">
+        </div>
+        
         <div class="form-header">
             <h2><?php _e('Login', 'enhanced-login'); ?></h2>
         </div>
