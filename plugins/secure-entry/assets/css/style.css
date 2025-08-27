@@ -260,7 +260,7 @@ button[type="submit"]:hover {
 }
 
 .form-logo img {
-    max-width: 150px; /* Adjust logo size */
+    max-width: 100px; /* Adjust logo size */
     height: auto;
     display: inline-block;
     margin-top: -105px;
