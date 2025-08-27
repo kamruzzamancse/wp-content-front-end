@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="modal-body">
-            <table class="client-details">
+            <table class="client-details-rt">
                 <tr><td>Client Name</td><td>Afsana Hamid Mim</td></tr>
                 <tr><td>Email</td><td>Support.info@gmail.com</td></tr>
                 <tr><td>Phone Number</td><td>999-888-666</td></tr>

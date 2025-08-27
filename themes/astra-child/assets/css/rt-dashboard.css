@@ -1281,7 +1281,7 @@
   transition: all 0.2s ease;
   font-size: 0.875rem;
   font-weight: 500;
-  color: #333;
+  color: #333!important;
   width: 100%;
 }
 

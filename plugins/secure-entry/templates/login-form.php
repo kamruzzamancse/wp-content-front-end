@@ -1,10 +1,9 @@
-<div class="enhanced-login-form">
-    <!-- Add this heading section -->
-    <div class="form-header">
-        <h2><?php _e('Login', 'enhanced-login'); ?></h2>
-    </div>
+<div class="enhanced-login-form">  
 
     <form id="enhanced-login" method="post">
+        <div class="form-header">
+            <h2><?php _e('Login', 'enhanced-login'); ?></h2>
+        </div>
         <div class="form-group">
             <label for="username"><?php _e('Username or Email', 'enhanced-login'); ?></label>
             <input type="text" name="username" id="username" required>
@@ -19,6 +18,8 @@
             <input type="checkbox" name="rememberme" id="rememberme">
             <label for="rememberme"><?php _e('Remember Me', 'enhanced-login'); ?></label>
         </div>
+
+        <div class="enhanced-login-message"></div>
 
         <div class="form-group">
             <button type="submit"><?php _e('Log In', 'enhanced-login'); ?></button>
@@ -35,14 +36,32 @@
         <input type="hidden" name="nonce" value="<?php echo wp_create_nonce('enhanced-login-nonce'); ?>">
         <input type="hidden" name="action" value="enhanced_login">
     </form>
-
-    <div class="enhanced-login-message"></div>
 </div>
 
-<style>
-    .entry-content[data-ast-blocks-layout] > * {
-        max-width: 600px!important;
-        margin-left: auto;
-        margin-right: auto;
-    }
-</style>
+<script>
+    // Toggle password visibility
+    const loginPasswordToggle = document.createElement('span');
+    loginPasswordToggle.textContent = '👁️';
+    loginPasswordToggle.style.position = 'absolute';
+    loginPasswordToggle.style.right = '10px';
+    loginPasswordToggle.style.top = '75%';
+    loginPasswordToggle.style.transform = 'translateY(-50%)';
+    loginPasswordToggle.style.cursor = 'pointer';
+    loginPasswordToggle.style.color = '#fff';
+
+    const passwordField = document.getElementById('password');
+    passwordField.parentElement.style.position = 'relative';
+    passwordField.parentElement.appendChild(loginPasswordToggle);
+
+    loginPasswordToggle.addEventListener('click', function() {
+        if (passwordField.type === 'password') {
+            passwordField.type = 'text';
+            this.textContent = '🔒';
+        } else {
+            passwordField.type = 'password';
+            this.textContent = '👁️';
+        }
+    });
+</script>
+
+

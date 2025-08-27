@@ -122,9 +122,6 @@ if (empty($company_name)) {
 
 <style>
 /* Modal Styles */
-button {
-    color: #000!important;
-}
 .am-modal {
     display: none;
     position: fixed;
