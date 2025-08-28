@@ -22,7 +22,6 @@ function astra_child_enqueue_assets() {
         // CSS
         'todo-calendar-css'       => 'assets/css/rt-todo-calendar.css',
         'property-management-css' => 'assets/css/rt-property-management.css',
-        'messages-css'            => 'assets/css/rt-messages.css',
         'address-book-css'        => 'assets/css/rt-address-book.css',
         'realtor-settings-css'    => 'assets/css/rt-realtor-settings.css',
         'cl-dashboard-css'        => 'assets/css/cl-dashboard.css',
@@ -458,3 +457,150 @@ function save_custom_user_fields($user_id) {
 }
 add_action('personal_options_update', 'save_custom_user_fields');
 add_action('edit_user_profile_update', 'save_custom_user_fields');
+
+
+
+
+/* // Fetch RentCast Properties Based on User Role
+function fetch_rentcast_properties($atts) {
+    $atts = shortcode_atts([
+        'limit' => 5
+    ], $atts, 'rentcast_properties');
+
+    $user = wp_get_current_user();
+    if(!$user->ID) {
+        return '<p>Please login to see properties.</p>';
+    }
+
+    $user_id   = $user->ID;
+    $user_role = $user->roles[0];
+    $api_key   = 'e1b32defe4904ec5929664d0df7a2a4a'; // Replace with your RentCast API key
+
+    // Example Test Address (replace with dynamic input if needed)
+    $endpoint = 'https://api.rentcast.io/v1/properties?address=1600 Pennsylvania Ave NW&city=Washington&state=DC&zipCode=20500';
+
+    // Role-based logic
+    if($user_role == 'realtor') {
+        $endpoint .= '&realtor_id=' . $user_id;
+    } elseif($user_role == 'client') {
+        $endpoint .= '&client_id=' . $user_id;
+    } else {
+        return '<p>You don’t have permission to view properties.</p>';
+    }
+
+    // API request
+    $response = wp_remote_get($endpoint, [
+        'headers' => ['X-Api-Key' => $api_key],
+        'timeout' => 20
+    ]);
+
+    if(is_wp_error($response)) {
+        return '<p>Error: ' . $response->get_error_message() . '</p>';
+    }
+
+    $body = wp_remote_retrieve_body($response);
+    $data = json_decode($body, true);
+
+    if(empty($data)) {
+        return '<p>No properties found.</p>';
+    }
+
+    // Build property cards
+    $output = '<div class="rentcast-properties">';
+    foreach(array_slice($data, 0, $atts['limit']) as $property) {
+        $output .= '<div class="property-card" style="border:1px solid #ddd; padding:15px; margin:10px 0; border-radius:8px;">';
+
+        // Address
+        if (!empty($property['formattedAddress'])) {
+            $address = $property['formattedAddress'];
+        } elseif(!empty($property['address'])) {
+            $addr = $property['address'];
+            $address = $addr['line'] . ', ' . $addr['city'] . ', ' . $addr['state'] . ' ' . $addr['zipCode'];
+        } else {
+            $address = 'No Address';
+        }
+        $output .= '<p><strong>Address:</strong> ' . esc_html($address) . '</p>';
+
+        // Price
+        $price = !empty($property['price']) ? '$' . number_format($property['price']) : 'N/A';
+        $output .= '<p><strong>Price:</strong> ' . esc_html($price) . '</p>';
+
+        // Bedrooms
+        $beds = !empty($property['beds']) ? $property['beds'] : 'N/A';
+        $output .= '<p><strong>Bedrooms:</strong> ' . esc_html($beds) . '</p>';
+
+        // Bathrooms
+        $baths = !empty($property['baths']) ? $property['baths'] : 'N/A';
+        $output .= '<p><strong>Bathrooms:</strong> ' . esc_html($baths) . '</p>';
+
+        // Square footage
+        $sqft = !empty($property['sqft']) ? number_format($property['sqft']) . ' sq ft' : 'N/A';
+        $output .= '<p><strong>Square Footage:</strong> ' . esc_html($sqft) . '</p>';
+
+        // Property type
+        $type = !empty($property['propertyType']) ? $property['propertyType'] : 'N/A';
+        $output .= '<p><strong>Property Type:</strong> ' . esc_html($type) . '</p>';
+
+        // Listing status
+        $status = !empty($property['listingStatus']) ? $property['listingStatus'] : 'N/A';
+        $output .= '<p><strong>Status:</strong> ' . esc_html($status) . '</p>';
+
+        // Image
+        if(!empty($property['imageUrl'])) {
+            $output .= '<img src="' . esc_url($property['imageUrl']) . '" alt="Property" style="max-width:100%; height:auto; border-radius:6px;">';
+        }
+
+        $output .= '</div>';
+    }
+    $output .= '</div>';
+
+    return $output;
+}
+add_shortcode('rentcast_properties', 'fetch_rentcast_properties'); */
+
+add_action('init', function() {
+    if(isset($_GET['export_addressbook']) && $_GET['export_addressbook'] == '1') {
+        $format = isset($_GET['format']) ? $_GET['format'] : 'csv';
+
+        // Example data — replace with your dynamic table data
+        $clients = [
+            ['sl'=>'01','name'=>'Afsana Hamid Mim','email'=>'Support.info@gmail.com','phone'=>'999-888-666','address'=>'New York'],
+            ['sl'=>'02','name'=>'John D. Smith','email'=>'john.smith@business.com','phone'=>'555-123-4567','address'=>'Los Angeles, CA'],
+            ['sl'=>'03','name'=>'Emily Carter','email'=>'emily.carter@example.com','phone'=>'777-222-9999','address'=>'Chicago, IL'],
+            ['sl'=>'04','name'=>'Michael Johnson','email'=>'michael.johnson@example.com','phone'=>'888-333-4444','address'=>'Houston, TX'],
+            ['sl'=>'05','name'=>'Sophia Williams','email'=>'sophia.williams@example.com','phone'=>'999-555-1111','address'=>'San Francisco, CA'],
+            ['sl'=>'06','name'=>'David Brown','email'=>'david.brown@example.com','phone'=>'444-777-2222','address'=>'Miami, FL'],
+            ['sl'=>'07','name'=>'Olivia Martinez','email'=>'olivia.martinez@example.com','phone'=>'333-666-8888','address'=>'Seattle, WA'],
+            ['sl'=>'08','name'=>'James Lee','email'=>'james.lee@example.com','phone'=>'222-444-5555','address'=>'Boston, MA'],
+            ['sl'=>'09','name'=>'Isabella Thompson','email'=>'isabella.thompson@example.com','phone'=>'555-888-9999','address'=>'Denver, CO'],
+            ['sl'=>'10','name'=>'William Garcia','email'=>'william.garcia@example.com','phone'=>'777-999-0000','address'=>'Phoenix, AZ'],
+        ];
+
+        // CSV Export
+        if($format == 'csv'){
+            header('Content-Type: text/csv');
+            header('Content-Disposition: attachment; filename="address_book.csv"');
+            $output = fopen('php://output', 'w');
+            fputcsv($output, ['#SL', 'Client Name', 'Email', 'Phone Number', 'Address']);
+            foreach($clients as $c){
+                fputcsv($output, [$c['sl'],$c['name'],$c['email'],$c['phone'],$c['address']]);
+            }
+            fclose($output);
+            exit;
+        }
+
+        // JSON Export
+        if($format == 'json'){
+            header('Content-Type: application/json');
+            header('Content-Disposition: attachment; filename="address_book.json"');
+            echo json_encode($clients, JSON_PRETTY_PRINT);
+            exit;
+        }
+    }
+});
+
+
+
+
+
+

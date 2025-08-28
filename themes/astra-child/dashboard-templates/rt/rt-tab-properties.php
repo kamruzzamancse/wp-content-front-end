@@ -39,6 +39,9 @@
 </div>
 
 <div class="pt-property-container">
+
+    <?php //echo do_shortcode('[rentcast_properties limit="3"]'); ?>
+
     <div class="pt-property-list">
         <!-- Property Example -->
         <div class="pt-property-item">

@@ -12,11 +12,16 @@
                 <button class="ab-btn ab-btn-import">
                     <span class="dashicons dashicons-upload"></span> Import
                 </button>
-                <button class="ab-btn ab-btn-export">
-                    <span class="dashicons dashicons-download"></span> Export
-                </button>
-            </div>
 
+                <!-- Fancy Export Dropdown Button -->
+                <div class="ab-export-dropdown">
+                    <button class="ab-btn ab-btn-export">Export ▼</button>
+                    <ul class="ab-export-menu">
+                        <li data-format="csv">CSV</li>
+                        <li data-format="json">JSON</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -347,6 +352,87 @@ tbody td:hover::after {
 .ab-action-icon:hover {
   transform: scale(1.2);
 }
+
+/* Container flex */
+.ab-action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Base button style */
+.ab-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ab-btn:hover {
+    border-color: #0073aa;
+    background-color: #f1faff;
+    color: #0073aa;
+}
+
+/* Export Dropdown container */
+.ab-export-dropdown {
+    position: relative;
+}
+
+/* Dropdown menu */
+.ab-export-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 120px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0 0;
+    z-index: 1000;
+}
+
+/* Dropdown items */
+.ab-export-menu li {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ab-export-menu li:hover {
+    background-color: #0073aa;
+    color: #fff;
+}
+
+/* Show menu on active */
+.ab-export-dropdown.active .ab-export-menu {
+    display: block;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+    .ab-btn {
+        width: 100%;
+    }
+    .ab-export-dropdown {
+        width: 100%;
+    }
+    .ab-export-menu {
+        width: 100%;
+    }
+}
+
+
 </style>
 
 <script>
@@ -376,4 +462,32 @@ tbody td:hover::after {
             }
         });
     }
+</script>
+
+<script>
+    const exportDropdown = document.querySelector('.ab-export-dropdown');
+    const exportBtn = exportDropdown.querySelector('.ab-btn-export');
+    const exportItems = exportDropdown.querySelectorAll('.ab-export-menu li');
+
+    exportBtn.addEventListener('click', () => {
+        exportDropdown.classList.toggle('active');
+    });
+
+    // Export action
+    exportItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const format = item.dataset.format;
+            if(format) {
+                window.location = '?export_addressbook=1&format=' + format;
+            }
+            exportDropdown.classList.remove('active');
+        });
+    });
+
+    // Close dropdown if clicked outside
+    document.addEventListener('click', (e) => {
+        if(!exportDropdown.contains(e.target)){
+            exportDropdown.classList.remove('active');
+        }
+    });
 </script>
