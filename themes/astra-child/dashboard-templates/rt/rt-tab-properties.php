@@ -40,7 +40,7 @@
 
 <div class="pt-property-container">
 
-    <?php //echo do_shortcode('[rentcast_properties limit="3"]'); ?>
+    <?php echo do_shortcode('[rentcast_properties_exact]'); ?>
 
     <div class="pt-property-list">
         <!-- Property Example -->
@@ -295,4 +295,8 @@
             width: 380px!important;
         }
     }
+</style>
+
+<style>
+
 </style>
