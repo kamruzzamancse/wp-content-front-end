@@ -40,7 +40,7 @@
 
 <div class="pt-property-container">
 
-    <?php echo do_shortcode('[rentcast_properties_exact]'); ?>
+    <?php echo do_shortcode('[rentcast_properties city="Orlando" limit="3"]'); ?>
 
     <div class="pt-property-list">
         <!-- Property Example -->

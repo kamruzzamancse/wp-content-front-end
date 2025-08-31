@@ -499,192 +499,33 @@ add_action('init', function() {
     }
 });
 
+// Redirect wp-login.php to custom login page
+add_action('init', function() {
+    $login_page = home_url('/login/');
+    $request_uri = $_SERVER['REQUEST_URI'];
 
+    if (strpos($request_uri, 'wp-login.php') !== false && !is_user_logged_in()) {
+        wp_redirect($login_page);
+        exit;
+    }
+});
 
+// Add this to your theme's functions.php or a custom plugin
 
-
-
-// RentCast Properties API Integration with Exact Code
-/* function fetch_rentcast_properties_exact($atts) {
-    // Default attributes for the shortcode
+function rentcast_properties_shortcode($atts) {
+    // Shortcode attributes with defaults
     $atts = shortcode_atts([
-        'limit'   => 2,
-        'city'    => 'New York',
-        'state'   => 'NY',
-        'address' => ''
-    ], $atts, 'rentcast_properties_exact');
-    
-    $api_key = 'e1b32defe4904ec5929664d0df7a2a4a'; // Your API key here
-    
-    // Build the API URL based on parameters (address, city, state)
-    $api_url = "https://api.rentcast.io/v1/properties?";
-    if (!empty($atts['address'])) {
-        $api_url .= "address=" . urlencode($atts['address']) . "&";
-    }
-    $api_url .= "city=" . urlencode($atts['city']) . "&state=" . urlencode($atts['state']);
+        'city' => 'Orlando',  // default city
+        'limit' => 3          // default number of properties
+    ], $atts, 'rentcast_properties');
 
-    // Initialize cURL session
+    $city = sanitize_text_field($atts['city']);
+    $limit = intval($atts['limit']);
+
+    // Fetch RentCast data
     $curl = curl_init();
-    
-    // Set cURL options
     curl_setopt_array($curl, [
-        CURLOPT_URL            => $api_url,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING       => "",
-        CURLOPT_MAXREDIRS      => 10,
-        CURLOPT_TIMEOUT        => 30,
-        CURLOPT_HTTP_VERSION   => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST  => "GET",
-        CURLOPT_HTTPHEADER     => [
-            "X-Api-Key: " . $api_key,
-            "accept: application/json"
-        ],
-    ]);
-    
-    // Execute cURL request and get the response
-    $response = curl_exec($curl);
-    $err = curl_error($curl);
-    
-    // Close cURL session
-    curl_close($curl);
-    
-    // Error handling
-    if ($err) {
-        return '<div class="api-error">cURL Error: ' . $err . '</div>';
-    }
-    
-    // Decode JSON response
-    $data = json_decode($response, true);
-    
-    // Check if valid data is received
-    if (empty($data) || !is_array($data)) {
-        return '<div class="api-error">No valid data received from API</div>';
-    }
-    
-    // Build property cards (output HTML)
-    $output = '';
-    $property_count = 0;
-    
-    foreach ($data as $property) {
-        if ($property_count >= $atts['limit']) break; // Limit results based on 'limit' attribute
-        $property_count++;
-
-        // Extract property details
-        $property_id = $property['id'] ?? uniqid(); // Unique property ID
-        $address = $property['formattedAddress'] ?? $property['addressLine1'] ?? 'Property Address';
-        $city = $property['city'] ?? '';
-        $state = $property['state'] ?? '';
-        $zipcode = $property['zipCode'] ?? '';
-
-        // Generate dynamic content based on property details
-        $price = number_format(rand(1500, 3500)); // Random price generation (replace with real data)
-        $bedrooms = rand(1, 4); // Random bedroom count
-        $bathrooms = rand(1, 3); // Random bathroom count
-        $sqft = rand(600, 2000); // Random square footage
-        
-        // Property title (split address to get the first part)
-        $title_parts = explode(',', $address);
-        $title = trim($title_parts[0]);
-        
-        // Generate property-specific image
-        $image_url = generate_property_image_from_address($address, $property_count);
-        
-        // Generate property card HTML
-        $output .= '<div class="pt-property-item">';
-        
-        // Property image
-        $output .= '<a href="?tab=rt-property-details&id=' . urlencode($property_id) . '">';
-        $output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($title) . '" class="pt-main-image">';
-        $output .= '</a>';
-        
-        $output .= '<div class="pt-property-details">';
-        
-        // Property title link
-        $output .= '<a href="?tab=rt-property-details&id=' . urlencode($property_id) . '">';
-        $output .= '<h3 class="pt-property-title">' . esc_html($title) . '</h3>';
-        $output .= '</a>';
-        
-        // Hidden date (optional)
-        $output .= '<span class="pt-property-date" style="display: none;">' . date('Y-m-d') . '</span>';
-        
-        // Price
-        $output .= '<div class="pt-property-price">$' . $price . '</div>';
-        
-        // Location (City, State)
-        $location = $city . ', ' . $state;
-        $output .= '<div class="pt-property-location">';
-        $output .= '<i class="fas fa-map-marker-alt"></i>';
-        $output .= '<span>' . esc_html($location) . '</span>';
-        $output .= '</div>';
-        
-        // Gallery (Features)
-        $output .= '<div class="pt-gallery">';
-        
-        // Bedrooms
-        $output .= '<div class="pt-gallery-item">';
-        $output .= '<span class="pt-gallery-icon">🛏️</span>';
-        $output .= '<span class="pt-gallery-text">' . $bedrooms . ' Bed</span>';
-        $output .= '</div>';
-        
-        // Bathrooms
-        $output .= '<div class="pt-gallery-item">';
-        $output .= '<span class="pt-gallery-icon">🚿</span>';
-        $output .= '<span class="pt-gallery-text">' . $bathrooms . ' Bath</span>';
-        $output .= '</div>';
-        
-        // Square footage
-        $output .= '<div class="pt-gallery-item">';
-        $output .= '<span class="pt-gallery-icon">📏</span>';
-        $output .= '<span class="pt-gallery-text">' . number_format($sqft) . ' sqft</span>';
-        $output .= '</div>';
-        
-        $output .= '</div>'; // End pt-gallery
-        $output .= '</div>'; // End pt-property-details
-        $output .= '</div>'; // End pt-property-item
-    }
-    
-    return $output; // Return generated HTML
-}
-
-// Address-based image generation function (example)
-function generate_property_image_from_address($address, $index) {
-    // Create a unique hash based on address for consistent images
-    $hash = md5($address);
-    $image_index = hexdec(substr($hash, 0, 8)) % 1000; // Generate a consistent image index
-    
-    // Use Picsum Photos for property-specific images (replace with a custom image source if required)
-    return 'https://picsum.photos/seed/' . $image_index . '/500/300';
-}
-
-// Register the shortcode
-add_shortcode('rentcast_properties_exact', 'fetch_rentcast_properties_exact'); */
-
-
-// RentCast Properties API Integration with Exact Code
-function fetch_rentcast_properties_exact($atts) {
-    // Set default parameters and extract shortcode attributes
-    $atts = shortcode_atts([
-        'limit' => 2,
-        'city' => 'New York',
-        'state' => 'NY',
-        'address' => ''
-    ], $atts, 'rentcast_properties_exact');
-    
-    $api_key = 'e1b32defe4904ec5929664d0df7a2a4a';
-    
-    // Build API URL based on provided parameters
-    if (!empty($atts['address'])) {
-        $api_url = "https://api.rentcast.io/v1/properties?address=" . urlencode($atts['address']) . "&city=" . urlencode($atts['city']) . "&state=" . urlencode($atts['state']);
-    } else {
-        $api_url = "https://api.rentcast.io/v1/properties?city=" . urlencode($atts['city']) . "&state=" . urlencode($atts['state']);
-    }
-    
-    // Initialize cURL request using exact code from RentCast API documentation
-    $curl = curl_init();
-    
-    // Configure cURL options
-    curl_setopt_array($curl, [
-        CURLOPT_URL => $api_url,
+        CURLOPT_URL => "https://api.rentcast.io/v1/properties?city=" . urlencode($city),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_ENCODING => "",
         CURLOPT_MAXREDIRS => 10,
@@ -692,127 +533,78 @@ function fetch_rentcast_properties_exact($atts) {
         CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
         CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => [
-            "X-Api-Key: " . $api_key,
+            "X-Api-Key: e1b32defe4904ec5929664d0df7a2a4a",
             "accept: application/json"
         ],
     ]);
-    
-    // Execute API request
+
     $response = curl_exec($curl);
     $err = curl_error($curl);
-    
-    // Close cURL connection
     curl_close($curl);
-    
-    // Handle API errors
+
     if ($err) {
-        return '<div class="api-error">cURL Error: ' . $err . '</div>';
+        return "<p>API Error: " . esc_html($err) . "</p>";
     }
-    
-    // Decode JSON response from API
+
     $data = json_decode($response, true);
-    
-    // Validate API response data
+
     if (empty($data) || !is_array($data)) {
-        return '<div class="api-error">No valid data received from API</div>';
+        return "<p>No properties found for " . esc_html($city) . ".</p>";
     }
-    
-    // Initialize output variable
-    $output = '';
-    $property_count = 0;
-    
-    // Loop through each property in the API response
-    foreach ($data as $property) {
-        // Stop if reached the limit
-        if ($property_count >= $atts['limit']) break;
-        $property_count++;
-        
-        // Extract property details from API response
-        $property_id = $property['id'] ?? uniqid();
-        $address = $property['formattedAddress'] ?? $property['addressLine1'] ?? 'Property Address';
-        $city = $property['city'] ?? '';
-        $state = $property['state'] ?? '';
-        $zipcode = $property['zipCode'] ?? '';
-        
-        // Generate dynamic content for display (since API doesn't provide all details)
-        $price = number_format(rand(1500, 3500));
-        $bedrooms = rand(1, 4);
-        $bathrooms = rand(1, 3);
-        $sqft = rand(600, 2000);
-        
-        // Create property title from address
-        $title_parts = explode(',', $address);
-        $title = trim($title_parts[0]);
-        
-        // Generate property-specific image based on address
-        $image_url = generate_property_image_from_address($address, $property_count);
-        
-        // Build property card HTML structure
-        $output .= '<div class="pt-property-item">';
-        
-        // Property image section
-        $output .= '<a href="?tab=rt-property-details&id=' . urlencode($property_id) . '">';
-        $output .= '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($title) . '" class="pt-main-image">';
-        $output .= '</a>';
-        
-        $output .= '<div class="pt-property-details">';
-        
-        // Property title section
-        $output .= '<a href="?tab=rt-property-details&id=' . urlencode($property_id) . '">';
-        $output .= '<h3 class="pt-property-title">' . esc_html($title) . '</h3>';
-        $output .= '</a>';
-        
-        // Hidden date field (for potential future use)
-        $output .= '<span class="pt-property-date" style="display: none;">' . date('Y-m-d') . '</span>';
-        
-        // Property price display
-        $output .= '<div class="pt-property-price">$' . $price . '</div>';
-        
-        // Property location display
-        $location = $city . ', ' . $state;
-        $output .= '<div class="pt-property-location">';
-        $output .= '<i class="fas fa-map-marker-alt"></i>';
-        $output .= '<span>' . esc_html($location) . '</span>';
-        $output .= '</div>';
-        
-        // Property features gallery
-        $output .= '<div class="pt-gallery">';
-        
-        // Bedrooms feature
-        $output .= '<div class="pt-gallery-item">';
-        $output .= '<span class="pt-gallery-icon">🛏️</span>';
-        $output .= '<span class="pt-gallery-text">' . $bedrooms . ' Bed</span>';
-        $output .= '</div>';
-        
-        // Bathrooms feature
-        $output .= '<div class="pt-gallery-item">';
-        $output .= '<span class="pt-gallery-icon">🚿</span>';
-        $output .= '<span class="pt-gallery-text">' . $bathrooms . ' Bath</span>';
-        $output .= '</div>';
-        
-        // Square footage feature
-        $output .= '<div class="pt-gallery-item">';
-        $output .= '<span class="pt-gallery-icon">📏</span>';
-        $output .= '<span class="pt-gallery-text">' . number_format($sqft) . ' sqft</span>';
-        $output .= '</div>';
-        
-        $output .= '</div>'; // End pt-gallery
-        $output .= '</div>'; // End pt-property-details
-        $output .= '</div>'; // End pt-property-item
+
+    // Limit properties
+    $properties = array_slice($data, 0, $limit);
+
+    ob_start(); // Start capturing HTML
+    foreach ($properties as $property) {
+        $address   = $property['formattedAddress'] ?? 'N/A';
+        $bedrooms  = $property['bedrooms'] ?? 'N/A';
+        $bathrooms = $property['bathrooms'] ?? 'N/A';
+        $sqft      = $property['squareFootage'] ?? 'N/A';
+        $price     = $property['price'] ?? ($property['estimatedRent'] ?? 'Unknown');
+        $city_name = $property['city'] ?? '';
+        $state     = $property['state'] ?? '';
+        $zip       = $property['zipCode'] ?? '';
+        $image_url = "https://placehold.co/500x300?text=No+Image+Available"; // Placeholder image
+        ?>
+        <div class="pt-property-item">
+            <a href="?tab=rt-property-details">
+                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($address); ?>" class="pt-main-image">
+            </a>
+            <div class="pt-property-details">
+                <a href="?tab=rt-property-details">
+                    <h3 class="pt-property-title"><?php echo esc_html($address); ?></h3>
+                </a>
+                <span class="pt-property-date" style="display:none;"><?php echo date('Y-m-d'); ?></span>
+                <div class="pt-property-price">
+                    <?php echo is_numeric($price) ? '$' . number_format($price) : esc_html($price); ?>
+                </div>
+                <div class="pt-property-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span><?php echo esc_html("$city_name, $state $zip"); ?></span>
+                </div>
+                <div class="pt-gallery">
+                    <div class="pt-gallery-item">
+                        <span class="pt-gallery-icon">🛏️</span>
+                        <span class="pt-gallery-text"><?php echo esc_html($bedrooms); ?> Bed</span>
+                    </div>
+                    <div class="pt-gallery-item">
+                        <span class="pt-gallery-icon">🚿</span>
+                        <span class="pt-gallery-text"><?php echo esc_html($bathrooms); ?> Bath</span>
+                    </div>
+                    <div class="pt-gallery-item">
+                        <span class="pt-gallery-icon">📏</span>
+                        <span class="pt-gallery-text">
+                            <?php echo is_numeric($sqft) ? number_format($sqft) : esc_html($sqft); ?> sqft
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
     }
-    
-    return $output;
+    return ob_get_clean(); // Return captured HTML
 }
+add_shortcode('rentcast_properties', 'rentcast_properties_shortcode');
 
-// Generate consistent property images based on address
-function generate_property_image_from_address($address, $index) {
-    // Create unique hash from address to ensure consistent images for same properties
-    $hash = md5($address);
-    $image_index = hexdec(substr($hash, 0, 8)) % 1000;
-    
-    // Use Picsum Photos service with seed parameter for consistent property-specific images
-    return 'https://picsum.photos/seed/' . $image_index . '/500/300';
-}
 
-// Register shortcode for WordPress
-add_shortcode('rentcast_properties_exact', 'fetch_rentcast_properties_exact');

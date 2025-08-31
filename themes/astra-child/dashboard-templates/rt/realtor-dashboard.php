@@ -5,9 +5,12 @@
 
 if (!defined('ABSPATH')) exit;
 
+// Custom login page URL
+$login_url = home_url('/login/');
+
 // Authentication check
 if (!is_user_logged_in() || !current_user_can('realtor')) {
-    wp_redirect(home_url('/login/'));
+    wp_redirect($login_url);
     exit;
 }
 

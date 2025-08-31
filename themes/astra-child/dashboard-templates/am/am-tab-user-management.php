@@ -644,7 +644,6 @@
 }
 
 .ad-btn-icon {
-    padding: 8px;
     border-radius: 6px;
 }
 
