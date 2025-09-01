@@ -2,15 +2,22 @@
 /* Global Reset & Fonts */
 /* ------------------------- */
 .enhanced-login-form *, 
-.enhanced-register-form *, 
 .form-container * {
     margin: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-
+.company-name {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
 /* ------------------------- */
-/* Container & Blurred Background */
+/* Container & Background */
 /* ------------------------- */
 .enhanced-login-form, 
 .form-container {
@@ -21,7 +28,7 @@
     min-height: 100vh;
     overflow: hidden;
 }
-
+/* Base background */
 .enhanced-login-form::before, 
 .form-container::before {
     content: '';
@@ -30,13 +37,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('http://localhost/mary/wp-content/uploads/2025/08/login-form-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    filter: blur(4px); /* Adjust blur intensity here */
     z-index: -2;
 }
-
+/* Default background */
+.enhanced-login-form::before {
+    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background-size: 400% 400%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+    animation: waveAnimation 15s ease infinite;
+}
 .enhanced-login-form::after, 
 .form-container::after {
     content: '';
@@ -48,12 +60,10 @@
     background: rgba(0, 0, 0, 0.25); /* semi-transparent overlay */
     z-index: -1;
 }
-
 /* ------------------------- */
 /* Form Container (Glass Effect) */
 /* ------------------------- */
-#enhanced-login,
-.enhanced-register-form {
+#enhanced-login {
     position: relative;
     z-index: 1;
     max-width: 600px;
@@ -67,7 +77,6 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
-
 /* ------------------------- */
 /* Form Header */
 /* ------------------------- */
@@ -78,14 +87,6 @@
     letter-spacing: 1px;
     margin-bottom: 5px;
 }
-
-.form-header p {
-    color: #fff;
-    font-size: 13px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
 /* ------------------------- */
 /* Form Groups */
 /* ------------------------- */
@@ -94,15 +95,12 @@
     flex-direction: column;
     margin-top: 15px;
 }
-
 .form-group label {
     font-size: 13px;
     color: #fff;
     margin-bottom: 5px;
 }
-
-.form-group input,
-.form-group select {
+.form-group input {
     padding: 12px;
     border-radius: 10px;
     background: rgba(255,255,255,0.15);
@@ -112,38 +110,21 @@
     box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
     transition: background 0.3s, border 0.3s, box-shadow 0.3s;
 }
-
 .form-group input::placeholder {
     color: rgba(255,255,255,0.7);
 }
-
-.form-group input:focus,
-.form-group select:focus {
+.form-group input:focus {
     outline: none;
     background: rgba(255,255,255,0.25);
     border: 1px solid #000;
     box-shadow: inset 0 1px 5px rgba(255,255,255,0.5);
 }
-
-/* ------------------------- */
-/* Name fields (for registration) */
-/* ------------------------- */
-.name-fields {
-    display: flex;
-    gap: 10px;
-}
-
-.name-fields .form-group {
-    flex: 1;
-}
-
 /* ------------------------- */
 /* Password Fields with Toggle */
 /* ------------------------- */
 .password-field {
     position: relative;
 }
-
 .toggle-password {
     position: absolute;
     top: 50%;
@@ -152,23 +133,6 @@
     cursor: pointer;
     color: #fff;
 }
-
-/* ------------------------- */
-/* Password Strength Meter */
-/* ------------------------- */
-.password-strength-meter {
-    height: 5px;
-    border-radius: 5px;
-    background: rgba(255,255,255,0.2);
-    margin-top: 5px;
-}
-
-.password-strength-meter[data-strength="0"] { background-color: rgba(255,255,255,0.2); }
-.password-strength-meter[data-strength="1"] { background-color: #ff4d4d; }
-.password-strength-meter[data-strength="2"] { background-color: #ffb84d; }
-.password-strength-meter[data-strength="3"] { background-color: #ffff4d; }
-.password-strength-meter[data-strength="4"] { background-color: #4dff4d; }
-
 /* ------------------------- */
 /* Remember Me Checkbox */
 /* ------------------------- */
@@ -179,14 +143,12 @@
     color: #fff;
     margin-top: 15px;
 }
-
 .remember-me input[type="checkbox"] {
     margin-right: 8px;
     accent-color: #fff;
     width: 16px;
     height: 16px;
 }
-
 /* ------------------------- */
 /* Buttons */
 /* ------------------------- */
@@ -201,18 +163,427 @@ button[type="submit"] {
     font-weight: 600;
     transition: all 0.3s ease;
 }
-
 button[type="submit"]:hover {
     background: transparent;
     color: #fff;
     border: 1px solid #fff;
     box-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
-
 /* ------------------------- */
 /* Links */
 /* ------------------------- */
-.form-links,
+.form-links {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.form-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.form-links a:hover {
+    color: #ffcc00;
+}
+/* ------------------------- */
+/* Message Container */
+/* ------------------------- */
+.enhanced-login-message {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+}
+.enhanced-login-message.error { color: #ff4d4d; }
+.enhanced-login-message.success { color: #4dff4d; }
+/* Logo Styling */
+.form-logo {
+    text-align: center;
+}
+.form-logo img {
+    max-width: 100px; /* Adjust logo size */
+    height: auto;
+    display: inline-block;
+    margin-top: -105px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
+}
+/* ------------------------- */
+/* Drawer Toggle Button */
+/* ------------------------- */
+.drawer-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.drawer-toggle:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+.hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #fff;
+    position: relative;
+    transition: all 0.3s ease;
+}
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+.hamburger-icon::before {
+    top: -8px;
+}
+.hamburger-icon::after {
+    top: 8px;
+}
+/* ------------------------- */
+/* Drawer Panel */
+/* ------------------------- */
+.drawer-panel {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 999;
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+}
+.drawer-panel.open {
+    right: 0;
+}
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.drawer-header h3 {
+    color: #fff;
+    font-size: 18px;
+    margin: 0;
+}
+.drawer-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.drawer-close:hover {
+    transform: rotate(90deg);
+}
+/* ------------------------- */
+/* Background Options */
+/* ------------------------- */
+.drawer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.bg-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #fff;
+    text-align: left;
+}
+.bg-option:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+}
+.bg-option.active {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+.bg-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+/* Preview styles */
+.wave-preview {
+    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background-size: 400% 400%;
+    animation: waveAnimation 3s ease infinite;
+}
+.geometric-preview {
+    background: #0f2027;
+    background-image: 
+        linear-gradient(30deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
+        linear-gradient(150deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50);
+    background-size: 20px 35px;
+}
+.gradient-preview {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientAnimation 3s ease infinite;
+}
+/* ------------------------- */
+/* Background Classes */
+/* ------------------------- */
+.enhanced-login-form.bg-wave::before {
+    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background-size: 400% 400%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+    animation: waveAnimation 15s ease infinite;
+}
+.enhanced-login-form.bg-geometric::before {
+    background: #0f2027;
+    background-image: 
+        linear-gradient(30deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
+        linear-gradient(150deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
+        linear-gradient(30deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
+        linear-gradient(150deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
+        linear-gradient(60deg, #3498db77 25%, transparent 25.5%, transparent 75%, #3498db77 75%, #3498db77),
+        linear-gradient(60deg, #3498db77 25%, transparent 25.5%, transparent 75%, #3498db77 75%, #3498db77);
+    background-size: 80px 140px;
+    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+.enhanced-login-form.bg-gradient::before {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb, #ff9a9e);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+/* ------------------------- */
+/* Animations */
+/* ------------------------- */
+@keyframes waveAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+
+
+
+
+
+
+/* css for registration form ******************************************************************************************/
+
+/* ------------------------- */
+/* Global Reset & Fonts */
+/* ------------------------- */
+.enhanced-register-form *, 
+.form-container * {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/* ------------------------- */
+/* Container & Background */
+/* ------------------------- */
+.form-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background-size: 400% 400%;
+    background-image: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
+    animation: waveAnimation 15s ease infinite;
+    z-index: -2;
+}
+.form-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25); /* semi-transparent overlay */
+    z-index: -1;
+}
+/* ------------------------- */
+/* Form Container (Glass Effect) */
+/* ------------------------- */
+.enhanced-register-form {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    width: 100%;
+    padding: 35px 30px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.2); /* semi-opaque glass */
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+/* ------------------------- */
+/* Form Header */
+/* ------------------------- */
+.form-header h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+.form-header p {
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+/* ------------------------- */
+/* Form Groups */
+/* ------------------------- */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+.form-group label {
+    font-size: 13px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #000;
+    font-size: 14px;
+    box-shadow: inset 0 1px 2px rgba(255,255,255,0.3);
+    transition: background 0.3s, border 0.3s, box-shadow 0.3s;
+}
+.form-group input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    background: rgba(255,255,255,0.25);
+    border: 1px solid #000;
+    box-shadow: inset 0 1px 5px rgba(255,255,255,0.5);
+}
+/* ------------------------- */
+/* Name fields */
+/* ------------------------- */
+.name-fields {
+    display: flex;
+    gap: 10px;
+}
+.name-fields .form-group {
+    flex: 1;
+}
+/* ------------------------- */
+/* Password Fields with Toggle */
+/* ------------------------- */
+.password-field {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #fff;
+}
+/* ------------------------- */
+/* Password Strength Meter */
+/* ------------------------- */
+.password-strength-meter {
+    height: 5px;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.2);
+    margin-top: 5px;
+}
+.password-strength-meter[data-strength="0"] { background-color: rgba(255,255,255,0.2); }
+.password-strength-meter[data-strength="1"] { background-color: #ff4d4d; }
+.password-strength-meter[data-strength="2"] { background-color: #ffb84d; }
+.password-strength-meter[data-strength="3"] { background-color: #ffff4d; }
+.password-strength-meter[data-strength="4"] { background-color: #4dff4d; }
+/* ------------------------- */
+/* Buttons */
+/* ------------------------- */
+button[type="submit"] {
+    background: #fff;
+    color: #000;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+button[type="submit"]:hover {
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+/* ------------------------- */
+/* Navigation Links */
+/* ------------------------- */
 .form-navigation {
     margin-top: 15px;
     font-size: 13px;
@@ -222,47 +593,42 @@ button[type="submit"]:hover {
     flex-wrap: wrap;
     gap: 8px;
 }
-
-.form-links a,
 .form-navigation a {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
     transition: color 0.3s;
 }
-
-.form-links a:hover,
 .form-navigation a:hover {
     color: #ffcc00;
 }
-
 /* ------------------------- */
 /* Message Container */
 /* ------------------------- */
-.enhanced-login-message,
 .enhanced-register-message {
     margin-top: 15px;
     font-size: 13px;
     color: #fff;
     text-align: center;
 }
-
-.enhanced-login-message.error,
 .enhanced-register-message.error { color: #ff4d4d; }
-
-.enhanced-login-message.success,
 .enhanced-register-message.success { color: #4dff4d; }
-
 /* Logo Styling */
 .form-logo {
     text-align: center;
-    margin-bottom: 15px;
 }
-
 .form-logo img {
     max-width: 100px; /* Adjust logo size */
     height: auto;
     display: inline-block;
     margin-top: -105px;
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
+}
+/* ------------------------- */
+/* Animations */
+/* ------------------------- */
+@keyframes waveAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

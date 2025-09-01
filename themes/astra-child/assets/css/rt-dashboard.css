@@ -74,7 +74,7 @@
 .sidebar-menu li {
     display: flex;
     align-items: center;
-    padding: 12px 25px;
+    padding: 12px 15px;
     cursor: pointer;
     transition: all 0.3s;
     border-left: 4px solid transparent;
@@ -83,10 +83,6 @@
 
 .sidebar-menu li a{
     color:white;
-}
-
-.sidebar-menu li:hover {
-    background: rgba(255,255,255,0.1);
 }
 
 .sidebar-menu li.active {
@@ -109,7 +105,6 @@
 @media (max-width: 768px) {
     .dashboard-main {
         padding: 10px;
-        width: 380px;
     }
 
     .desktop-header {

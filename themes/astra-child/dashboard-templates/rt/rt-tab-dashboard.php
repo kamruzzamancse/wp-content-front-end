@@ -1,5 +1,7 @@
 <div class="dashboard-top">
+
     <div class="dashboard-top-left">
+      
         <!-- <div class="stats-grid">
             <div class="stat-card">
                 <h3><span class="dashicons dashicons-admin-home"></span> Total Properties</h3>
@@ -96,9 +98,27 @@
 .dashboard-section {
   padding: 16px;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-radius: 8px; /* Reduced from 12px */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Softer shadow */
   overflow-x: auto;
+}
+
+/* Add this for the calendar container */
+.dashboard-top-right {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  overflow-x: auto;
+  height: 100%;
+}
+
+.calendar-container {
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
 }
 
 /* Table Styling (Desktop) */
@@ -110,16 +130,10 @@
 
 .active-clients-table th,
 .active-clients-table td {
-  padding: 10px;
+  padding: 8px; /* Reduced from 10px */
   text-align: left;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f5f5f5; /* Lighter border color */
 }
-
-/* .active-clients-table th {
-  background: #f5f5f5;
-  font-weight: 600;
-  color: #444;
-} */
 
 /* Mobile Responsive (Card Style) */
 @media screen and (max-width: 480px) {
@@ -131,43 +145,42 @@
     display: block;
     width: 100%;
   }
-
+  
   .active-clients-table thead {
     display: none;
   }
-
+  
   .active-clients-table tr {
-    margin-bottom: 15px;
-    border-radius: 8px;
+    margin-bottom: 10px; /* Reduced from 15px */
+    border-radius: 6px; /* Reduced from 8px */
     background: #f9f9ff;
-    padding: 0 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    padding: 0 6px; /* Reduced from 8px */
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03); /* Softer shadow */
   }
-
+  
   .active-clients-table td {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px solid #eee;
+    padding: 6px 0; /* Reduced from 8px */
+    border-bottom: 1px solid #f8f8f8; /* Lighter border color */
   }
-
+  
   .active-clients-table td:last-child {
     border-bottom: none;
   }
-
+  
   .active-clients-table td::before {
     content: attr(data-label);
     font-weight: 600;
     color: #333;
   }
-
+  
   .dashboard-section {
-    padding: 10px;
-   }
-
-   table {
-        border-width: 0!important;
-    }
-
+    padding: 8px; /* Reduced from 10px */
+  }
+  
+  table {
+    border-width: 0 !important;
+  }
 }
 </style>

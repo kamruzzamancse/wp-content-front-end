@@ -26,23 +26,21 @@ if (empty($company_name)) {
 <header class="dashboard-header desktop-header">
     
     <div class="header-row-1">
-        <a id="sidebar-toggle" href="#">
+        <a href="?tab=dashboard" class="logo-link">
             <img src="<?php echo esc_url(content_url('/uploads/2025/08/mary-logo.png')); ?>" 
                 alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo" 
                 class="site-logo">
         </a>
-
+        
         <div class="user-info">
             <a href="?tab=notifications" class="notification-icon" aria-label="Notifications">
                 <span class="dashicons dashicons-bell"></span>
             </a>
-
             <div class="profile-header">
                 <div class="profile-pic">
                     <img class="realtor-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Realtor Profile Pic">
                 </div>
             </div>
-
             <div class="user-details">
                 <span class="user-name"><?php echo esc_html($current_user->display_name); ?></span>
                 <span class="user-role-dashboard-header">
@@ -51,6 +49,12 @@ if (empty($company_name)) {
             </div>
         </div>
     </div>
+
+    <!-- <div class="header-row-2">
+        <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle sidebar">
+            <span class="dashicons dashicons-menu-alt"></span>
+        </button>
+    </div> -->
 
     <!-- Hamburger menu container -->
     <div class="header-row-2">
@@ -115,30 +119,50 @@ if (empty($company_name)) {
 </div>
 
 <style>
-/* Logout Modal Styles */
+/* Global Button Styles */
 button {
-    color: #000!important;
+    color: #000 !important;
 }
+
+/* Logout Modal Styles */
 .rt-modal {
     display: none;
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
     justify-content: center;
     align-items: center;
 }
+
 .rt-modal-content {
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     max-width: 400px;
     width: 100%;
 }
-.rt-modal-header, .rt-modal-footer { padding: 20px; }
-.rt-modal-title { margin: 0; text-align: center; font-size: 18px; font-weight: 600; }
-.rt-modal-body { padding: 20px; text-align: center; }
+
+.rt-modal-header,
+.rt-modal-footer {
+    padding: 20px;
+}
+
+.rt-modal-title {
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.rt-modal-body {
+    padding: 20px;
+    text-align: center;
+}
+
 .rt-modal-button {
     padding: 8px 16px;
     border-radius: 4px;
@@ -147,40 +171,161 @@ button {
     cursor: pointer;
     text-decoration: none;
 }
+
 .rt-modal-button-primary {
     background: #e74c3c;
     color: #fff;
     border-color: #e74c3c;
 }
-.rt-modal-button-primary:hover { background: #c0392b; }
-.rt-modal-footer { display: flex; justify-content: flex-end; gap: 10px; }
+
+.rt-modal-button-primary:hover {
+    background: #c0392b;
+}
+
+.rt-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.sidebar-toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Styles */
+.dashboard-sidebar {
+    width: 60px;
+    transition: width 0.3s ease;
+}
+
+.dashboard-sidebar.expanded {
+    width: 250px;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.sidebar-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu li a .dashicons {
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.dashboard-sidebar:not(.expanded) .sidebar-menu li a span:not(.dashicons) {
+    display: none;
+}
+
+/* Tooltip Styles */
+.sidebar-menu li a::after {
+    content: attr(title);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    background-color: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.dashboard-sidebar:not(.expanded) .sidebar-menu li a:hover::after {
+    opacity: 1;
+}
+
+/* Dashboard Content Layout */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    transition: grid-template-columns 0.3s ease;
+}
+
+.dashboard-content.sidebar-expanded {
+    grid-template-columns: 250px 1fr;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .dashboard-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 1000;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .dashboard-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    
+    .dashboard-content {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 <script>
-jQuery(document).ready(function($) {
-    const logoutModal = $('#rt-logout-modal');
-    const logoutTrigger = $('#rt-logout-trigger');
-    const logoutCancel = $('#rt-logout-cancel');
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebar = document.getElementById('dashboard-sidebar');
+    const toggleBtn = document.getElementById('sidebar-toggle-btn');
+    const dashboardContent = document.querySelector('.dashboard-content');
     
-    // Open modal
-    logoutTrigger.on('click', function(e) {
+    function toggleSidebar() {
+        sidebar.classList.toggle('expanded');
+        dashboardContent.classList.toggle('sidebar-expanded');
+        
+        if (window.innerWidth <= 768) {
+            sidebar.classList.toggle('mobile-open');
+        }
+    }
+    
+    toggleBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        logoutModal.css('display', 'flex');
+        toggleSidebar();
     });
     
-    // Cancel button
-    logoutCancel.on('click', function() {
-        logoutModal.css('display', 'none');
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            sidebar.classList.remove('mobile-open');
+        }
     });
     
-    // Click outside to close
-    logoutModal.on('click', function(e) {
-        if (e.target === this) $(this).css('display', 'none');
-    });
-    
-    // Escape key to close
-    $(document).on('keydown', function(e) {
-        if (e.key === 'Escape') logoutModal.css('display', 'none');
+    document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && 
+            !sidebar.contains(e.target) && 
+            !toggleBtn.contains(e.target) && 
+            sidebar.classList.contains('mobile-open')) {
+            toggleSidebar();
+        }
     });
 });
 </script>

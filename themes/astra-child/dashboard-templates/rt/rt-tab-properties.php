@@ -296,7 +296,3 @@
         }
     }
 </style>
-
-<style>
-
-</style>

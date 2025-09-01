@@ -4,47 +4,46 @@
  */
 $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
 ?>
-
 <aside class="dashboard-sidebar" id="dashboard-sidebar">
     <ul class="sidebar-menu">
         <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
-            <a href="?tab=dashboard">
+            <a href="?tab=dashboard" title="Dashboard">
                 <span class="dashicons dashicons-admin-home"></span>
                 <span>Dashboard</span>
             </a>
         </li>
-        <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
-            <a href="?tab=properties">
+        <!-- <li class="<?php //echo $current_tab === 'properties' ? 'active' : ''; ?>">
+            <a href="?tab=properties" title="Properties">
                 <span class="dashicons dashicons-building"></span>
                 <span>Properties</span>
             </a>
-        </li>
+        </li> -->
         <li class="<?php echo $current_tab === 'address-book' ? 'active' : ''; ?>">
-            <a href="?tab=address-book">
-                <span class="dashicons dashicons-book-alt"></span>
+            <a href="?tab=address-book" title="Address Book">
+                <span class="dashicons dashicons-id"></span> <!-- Changed to ID card icon -->
                 <span>Address Book</span>
             </a>
         </li>
         <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
-            <a href="?tab=documents">
-                <span class="dashicons dashicons-book-alt"></span>
+            <a href="?tab=documents" title="Documents">
+                <span class="dashicons dashicons-media-document"></span> <!-- Changed to document icon -->
                 <span>Documents</span>
             </a>
         </li>
         <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
-            <a href="?tab=messages">
+            <a href="?tab=messages" title="Messages">
                 <span class="dashicons dashicons-email"></span>
-                <span>Message</span>
+                <span>Messages</span>
             </a>
         </li>
         <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
-            <a href="?tab=settings">
+            <a href="?tab=settings" title="Settings">
                 <span class="dashicons dashicons-admin-settings"></span>
-                <span>Setting</span>
+                <span>Settings</span>
             </a>
         </li>
         <li>
-            <a href="#" id="sup-logout-trigger">
+            <a href="#" id="sup-logout-trigger" title="Logout">
                 <span class="dashicons dashicons-migrate"></span>
                 <span>Logout</span>
             </a>
@@ -153,32 +152,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 }
 </style>
 
-<style>
-/* Sidebar Toggle Button */
-.sidebar-toggle {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-size: 16px;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.dashboard-sidebar.collapsed {
-    width: 5px; /* or 0px if you want full hide */
-    overflow: hidden;
-}
-
-.dashboard-sidebar.collapsed .sidebar-menu span {
-    display: none; /* hide text when collapsed */
-}
-</style>
-
 <script>
 jQuery(document).ready(function($) {
     // Modal elements
@@ -210,46 +183,5 @@ jQuery(document).ready(function($) {
             logoutModal.css('display', 'none');
         }
     });
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('dashboard-sidebar');
-    const toggleBtn = document.getElementById('sidebar-toggle');
-    const dashboardContent = document.querySelector('.dashboard-content');
-
-    // Function to update dashboard content layout ONLY on desktop
-    function updateDashboardLayout() {
-        if (window.matchMedia("(min-width: 768px)").matches) { // desktop
-            if (sidebar.classList.contains('collapsed')) {
-                dashboardContent.style.display = 'grid';
-                dashboardContent.style.gridTemplateColumns = '0px 1fr';
-                dashboardContent.style.minHeight = 'calc(100vh - 65px)';
-            } else {
-                dashboardContent.style.display = 'grid';
-                dashboardContent.style.gridTemplateColumns = '250px 1fr';
-                dashboardContent.style.minHeight = 'calc(100vh - 65px)';
-            }
-        } else {
-            // Mobile: remove inline styles so content takes full width
-            dashboardContent.style.display = '';
-            dashboardContent.style.gridTemplateColumns = '';
-            dashboardContent.style.minHeight = '';
-        }
-    }
-
-    // Initial layout update
-    updateDashboardLayout();
-
-    // Toggle sidebar and update layout
-    toggleBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        sidebar.classList.toggle('collapsed');
-        updateDashboardLayout();
-    });
-
-    // Update layout on window resize
-    window.addEventListener('resize', updateDashboardLayout);
 });
 </script>

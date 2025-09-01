@@ -145,7 +145,7 @@
                 </td>
             </tr>
             <!-- Row 8 -->
-            <tr>
+            <tr class="last-row">
                 <td data-label="#SL">08</td>
                 <td data-label="Property Name">
                     <div class="cld-user-info">
@@ -220,9 +220,8 @@
     font-weight: 500;
 }
 .cld-task-table tbody td {
-    padding: 12px;
+    padding: 10px;
     vertical-align: middle;
-    border-top: 1px solid #eaeaea;
 }
 
 /* Avatar + Name */
@@ -272,6 +271,10 @@
 .cld-task-table td:last-child {
     width: 80px;
     text-align: center;
+}
+
+.last-row td {
+    border-bottom: 1px solid #CCC!important;
 }
 
 /* ---------- Mobile Card View ---------- */

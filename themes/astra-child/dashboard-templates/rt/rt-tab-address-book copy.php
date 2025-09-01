@@ -12,6 +12,7 @@
                 <button class="ab-btn ab-btn-import">
                     <span class="dashicons dashicons-upload"></span> Import
                 </button>
+
                 <!-- Fancy Export Dropdown Button -->
                 <div class="ab-export-dropdown">
                     <button class="ab-btn ab-btn-export">
@@ -21,6 +22,7 @@
             </div>
         </div>
     </div>
+
     <table>
         <thead>
             <tr>
@@ -33,7 +35,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="client-row" data-client-id="1">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">01</td>
                 <td data-label="Client Name">Afsana Hamid Mim</td>
                 <td data-label="Email">Support.info@gmail.com</td>
@@ -47,7 +49,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="2">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">02</td>
                 <td data-label="Client Name">John D. Smith</td>
                 <td data-label="Email">john.smith@business.com</td>
@@ -61,7 +63,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="3">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">03</td>
                 <td data-label="Client Name">Emily Carter</td>
                 <td data-label="Email">emily.carter@example.com</td>
@@ -75,7 +77,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="4">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">04</td>
                 <td data-label="Client Name">Michael Johnson</td>
                 <td data-label="Email">michael.johnson@example.com</td>
@@ -89,7 +91,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="5">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">05</td>
                 <td data-label="Client Name">Sophia Williams</td>
                 <td data-label="Email">sophia.williams@example.com</td>
@@ -103,7 +105,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="6">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">06</td>
                 <td data-label="Client Name">David Brown</td>
                 <td data-label="Email">david.brown@example.com</td>
@@ -117,7 +119,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="7">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">07</td>
                 <td data-label="Client Name">Olivia Martinez</td>
                 <td data-label="Email">olivia.martinez@example.com</td>
@@ -131,7 +133,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="8">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">08</td>
                 <td data-label="Client Name">James Lee</td>
                 <td data-label="Email">james.lee@example.com</td>
@@ -145,7 +147,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="9">
+            <tr>
                 <td class="ab-sl-column" data-label="#SL">09</td>
                 <td data-label="Client Name">Isabella Thompson</td>
                 <td data-label="Email">isabella.thompson@example.com</td>
@@ -159,7 +161,7 @@
                     </div>
                 </td>
             </tr>
-            <tr class="client-row" data-client-id="10">
+            <tr style="border-bottom:1px solid #CCC!important">
                 <td class="ab-sl-column" data-label="#SL">10</td>
                 <td data-label="Client Name">William Garcia</td>
                 <td data-label="Email">william.garcia@example.com</td>
@@ -173,14 +175,19 @@
                     </div>
                 </td>
             </tr>
+
         </tbody>
     </table>
 </div>
+
 <?php 
     include locate_template('dashboard-templates/rt/rt-client-details-modal.php');
 ?>
+
 <style>
+
 /* Mobile Responsive (Card Layout) */
+
 @media screen and (max-width: 768px) {
   table:not(.client-details),
   table:not(.client-details) thead,
@@ -190,9 +197,11 @@
     display: block;
     width: 100%;
   }
+
   table:not(.client-details) thead {
     display: none;
   }
+
   table:not(.client-details) tr {
     margin-bottom: 15px;
     border: 1px solid #ddd;
@@ -201,6 +210,7 @@
     background: #f9f9ff;
     box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
+
   table:not(.client-details) td {
     display: flex;
     justify-content: space-between;
@@ -209,9 +219,11 @@
     border: none;
     border-bottom: 1px solid #eee;
   }
+
   table:not(.client-details) td:last-child {
     border-bottom: none;
   }
+
   table:not(.client-details) td::before {
     content: attr(data-label);
     font-weight: 600;
@@ -219,15 +231,18 @@
     flex: 1;
     text-align: left;
   }
+
   table:not(.client-details) .ab-actions-column {
     display: flex;
     justify-content: flex-end;
     gap: 12px;
   }
+
   table:not(.client-details) .ab-action-icons {
     gap: 10px;
   }
 }
+
 /* Base Table Styling */
 table {
   width: 100%;
@@ -236,6 +251,7 @@ table {
   font-size: 14px;
   background: #fff;
 }
+
 /* Table Head */
 thead th {
   text-align: left;
@@ -243,17 +259,20 @@ thead th {
   border-bottom: 2px solid #ddd;
   font-weight: 600;
 }
+
 /* Table Body */
 tbody td {
   padding: 10px;
   border-bottom: 1px solid #eee;
   vertical-align: middle;
+
   /* overflow handling */
   max-width: 200px;              /* adjust per column */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 /* Tooltip style */
 tbody td:hover::after {
   content: attr(title); /* will show text from title attribute */
@@ -271,6 +290,7 @@ tbody td:hover::after {
   font-size: 13px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+
 /* Responsive: Add data-label before content on small screens */
 @media (max-width: 768px) {
   table thead {
@@ -310,11 +330,13 @@ tbody td:hover::after {
   tbody td {
     text-align: right;                /* value right aligned */
   }
+
   /* Actions row special style */
   tbody td.ab-actions-column {
     justify-content: flex-end;
   }
 }
+
 /* Action Icons */
 .ab-action-icons {
   display: flex;
@@ -328,56 +350,20 @@ tbody td:hover::after {
 .ab-action-icon:hover {
   transform: scale(1.2);
 }
-
-/* New styles for clickable rows */
-tbody tr.client-row {
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-tbody tr.client-row:hover {
-  background-color: #f5f5f5;
-}
-
-/* Don't apply hover effect to actions column */
-tbody tr.client-row .ab-actions-column {
-  cursor: default;
-}
-
-tbody tr.client-row .ab-actions-column:hover {
-  background-color: transparent;
-}
 </style>
+
 <script>
     const clientDetailsModal = document.getElementById('clientDetailsModal');
     const closeClientDetailsModalBtn = document.getElementById('closeClientDetailsModal');
-    
-    // View button click handlers
+
     document.querySelectorAll('.ab-viewClientDetails').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.stopPropagation(); // Prevent row click event from firing
+        btn.addEventListener('click', () => {
             if(clientDetailsModal){
                 clientDetailsModal.style.display = 'flex';
             }
         });
     });
-    
-    // Row click handlers
-    document.querySelectorAll('tbody tr.client-row').forEach(row => {
-        row.addEventListener('click', function(e) {
-            // Check if click was on actions column or any of its children
-            if (e.target.closest('.ab-actions-column')) {
-                return; // Do nothing if clicked on actions column
-            }
-            
-            // Find the view button in this row and trigger its click
-            const viewButton = this.querySelector('.ab-viewClientDetails');
-            if (viewButton) {
-                viewButton.click();
-            }
-        });
-    });
-    
+
     if (closeClientDetailsModalBtn) {
         closeClientDetailsModalBtn.addEventListener('click', () => {
             if(clientDetailsModal){
@@ -385,7 +371,7 @@ tbody tr.client-row .ab-actions-column:hover {
             }
         });
     }
-    
+
     if (clientDetailsModal) {
         clientDetailsModal.addEventListener('click', e => {
             if(e.target === clientDetailsModal){

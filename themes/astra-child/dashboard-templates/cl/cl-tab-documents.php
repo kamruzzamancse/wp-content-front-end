@@ -220,9 +220,8 @@
     font-weight: 500;
 }
 .cld-task-table tbody td {
-    padding: 12px;
+    padding: 10px;
     vertical-align: middle;
-    border-top: 1px solid #eaeaea;
 }
 
 /* Avatar + Name */
