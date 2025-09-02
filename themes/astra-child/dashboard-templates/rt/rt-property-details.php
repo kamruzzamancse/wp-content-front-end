@@ -36,39 +36,37 @@
 
         <!-- Property Features Grid -->
         <div class="property-features">
+            <!-- Address -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-location"></span> Location</div>
+                <div class="feature-label"><span class="dashicons dashicons-location"></span> Address</div>
                 <div class="feature-value">Le Marais, Paris, France</div>
             </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-home"></span> Property Type</div>
-                <div class="feature-value">Apartment</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-money"></span> Price</div>
-                <div class="feature-value">450,000</div>
-            </div>
+
+            <!-- Bedrooms -->
             <div class="feature-box">
                 <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bedrooms</div>
                 <div class="feature-value">3</div>
             </div>
+
+            <!-- Bathrooms -->
             <div class="feature-box">
                 <div class="feature-label"><span class="dashicons dashicons-admin-tools"></span> Bathrooms</div>
                 <div class="feature-value">2</div>
             </div>
+
+            <!-- Year Built -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-randomize"></span> Property Size</div>
+                <div class="feature-label"><span class="dashicons dashicons-calendar"></span> Year Built</div>
+                <div class="feature-value">2015</div>
+            </div>
+
+            <!-- Square Footage -->
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-randomize"></span> Square Footage</div>
                 <div class="feature-value">140 m²</div>
             </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-site"></span> Furnished</div>
-                <div class="feature-value">Fully Furnished</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-car"></span> Parking Available</div>
-                <div class="feature-value">Underground</div>
-            </div>
         </div>
+        
     </div>
 
     <div class="pd-right-column">

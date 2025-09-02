@@ -37,7 +37,7 @@
                 <tr><td>House Closing Date</td><td>11 Aug 25, 2025</td></tr>
             </table>
 
-            <h2 class="modal-title" style="margin-bottom: 10px">Assigned Property</h2>
+            <h2 class="modal-title" style="margin-bottom: 10px">Client Information</h2>
             <div class="property-item-modal">
                 <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="main-image client-details-property-details">
                     <div class="property-details">

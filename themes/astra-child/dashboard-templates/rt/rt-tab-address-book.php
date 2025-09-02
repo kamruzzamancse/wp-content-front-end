@@ -42,7 +42,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                     <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                    <span class="ab-action-icon" title="Edit">✏️</span>
+                    <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                     <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -56,7 +56,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -70,7 +70,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -84,7 +84,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -98,7 +98,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -112,7 +112,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -126,7 +126,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -140,7 +140,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -154,7 +154,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -168,7 +168,7 @@
                 <td class="ab-actions-column" data-label="Actions">
                     <div class="ab-action-icons">
                         <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                        <span class="ab-action-icon" title="Edit">✏️</span>
+                        <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                         <span class="ab-action-icon" title="Delete">🗑️</span>
                     </div>
                 </td>
@@ -176,6 +176,42 @@
         </tbody>
     </table>
 </div>
+
+<!-- Edit Client Modal -->
+<div id="editClientModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeEditModal">&times;</span>
+    <h2 class="modal-title">Edit Client Details</h2>
+    <form id="editClientForm">
+      <div class="form-group">
+        <label for="clientName">Client Name</label>
+        <input type="text" id="clientName" name="clientName" required>
+      </div>
+      <div class="form-group">
+        <label for="clientEmail">Email</label>
+        <input type="email" id="clientEmail" name="clientEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="clientPhone">Phone Number</label>
+        <input type="tel" id="clientPhone" name="clientPhone" pattern="[0-9\-]+" required>
+      </div>
+      <div class="form-group">
+        <label for="clientAddress">Address</label>
+        <input type="text" id="clientAddress" name="clientAddress" required>
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+      </div>
+      <div class="form-group">
+        <label for="closingDate">House Closing Date</label>
+        <input type="date" id="closingDate" name="closingDate" required>
+      </div>
+      <button type="submit" class="save-btn">Save</button>
+    </form>
+  </div>
+</div>
+
 <?php 
     include locate_template('dashboard-templates/rt/rt-client-details-modal.php');
 ?>
@@ -348,6 +384,105 @@ tbody tr.client-row .ab-actions-column:hover {
   background-color: transparent;
 }
 </style>
+
+<style>
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-title {
+  text-align: left; /* Left align title */
+  margin-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  text-align: left; /* Left align labels */
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button Style */
+.save-btn {
+  background: #007bff; /* Blue Button */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background: #0056b3;
+}
+</style>
+
+<script>
+document.querySelectorAll('.ab-action-icon[title="Edit"]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.getElementById('editClientModal').style.display = 'flex';
+  });
+});
+
+document.getElementById('closeEditModal').addEventListener('click', () => {
+  document.getElementById('editClientModal').style.display = 'none';
+});
+
+document.getElementById('editClientForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  if (!this.checkValidity()) {
+    alert('Please fill in all fields correctly.');
+    return;
+  }
+  alert('Client details saved successfully!');
+  document.getElementById('editClientModal').style.display = 'none';
+});
+</script>
+
 <script>
     const clientDetailsModal = document.getElementById('clientDetailsModal');
     const closeClientDetailsModalBtn = document.getElementById('closeClientDetailsModal');

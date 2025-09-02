@@ -41,39 +41,48 @@
                 
                 <!-- Property Features Grid -->
                 <div class="property-features-modal">
+
+                    <!-- Address -->
                     <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-location"></span> Location</div>
+                        <div class="feature-label"><span class="dashicons dashicons-location-alt"></span> Address</div>
                         <div class="feature-value">Le Marais, Paris, France</div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-admin-home"></span> Property Type</div>
-                        <div class="feature-value">Apartment</div>
+
+                    <!-- Price -->
+                    <div class="feature-box" id="price-feature">
+                        <div class="feature-label">
+                            <span class="dashicons dashicons-admin-site-alt3"></span> Price
+                            <button class="edit-btn" title="Edit Price">&#9998;</button> <!-- small edit icon -->
+                        </div>
+                        <div class="feature-value" id="price-value">450,000</div>
                     </div>
+
+                    <!-- Bedrooms -->
                     <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-money"></span> Price</div>
-                        <div class="feature-value">450,000</div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bedrooms</div>
+                        <div class="feature-label"><span class="dashicons dashicons-admin-home"></span> Bedrooms</div>
                         <div class="feature-value">3</div>
                     </div>
+
+                    <!-- Bathrooms -->
                     <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-admin-tools"></span> Bathrooms</div>
+                        <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bathrooms</div>
                         <div class="feature-value">2</div>
                     </div>
+
+                    <!-- Year Built -->
                     <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-randomize"></span> Property Size</div>
+                        <div class="feature-label"><span class="dashicons dashicons-calendar-alt"></span> Year Built</div>
+                        <div class="feature-value">2023</div>
+                    </div>
+
+                    <!-- Square Footage -->
+                    <div class="feature-box">
+                        <div class="feature-label"><span class="dashicons dashicons-layout"></span> Square Footage</div>
                         <div class="feature-value">140 m²</div>
                     </div>
-                    <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-admin-site"></span> Furnished</div>
-                        <div class="feature-value">Fully Furnished</div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-label"><span class="dashicons dashicons-car"></span> Parking Available</div>
-                        <div class="feature-value">Underground</div>
-                    </div>
+
                 </div>
+
             </div>
         </div>
     </div>
@@ -81,6 +90,27 @@
 
 <style>
 /* Property Details Modal Styles */
+
+.edit-btn {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #FFF;
+    transition: color 0.3s;
+    padding: 5px;
+}
+
+.edit-btn:hover {
+    color: #FFF;
+}
+
+#save-price-btn {
+    padding: 5px 10px;
+    color: #FFF!important;
+}
+
 .property-modal {
     display: none;
     position: fixed;
@@ -208,7 +238,7 @@
 /* Property Features Grid */
 .property-features-modal {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin: 30px 0 30px 0;
 }
@@ -352,4 +382,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const priceFeature = document.getElementById('price-feature');
+        const editBtn = priceFeature.querySelector('.edit-btn');
+        const priceValueDiv = document.getElementById('price-value');
+
+        editBtn.addEventListener('click', function() {
+            const currentPrice = priceValueDiv.textContent.trim();
+            priceValueDiv.innerHTML = `
+                <input type="number" id="price-input" value="${currentPrice}" style="width: 80px; margin-right:5px;" />
+                <button id="save-price-btn">Save</button>
+            `;
+
+            const saveBtn = document.getElementById('save-price-btn');
+            const priceInput = document.getElementById('price-input');
+
+            saveBtn.addEventListener('click', function() {
+                const newPrice = priceInput.value;
+                priceValueDiv.textContent = newPrice; // update UI only
+            });
+        });
+    });
 </script>
