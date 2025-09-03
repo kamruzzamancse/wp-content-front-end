@@ -51,7 +51,7 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
             </div>
 
             <div class="user-details">
-                <span class="user-name"><?php echo esc_html($current_user->display_name); ?></span>
+                <a href="?tab=cl-settings-pi"><span class="user-name"><?php echo esc_html($current_user->display_name); ?></span></a>
                 <span class="user-role-dashboard-header"><?php echo esc_html($company_name); ?></span>
             </div>
         </div>

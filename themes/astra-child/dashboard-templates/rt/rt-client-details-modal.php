@@ -32,7 +32,7 @@
                 <tr><td>Client Name</td><td>Afsana Hamid Mim</td></tr>
                 <tr><td>Email</td><td>Support.info@gmail.com</td></tr>
                 <tr><td>Phone Number</td><td>999-888-666</td></tr>
-                <tr><td>Address</td><td>Le Marais, Paris</td></tr>
+                <tr><td>Notes</td><td>Prefers evening meetings. Interested in commercial properties.</td></tr>
                 <tr><td>Date of Birth</td><td>11 Oct 24, 1995</td></tr>
                 <tr><td>House Closing Date</td><td>11 Aug 25, 2025</td></tr>
             </table>

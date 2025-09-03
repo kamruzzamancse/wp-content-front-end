@@ -1,31 +1,4 @@
-<div class="enhanced-login-form">  
-    <!-- Drawer Toggle Button -->
-    <button class="drawer-toggle" type="button">
-        <span class="hamburger-icon"></span>
-    </button>
-    
-    <!-- Drawer Panel -->
-    <div class="drawer-panel">
-        <div class="drawer-header">
-            <h3>Background Styles</h3>
-            <button class="drawer-close">&times;</button>
-        </div>
-        <div class="drawer-content">
-            <button class="bg-option active" data-bg="wave">
-                <span class="bg-preview wave-preview"></span>
-                <span>Wave Lines</span>
-            </button>
-            <button class="bg-option" data-bg="geometric">
-                <span class="bg-preview geometric-preview"></span>
-                <span>Geometric</span>
-            </button>
-            <button class="bg-option" data-bg="gradient">
-                <span class="bg-preview gradient-preview"></span>
-                <span>Gradient</span>
-            </button>
-        </div>
-    </div>
-    
+<div class="enhanced-login-form bg-gradient">  
     <!-- Login Form -->
     <form id="enhanced-login" method="post">
         <div class="form-logo">
@@ -63,7 +36,6 @@
         <input type="hidden" name="action" value="enhanced_login">
     </form>
 </div>
-
 <script>
     // Toggle password visibility
     const loginPasswordToggle = document.createElement('span');
@@ -86,67 +58,4 @@
             this.textContent = '👁️';
         }
     });
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const drawerToggle = document.querySelector('.drawer-toggle');
-    const drawerPanel = document.querySelector('.drawer-panel');
-    const drawerClose = document.querySelector('.drawer-close');
-    const bgOptions = document.querySelectorAll('.bg-option');
-    const loginForm = document.querySelector('.enhanced-login-form');
-    
-    // Toggle drawer open/close
-    drawerToggle.addEventListener('click', function() {
-        drawerPanel.classList.toggle('open');
-    });
-    
-    drawerClose.addEventListener('click', function() {
-        drawerPanel.classList.remove('open');
-    });
-    
-    // Handle background option selection
-    bgOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            const bgType = this.getAttribute('data-bg');
-            
-            // Remove all active classes
-            bgOptions.forEach(opt => opt.classList.remove('active'));
-            loginForm.classList.remove('bg-wave', 'bg-geometric', 'bg-gradient');
-            
-            // Add new active class
-            this.classList.add('active');
-            loginForm.classList.add(`bg-${bgType}`);
-            
-            // Save selection to localStorage
-            localStorage.setItem('selectedBg', bgType);
-            
-            // Close drawer
-            drawerPanel.classList.remove('open');
-        });
-    });
-    
-    // Load previous selection
-    const savedBg = localStorage.getItem('selectedBg');
-    if (savedBg) {
-        bgOptions.forEach(opt => {
-            opt.classList.remove('active');
-            if (opt.getAttribute('data-bg') === savedBg) {
-                opt.classList.add('active');
-            }
-        });
-        loginForm.classList.add(`bg-${savedBg}`);
-    } else {
-        // Default selection
-        bgOptions[0].classList.add('active');
-        loginForm.classList.add('bg-wave');
-    }
-    
-    // Close drawer when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!drawerPanel.contains(e.target) && !drawerToggle.contains(e.target)) {
-            drawerPanel.classList.remove('open');
-        }
-    });
-});
 </script>

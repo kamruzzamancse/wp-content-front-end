@@ -38,16 +38,9 @@
     width: 100%;
     height: 100%;
     z-index: -2;
-}
-/* Default background */
-.enhanced-login-form::before {
-    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background: linear-gradient(135deg, #2c3e50, #4a6fa5, #7e8ba3, #b8c6db);
     background-size: 400% 400%;
-    background-image: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-    animation: waveAnimation 15s ease infinite;
+    animation: gradientAnimation 15s ease infinite;
 }
 .enhanced-login-form::after, 
 .form-container::after {
@@ -213,188 +206,8 @@ button[type="submit"]:hover {
     filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
 }
 /* ------------------------- */
-/* Drawer Toggle Button */
-/* ------------------------- */
-.drawer-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-.drawer-toggle:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05);
-}
-.hamburger-icon {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background: #fff;
-    position: relative;
-    transition: all 0.3s ease;
-}
-.hamburger-icon::before,
-.hamburger-icon::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    transition: all 0.3s ease;
-}
-.hamburger-icon::before {
-    top: -8px;
-}
-.hamburger-icon::after {
-    top: 8px;
-}
-/* ------------------------- */
-/* Drawer Panel */
-/* ------------------------- */
-.drawer-panel {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    z-index: 999;
-    transition: right 0.3s ease;
-    padding: 20px;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-}
-.drawer-panel.open {
-    right: 0;
-}
-.drawer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.drawer-header h3 {
-    color: #fff;
-    font-size: 18px;
-    margin: 0;
-}
-.drawer-close {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-.drawer-close:hover {
-    transform: rotate(90deg);
-}
-/* ------------------------- */
-/* Background Options */
-/* ------------------------- */
-.drawer-content {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.bg-option {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    padding: 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    color: #fff;
-    text-align: left;
-}
-.bg-option:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateX(-5px);
-}
-.bg-option.active {
-    background: rgba(255, 255, 255, 0.25);
-    border-color: #fff;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
-.bg-preview {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    flex-shrink: 0;
-}
-/* Preview styles */
-.wave-preview {
-    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
-    background-size: 400% 400%;
-    animation: waveAnimation 3s ease infinite;
-}
-.geometric-preview {
-    background: #0f2027;
-    background-image: 
-        linear-gradient(30deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
-        linear-gradient(150deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50);
-    background-size: 20px 35px;
-}
-.gradient-preview {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb);
-    background-size: 400% 400%;
-    animation: gradientAnimation 3s ease infinite;
-}
-/* ------------------------- */
-/* Background Classes */
-/* ------------------------- */
-.enhanced-login-form.bg-wave::before {
-    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
-    background-size: 400% 400%;
-    background-image: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-    animation: waveAnimation 15s ease infinite;
-}
-.enhanced-login-form.bg-geometric::before {
-    background: #0f2027;
-    background-image: 
-        linear-gradient(30deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
-        linear-gradient(150deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
-        linear-gradient(30deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
-        linear-gradient(150deg, #2c3e50 12%, transparent 12.5%, transparent 87%, #2c3e50 87.5%, #2c3e50),
-        linear-gradient(60deg, #3498db77 25%, transparent 25.5%, transparent 75%, #3498db77 75%, #3498db77),
-        linear-gradient(60deg, #3498db77 25%, transparent 25.5%, transparent 75%, #3498db77 75%, #3498db77);
-    background-size: 80px 140px;
-    background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
-}
-.enhanced-login-form.bg-gradient::before {
-    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1, #fbc2eb, #ff9a9e);
-    background-size: 400% 400%;
-    animation: gradientAnimation 15s ease infinite;
-}
-/* ------------------------- */
 /* Animations */
 /* ------------------------- */
-@keyframes waveAnimation {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
 @keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -402,13 +215,7 @@ button[type="submit"]:hover {
 }
 
 
-
-
-
-
-
-
-/* css for registration form ******************************************************************************************/
+/* css for registration form */
 
 /* ------------------------- */
 /* Global Reset & Fonts */
@@ -437,13 +244,9 @@ button[type="submit"]:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #1a2a6c, #b21f1f, #1a2a6c);
+    background: linear-gradient(135deg, #2c3e50, #4a6fa5, #7e8ba3, #b8c6db);
     background-size: 400% 400%;
-    background-image: 
-        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 40% 80%, rgba(120, 219, 255, 0.3) 0%, transparent 50%);
-    animation: waveAnimation 15s ease infinite;
+    animation: gradientAnimation 15s ease infinite;
     z-index: -2;
 }
 .form-container::after {
@@ -627,7 +430,7 @@ button[type="submit"]:hover {
 /* ------------------------- */
 /* Animations */
 /* ------------------------- */
-@keyframes waveAnimation {
+@keyframes gradientAnimation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }

@@ -34,31 +34,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
                 <span>Clients</span>
             </a>
         </li>
-
-        <!-- Task Monitoring -->
-        <li class="<?php echo $current_tab === 'task-status' ? 'active' : ''; ?>">
-            <a href="?tab=task-status">
-                <span class="dashicons dashicons-clock"></span>
-                <span>Task Status Overview</span>
-            </a>
-        </li>
-
-        <!-- Task Management -->
-        <!-- <li class="<?php //echo $current_tab === 'task-management' ? 'active' : ''; ?>">
-            <a href="?tab=task-management">
-                <span class="dashicons dashicons-update"></span>
-                <span>Task Management</span>
-            </a>
-        </li> -->
-
-        <!-- User Management -->
-        <li class="<?php echo $current_tab === 'user-management' ? 'active' : ''; ?>">
-            <a href="?tab=user-management">
-                <span class="dashicons dashicons-admin-users"></span>
-                <span>User Management</span>
-            </a>
-        </li>
-
         <!-- Document Oversight -->
         <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
             <a href="?tab=documents">
@@ -66,7 +41,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
                 <span>Documents</span>
             </a>
         </li>
-
         <!-- Settings -->
         <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
             <a href="?tab=settings">
@@ -74,7 +48,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
                 <span>Settings</span>
             </a>
         </li>
-
         <!-- Logout -->
         <li>
             <a href="#" id="sup-am-logout-trigger">

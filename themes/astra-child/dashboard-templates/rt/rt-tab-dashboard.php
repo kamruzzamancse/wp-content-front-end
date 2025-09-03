@@ -61,6 +61,8 @@
           </table>
         </div>
 
+        <?php include locate_template('dashboard-templates/rt/rt-leads-section.php'); ?>
+
     </div>
     
     <!-- RIGHT SIDE -->
@@ -90,8 +92,6 @@
           }
         ?>
     </div>
-
-<?php include locate_template('dashboard-templates/rt/rt-leads-section.php'); ?>
 
 <style>
 /* General Styling */

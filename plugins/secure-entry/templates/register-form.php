@@ -1,10 +1,9 @@
-<div class="form-container">
+<div class="form-container bg-gradient">
     <!-- Registration Form -->
     <div class="enhanced-register-form">
         <div class="form-logo">
             <img src="http://localhost/mary/wp-content/uploads/2025/07/logo.png" alt="Company Logo">
         </div>
-
         <div class="company-name" style="margin-bottom:20px">Synchronest</div>
         
         <div class="form-header">
@@ -68,7 +67,6 @@
         </div>
     </div>
 </div>
-
 <script>
     // Toggle password visibility
     document.querySelectorAll('.toggle-password').forEach(toggle => {
@@ -83,7 +81,6 @@
             }
         });
     });
-
     // Password strength meter
     const passwordField = document.getElementById('reg-password');
     const strengthMeter = document.querySelector('.password-strength-meter');
