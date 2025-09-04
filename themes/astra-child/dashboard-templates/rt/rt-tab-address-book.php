@@ -10,7 +10,7 @@
             </div>
             <div class="ab-action-buttons">
                 <button class="ab-btn ab-btn-import">
-                    <span class="dashicons dashicons-upload"></span> Import
+                    <span style="color: #000" class="dashicons dashicons-upload"></span> Import
                 </button>
                 <!-- Fancy Export Dropdown Button -->
                 <div class="ab-export-dropdown">
@@ -24,7 +24,7 @@
     <table>
       <thead>
           <tr>
-              <th class="ab-sl-column">#SL</th>
+              <th class="ab-sl-column">Profile</th>
               <th class="client-name">Client Name</th>
               <th class="email">Email</th>
               <th class="phone-number">Phone Number</th>
@@ -33,12 +33,33 @@
           </tr>
       </thead>
       <tbody>
-          <tr class="client-row" data-client-id="1">
-              <td class="ab-sl-column" data-label="#SL">01</td>
-              <td data-label="Client Name">Afsana Hamid Mim</td>
-              <td data-label="Email">Support.info@gmail.com</td>
-              <td data-label="Phone Number">999-888-666</td>
-              <td data-label="Notes">Prefers evening meetings. Interested in commercial properties.</td>
+          <?php
+          // Array of clients
+          $clients = [
+              ['name'=>'Afsana Hamid Mim','email'=>'Support.info@gmail.com','phone'=>'999-888-666','notes'=>'Prefers evening meetings. Interested in commercial properties.'],
+              ['name'=>'John D. Smith','email'=>'john.smith@business.com','phone'=>'555-123-4567','notes'=>'Looking for luxury apartments. Budget: $500K-$800K. Quick decision maker.'],
+              ['name'=>'Emily Carter','email'=>'emily.carter@example.com','phone'=>'777-222-9999','notes'=>'First-time home buyer. Needs guidance through the process. Flexible on location.'],
+              ['name'=>'Michael Johnson','email'=>'michael.johnson@example.com','phone'=>'888-333-4444','notes'=>'Investment properties only. Prefers multi-family units. Cash buyer.'],
+              ['name'=>'Sophia Williams','email'=>'sophia.williams@example.com','phone'=>'999-555-1111','notes'=>'Downsizing after retirement. Wants single-story home. Must have garden space.'],
+              ['name'=>'David Brown','email'=>'david.brown@example.com','phone'=>'444-777-2222','notes'=>'Vacation home buyer. Interested in beachfront properties. Visits quarterly.'],
+              ['name'=>'Olivia Martinez','email'=>'olivia.martinez@example.com','phone'=>'333-666-8888','notes'=>'Relocating for work. Needs to close within 60 days. School district important.'],
+              ['name'=>'James Lee','email'=>'james.lee@example.com','phone'=>'222-444-5555','notes'=>'Looking for fixer-upper properties. Handyman background. Budget conscious.'],
+              ['name'=>'Isabella Thompson','email'=>'isabella.thompson@example.com','phone'=>'555-888-9999','notes'=>'Eco-friendly features required. Solar panels, energy efficient. Willing to pay premium.'],
+              ['name'=>'William Garcia','email'=>'william.garcia@example.com','phone'=>'777-999-0000','notes'=>'Property developer. Seeks land for new construction. Minimum 5 acres.']
+          ];
+
+          foreach($clients as $index => $client):
+          ?>
+          <tr class="client-row" data-client-id="<?php echo $index+1; ?>">
+              <td class="ab-sl-column" data-label="#SL">
+                  <!-- Random Profile Pic -->
+                  <img src="https://i.pravatar.cc/40?img=<?php echo rand(1,70); ?>" 
+                      alt="Profile Pic" class="profile-pic">
+              </td>
+              <td data-label="Client Name"><?php echo $client['name']; ?></td>
+              <td data-label="Email"><?php echo $client['email']; ?></td>
+              <td data-label="Phone Number"><?php echo $client['phone']; ?></td>
+              <td data-label="Notes"><?php echo $client['notes']; ?></td>
               <td class="ab-actions-column" data-label="Actions">
                   <div class="ab-action-icons">
                       <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
@@ -47,134 +68,10 @@
                   </div>
               </td>
           </tr>
-          <tr class="client-row" data-client-id="2">
-              <td class="ab-sl-column" data-label="#SL">02</td>
-              <td data-label="Client Name">John D. Smith</td>
-              <td data-label="Email">john.smith@business.com</td>
-              <td data-label="Phone Number">555-123-4567</td>
-              <td data-label="Notes">Looking for luxury apartments. Budget: $500K-$800K. Quick decision maker.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="3">
-              <td class="ab-sl-column" data-label="#SL">03</td>
-              <td data-label="Client Name">Emily Carter</td>
-              <td data-label="Email">emily.carter@example.com</td>
-              <td data-label="Phone Number">777-222-9999</td>
-              <td data-label="Notes">First-time home buyer. Needs guidance through the process. Flexible on location.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="4">
-              <td class="ab-sl-column" data-label="#SL">04</td>
-              <td data-label="Client Name">Michael Johnson</td>
-              <td data-label="Email">michael.johnson@example.com</td>
-              <td data-label="Phone Number">888-333-4444</td>
-              <td data-label="Notes">Investment properties only. Prefers multi-family units. Cash buyer.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="5">
-              <td class="ab-sl-column" data-label="#SL">05</td>
-              <td data-label="Client Name">Sophia Williams</td>
-              <td data-label="Email">sophia.williams@example.com</td>
-              <td data-label="Phone Number">999-555-1111</td>
-              <td data-label="Notes">Downsizing after retirement. Wants single-story home. Must have garden space.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="6">
-              <td class="ab-sl-column" data-label="#SL">06</td>
-              <td data-label="Client Name">David Brown</td>
-              <td data-label="Email">david.brown@example.com</td>
-              <td data-label="Phone Number">444-777-2222</td>
-              <td data-label="Notes">Vacation home buyer. Interested in beachfront properties. Visits quarterly.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="7">
-              <td class="ab-sl-column" data-label="#SL">07</td>
-              <td data-label="Client Name">Olivia Martinez</td>
-              <td data-label="Email">olivia.martinez@example.com</td>
-              <td data-label="Phone Number">333-666-8888</td>
-              <td data-label="Notes">Relocating for work. Needs to close within 60 days. School district important.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="8">
-              <td class="ab-sl-column" data-label="#SL">08</td>
-              <td data-label="Client Name">James Lee</td>
-              <td data-label="Email">james.lee@example.com</td>
-              <td data-label="Phone Number">222-444-5555</td>
-              <td data-label="Notes">Looking for fixer-upper properties. Handyman background. Budget conscious.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="9">
-              <td class="ab-sl-column" data-label="#SL">09</td>
-              <td data-label="Client Name">Isabella Thompson</td>
-              <td data-label="Email">isabella.thompson@example.com</td>
-              <td data-label="Phone Number">555-888-9999</td>
-              <td data-label="Notes">Eco-friendly features required. Solar panels, energy efficient. Willing to pay premium.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
-          <tr class="client-row" data-client-id="10">
-              <td class="ab-sl-column" data-label="#SL">10</td>
-              <td data-label="Client Name">William Garcia</td>
-              <td data-label="Email">william.garcia@example.com</td>
-              <td data-label="Phone Number">777-999-0000</td>
-              <td data-label="Notes">Property developer. Seeks land for new construction. Minimum 5 acres.</td>
-              <td class="ab-actions-column" data-label="Actions">
-                  <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
-                      <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
-                      <span class="ab-action-icon" title="Delete">🗑️</span>
-                  </div>
-              </td>
-          </tr>
+          <?php endforeach; ?>
       </tbody>
-  </table>
+    </table>
+
 </div>
 
 <!-- Edit Client Modal -->
@@ -218,6 +115,9 @@
 
 
 <style>
+.dashicons {
+  color: #FFF;
+}
 /* Base Table Styling */
 table {
   width: 100%;
@@ -235,13 +135,16 @@ table {
 }
 
 .ab-actions-column {
-  width: 140px;
+  width: 50px;
 }
 
 /* Set specific widths for each column using class names */
 .client-name {
   width: 15%;
   min-width: 150px;
+  font-size: 14px;
+  color: #FFF;
+  font-weight: 600;
 }
 
 .email {
