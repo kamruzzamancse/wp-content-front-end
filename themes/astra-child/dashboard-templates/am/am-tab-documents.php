@@ -359,7 +359,7 @@
     background: white;
     border-radius: 12px;
     padding: 24px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -460,7 +460,7 @@
 .do-search-input:focus {
     outline: none;
     border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .do-filter-group {
@@ -538,7 +538,7 @@
 .do-documents-card {
     background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     overflow: hidden;
 }
 
@@ -632,7 +632,7 @@
         background: white;
         margin-bottom: 12px;
         border-radius: 8px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         padding: 12px;
     }
 
@@ -714,7 +714,7 @@
     right: 0;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     z-index: 10;
     min-width: 180px;
     padding: 8px 0;

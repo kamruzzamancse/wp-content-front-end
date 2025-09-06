@@ -33,7 +33,7 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 <!-- Desktop Header -->
 <header class="dashboard-header desktop-header">
     <div class="header-row-1">
-        <a id="sidebar-toggle-cl" href="#">
+        <a href="?tab=dashboard" class="logo-link">
             <img src="<?php echo esc_url(content_url('/uploads/2025/08/mary-logo.png')); ?>" 
                 alt="<?php echo esc_attr(get_bloginfo('name')); ?> Logo" 
                 class="site-logo">
@@ -130,7 +130,7 @@ button { color: #000!important; }
 .cl-modal-content {
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     max-width: 400px;
     width: 100%;
 }

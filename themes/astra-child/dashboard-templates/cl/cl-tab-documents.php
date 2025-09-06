@@ -9,7 +9,7 @@
     <table class="cld-task-table">
         <thead>
             <tr>
-                <th>#SL</th>
+                <th>#</th>
                 <th>Property Name</th>
                 <th>Task</th>
                 <th>Status</th>
@@ -177,7 +177,7 @@
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
 }
 
@@ -295,7 +295,7 @@
     border: 1px solid #eaeaea;
     border-radius: 8px;
     padding: 5px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   .cld-task-table td {

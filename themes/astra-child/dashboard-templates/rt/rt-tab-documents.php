@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -187,13 +187,13 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius: 8px;
     text-decoration: none;
     color: #333;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 .stat-card:hover {
     background: #FFF;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 .stat-card h3 {
     font-size: 16px;

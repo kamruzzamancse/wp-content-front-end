@@ -1,7 +1,7 @@
 .ab-container {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -225,7 +225,7 @@ tr:last-child td {
 .modal-container {
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     width: 600px;
     max-width: 90%;
     max-height: 90vh; /* limit modal height to viewport */
@@ -409,7 +409,7 @@ tr:last-child td {
     height: auto;
     object-fit: cover;
     border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease;
 }
 

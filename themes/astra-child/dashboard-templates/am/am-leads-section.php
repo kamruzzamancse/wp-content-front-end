@@ -133,7 +133,7 @@
 #notesInput:focus {
   outline: none;
   border-color: #2980b9;
-  box-shadow: 0 0 4px rgba(41, 128, 185, 0.5);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 .
 </style>
@@ -144,7 +144,7 @@
   padding: 16px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   overflow-x: auto;
 }
 
@@ -225,7 +225,7 @@
     border-radius: 8px;
     padding: 12px;
     background: #f9f9ff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   .leads-table td {

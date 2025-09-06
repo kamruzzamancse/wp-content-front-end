@@ -143,7 +143,7 @@ button {
 .rt-modal-content {
     background: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     max-width: 400px;
     width: 100%;
 }
@@ -206,97 +206,10 @@ button {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Sidebar Styles */
-.dashboard-sidebar {
-    width: 60px;
-    transition: width 0.3s ease;
-}
-
-.dashboard-sidebar.expanded {
-    width: 250px;
-}
-
-.sidebar-menu li a {
-    display: flex;
-    align-items: center;
-    padding: 12px 0;
-    color: #fff;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    position: relative;
-}
-
-.sidebar-menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.sidebar-menu li a .dashicons {
-    margin-right: 10px;
-    flex-shrink: 0;
-}
-
-.dashboard-sidebar:not(.expanded) .sidebar-menu li a span:not(.dashicons) {
-    display: none;
-}
-
-/* Tooltip Styles */
-.sidebar-menu li a::after {
-    content: attr(title);
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 10px;
-    background-color: #333;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    z-index: 1000;
-}
-
-.dashboard-sidebar:not(.expanded) .sidebar-menu li a:hover::after {
-    opacity: 1;
-}
-
-/* Dashboard Content Layout */
-.dashboard-content {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    transition: grid-template-columns 0.3s ease;
-}
-
-.dashboard-content.sidebar-expanded {
-    grid-template-columns: 250px 1fr;
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-    .dashboard-sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100%;
-        z-index: 1000;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-    }
-    
-    .dashboard-sidebar.mobile-open {
-        transform: translateX(0);
-    }
-    
-    .dashboard-content {
-        grid-template-columns: 1fr;
-    }
-}
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     const sidebar = document.getElementById('dashboard-sidebar');
     const toggleBtn = document.getElementById('sidebar-toggle-btn');
     const dashboardContent = document.querySelector('.dashboard-content');
@@ -329,5 +242,5 @@ document.addEventListener('DOMContentLoaded', function() {
             toggleSidebar();
         }
     });
-});
+});*/
 </script>

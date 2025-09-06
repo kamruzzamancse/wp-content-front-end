@@ -104,7 +104,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     color: #333;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   /* Profile Header */
@@ -189,7 +189,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
   .rpe-form-input:focus {
     outline: none;
     border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   /* Form Actions */
@@ -254,7 +254,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
   .piv-edit-icon:hover {

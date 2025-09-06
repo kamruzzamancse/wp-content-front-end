@@ -13,7 +13,7 @@
 .container {
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   padding: 20px;
   margin-bottom: 20px;
 }

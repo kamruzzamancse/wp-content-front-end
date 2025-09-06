@@ -147,14 +147,14 @@ button {
 .stats-grid {
     display: flex;
     gap: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width: 100%; /* Ensure the cards span full width */
 }
 
 .stat-card {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     padding: 20px;
     flex: 1;
     text-align: center;
@@ -186,7 +186,7 @@ button {
     padding: 20px;
     width: 33%; /* Ensure cards span full width */
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .status-card h3 {
@@ -236,7 +236,7 @@ button {
     background-color: #fff;
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     margin-top: 30px;
     width: 100%; /* Ensure it takes full width */
 }
@@ -309,7 +309,7 @@ button {
         border-radius: 8px;
         padding: 12px;
         background: #fafafa;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
     .activity-logs-table td {

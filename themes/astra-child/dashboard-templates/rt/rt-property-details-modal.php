@@ -132,7 +132,7 @@
     margin: 40px auto;
     position: relative;
     padding: 35px; /* increased padding */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     box-sizing: border-box;
     overflow-y: auto;
     max-height: calc(100vh - 80px);
@@ -211,7 +211,7 @@
     max-height: 500px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Property details section */

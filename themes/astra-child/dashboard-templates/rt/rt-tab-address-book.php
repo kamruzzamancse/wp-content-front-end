@@ -197,7 +197,7 @@ tbody td:hover::after {
   max-width: 400px;
   z-index: 1000;
   font-size: 13px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Action Icons */
@@ -259,7 +259,7 @@ tbody tr.client-row .ab-actions-column:hover {
     border-radius: 8px;
     padding: 12px;
     background: #f9f9ff;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     box-sizing: border-box; /* Ensure padding is included in width calculation */
   }
   

@@ -84,7 +84,7 @@
   padding: 25px 30px;
   position: relative;
   animation: fadeInUp 0.3s ease;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Animation */

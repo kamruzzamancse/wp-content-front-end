@@ -75,7 +75,7 @@
 .sup-form-input:focus {
     outline: none;
     border-color: #3498db;
-    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .sup-form-footer {
@@ -193,7 +193,7 @@
 .sup-modal-content {
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     width: 100%;
     max-width: 450px;
     overflow: hidden;

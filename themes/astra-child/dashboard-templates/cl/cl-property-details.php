@@ -13,11 +13,6 @@
 
 <div class="pd-container">
     <div class="pd-left-column">
-        <!-- <div class="pd-top-controls">
-            <button class="pd-btn pd-btn-edit" onclick="propertyEditModal()">Edit</button>
-            <button class="pd-btn pd-btn-delete">Delete</button>
-        </div> -->
-
         <div class="pd-image-gallery-container">
             <div class="pd-thumbnail-gallery">
                 <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-4.png' ); ?>" onclick="changeImage(this.src)" alt="Gallery Image 1">
@@ -35,41 +30,50 @@
         </div>
 
         <!-- Property Features Grid -->
-        <div class="property-features">
+        <div class="property-features-modal">
+
+            <!-- Address -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-location"></span> Location</div>
+                <div class="feature-label"><span class="dashicons dashicons-location-alt"></span> Address</div>
                 <div class="feature-value">Le Marais, Paris, France</div>
             </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-home"></span> Property Type</div>
-                <div class="feature-value">Apartment</div>
+
+            <!-- Price -->
+            <div class="feature-box" id="price-feature">
+                <div class="feature-label">
+                    <span class="dashicons dashicons-admin-site-alt3"></span> Price
+                    <button class="edit-btn" title="Edit Price">&#9998;</button> <!-- small edit icon -->
+                </div>
+                <div class="feature-value" id="price-value">450,000</div>
             </div>
+
+            <!-- Bedrooms -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-money"></span> Price</div>
-                <div class="feature-value">450,000</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bedrooms</div>
+                <div class="feature-label"><span class="dashicons dashicons-admin-home"></span> Bedrooms</div>
                 <div class="feature-value">3</div>
             </div>
+
+            <!-- Bathrooms -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-tools"></span> Bathrooms</div>
+                <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bathrooms</div>
                 <div class="feature-value">2</div>
             </div>
+
+            <!-- Year Built -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-randomize"></span> Property Size</div>
+                <div class="feature-label"><span class="dashicons dashicons-calendar-alt"></span> Year Built</div>
+                <div class="feature-value">2023</div>
+            </div>
+
+            <!-- Square Footage -->
+            <div class="feature-box">
+                <div class="feature-label"><span class="dashicons dashicons-layout"></span> Square Footage</div>
                 <div class="feature-value">140 m²</div>
             </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-site"></span> Furnished</div>
-                <div class="feature-value">Fully Furnished</div>
-            </div>
-            <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-car"></span> Parking Available</div>
-                <div class="feature-value">Underground</div>
-            </div>
+
         </div>
     </div>
+
 
     <div class="pd-right-column">
         <div class="pd-right-box pd-assigned-client">
@@ -88,25 +92,23 @@
 
 <?php include locate_template('dashboard-templates/rt/rt-property-edit-modal.php'); ?>
 
-
 <style>
 
-/* Property features grid - 2 rows */
-/* Property Features Grid - Exact Match to Screenshot */
-.property-features {
+/* Property Features Grid */
+.property-features-modal {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0;
 }
 
 .feature-box {
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 16px;
     background-color: #f5f5f5;
-    border-radius: 6px;
-    min-height: 60px;
+    border-radius: 8px;
+    min-height: 70px;
     box-sizing: border-box;
 }
 
@@ -123,33 +125,46 @@
     font-size: 15px;
     font-weight: 500;
     color: #333;
-    padding-left: 28px;
+}
+
+/* Edit Button */
+.edit-btn {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s;
+    padding: 5px;
+}
+
+.edit-btn:hover {
+    color: #2271b1;
 }
 
 /* Specific icon colors */
-.dashicons-location { color: #e74c3c; }
+.dashicons-location-alt { color: #e74c3c; }
 .dashicons-admin-home { color: #3498db; }
-.dashicons-money { color: #2ecc71; }
+.dashicons-admin-site-alt3 { color: #d35400; }
 .dashicons-admin-users { color: #9b59b6; }
-.dashicons-admin-tools { color: #1abc9c; }
-.dashicons-randomize { color: #f39c12; }
-.dashicons-admin-site { color: #d35400; }
-.dashicons-car { color: #27ae60; }
+.dashicons-calendar-alt { color: #1abc9c; }
+.dashicons-layout { color: #f39c12; }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-    .property-features {
+    .property-features-modal {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
-    .property-features {
+@media (max-width: 768px) {
+    .property-features-modal {
         grid-template-columns: 1fr;
     }
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for gallery and columns */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -164,10 +179,6 @@
         width: 100%;
         overflow-x: auto;
         padding-bottom: 10px;
-    }
-    
-    .property-features {
-        grid-template-columns: 1fr;
     }
     
     .property-modal-content {

@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
     border-radius: 12px;
     z-index: 1001;
     animation: fadeIn 0.3s ease;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 /* Close Button */

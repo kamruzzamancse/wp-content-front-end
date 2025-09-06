@@ -80,7 +80,7 @@
     border-radius: 8px;
     max-width: 600px;
     width: 90%;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     padding: 25px 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-height: 90vh;
