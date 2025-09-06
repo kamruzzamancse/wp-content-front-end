@@ -1,6 +1,6 @@
 <?php
 /**
- * Dashboard Sidebar Navigation with Logout Confirmation Modal
+ * Dashboard Sidebar Navigation with Logout Confirmation Modal (Admin Version, Thin Menu)
  */
 $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
 ?>
@@ -9,55 +9,49 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     <ul class="sidebar-menu">
         <!-- Dashboard Overview -->
         <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
-            <a href="?tab=dashboard">
+            <a href="?tab=dashboard" title="Dashboard Overview">
                 <span class="dashicons dashicons-admin-home"></span>
                 <span>Dashboard Overview</span>
             </a>
         </li>
-
-        <!-- Realtors/Clients/Properties -->
-        <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
-            <a href="?tab=properties">
-                <span class="dashicons dashicons-building"></span>
-                <span>Property Management</span>
-            </a>
-        </li>
         <li class="<?php echo $current_tab === 'realtors' ? 'active' : ''; ?>">
-            <a href="?tab=realtors">
+            <a href="?tab=realtors" title="Realtors">
                 <span class="dashicons dashicons-groups"></span>
                 <span>Realtors</span>
             </a>
         </li>
         <li class="<?php echo $current_tab === 'clients' ? 'active' : ''; ?>">
-            <a href="?tab=clients">
+            <a href="?tab=clients" title="Clients">
                 <span class="dashicons dashicons-groups"></span>
                 <span>Clients</span>
             </a>
         </li>
+
         <!-- Document Oversight -->
         <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
-            <a href="?tab=documents">
+            <a href="?tab=documents" title="Documents">
                 <span class="dashicons dashicons-media-document"></span>
                 <span>Documents</span>
             </a>
         </li>
+
         <!-- Settings -->
         <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
-            <a href="?tab=settings">
+            <a href="?tab=settings" title="Settings">
                 <span class="dashicons dashicons-admin-settings"></span>
                 <span>Settings</span>
             </a>
         </li>
+
         <!-- Logout -->
         <li>
-            <a href="#" id="sup-am-logout-trigger">
+            <a href="#" id="sup-am-logout-trigger" title="Logout">
                 <span class="dashicons dashicons-migrate"></span>
                 <span>Logout</span>
             </a>
         </li>
     </ul>
 </aside>
-
 
 <!-- Logout Confirmation Modal -->
 <div class="sup-am-modal" id="sup-am-logout-modal">
@@ -76,7 +70,114 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 </div>
 
 <style>
-/* Modal Styles */
+/* ------------------------------
+   Sidebar Styles with Variables
+------------------------------ */
+:root {
+    --sidebar-collapsed-width: 60px;
+    --sidebar-expanded-width: 250px;
+    --sidebar-bg: #1e1e2d;
+    --sidebar-text: #fff;
+    --tooltip-bg: #333;
+    --tooltip-text: #fff;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    width: var(--sidebar-collapsed-width);
+    background: #1F5597;
+    transition: width 0.3s ease, transform 0.3s ease;
+    color: var(--sidebar-text);
+}
+
+.dashboard-sidebar.expanded {
+    width: var(--sidebar-expanded-width);
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+    outline: none;
+}
+
+.sidebar-menu li a:hover,
+.sidebar-menu li a:focus-visible {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-menu li a .dashicons {
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Hide text when collapsed */
+.dashboard-sidebar:not(.expanded) .sidebar-menu li a span:not(.dashicons) {
+    display: none;
+}
+
+/* Tooltip */
+.sidebar-menu li a::after {
+    content: attr(title);
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    background-color: var(--tooltip-bg);
+    color: var(--tooltip-text);
+    padding: 5px 10px;
+    border-radius: 4px;
+    max-width: 200px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 1000;
+    font-size: 13px;
+}
+
+.dashboard-sidebar:not(.expanded) .sidebar-menu li a:hover::after,
+.dashboard-sidebar:not(.expanded) .sidebar-menu li a:focus-visible::after {
+    opacity: 1;
+}
+
+/* Layout */
+.dashboard-content {
+    display: grid;
+    grid-template-columns: var(--sidebar-collapsed-width) 1fr;
+    transition: grid-template-columns 0.3s ease;
+}
+
+.dashboard-content.sidebar-expanded {
+    grid-template-columns: var(--sidebar-expanded-width) 1fr;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .dashboard-sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        z-index: 1000;
+    }
+    .dashboard-sidebar.mobile-open {
+        transform: translateX(0);
+    }
+    .dashboard-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ------------------------------
+   Modal Styles (Admin Version)
+------------------------------ */
 .sup-am-modal {
     display: none;
     position: fixed;
@@ -144,9 +245,13 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     text-decoration: none;
 }
 
+.sup-am-modal-button:hover {
+    color: #fff !important;
+}
+
 .sup-am-modal-button-primary {
     background-color: #e74c3c;
-    color: white;
+    color: #fff !important;
     border-color: #e74c3c;
 }
 
@@ -154,88 +259,33 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     background-color: #c0392b;
     border-color: #c0392b;
 }
-
-.dashboard-sidebar.collapsed {
-    width: 5px;
-    overflow: hidden;
-}
-
-.dashboard-sidebar.collapsed .sidebar-menu span {
-    display: none;
-}
 </style>
 
 <script>
 jQuery(document).ready(function($) {
-    // Modal elements
     const logoutModal = $('#sup-am-logout-modal');
     const logoutTrigger = $('#sup-am-logout-trigger');
     const logoutCancel = $('#sup-am-logout-cancel');
-    
-    // Show modal when logout is clicked
+
     logoutTrigger.on('click', function(e) {
         e.preventDefault();
         logoutModal.css('display', 'flex');
     });
-    
-    // Hide modal when No is clicked
+
     logoutCancel.on('click', function() {
         logoutModal.css('display', 'none');
     });
-    
-    // Close modal when clicking outside content
+
     logoutModal.on('click', function(e) {
         if (e.target === this) {
             $(this).css('display', 'none');
         }
     });
-    
-    // Close modal with Escape key
+
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape') {
             logoutModal.css('display', 'none');
         }
     });
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('dashboard-sidebar-am');
-    const toggleBtn = document.getElementById('sidebar-toggle-am');
-    const dashboardContent = document.querySelector('.dashboard-content');
-
-    // Sidebar toggle
-    function updateDashboardLayout() {
-        if (window.innerWidth >= 768) {
-            dashboardContent.style.display = 'grid';
-            dashboardContent.style.gridTemplateColumns = sidebar.classList.contains('collapsed') ? '0px 1fr' : '250px 1fr';
-            dashboardContent.style.minHeight = 'calc(100vh - 65px)';
-        } else {
-            dashboardContent.style.display = '';
-            dashboardContent.style.gridTemplateColumns = '';
-            dashboardContent.style.minHeight = '';
-        }
-    }
-    updateDashboardLayout();
-    toggleBtn.addEventListener('click', e => {
-        e.preventDefault();
-        sidebar.classList.toggle('collapsed');
-        updateDashboardLayout();
-    });
-    window.addEventListener('resize', updateDashboardLayout);
-
-    // Logout modal
-    const logoutModal = document.getElementById('sup-am-logout-modal');
-    const logoutTrigger = document.getElementById('sup-am-logout-trigger');
-    const logoutCancel = document.getElementById('sup-am-logout-cancel');
-
-    logoutTrigger.addEventListener('click', e => {
-        e.preventDefault();
-        logoutModal.style.display = 'flex';
-    });
-    logoutCancel.addEventListener('click', () => logoutModal.style.display = 'none');
-    logoutModal.addEventListener('click', e => { if (e.target === logoutModal) logoutModal.style.display = 'none'; });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') logoutModal.style.display = 'none'; });
 });
 </script>

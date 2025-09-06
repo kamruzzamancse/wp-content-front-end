@@ -10,7 +10,7 @@
                 <th>Last Touch</th>
                 <th>Status</th>
                 <th>Notes</th>
-                <th>Action</th>
+                <th style="width:80px">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -29,8 +29,8 @@
                     <?php echo ucfirst($lead['status']); ?>
                 </td>
                 <td data-label="Notes"><?php echo esc_html($lead['notes']); ?></td>
-                <td data-label="Action">
-                    <button class="edit-lead-btn">Edit</button>
+                <td data-label="Action" style="text-align: center">
+                    <span class="edit-lead-btn" title="Edit">✏️</span>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -153,9 +153,20 @@
 
 /* Table Styling (Desktop) */
 .leads-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd; /* optional table border */
+    border-radius: 6px;
+    overflow: hidden; /* ensures rounded corners show */
+}
+
+.leads-table thead th:first-child {
+    border-top-left-radius: 6px;
+}
+
+.leads-table thead th:last-child {
+    border-top-right-radius: 6px;
 }
 
 .leads-table th,
@@ -198,9 +209,21 @@
   align-items: center;
 }
 
+/* Style the ✏️ edit icon */
 .edit-lead-btn {
-  padding: 5px 20px!important;
-  color: #FFF!important;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  transition: transform 0.2s ease;
+}
+.edit-lead-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Remove pointer cursor from table rows and cells */
+.leads-table tr,
+.leads-table td {
+  cursor: default !important;
 }
 
 /* Mobile Responsive (Card Style) */
@@ -280,14 +303,15 @@
   window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
 
   document.addEventListener('click', e => {
-    if (e.target.classList.contains('edit-lead-btn')) {
+    const editBtn = e.target.closest('.edit-lead-btn'); // finds closest element
+    if (editBtn) {
       e.stopPropagation();
 
-      editingRow = e.target.closest('tr');
+      editingRow = editBtn.closest('tr'); // get the row
       document.getElementById('clientSelect').value = editingRow.querySelector('td[data-label="Client Name"]').innerText;
       document.getElementById('statusSelect').value = editingRow.querySelector('td[data-label="Status"]').innerText.trim().toLowerCase();
       document.getElementById('notesInput').value = editingRow.querySelector('td[data-label="Notes"]').innerText;
-      
+
       modal.style.display = 'flex';
     }
   });
@@ -327,7 +351,7 @@
       </td>
       <td data-label="Notes">${notes}</td>
       <td data-label="Action">
-          <button class="edit-lead-btn">Edit</button>
+          <span class="edit-lead-btn" title="Edit">✏️</span>
       </td>
     `;
 

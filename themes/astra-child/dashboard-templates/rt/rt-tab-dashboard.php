@@ -304,9 +304,9 @@
 
 .active-clients-table th,
 .active-clients-table td {
-  padding: 8px; /* Reduced from 10px */
+  padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #f5f5f5; /* Lighter border color */
+  border-bottom: 1px solid #f5f5f5;
 }
 
 /* Mobile Responsive (Card Style) */
@@ -325,10 +325,10 @@
   }
   
   .active-clients-table tr {
-    margin-bottom: 10px; /* Reduced from 15px */
-    border-radius: 6px; /* Reduced from 8px */
+    margin-bottom: 10px;
+    border-radius: 6px;
     background: #f9f9ff;
-    padding: 0 6px; /* Reduced from 8px */
+    padding: 0 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
   

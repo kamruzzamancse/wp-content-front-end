@@ -16,7 +16,7 @@
                     <span class="dashicons dashicons-download"></span> Export
                 </button>
                 <button class="ab-btn ab-btn-create ab-openCreateRealtor">
-                    <span class="dashicons dashicons-plus-alt"></span> Add Clients
+                    <span class="dashicons dashicons-plus-alt"></span> Add Client
                 </button>
             </div>
 
@@ -26,7 +26,7 @@
     <table>
         <thead>
             <tr>
-                <th class="ab-sl-column">#SL</th>
+                <th class="ab-sl-column">#</th>
                 <th>Client Name</th>
                 <th>Email</th>
                 <th>Phone Number</th>

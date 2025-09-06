@@ -1,330 +1,395 @@
 <div class="dashboard-top">
+
     <div class="dashboard-top-left">
-        <!-- Dashboard Overview Section -->
-        <div class="stats-grid">
-            <!-- Total Properties Card -->
-            <div class="stat-card">
-                <h3>
-                    <span class="dashicons dashicons-admin-home"></span> 
-                    <?php echo esc_html__('Total Properties', 'text-domain'); ?>
-                </h3>
-                <p><?php echo esc_html(50); ?></p>
-            </div>
+      
+      <div class="tpg-dashboard-container">
+            <div class="tpg-tracking-section">
 
-            <!-- Total Realtors Card -->
-            <div class="stat-card">
-                <h3>
-                    <span class="dashicons dashicons-groups"></span> 
-                    <?php echo esc_html__('Total Realtors', 'text-domain'); ?>
-                </h3>
-                <p><?php echo esc_html(60); ?></p>
-            </div>
+                <!-- Header with Dropdown -->
+                <div class="tpg-tracking-header">
+                    <h1 class="tpg-section-title">Tracking Property</h1>
 
-            <!-- Total Clients Card -->
-            <div class="stat-card">
-                <h3>
-                    <span class="dashicons dashicons-groups"></span> 
-                    <?php echo esc_html__('Total Clients', 'text-domain'); ?>
-                </h3>
-                <p><?php echo esc_html(70); ?></p>
+                    <div class="tpg-tracking-summary">
+                        <span class="tpg-amount" id="tpg-amount">$8.24k</span>
+                        <span class="tpg-year">2025</span>
+                    </div>
+
+                    <!-- Property Dropdown -->
+                    <select id="tpg-property-select">
+                        <option value="property1">Property 1</option>
+                        <option value="property2">Property 2</option>
+                        <option value="property3">Property 3</option>
+                    </select>
+                </div>
+
+                <div class="tpg-chart-container">
+
+                    <!-- Y Axis -->
+                    <div class="tpg-y-axis">
+                        <span>9k</span>
+                        <span>7k</span>
+                        <span>5k</span>
+                        <span>3k</span>
+                        <span>1k</span>
+                    </div>
+
+                    <!-- Line Chart -->
+                    <svg class="tpg-line-chart" viewBox="0 0 600 250" preserveAspectRatio="none">
+                        <polyline id="tpg-line" points="0,210 100,180 200,150 300,120 400,80 500,40" />
+                        <circle cx="0" cy="210" r="5" data-value="$2.10k"></circle>
+                        <circle cx="100" cy="180" r="5" data-value="$3.20k"></circle>
+                        <circle cx="200" cy="150" r="5" data-value="$4.80k"></circle>
+                        <circle cx="300" cy="120" r="5" data-value="$6.20k"></circle>
+                        <circle cx="400" cy="80" r="5" data-value="$7.50k"></circle>
+                        <circle cx="500" cy="40" r="5" data-value="$8.24k"></circle>
+                    </svg>
+
+                    <!-- X Axis -->
+                    <div class="tpg-x-axis">
+                        <span>10:30 AM</span>
+                        <span>11:30 AM</span>
+                        <span>12:30 PM</span>
+                        <span>1:30 PM</span>
+                        <span>2:30 PM</span>
+                        <span>3:30 PM</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Task Status Overview Section -->
-        <div class="task-status-overview">
-            <!-- Total Tasks Card -->
-            <div class="status-card total">
-                <div class="status-icon">
-                    <span class="dashicons dashicons-clipboard"></span>
-                </div>
-                <h3>Total Tasks</h3>
-                <p class="task-count">105 Tasks</p>
-                <p class="description">Overall tasks including pending, in-progress, and completed.</p>
-                <button class="view-tasks">View All Tasks</button>
-                <div class="progress-bar" style="width: 100%;"></div>
-            </div>
+        <div class="dashboard-section active-clients-section">
+          <h1 class="header-title">Active Clients</h1>
+          <table class="active-clients-table">
+              <thead>
+                  <tr>
+                      <th>Client Name</th>
+                      <th>Address</th>
+                      <th>Closing Date</th>
+                      <th>Notes</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <?php
+                  $clients = ["Insurance Co", "Tech Solutions", "Green Energy", "HealthPlus", "Bright Finance", "Global Trade"];
+                  $cities = ["New York", "Los Angeles", "Chicago", "Houston", "Miami", "San Francisco"];
+                  $notesArr = [
+                      "Follow-up required next week.",
+                      "Client requested a meeting.",
+                      "Pending documents.",
+                      "Urgent response needed.",
+                      "Initial contact completed.",
+                      "Schedule demo session."
+                  ];
 
-            <div class="status-card pending">
-                <div class="status-icon">
-                    <span class="dashicons dashicons-clock"></span>
-                </div>
-                <h3>Pending Tasks</h3>
-                <p class="task-count">35 Tasks</p>
-                <p class="description">Tasks awaiting assignment or action from realtor/client.</p>
-                <button class="view-tasks">View Pending Tasks</button>
-                <div class="progress-bar" style="width: 70%;"></div>
-            </div>
-
-            <div class="status-card in-progress">
-                <div class="status-icon">
-                    <span class="dashicons dashicons-update"></span>
-                </div>
-                <h3>In Progress Tasks</h3>
-                <p class="task-count">25 Tasks</p>
-                <p class="description">Tasks currently being worked on or under review.</p>
-                <button class="view-tasks">View In Progress Tasks</button>
-                <div class="progress-bar" style="width: 50%;"></div>
-            </div>
-
-            <div class="status-card completed">
-                <div class="status-icon">
-                    <span class="dashicons dashicons-yes"></span>
-                </div>
-                <h3>Completed Tasks</h3>
-                <p class="task-count">45 Tasks</p>
-                <p class="description">Tasks that are finalized and submitted.</p>
-                <button class="view-tasks">View Completed Tasks</button>
-                <div class="progress-bar" style="width: 100%;"></div>
-            </div>
+                  for ($i = 0; $i < 6; $i++):
+                      $clientName = $clients[array_rand($clients)];
+                      $address = $cities[array_rand($cities)];
+                      // Random closing date within next 60 days
+                      $closingDate = date("d F", strtotime("+".rand(1,60)." days"));
+                      $notes = $notesArr[array_rand($notesArr)];
+                  ?>
+                  <tr>
+                      <td data-label="Client Name"><?= $clientName ?></td>
+                      <td data-label="Address"><?= $address ?></td>
+                      <td data-label="Closing Date"><?= $closingDate ?></td>
+                      <td data-label="Notes"><?= $notes ?></td>
+                  </tr>
+                  <?php endfor; ?>
+              </tbody>
+          </table>
         </div>
 
-        <!-- System Activity Logs Section -->
-        <div class="system-activity-logs">
-            <h1 class="header-title">System Activity Logs</h1>
-            <table class="activity-logs-table">
-                <thead>
-                    <tr>
-                        <th>Log Type</th>
-                        <th>Details</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- PHP Loop or Static Random Logs -->
-                    <?php
-                    $activity_types = ['Login', 'Task Assignment', 'Task Completion', 'File Upload', 'Message Sent'];
-                    $users = ['Admin', 'Realtor John', 'Client Sarah', 'Realtor Mike', 'Admin'];
-                    $activities = [
-                        'User "Admin" logged in',
-                        'Task "Review Property" assigned to Realtor John',
-                        'Task "Complete Property Review" marked as completed',
-                        'File "PropertyDetails.pdf" uploaded by Admin',
-                        'Message "Meeting Request" sent to Client Sarah'
-                    ];
-                    for ($i = 0; $i < 10; $i++) {
-                        $activity = $activities[array_rand($activities)];
-                        $activity_type = $activity_types[array_rand($activity_types)];
-                        $user = $users[array_rand($users)];
-                        $date = date("Y-m-d H:i:s", strtotime("-" . rand(1, 7) . " days"));
-                        echo "<tr>
-                                <td data-label='Log Type'>$activity_type</td>
-                                <td data-label='Details'>$activity</td>
-                                <td data-label='Date'>$date</td>
-                            </tr>";
-                    }
-                    ?>
-                </tbody>
-            </table>
-        </div>
+        <?php include locate_template('dashboard-templates/rt/rt-leads-section.php'); ?>
 
     </div>
-</div>
+    
+    <!-- RIGHT SIDE -->
+    <div class="dashboard-top-right">
+        <?php
+          $current_user = wp_get_current_user();
+          $user_email   = $current_user->user_email;
+
+          if ($user_email) {
+              global $wpdb;
+              $calendar_id = $wpdb->get_var($wpdb->prepare("
+                  SELECT ID 
+                  FROM $wpdb->posts 
+                  WHERE post_type = 'calendar' 
+                    AND post_status = 'publish'
+                    AND post_title = %s
+                  LIMIT 1
+              ", $user_email));
+
+              if ($calendar_id) {
+                  echo do_shortcode('[calendar id="' . intval($calendar_id) . '"]');
+              } else {
+                  echo '<p>No calendar found for your account.</p>';
+              }
+          } else {
+              echo '<p>Please login to see your calendar.</p>';
+          }
+        ?>
+    </div>
 
 <style>
-/* General Styling for Dashboard */
-button {
-    color: #FFF!important;
+/* Updated Tracking Property Section (Line Chart) */
+.tpg-dashboard-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
 }
-.dashboard-top {
+
+.tpg-tracking-section {
+    position: relative;
+}
+
+.tpg-tracking-header {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    width: 100%; /* Ensure the content spans full width */
-    max-width: 100%; /* Prevent unnecessary constraining */
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.dashboard-top-left {
-    flex: 70%; /* Takes up most of the space */
-    max-width: 100%; /* Ensures full use of the width */
-}
-
-.dashboard-top-right {
-    flex: 30%; /* Takes up remaining space */
-    max-width: 100%; /* Ensures full use of the width */
-}
-
-/* Stats Grid */
-.stats-grid {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-    width: 100%; /* Ensure the cards span full width */
-}
-
-.stat-card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    flex: 1;
-    text-align: center;
-    width: 100%; /* Ensure cards span full width */
-}
-
-.stat-card h3 {
-    font-size: 1.4rem;
+.tpg-section-title {
+    margin: 0;
+    font-size: 1.5rem!important;
     font-weight: 600;
-    margin: 10px 0;
+    color: #2c3e50;
 }
 
-.stat-card p {
-    font-size: 1.6rem;
-    font-weight: 700;
-}
-
-/* Task Status Overview */
-.task-status-overview {
+.tpg-tracking-summary {
     display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-    width: 100%; /* Ensure the cards span full width */
-}
-
-.status-card {
-    background-color: #fff;
+    align-items: center;
+    gap: 15px;
+    background: #f8fafd;
+    padding: 10px 15px;
     border-radius: 8px;
-    padding: 20px;
-    width: 33%; /* Ensure cards span full width */
-    text-align: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.status-card h3 {
+.tpg-amount {
     font-size: 1.4rem;
-    font-weight: 600;
-    margin: 10px 0;
-}
-
-.status-card .task-count {
-    font-size: 1.6rem;
     font-weight: 700;
+    color: #2c3e50;
 }
 
-.status-card .progress-bar {
-    height: 6px;
-    background-color: #f2f2f2;
-    margin-top: 15px;
-    border-radius: 3px;
-}
-
-.status-card .progress-bar::after {
-    content: "";
-    display: block;
-    height: 100%;
-    background-color: #3498db;
-    border-radius: 3px;
-}
-
-/* Custom Background for each status */
-.pending {
-    background-color: #fff3e0;
-    border-left: 6px solid #f39c12;
-}
-
-.in-progress {
-    background-color: #eaf7ff;
-    border-left: 6px solid #2980b9;
-}
-
-.completed {
-    background-color: #d4edda;
-    border-left: 6px solid #27ae60;
-}
-
-/* System Activity Logs */
-.system-activity-logs {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    margin-top: 30px;
-    width: 100%; /* Ensure it takes full width */
-}
-
-.activity-logs-table {
-    width: 100%;
-    border-collapse: collapse;
+.tpg-year {
+    background: #e6f0ff;
+    padding: 5px 12px;
+    border-radius: 20px;
     font-size: 14px;
-    margin-top: 20px;
+    color: #4e6ef2;
+    font-weight: 500;
 }
 
-.activity-logs-table th, .activity-logs-table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #eee;
+.tpg-chart-container {
+    position: relative;
+    height: 250px;
+    background: #fafbfc;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.activity-logs-table th {
-    background: #046bd2;
-    font-weight: 600;
-    color: #FFF;
+/* Y Axis */
+.tpg-y-axis {
+    position: absolute;
+    top: 15px;
+    bottom: 30px;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #7f8c8d;
+    font-weight: 500;
+    padding-right: 5px;
 }
 
-/* Total Tasks Custom Style */
-.total {
-    background-color: #f0f4f8;
-    border-left: 6px solid #34495e;
+/* X Axis */
+.tpg-x-axis {
+    position: absolute;
+    bottom: 0;
+    left: 40px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #7f8c8d;
+    font-weight: 500;
+    padding-top: 5px;
 }
 
-/* Mobile Responsive */
-@media screen and (max-width: 768px) {
-    .stats-grid, .task-status-overview {
+/* Line Chart SVG */
+.tpg-line-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.tpg-line-chart polyline {
+    fill: none;
+    stroke: #4e6ef2;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.tpg-line-chart circle {
+    fill: #4e6ef2;
+    cursor: pointer;
+    transition: transform 0.3s, fill 0.3s;
+}
+
+.tpg-line-chart circle:hover {
+    transform: scale(1.2);
+    fill: #6c8dfa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tpg-tracking-header {
         flex-direction: column;
+        align-items: flex-start;
     }
-
-    .stat-card, .status-card {
-        width: 100%; /* Ensure cards are full width on mobile */
-    }
-
-    .activity-logs-table {
-        display: block;
+    .tpg-tracking-summary {
         width: 100%;
-    }
-
-    .activity-logs-table th, .activity-logs-table td {
-        display: block;
-        width: 100%;
-    }
-}
-
-/* Responsive Table → Card view on mobile */
-@media screen and (max-width: 768px) {
-    .activity-logs-table,
-    .activity-logs-table thead,
-    .activity-logs-table tbody,
-    .activity-logs-table th,
-    .activity-logs-table td,
-    .activity-logs-table tr {
-        display: block;
-        width: 100%;
-    }
-
-    .activity-logs-table thead {
-        display: none; /* hide table headers */
-    }
-
-    .activity-logs-table tr {
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 12px;
-        background: #fafafa;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    }
-
-    .activity-logs-table td {
-        display: flex;
         justify-content: space-between;
-        padding: 8px 10px;
-        border: none;
-        font-size: 14px;
     }
-
-    .activity-logs-table td::before {
-        content: attr(data-label);
-        font-weight: 600;
-        color: #333;
+    .tpg-chart-container {
+        padding: 10px;
     }
 }
-
 </style>
+
+<style>
+/* General Styling */
+.dashboard-section {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px; /* Reduced from 12px */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  margin-bottom: 20px!important;
+}
+
+/* Add this for the calendar container */
+.dashboard-top-right {
+  padding: 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+  height: 100%;
+}
+
+.calendar-container {
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+}
+
+/* Table Styling (Desktop) */
+.active-clients-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.active-clients-table th,
+.active-clients-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+/* Mobile Responsive (Card Style) */
+@media screen and (max-width: 480px) {
+  .active-clients-table,
+  .active-clients-table thead,
+  .active-clients-table tbody,
+  .active-clients-table th,
+  .active-clients-table tr {
+    display: block;
+    width: 100%;
+  }
+  
+  .active-clients-table thead {
+    display: none;
+  }
+  
+  .active-clients-table tr {
+    margin-bottom: 10px;
+    border-radius: 6px;
+    background: #f9f9ff;
+    padding: 0 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .active-clients-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0; /* Reduced from 8px */
+    border-bottom: 1px solid #f8f8f8; /* Lighter border color */
+  }
+  
+  .active-clients-table td:last-child {
+    border-bottom: none;
+  }
+  
+  .active-clients-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .dashboard-section {
+    padding: 8px; /* Reduced from 10px */
+  }
+  
+  table {
+    border-width: 0 !important;
+  }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const line = document.getElementById('tpg-line');
+    const circles = document.querySelectorAll('.tpg-line-chart circle');
+    const amount = document.getElementById('tpg-amount');
+
+    const data = {
+        property1: { points: "0,210 100,180 200,150 300,120 400,80 500,40", values: ["$2.10k","$3.20k","$4.80k","$6.20k","$7.50k","$8.24k"], total: "$8.24k" },
+        property2: { points: "0,200 100,170 200,140 300,110 400,70 500,30", values: ["$2.00k","$3.00k","$4.50k","$6.00k","$7.00k","$8.00k"], total: "$8.00k" },
+        property3: { points: "0,220 100,190 200,160 300,130 400,90 500,50", values: ["$2.20k","$3.50k","$5.00k","$6.50k","$7.80k","$8.50k"], total: "$8.50k" },
+    };
+
+    function updateChart(prop) {
+        line.setAttribute('points', data[prop].points);
+        circles.forEach((circle, i) => {
+            const coords = data[prop].points.split(" ")[i].split(",");
+            circle.setAttribute('cx', coords[0]);
+            circle.setAttribute('cy', coords[1]);
+            circle.setAttribute('data-value', data[prop].values[i]);
+        });
+        amount.textContent = data[prop].total;
+    }
+
+    document.getElementById('tpg-property-select').addEventListener('change', function() {
+        updateChart(this.value);
+    });
+
+    circles.forEach(point => {
+        point.addEventListener('click', function() {
+            alert('Value: ' + this.getAttribute('data-value'));
+        });
+    });
+});
+</script>

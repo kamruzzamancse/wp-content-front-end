@@ -16,7 +16,7 @@
                     <span class="dashicons dashicons-download"></span> Export
                 </button>
                 <button class="ab-btn ab-btn-create ab-openCreateRealtor">
-                    <span class="dashicons dashicons-plus-alt"></span> Add Clients
+                    <span class="dashicons dashicons-plus-alt"></span> Add Realtor
                 </button>
             </div>
         </div>
