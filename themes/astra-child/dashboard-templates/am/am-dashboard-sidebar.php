@@ -42,9 +42,9 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
             </a>
         </li>
 
-        <!-- Logout -->
+       <!-- Logout -->
         <li>
-            <a href="#" id="sup-am-logout-trigger" title="Logout">
+            <a href="#" class="sup-am-logout-trigger" title="Logout">
                 <span class="dashicons dashicons-migrate"></span>
                 <span>Logout</span>
             </a>
@@ -262,25 +262,29 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 
 <script>
 jQuery(document).ready(function($) {
-    const logoutModal = $('#sup-am-logout-modal');
-    const logoutTrigger = $('#sup-am-logout-trigger');
-    const logoutCancel = $('#sup-am-logout-cancel');
+    const logoutModal = $('.sup-am-logout-modal');
+    const logoutTrigger = $('.sup-am-logout-trigger');
+    const logoutCancel = $('.sup-am-logout-cancel');
 
+    // Open modal
     logoutTrigger.on('click', function(e) {
         e.preventDefault();
         logoutModal.css('display', 'flex');
     });
 
+    // Close modal on cancel
     logoutCancel.on('click', function() {
         logoutModal.css('display', 'none');
     });
 
+    // Close modal on outside click
     logoutModal.on('click', function(e) {
-        if (e.target === this) {
-            $(this).css('display', 'none');
+        if ($(e.target).is('.sup-am-modal')) {
+            logoutModal.css('display', 'none');
         }
     });
 
+    // Close modal on Esc
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape') {
             logoutModal.css('display', 'none');

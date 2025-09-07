@@ -106,7 +106,7 @@ if (empty($company_name)) {
         </div>
         <div class="am-modal-footer">
             <button type="button" class="am-modal-button" id="am-logout-cancel">No</button>
-            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="am-modal-button am-modal-button-primary">Logout</a>
+            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="am-modal-button am-modal-button-primary" id="am-logout-confirm">Logout</a>
         </div>
     </div>
 </div>

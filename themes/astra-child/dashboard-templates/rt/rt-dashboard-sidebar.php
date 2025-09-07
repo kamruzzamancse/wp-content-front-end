@@ -37,16 +37,18 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
             </a>
         </li>
         <li>
-            <a href="#" id="sup-logout-trigger" title="Logout">
-                <span class="dashicons dashicons-migrate"></span>
-                <span>Logout</span>
-            </a>
+            <li>
+                <a href="#" class="sup-logout-trigger" title="Logout">
+                    <span class="dashicons dashicons-migrate"></span>
+                    <span>Logout</span>
+                </a>
+            </li>
         </li>
     </ul>
 </aside>
 
 <!-- Logout Confirmation Modal -->
-<div class="sup-modal" id="sup-logout-modal">
+<div class="sup-modal sup-logout-modal">
     <div class="sup-modal-content">
         <div class="sup-modal-header">
             <h2 class="sup-modal-title">Confirm Logout</h2>
@@ -55,8 +57,8 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
             <p class="sup-modal-text">Are you sure you want to logout?</p>
         </div>
         <div class="sup-modal-footer">
-            <button type="button" class="sup-modal-button" id="sup-logout-cancel">No</button>
-            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="sup-modal-button sup-modal-button-primary" id="sup-logout-confirm">Logout</a>
+            <button type="button" class="sup-modal-button sup-logout-cancel">No</button>
+            <a href="<?php echo esc_url(wp_logout_url(home_url('/login/'))); ?>" class="sup-modal-button sup-modal-button-primary sup-logout-confirm">Logout</a>
         </div>
     </div>
 </div>
@@ -236,30 +238,30 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 
 <script>
 jQuery(document).ready(function($) {
-    // Modal elements
-    const logoutModal = $('#sup-logout-modal');
-    const logoutTrigger = $('#sup-logout-trigger');
-    const logoutCancel = $('#sup-logout-cancel');
-    
-    // Show modal when logout is clicked
+    // Select modal and buttons
+    const logoutModal = $('.sup-logout-modal');
+    const logoutTrigger = $('.sup-logout-trigger');
+    const logoutCancel = $('.sup-logout-cancel');
+
+    // Show modal on trigger click
     logoutTrigger.on('click', function(e) {
         e.preventDefault();
         logoutModal.css('display', 'flex');
     });
-    
-    // Hide modal when No is clicked
+
+    // Hide modal on cancel
     logoutCancel.on('click', function() {
         logoutModal.css('display', 'none');
     });
-    
-    // Close modal when clicking outside content
+
+    // Close modal when clicking outside
     logoutModal.on('click', function(e) {
-        if (e.target === this) {
-            $(this).css('display', 'none');
+        if ($(e.target).hasClass('sup-modal')) {
+            logoutModal.css('display', 'none');
         }
     });
-    
-    // Close modal with Escape key
+
+    // Close with Escape
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape') {
             logoutModal.css('display', 'none');
