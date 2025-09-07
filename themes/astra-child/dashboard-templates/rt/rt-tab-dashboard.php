@@ -129,6 +129,16 @@
               echo '<p>Please login to see your calendar.</p>';
           }
         ?>
+
+        <!-- Header -->
+        <div class="notes-header">
+            <h1>Notes</h1>
+            <button class="add-note-btn">+</button>
+        </div>
+
+        <!-- Sticky Notes Container -->
+        <div class="sticky-notes-container"></div>
+
     </div>
 
 <style>

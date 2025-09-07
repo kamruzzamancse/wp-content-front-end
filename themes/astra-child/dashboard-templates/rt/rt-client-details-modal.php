@@ -54,27 +54,13 @@
                     <button class="view-details-btn">View Details</button>
                 </div>
             </div>
-
-            <h2 class="modal-title" style="margin: 20px 0 10px;">Suggested Clients</h2>
-            <div class="client-card-container">
-                <div class="client-card">
-                    <img class="client-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Client Photo">
-                    <div class="client-info">
-                        <div class="client-name">Ariyana</div>
-                        <div class="client-role">Client</div>
-                        <div class="client-location">Le Marais, Paris</div>
-                    </div>
-                </div>
-                <div class="client-card">
-                    <img class="client-avatar" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Client Photo">
-                    <div class="client-info">
-                        <div class="client-name">Ayesha</div>
-                        <div class="client-role">Client</div>
-                        <div class="client-location">Le Marais, Paris</div>
-                    </div>
-                </div>
+            <div class="upload-documents">
+                <button class="cld-upload-btn" data-modal="cl-upload-document-modal">
+                    Upload Document <span class="dashicons dashicons-media-document"></span>
+                </button>
             </div>
         </div>
+        
         <div class="modal-footer">
             <button class="close-btn" id="closeClientDetailsModal">Close</button>
         </div>
@@ -83,4 +69,82 @@
 
 <?php 
     include locate_template('dashboard-templates/rt/rt-property-details-modal.php');
+    include locate_template('dashboard-templates/rt/rt-upload-document-modal.php');
 ?>
+
+<style>
+/* Upload Documents Section */
+.upload-documents {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Upload Button Styling */
+.cld-upload-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background-color: #007bff;
+    color: #fff!important;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cld-upload-btn:hover {
+    background-color: #155ab6;
+    transform: scale(1.02);
+}
+
+.cld-upload-btn .dashicons {
+    font-size: 16px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const uploadModal = document.getElementById('cl-upload-document-modal');
+    const closeBtn = uploadModal.querySelector('.clup-close-btn');
+    const browseBtn = uploadModal.querySelector('.clup-browse');
+    const fileInput = uploadModal.querySelector('#clup-file-input');
+
+    // Close modal when clicking the cross
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            uploadModal.classList.remove('show');
+        });
+    }
+
+    // Close modal when clicking outside modal box
+    if (uploadModal) {
+        uploadModal.addEventListener('click', function (e) {
+            if (e.target === uploadModal) uploadModal.classList.remove('show');
+        });
+    }
+
+    // Trigger file input when Browse button is clicked
+    if (browseBtn && fileInput) {
+        browseBtn.addEventListener('click', function () {
+            fileInput.click();
+        });
+    }
+
+    // Show upload modal and hide client details modal
+    const uploadBtn = document.querySelector('.cld-upload-btn');
+    const clientModal = document.getElementById('clientDetailsModal');
+
+    if (uploadBtn) {
+        uploadBtn.addEventListener('click', function () {
+            if (clientModal) clientModal.style.display = 'none';
+            uploadModal.classList.add('show');
+        });
+    }
+});
+</script>
+
+

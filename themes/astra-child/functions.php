@@ -25,12 +25,14 @@ function astra_child_enqueue_assets() {
         'address-book-css'        => 'assets/css/rt-address-book.css',
         'realtor-settings-css'    => 'assets/css/rt-realtor-settings.css',
         'cl-dashboard-css'        => 'assets/css/cl-dashboard.css',
+        'all-sticky-notes-css'    => 'assets/css/all-sticky-notes.css',
 
         // JS
         'todo-calendar-js'        => 'assets/js/rt-todo-calendar.js',
         'property-management-js'  => 'assets/js/rt-property-management.js',
         'address-book-js'         => 'assets/js/rt-address-book.js',
         'realtor-settings-js'     => 'assets/js/rt-realtor-settings.js',
+        'all-sticky-notes-js'    => 'assets/js/all-sticky-notes.js',
     ];
 
     foreach ($assets as $handle => $path) {

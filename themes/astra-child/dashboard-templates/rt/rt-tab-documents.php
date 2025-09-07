@@ -9,7 +9,7 @@
     <!-- Dashboard Cards Grid -->
     <div class="stats-grid">
         <!-- Business Cards Card -->
-        <a href="#" class="stat-card">
+        <a href="#" class="stat-card" data-type="business-cards">
             <h3>
                 <span class="dashicons dashicons-admin-users"></span> 
                 <?php echo esc_html__('Business Cards', 'text-domain'); ?>
@@ -17,7 +17,7 @@
         </a>
 
         <!-- Sellers Checklist Card -->
-        <a href="#" class="stat-card">
+        <a href="#" class="stat-card" data-type="seller-checklist">
             <h3>
                 <span class="dashicons dashicons-clipboard"></span> 
                 <?php echo esc_html__('Sellers Checklist', 'text-domain'); ?>
@@ -25,7 +25,7 @@
         </a>
 
         <!-- Buyers Checklist Card -->
-        <a href="#" class="stat-card">
+        <a href="#" class="stat-card" data-type="buyer-checklist">
             <h3>
                 <span class="dashicons dashicons-portfolio"></span> 
                 <?php echo esc_html__('Buyers Checklist', 'text-domain'); ?>
@@ -46,51 +46,133 @@
                 </tr>
             </thead>
             <tbody>
-                <tr style="border-bottom:1px solid #CCC;">
-                    <td data-label="#">1</td>
-                    <td data-label="Document Title">Business Card Template</td>
-                    <td data-label="Document Type">Business Cards</td>
-                    <td data-label="File">business_card.pdf</td>
-                    <td data-label="Actions">
-                        <a href="#" class="doc-action download" title="Download">⬇️</a>
-                        <a href="#" class="doc-action edit" title="Edit">✏️</a>
-                        <a href="#" class="doc-action delete" title="Delete">🗑️</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td data-label="#">2</td>
-                    <td data-label="Document Title">Seller Checklist Form</td>
-                    <td data-label="Document Type">Seller Checklist</td>
-                    <td data-label="File">seller_checklist.pdf</td>
-                    <td data-label="Actions">
-                        <a href="#" class="doc-action download" title="Download">⬇️</a>
-                        <a href="#" class="doc-action edit" title="Edit">✏️</a>
-                        <a href="#" class="doc-action delete" title="Delete">🗑️</a>
-                    </td>
-                </tr>
-                <tr style="border-bottom: 1px solid #CCC">
-                    <td data-label="#">3</td>
-                    <td data-label="Document Title">Buyer Checklist Form</td>
-                    <td data-label="Document Type">Buyer Checklist</td>
-                    <td data-label="File">buyer_checklist.pdf</td>
-                    <td data-label="Actions">
-                        <a href="#" class="doc-action download" title="Download">⬇️</a>
-                        <a href="#" class="doc-action edit" title="Edit">✏️</a>
-                        <a href="#" class="doc-action delete" title="Delete">🗑️</a>
-                    </td>
-                </tr>
+                <!-- Table rows will be dynamically rendered -->
             </tbody>
         </table>
     </div>
 </div>
 
 <?php 
-include locate_template('dashboard-templates/rt/rt-upload-document-modal.php');
+    include locate_template('dashboard-templates/rt/rt-upload-document-modal.php');
 ?>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Modal functionality
+
+    // ===============================
+    // Static dataset for each tab
+    // ===============================
+    const documentsData = {
+        "business-cards": [
+            { title: "Business Card 1", type: "Business Cards", file: "business1.pdf" },
+            { title: "Business Card 2", type: "Business Cards", file: "business2.pdf" },
+            { title: "Business Card 3", type: "Business Cards", file: "business3.pdf" },
+            { title: "Business Card 4", type: "Business Cards", file: "business4.pdf" },
+            { title: "Business Card 5", type: "Business Cards", file: "business5.pdf" }
+        ],
+        "seller-checklist": [
+            { title: "Seller Checklist 1", type: "Seller Checklist", file: "seller1.pdf" },
+            { title: "Seller Checklist 2", type: "Seller Checklist", file: "seller2.pdf" },
+            { title: "Seller Checklist 3", type: "Seller Checklist", file: "seller3.pdf" },
+            { title: "Seller Checklist 4", type: "Seller Checklist", file: "seller4.pdf" },
+            { title: "Seller Checklist 5", type: "Seller Checklist", file: "seller5.pdf" }
+        ],
+        "buyer-checklist": [
+            { title: "Buyer Checklist 1", type: "Buyer Checklist", file: "buyer1.pdf" },
+            { title: "Buyer Checklist 2", type: "Buyer Checklist", file: "buyer2.pdf" },
+            { title: "Buyer Checklist 3", type: "Buyer Checklist", file: "buyer3.pdf" },
+            { title: "Buyer Checklist 4", type: "Buyer Checklist", file: "buyer4.pdf" },
+            { title: "Buyer Checklist 5", type: "Buyer Checklist", file: "buyer5.pdf" }
+        ]
+    };
+
+    // ===============================
+    // Function to render table rows
+    // ===============================
+    function renderDocuments(type) {
+        const tbody = document.querySelector('.documents-table tbody');
+        tbody.innerHTML = ''; // Clear previous rows
+
+        const data = documentsData[type];
+        if(!data) return;
+
+        data.forEach((doc, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td data-label="#">${index + 1}</td>
+                <td data-label="Document Title">${doc.title}</td>
+                <td data-label="Document Type">${doc.type}</td>
+                <td data-label="File">${doc.file}</td>
+                <td data-label="Actions">
+                    <a href="#" class="doc-action download" title="Download">⬇️</a>
+                    <a href="#" class="doc-action edit" title="Edit">✏️</a>
+                    <a href="#" class="doc-action delete" title="Delete">🗑️</a>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // Bind actions for dynamically created rows
+        bindTableActions();
+    }
+
+    // ===============================
+    // Bind actions for table buttons
+    // ===============================
+    function bindTableActions() {
+        // Download
+        document.querySelectorAll('.doc-action.download').forEach(link => {
+            link.addEventListener('click', e => { 
+                e.preventDefault(); 
+                alert('Download document'); 
+            });
+        });
+
+        // Edit -> Open same modal as upload button
+        document.querySelectorAll('.doc-action.edit').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const modal = document.getElementById('cl-upload-document-modal');
+                if(modal) modal.classList.add('show');
+            });
+        });
+
+        // Delete
+        document.querySelectorAll('.doc-action.delete').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                alert('Delete document');
+            });
+        });
+    }
+
+    // ===============================
+    // Tab click event
+    // ===============================
+    const statCards = document.querySelectorAll('.stat-card');
+    statCards.forEach(card => {
+        card.addEventListener('click', e => {
+            e.preventDefault();
+            const type = card.dataset.type;
+
+            // Render table for selected type
+            renderDocuments(type);
+
+            // Highlight active tab
+            statCards.forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+        });
+    });
+
+    // ===============================
+    // Initial load - default tab
+    // ===============================
+    renderDocuments('business-cards'); 
+    document.querySelector('.stat-card[data-type="business-cards"]').classList.add('active');
+
+    // ===============================
+    // Modal functionality for Upload button
+    // ===============================
     const modalButtons = document.querySelectorAll('.cld-upload-btn');
     modalButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -122,16 +204,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Actions for table links
-    document.querySelectorAll('.doc-action.download').forEach(link => {
-        link.addEventListener('click', e => { e.preventDefault(); alert('Download document'); });
-    });
-    document.querySelectorAll('.doc-action.edit').forEach(link => {
-        link.addEventListener('click', e => { e.preventDefault(); alert('Edit document'); });
-    });
-    document.querySelectorAll('.doc-action.delete').forEach(link => {
-        link.addEventListener('click', e => { e.preventDefault(); alert('Delete document'); });
-    });
 });
 </script>
 
@@ -141,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function() {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     margin-bottom: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -187,14 +259,14 @@ document.addEventListener('DOMContentLoaded', function() {
     border-radius: 8px;
     text-decoration: none;
     color: #333;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     transition: all 0.3s ease;
     cursor: pointer;
 }
-.stat-card:hover {
-    background: #FFF;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
+.stat-card:hover { background: #FFF; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.stat-card.active { background:#0073e6; color:#fff; }
+.stat-card.active h3 { color:#fff; }
+
 .stat-card h3 {
     font-size: 16px;
     font-weight: 600;
@@ -205,25 +277,19 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 /* Documents Table */
-.documents-section {
-    margin-top: 30px;
-    overflow-x: auto;
-}
+.documents-section { margin-top: 30px; overflow-x: auto; }
 .documents-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 600px;
 }
-.documents-table th,
-.documents-table td {
+.documents-table th, .documents-table td {
     padding: 12px 15px;
     text-align: left;
     border: 1px solid #ddd;
     font-size: 14px;
 }
-.documents-table th {
-    font-weight: 600;
-}
+.documents-table th { font-weight: 600; }
 .doc-action {
     font-size: 14px;
     margin-right: 5px;
@@ -238,48 +304,15 @@ document.addEventListener('DOMContentLoaded', function() {
 /* Tablet Responsive */
 @media (max-width: 768px) {
     .stats-grid { justify-content: center; gap: 15px; }
-
-    /* Table turns into card-style list */
-    .documents-table,
-    .documents-table thead,
-    .documents-table tbody,
-    .documents-table th,
-    .documents-table td,
-    .documents-table tr {
-        display: block;
-        width: 73%;
-    }
+    .documents-table, .documents-table thead, .documents-table tbody,
+    .documents-table th, .documents-table td, .documents-table tr { display: block; width: 73%; }
     .documents-table thead tr { display: none; }
-    .documents-table tr {
-        margin-bottom: 15px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 10px;
-        background: #fff;
-    }
-    .documents-table td {
-        padding: 10px;
-        border: none;
-        border-bottom: 1px solid #eee;
-        position: relative;
-        text-align: right;
-    }
+    .documents-table tr { margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff; }
+    .documents-table td { padding: 10px; border: none; border-bottom: 1px solid #eee; position: relative; text-align: right; }
     .documents-table td:last-child { border-bottom: none; }
-    .documents-table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 10px;
-        font-weight: 600;
-        text-align: left;
-        color: #333;
-    }
+    .documents-table td::before { content: attr(data-label); position: absolute; left: 10px; font-weight: 600; text-align: left; color: #333; }
     .doc-action { margin-right: 10px; }
-    .cld-task-section {
-        width: 57%;
-    }
-    .cld-task-section {
-        width: 57%;
-    }
+    .cld-task-section { width: 57%; }
 }
 
 /* Mobile Responsive */
