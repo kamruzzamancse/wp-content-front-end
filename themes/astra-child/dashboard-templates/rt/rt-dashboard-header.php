@@ -52,12 +52,6 @@ if (empty($company_name)) {
         </div>
     </div>
 
-    <!-- <div class="header-row-2">
-        <button class="sidebar-toggle-btn" id="sidebar-toggle-btn" aria-label="Toggle sidebar">
-            <span class="dashicons dashicons-menu-alt"></span>
-        </button>
-    </div> -->
-
     <!-- Hamburger menu container -->
     <div class="header-row-2">
         <div class="hamburger-menu" id="desktop-hamburger" aria-label="Open menu" role="button" tabindex="0">
@@ -78,11 +72,11 @@ if (empty($company_name)) {
                 <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
                     <a href="?tab=dashboard"><span class="dashicons dashicons-admin-home"></span> Dashboard</a>
                 </li>
-                <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
-                    <a href="?tab=properties"><span class="dashicons dashicons-building"></span> Properties</a>
-                </li>
                 <li class="<?php echo $current_tab === 'address-book' ? 'active' : ''; ?>">
                     <a href="?tab=address-book"><span class="dashicons dashicons-book"></span> Address Book</a>
+                </li>
+                <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
+                    <a href="?tab=documents"><span class="dashicons dashicons-media-document"></span> Documents</a>
                 </li>
                 <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
                     <a href="?tab=messages"><span class="dashicons dashicons-email"></span> Messages</a>
@@ -207,40 +201,3 @@ button {
 }
 
 </style>
-
-<script>
-/*document.addEventListener('DOMContentLoaded', function() {
-    const sidebar = document.getElementById('dashboard-sidebar');
-    const toggleBtn = document.getElementById('sidebar-toggle-btn');
-    const dashboardContent = document.querySelector('.dashboard-content');
-    
-    function toggleSidebar() {
-        sidebar.classList.toggle('expanded');
-        dashboardContent.classList.toggle('sidebar-expanded');
-        
-        if (window.innerWidth <= 768) {
-            sidebar.classList.toggle('mobile-open');
-        }
-    }
-    
-    toggleBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        toggleSidebar();
-    });
-    
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768) {
-            sidebar.classList.remove('mobile-open');
-        }
-    });
-    
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768 && 
-            !sidebar.contains(e.target) && 
-            !toggleBtn.contains(e.target) && 
-            sidebar.classList.contains('mobile-open')) {
-            toggleSidebar();
-        }
-    });
-});*/
-</script>

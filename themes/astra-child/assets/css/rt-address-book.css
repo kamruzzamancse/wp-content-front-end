@@ -42,6 +42,18 @@
   }
 }
 
+@media (max-width: 480px) {
+    .ab-container {
+        padding: 10px;
+    }
+    .ab-action-buttons {
+        gap: 14px!important;
+    }
+    .ab-btn {
+        padding: 8px 10px!important;
+    }
+}
+
 .ab-header-right {
     display: flex;
     align-items: center;

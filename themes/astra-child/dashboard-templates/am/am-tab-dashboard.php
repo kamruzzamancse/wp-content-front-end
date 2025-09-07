@@ -362,10 +362,15 @@
   .dashboard-section {
     padding: 8px; /* Reduced from 10px */
   }
-  
+
   table {
     border-width: 0 !important;
   }
+
+  .active-clients-section {
+    margin-bottom: 20px!important;
+  }
+
 }
 </style>
 

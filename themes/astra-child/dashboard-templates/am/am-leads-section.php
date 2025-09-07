@@ -263,7 +263,9 @@
     align-items: center;
     gap: 6px;
   }
+
 }
+
 </style>
 
 <script>

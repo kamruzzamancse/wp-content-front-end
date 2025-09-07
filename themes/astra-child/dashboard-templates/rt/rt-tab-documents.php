@@ -5,7 +5,6 @@
             Upload Document <span class="dashicons dashicons-media-document"></span>
         </button>
     </div>
-
     <!-- Dashboard Cards Grid -->
     <div class="stats-grid">
         <!-- Business Cards Card -->
@@ -15,7 +14,6 @@
                 <?php echo esc_html__('Business Cards', 'text-domain'); ?>
             </h3>
         </a>
-
         <!-- Sellers Checklist Card -->
         <a href="#" class="stat-card" data-type="seller-checklist">
             <h3>
@@ -23,7 +21,6 @@
                 <?php echo esc_html__('Sellers Checklist', 'text-domain'); ?>
             </h3>
         </a>
-
         <!-- Buyers Checklist Card -->
         <a href="#" class="stat-card" data-type="buyer-checklist">
             <h3>
@@ -32,7 +29,6 @@
             </h3>
         </a>
     </div>
-
     <!-- Documents Table -->
     <div class="documents-section">
         <table class="documents-table">
@@ -46,19 +42,15 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Table rows will be dynamically rendered -->
             </tbody>
         </table>
     </div>
 </div>
-
 <?php 
     include locate_template('dashboard-templates/rt/rt-upload-document-modal.php');
 ?>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-
     // ===============================
     // Static dataset for each tab
     // ===============================
@@ -85,17 +77,14 @@ document.addEventListener('DOMContentLoaded', function() {
             { title: "Buyer Checklist 5", type: "Buyer Checklist", file: "buyer5.pdf" }
         ]
     };
-
     // ===============================
     // Function to render table rows
     // ===============================
     function renderDocuments(type) {
         const tbody = document.querySelector('.documents-table tbody');
         tbody.innerHTML = ''; // Clear previous rows
-
         const data = documentsData[type];
         if(!data) return;
-
         data.forEach((doc, index) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
@@ -111,11 +100,9 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
             tbody.appendChild(tr);
         });
-
         // Bind actions for dynamically created rows
         bindTableActions();
     }
-
     // ===============================
     // Bind actions for table buttons
     // ===============================
@@ -127,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Download document'); 
             });
         });
-
         // Edit -> Open same modal as upload button
         document.querySelectorAll('.doc-action.edit').forEach(link => {
             link.addEventListener('click', e => {
@@ -136,7 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 if(modal) modal.classList.add('show');
             });
         });
-
         // Delete
         document.querySelectorAll('.doc-action.delete').forEach(link => {
             link.addEventListener('click', e => {
@@ -145,7 +130,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-
     // ===============================
     // Tab click event
     // ===============================
@@ -154,22 +138,18 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('click', e => {
             e.preventDefault();
             const type = card.dataset.type;
-
             // Render table for selected type
             renderDocuments(type);
-
             // Highlight active tab
             statCards.forEach(c => c.classList.remove('active'));
             card.classList.add('active');
         });
     });
-
     // ===============================
     // Initial load - default tab
     // ===============================
     renderDocuments('business-cards'); 
     document.querySelector('.stat-card[data-type="business-cards"]').classList.add('active');
-
     // ===============================
     // Modal functionality for Upload button
     // ===============================
@@ -180,7 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if(modal) modal.classList.add('show');
         });
     });
-
     const closeButtons = document.querySelectorAll('.clup-close-btn, .clup-cancel');
     closeButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -188,14 +167,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if(modal) modal.classList.remove('show');
         });
     });
-
     const modals = document.querySelectorAll('.clup-modal-overlay');
     modals.forEach(modal => {
         modal.addEventListener('click', e => {
             if(e.target === modal) modal.classList.remove('show');
         });
     });
-
     const browseButtons = document.querySelectorAll('.clup-browse');
     browseButtons.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -203,7 +180,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if(fileInput) fileInput.click();
         });
     });
-
 });
 </script>
 
@@ -227,6 +203,7 @@ document.addEventListener('DOMContentLoaded', function() {
     align-items: center;
     margin-bottom: 20px;
 }
+
 .cld-upload-btn {
     background: #fff;
     border: 1px solid #0073e6;
@@ -239,7 +216,11 @@ document.addEventListener('DOMContentLoaded', function() {
     align-items: center;
     gap: 6px;
 }
-.cld-upload-btn:hover { color: #FFF!important; background: #0073e6; }
+
+.cld-upload-btn:hover { 
+    color: #FFF!important; 
+    background: #0073e6; 
+}
 
 /* Dashboard Cards Grid */
 .stats-grid {
@@ -247,6 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     gap: 20px;
     flex-wrap: wrap;
 }
+
 .stat-card {
     display: flex;
     align-items: center;
@@ -263,9 +245,20 @@ document.addEventListener('DOMContentLoaded', function() {
     transition: all 0.3s ease;
     cursor: pointer;
 }
-.stat-card:hover { background: #FFF; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-.stat-card.active { background:#0073e6; color:#fff; }
-.stat-card.active h3 { color:#fff; }
+
+.stat-card:hover { 
+    background: #FFF; 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); 
+}
+
+.stat-card.active { 
+    background:#0073e6; 
+    color:#fff; 
+}
+
+.stat-card.active h3 { 
+    color:#fff; 
+}
 
 .stat-card h3 {
     font-size: 16px;
@@ -277,48 +270,170 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 /* Documents Table */
-.documents-section { margin-top: 30px; overflow-x: auto; }
+.documents-section { 
+    margin-top: 30px; 
+    overflow-x: auto; 
+}
+
 .documents-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 600px;
 }
+
 .documents-table th, .documents-table td {
     padding: 12px 15px;
     text-align: left;
     border: 1px solid #ddd;
     font-size: 14px;
 }
-.documents-table th { font-weight: 600; }
+
+.documents-table th { 
+    font-weight: 600; 
+}
+
 .doc-action {
     font-size: 14px;
     margin-right: 5px;
     text-decoration: none;
     cursor: pointer;
 }
-.doc-action.download { color: #2f64e2; }
-.doc-action.edit { color: #ffb400; }
-.doc-action.delete { color: #e63946; }
-.doc-action:hover { text-decoration: underline; }
+
+.doc-action.download { 
+    color: #2f64e2; 
+}
+
+.doc-action.edit { 
+    color: #ffb400; 
+}
+
+.doc-action.delete { 
+    color: #e63946; 
+}
+
+.doc-action:hover { 
+    text-decoration: underline; 
+}
 
 /* Tablet Responsive */
 @media (max-width: 768px) {
-    .stats-grid { justify-content: center; gap: 15px; }
-    .documents-table, .documents-table thead, .documents-table tbody,
-    .documents-table th, .documents-table td, .documents-table tr { display: block; width: 73%; }
-    .documents-table thead tr { display: none; }
-    .documents-table tr { margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff; }
-    .documents-table td { padding: 10px; border: none; border-bottom: 1px solid #eee; position: relative; text-align: right; }
-    .documents-table td:last-child { border-bottom: none; }
-    .documents-table td::before { content: attr(data-label); position: absolute; left: 10px; font-weight: 600; text-align: left; color: #333; }
-    .doc-action { margin-right: 10px; }
-    .cld-task-section { width: 57%; }
+    .stats-grid { 
+        justify-content: center; 
+        gap: 15px; 
+    }
+    
+    /* Table Responsive Styles */
+    .documents-section {
+        overflow-x: visible;
+    }
+    
+    .documents-table { 
+        min-width: auto;
+    }
+    
+    .documents-table thead { 
+        display: none; 
+    }
+    
+    .documents-table, 
+    .documents-table tbody, 
+    .documents-table tr, 
+    .documents-table td { 
+        display: block; 
+        width: 100% !important;
+    }
+    
+    .documents-table tr { 
+        margin-bottom: 15px; 
+        border: 1px solid #ddd; 
+        border-radius: 8px; 
+        padding: 10px; 
+        background: #fff; 
+        position: relative;
+        box-sizing: border-box;
+    }
+    
+    .documents-table td { 
+        padding: 10px 10px 10px 45%; 
+        border: none; 
+        border-bottom: 1px solid #eee; 
+        position: relative; 
+        text-align: left; 
+        min-height: 20px;
+        box-sizing: border-box;
+    }
+    
+    .documents-table td:last-child { 
+        border-bottom: none; 
+    }
+    
+    .documents-table td::before { 
+        content: attr(data-label); 
+        position: absolute; 
+        left: 10px; 
+        width: 40%; 
+        padding-right: 10px; 
+        white-space: nowrap; 
+        text-align: left; 
+        font-weight: 600; 
+        color: #333; 
+    }
+    
+    /* Special handling for Actions cell */
+    .documents-table td[data-label="Actions"] {
+        padding-left: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        border-bottom: none;
+    }
+    
+    .documents-table td[data-label="Actions"]::before {
+        display: none;
+    }
+    
+    .doc-action {
+        margin: 0 5px;
+    }
 }
 
 /* Mobile Responsive */
 @media (max-width: 480px) {
-    .cld-task-header { flex-direction: column; gap: 15px; align-items: flex-start; }
-    .cld-upload-btn { align-self: stretch; justify-content: center; }
-    .stat-card { max-width: 100%; padding: 15px; }
+    .cld-task-header { 
+        flex-direction: column; 
+        gap: 15px; 
+        align-items: flex-start; 
+    }
+    
+    .cld-upload-btn { 
+        align-self: stretch; 
+        justify-content: center; 
+    }
+    
+    .stat-card { 
+        max-width: 100%; 
+        padding: 15px; 
+    }
+    
+    .cld-task-section {
+        padding: 10px;
+    }
+    
+    /* Mobile Table Adjustments */
+    .documents-table td {
+        padding-left: 40%;
+        font-size: 13px;
+    }
+    
+    .documents-table td::before {
+        width: 35%;
+        font-size: 12px;
+    }
+    
+    .doc-action {
+        font-size: 16px;
+        margin: 0 3px;
+    }
 }
 </style>

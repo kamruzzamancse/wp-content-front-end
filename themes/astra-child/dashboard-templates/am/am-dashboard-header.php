@@ -69,20 +69,11 @@ if (empty($company_name)) {
                 <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
                     <a href="?tab=dashboard"><span class="dashicons dashicons-admin-home"></span> Dashboard Overview</a>
                 </li>
-                <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
-                    <a href="?tab=properties"><span class="dashicons dashicons-building"></span> Property Management</a>
-                </li>
                 <li class="<?php echo $current_tab === 'realtors' ? 'active' : ''; ?>">
                     <a href="?tab=realtors"><span class="dashicons dashicons-groups"></span> Realtors</a>
                 </li>
                 <li class="<?php echo $current_tab === 'clients' ? 'active' : ''; ?>">
-                    <a href="?tab=clients"><span class="dashicons dashicons-groups"></span> Clients</a>
-                </li>
-                <li class="<?php echo $current_tab === 'task-status' ? 'active' : ''; ?>">
-                    <a href="?tab=task-status"><span class="dashicons dashicons-clock"></span> Task Status Overview</a>
-                </li>
-                <li class="<?php echo $current_tab === 'user-management' ? 'active' : ''; ?>">
-                    <a href="?tab=user-management"><span class="dashicons dashicons-admin-users"></span> User Management</a>
+                    <a href="?tab=clients"><span class="dashicons dashicons-buddicons-buddypress-logo"></span> Clients</a>
                 </li>
                 <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
                     <a href="?tab=documents"><span class="dashicons dashicons-media-document"></span> Documents</a>
@@ -157,6 +148,13 @@ if (empty($company_name)) {
 }
 .am-modal-button-primary:hover { background: #c0392b; }
 .am-modal-footer { display: flex; justify-content: flex-end; gap: 10px; }
+
+@media screen and (max-width: 480px) {
+    .am-modal-button {
+        color: #000;
+    }
+}
+
 </style>
 
 <script>

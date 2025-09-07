@@ -22,11 +22,10 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
         </li>
         <li class="<?php echo $current_tab === 'clients' ? 'active' : ''; ?>">
             <a href="?tab=clients" title="Clients">
-                <span class="dashicons dashicons-groups"></span>
+                <span class="dashicons dashicons-buddicons-buddypress-logo"></span>
                 <span>Clients</span>
             </a>
         </li>
-
         <!-- Document Oversight -->
         <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
             <a href="?tab=documents" title="Documents">

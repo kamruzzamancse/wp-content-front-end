@@ -70,10 +70,10 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
         <nav class="sidebar-nav">
             <ul>
                 <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
-                    <a href="?tab=dashboard"><span class="dashicons dashicons-admin-home"></span> Dashboard Overview</a>
+                    <a href="?tab=dashboard"><span class="dashicons dashicons-admin-home"></span> Dashboard</a>
                 </li>
                 <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
-                    <a href="?tab=properties"><span class="dashicons dashicons-building"></span> My Properties</a>
+                    <a href="?tab=properties"><span class="dashicons dashicons-building"></span> Properties</a>
                 </li>
                 <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
                     <a href="?tab=documents"><span class="dashicons dashicons-media-document"></span> Documents</a>
