@@ -512,13 +512,11 @@ add_action('init', function() {
     }
 });
 
-// Add this to your theme's functions.php or a custom plugin
-
-function rentcast_properties_shortcode($atts) {
+/* function rentcast_properties_shortcode($atts) {
     // Shortcode attributes with defaults
     $atts = shortcode_atts([
         'city' => 'Orlando',  // default city
-        'limit' => 3          // default number of properties
+        'limit' => 1          // default number of properties
     ], $atts, 'rentcast_properties');
 
     $city = sanitize_text_field($atts['city']);
@@ -596,6 +594,100 @@ function rentcast_properties_shortcode($atts) {
                     </div>
                     <div class="pt-gallery-item">
                         <span class="pt-gallery-icon">📏</span>
+                        <span class="pt-gallery-text">
+                            <?php echo is_numeric($sqft) ? number_format($sqft) : esc_html($sqft); ?> sqft
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+    }
+    return ob_get_clean(); // Return captured HTML
+}
+add_shortcode('rentcast_properties', 'rentcast_properties_shortcode'); */
+
+function rentcast_properties_shortcode($atts) {
+    // Shortcode attributes with defaults
+    $atts = shortcode_atts([
+        'city'  => 'Orlando',  // Default city
+        'limit' => 1           // Default number of properties
+    ], $atts, 'rentcast_properties');
+
+    $city  = sanitize_text_field($atts['city']);
+    $limit = intval($atts['limit']);
+
+    // Fetch RentCast Rental Listings (long-term rentals)
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_URL => "https://api.rentcast.io/v1/listings/rental/long-term?city=" . urlencode($city) . "&limit=" . $limit,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => [
+            "X-Api-Key: e1b32defe4904ec5929664d0df7a2a4a", // Replace with your API key
+            "accept: application/json"
+        ],
+    ]);
+
+    $response = curl_exec($curl);
+    $err = curl_error($curl);
+    curl_close($curl);
+
+    if ($err) {
+        return "<p>API Error: " . esc_html($err) . "</p>";
+    }
+
+    $data = json_decode($response, true);
+
+    if (empty($data) || !is_array($data)) {
+        return "<p>No properties found for " . esc_html($city) . ".</p>";
+    }
+
+    // Limit properties (API supports limit, but this ensures safety)
+    $properties = array_slice($data, 0, $limit);
+
+    ob_start(); // Start capturing HTML
+    foreach ($properties as $property) {
+        $address    = $property['formattedAddress'] ?? 'N/A';
+        $bedrooms   = $property['bedrooms'] ?? 'N/A';
+        $bathrooms  = $property['bathrooms'] ?? 'N/A';
+        $sqft       = $property['squareFootage'] ?? 'N/A';
+        $price      = $property['price'] ?? 'Unknown';
+        $city_name  = $property['city'] ?? '';
+        $state      = $property['state'] ?? '';
+        $zip        = $property['zipCode'] ?? '';
+        $images     = $property['photos'] ?? [];
+        $image_url  = !empty($images) ? $images[0] : "https://placehold.co/500x300?text=No+Image";
+
+        ?>
+        <div class="pt-property-item">
+            <a href="?tab=rt-property-details">
+                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($address); ?>" class="pt-main-image">
+            </a>
+            <div class="pt-property-details">
+                <a href="?tab=rt-property-details">
+                    <h3 class="pt-property-title"><?php echo esc_html($address); ?></h3>
+                </a>
+                <span class="pt-property-date" style="display:none;"><?php echo date('Y-m-d'); ?></span>
+                <div class="pt-property-price">
+                    <?php echo is_numeric($price) ? '$' . number_format($price) : esc_html($price); ?>
+                </div>
+                <div class="pt-property-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span><?php echo esc_html("$city_name, $state $zip"); ?></span>
+                </div>
+                <div class="pt-gallery">
+                    <div class="pt-gallery-item">
+                        <span class="pt-gallery-text"><?php echo esc_html($bedrooms); ?> Bed</span>
+                    </div>
+                    <div class="pt-gallery-item">
+                        <span class="pt-gallery-text"><?php echo esc_html($bathrooms); ?> Bath</span>
+                    </div>
+                    <div class="pt-gallery-item">
                         <span class="pt-gallery-text">
                             <?php echo is_numeric($sqft) ? number_format($sqft) : esc_html($sqft); ?> sqft
                         </span>
