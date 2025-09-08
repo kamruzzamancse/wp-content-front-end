@@ -57,8 +57,8 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
       <input type="email" class="rpe-form-input" id="email" value="<?php echo esc_attr($current_user->user_email); ?>" disabled>
     </div>
     <div class="rpe-form-actions">
-      <button type="submit" class="rpe-save-button">Save Changes</button>
       <button type="button" class="rpe-cancel-button">Cancel</button>
+      <button type="submit" class="rpe-save-button">Save Changes</button>
     </div>
   </form>
 </div>
@@ -204,7 +204,6 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
 
   .rpe-save-button {
     background-color: #3498db;
-    color: #FFF!important;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;

@@ -51,8 +51,8 @@
       <input type="text" class="rpe-form-input" id="company-name" name="company_name">
     </div>
     <div class="rpe-form-actions">
-      <button type="submit" class="rpe-save-button">Save Changes</button>
       <button type="button" class="rpe-cancel-button">Cancel</button>
+      <button type="submit" class="rpe-save-button">Save Changes</button>
     </div>
   </form>
 </div>
@@ -198,7 +198,6 @@
   
   .rpe-save-button {
     background-color: #3498db;
-    color: #FFF!important;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;

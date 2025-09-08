@@ -170,7 +170,7 @@
 }
 
 /* Submit button */
-.create-submit-btn {
+button[type="submit"] {
     background-color: #0052cc;
     border: none;
     color: white;
@@ -178,9 +178,9 @@
     font-size: 1.1rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.25s ease;
 }
-.create-submit-btn:hover {
+
+button[type="submit"]:hover {
     background-color: #003d99;
 }
 

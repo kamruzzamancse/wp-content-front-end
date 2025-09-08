@@ -37,12 +37,10 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
             </a>
         </li>
         <li>
-            <li>
-                <a href="#" class="sup-logout-trigger" title="Logout">
-                    <span class="dashicons dashicons-migrate"></span>
-                    <span>Logout</span>
-                </a>
-            </li>
+            <a href="#" class="sup-logout-trigger" title="Logout">
+                <span class="dashicons dashicons-migrate"></span>
+                <span>Logout</span>
+            </a>
         </li>
     </ul>
 </aside>

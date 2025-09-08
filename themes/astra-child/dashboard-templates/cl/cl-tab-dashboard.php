@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <style>
 /* General Styling */
 .dashboard-section {
-  padding: 16px;
+  padding: 20px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);

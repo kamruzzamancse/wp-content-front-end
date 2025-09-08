@@ -7,7 +7,7 @@
 
                 <!-- Header with Dropdown -->
                 <div class="tpg-tracking-header">
-                    <h1 class="tpg-section-title">Tracking Property</h1>
+                    <h1 class="header-title">Tracking Property</h1>
 
                     <div class="tpg-tracking-summary">
                         <span class="tpg-amount" id="tpg-amount">$8.24k</span>
@@ -279,7 +279,7 @@
 <style>
 /* General Styling */
 .dashboard-section {
-  padding: 16px;
+  padding: 20px;
   background: #fff;
   border-radius: 8px; /* Reduced from 12px */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -289,9 +289,9 @@
 
 /* Add this for the calendar container */
 .dashboard-top-right {
-  padding: 16px;
+  padding: 20px;
   background: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   overflow-x: auto;
   height: 100%;
@@ -360,7 +360,7 @@
   }
   
   .dashboard-section {
-    padding: 8px; /* Reduced from 10px */
+    padding: 10px; /* Reduced from 10px */
   }
 
   table {
@@ -372,6 +372,7 @@
   }
 
 }
+
 </style>
 
 <script>

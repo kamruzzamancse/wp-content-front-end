@@ -195,3 +195,178 @@
         </div>
     </div>
 </div>
+
+<style>
+    /* ================================
+   PROPERTY TOOLBAR STYLES
+=================================== */
+.pt-toolbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px;
+    background: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    gap: 10px;
+}
+
+.pt-left-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.header-title {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.pt-search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background: #fff;
+}
+
+.pt-search-icon {
+    margin-right: 5px;
+}
+
+.pt-search-input {
+    border: none;
+    outline: none;
+    width: 150px;
+    font-size: 14px;
+}
+
+.pt-sort-container select {
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* ================================
+   PROPERTY LIST GRID
+=================================== */
+.pt-property-container {
+    padding: 20px;
+}
+
+.pt-property-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.pt-property-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pt-property-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.pt-main-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.pt-property-details {
+    padding: 15px;
+}
+
+.pt-property-title {
+    font-size: 1.1rem;
+    margin: 0 0 8px;
+    color: #333;
+}
+
+.pt-property-price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 8px;
+}
+
+.pt-property-location {
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.pt-gallery {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.pt-gallery img {
+    width: calc(33.33% - 4px);
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* ================================
+   RESPONSIVE DESIGN
+=================================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .pt-toolbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .pt-search-input {
+        width: 120px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .header-title {
+        font-size: 1.2rem;
+    }
+
+    .pt-property-list {
+        grid-template-columns: 1fr; /* Single column */
+    }
+
+    .pt-main-image {
+        height: 200px;
+    }
+
+    .pt-gallery img {
+        width: calc(50% - 4px); /* 2 images per row */
+    }
+
+    .pt-search-input {
+        width: 100px;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 400px) {
+    .pt-gallery img {
+        width: 100%; /* Full width images */
+    }
+    .pt-property-container{
+        padding: 10px;
+    }
+}
+
+</style>

@@ -201,3 +201,33 @@ button {
 }
 
 </style>
+
+<script>
+jQuery(document).ready(function($) {
+    const rtLogoutModal = $('#rt-logout-modal');
+    const rtLogoutTrigger = $('#rt-logout-trigger');
+    const rtLogoutCancel = $('#rt-logout-cancel');
+
+    // Show modal when logout is clicked
+    rtLogoutTrigger.on('click', function(e) {
+        e.preventDefault();
+        rtLogoutModal.css('display', 'flex');
+    });
+
+    // Hide modal when No is clicked
+    rtLogoutCancel.on('click', function() {
+        rtLogoutModal.css('display', 'none');
+    });
+
+    // Close modal when clicking outside content
+    rtLogoutModal.on('click', function(e) {
+        if (e.target === this) $(this).css('display', 'none');
+    });
+
+    // Close modal with Escape key
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') rtLogoutModal.css('display', 'none');
+    });
+});
+</script>
+

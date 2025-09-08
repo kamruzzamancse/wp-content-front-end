@@ -70,8 +70,8 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     </div>
 
     <div class="rpe-form-actions">
-      <button type="submit" class="rpe-save-button">Save Changes</button>
       <button type="button" class="rpe-cancel-button">Cancel</button>
+      <button type="submit" class="rpe-save-button">Save Changes</button>
     </div>
   </form>
 </div>
@@ -118,7 +118,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     color: #333;
     background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
   /* Profile Header */
@@ -217,19 +217,15 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
   }
   
   .rpe-save-button {
-    background-color: #3498db;
-    color: #FFF!important;
-    border: none;
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #ddd;
     padding: 10px 20px;
     border-radius: 4px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-  }
-  
-  .rpe-save-button:hover {
-    background-color: #2980b9;
   }
   
   .rpe-cancel-button {
@@ -242,10 +238,6 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-  }
-  
-  .rpe-cancel-button:hover {
-    background-color: #e9ecef;
   }
   
   /* Profile Picture Edit Icon */
@@ -268,7 +260,7 @@ $user_role_name = !empty($user_roles) ? ucfirst($user_roles[0]) : 'Realtor';
     justify-content: center;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   }
   
   .piv-edit-icon:hover {

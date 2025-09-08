@@ -75,7 +75,7 @@
     border-radius: 8px;
     max-width: 600px;
     width: 90%;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
     padding: 25px 30px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-height: 90vh;
@@ -165,7 +165,7 @@
 }
 
 /* Submit button */
-.create-submit-btn {
+button[type="submit"] {
     background-color: #0052cc;
     border: none;
     color: white;
@@ -175,7 +175,7 @@
     cursor: pointer;
     transition: background-color 0.25s ease;
 }
-.create-submit-btn:hover {
+button[type="submit"]:hover {
     background-color: #003d99;
 }
 

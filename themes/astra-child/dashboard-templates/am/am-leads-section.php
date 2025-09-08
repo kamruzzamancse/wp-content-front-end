@@ -141,7 +141,7 @@
 <style>
 /* General Styling */
 .dashboard-section {
-  padding: 16px;
+  padding: 20px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -222,7 +222,7 @@
   .leads-table tr {
     margin-bottom: 15px;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 12px;
     background: #f9f9ff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);

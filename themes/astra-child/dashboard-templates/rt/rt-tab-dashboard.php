@@ -279,7 +279,7 @@
 <style>
 /* General Styling */
 .dashboard-section {
-  padding: 16px;
+  padding: 20px;
   background: #fff;
   border-radius: 8px; /* Reduced from 12px */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -360,7 +360,7 @@
   }
   
   .dashboard-section {
-    padding: 8px; /* Reduced from 10px */
+    padding: 10px; /* Reduced from 10px */
   }
   
   table {

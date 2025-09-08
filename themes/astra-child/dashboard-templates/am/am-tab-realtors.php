@@ -22,7 +22,7 @@
         </div>
     </div>
 
-    <table>
+    <table class="realtors-table">
         <thead>
             <tr>
                 <th class="ab-sl-column">#</th>
@@ -489,6 +489,21 @@ tbody td:hover::after {
 }
 .clickable-name:hover {
     color: #005177;
+}
+
+.realtors-table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: 10px !important;
+  overflow: hidden; /* Ensures the rounded corners clip the content */
+}
+
+.realtors-table thead th:first-child {
+  border-top-left-radius: 10px !important;
+}
+
+.realtors-table thead th:last-child {
+  border-top-right-radius: 10px !important;
 }
 </style>
 
