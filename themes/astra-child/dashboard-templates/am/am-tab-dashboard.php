@@ -274,6 +274,12 @@
         padding: 10px;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .tpg-dashboard-container {
+        padding: 10px;
+    }
+}
 </style>
 
 <style>
@@ -281,7 +287,7 @@
 .dashboard-section {
   padding: 20px;
   background: #fff;
-  border-radius: 8px; /* Reduced from 12px */
+  border-radius: 12px; /* Reduced from 12px */
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   overflow-x: auto;
   margin-bottom: 20px!important;
@@ -370,6 +376,10 @@
   .active-clients-section {
     margin-bottom: 20px!important;
   }
+
+  .dashboard-top-right {
+        padding: 10px;
+    }
 
 }
 

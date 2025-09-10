@@ -49,7 +49,7 @@
           foreach($clients as $index => $client):
           ?>
           <tr class="client-row" data-client-id="<?php echo $index+1; ?>">
-              <td class="ab-sl-column" data-label="#SL">
+              <td class="ab-sl-column" data-label=" ">
                   <img src="https://i.pravatar.cc/40?img=<?php echo rand(1,70); ?>" alt="Profile Pic" class="profile-pic">
               </td>
               <td class="client-name" data-label="Client Name">
@@ -155,6 +155,22 @@ input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
   table:not(.client-details) .ab-actions-column::before { content: attr(data-label); font-weight: 600; color: #333; margin-bottom: 0; margin-right: 0; }
   table:not(.client-details) .ab-action-icons { gap: 10px; }
   table:not(.client-details) td:hover::after { display: none; }
+}
+
+table {
+    border-collapse: separate; /* Required for border-radius to work on tables */
+    border-spacing: 0;         /* Remove gaps between cells */
+    border: 1px solid #ddd;    /* Optional: keeps border visible */
+    border-radius: 10px 10px 0 0; /* Top-left & top-right rounded */
+    overflow: hidden;          /* Ensures rounding shows */
+}
+
+/* Optional: Match the top header row */
+table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+table thead th:last-child {
+    border-top-right-radius: 10px;
 }
 </style>
 

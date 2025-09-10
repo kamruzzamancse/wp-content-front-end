@@ -34,11 +34,11 @@
         <table class="documents-table">
             <thead>
                 <tr>
-                    <th style="width:50px; background:#0073e6; color:#fff;">#</th>
-                    <th style="background:#0073e6; color:#fff;">Document Title</th>
-                    <th style="background:#0073e6; color:#fff;">Document Type</th>
-                    <th style="background:#0073e6; color:#fff;">File</th>
-                    <th style="width:120px; background:#0073e6; color:#fff;">Actions</th>
+                    <th style="width:50px; background:#2271b1; color:#fff;">#</th>
+                    <th style="background:#2271b1; color:#fff;">Document Title</th>
+                    <th style="background:#2271b1; color:#fff;">Document Type</th>
+                    <th style="background:#2271b1; color:#fff;">File</th>
+                    <th style="width:120px; background:#2271b1; color:#fff;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .stat-card.active { 
-    background:#0073e6; 
+    background:#2271b1; 
     color:#fff; 
 }
 
@@ -277,14 +277,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .documents-table {
     width: 100%;
-    border-collapse: collapse;
     min-width: 600px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+
+/* Apply radius to first and last header cells */
+.documents-table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.documents-table thead th:last-child {
+    border-top-right-radius: 10px;
 }
 
 .documents-table th, .documents-table td {
     padding: 12px 15px;
     text-align: left;
-    border: 1px solid #ddd;
     font-size: 14px;
 }
 
@@ -329,6 +341,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     .documents-table { 
         min-width: auto;
+        border: none;
+        border-radius: 0;
+        background: transparent;
     }
     
     .documents-table thead { 
@@ -343,6 +358,11 @@ document.addEventListener('DOMContentLoaded', function() {
         width: 100% !important;
     }
     
+    .documents-table tbody {
+        display: block;
+        width: 100%;
+    }
+    
     .documents-table tr { 
         margin-bottom: 15px; 
         border: 1px solid #ddd; 
@@ -351,6 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
         background: #fff; 
         position: relative;
         box-sizing: border-box;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
     
     .documents-table td { 
@@ -381,12 +402,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     /* Special handling for Actions cell */
     .documents-table td[data-label="Actions"] {
-        padding-left: 10px;
+        padding: 10px;
         text-align: center;
+        border-bottom: none;
         display: flex;
         justify-content: center;
+        align-items: center;
         gap: 10px;
-        border-bottom: none;
     }
     
     .documents-table td[data-label="Actions"]::before {
@@ -395,6 +417,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     .doc-action {
         margin: 0 5px;
+        font-size: 16px;
     }
 }
 
@@ -436,4 +459,5 @@ document.addEventListener('DOMContentLoaded', function() {
         margin: 0 3px;
     }
 }
+
 </style>

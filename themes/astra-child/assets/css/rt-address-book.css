@@ -52,6 +52,12 @@
     .ab-btn {
         padding: 8px 10px!important;
     }
+    .modal-header-realtor {
+        display: block!important;
+    }
+    .modal-body {
+        padding: 10px!important;
+    }
 }
 
 .ab-header-right {
@@ -261,12 +267,6 @@ tr:last-child td {
     font-size: 14px;
     color: #666;
     margin-top: 5px;
-}
-
-.modal-body {
-    padding: 20px;
-    overflow-y: auto; /* make body scrollable */
-    flex-grow: 1; /* take remaining space */
 }
 
 .client-details {

@@ -262,9 +262,9 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 
 <script>
 jQuery(document).ready(function($) {
-    const logoutModal = $('.sup-am-logout-modal');
-    const logoutTrigger = $('.sup-am-logout-trigger');
-    const logoutCancel = $('.sup-am-logout-cancel');
+    const logoutModal = $('#sup-am-logout-modal'); // Use ID selector
+    const logoutTrigger = $('.sup-am-logout-trigger'); // OK, still a class
+    const logoutCancel = $('#sup-am-logout-cancel'); // Use ID selector
 
     // Open modal
     logoutTrigger.on('click', function(e) {
@@ -291,4 +291,5 @@ jQuery(document).ready(function($) {
         }
     });
 });
+
 </script>

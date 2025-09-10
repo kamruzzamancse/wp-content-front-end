@@ -114,6 +114,11 @@
     background-color: #2980b9;
 }
 
+button[type="submit"] {
+    background-color: #3498db;
+    color: #FFF!important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 600px) {
     .ss-form-row {
@@ -123,6 +128,13 @@
     
     .ss-contact-form-container {
         padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .ss-submit-button {
+        background-color: #3498db;
+        color: #FFF!important;
     }
 }
 </style>

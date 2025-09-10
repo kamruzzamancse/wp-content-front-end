@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .cld-box-body {
-    padding: 16px;
+    padding: 20px;
 }
 
 .cld-textarea {
@@ -461,6 +461,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
    table {
         border-width: 0!important;
+    }
+
+    .tpg-dashboard-container {
+        padding: 10px;
+    }
+
+    .cld-box-body {
+        padding: 10px;
+    }
+
+    .cld-box {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-top-right {
+        padding: 10px;
     }
 
 }

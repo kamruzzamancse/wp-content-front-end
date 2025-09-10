@@ -459,6 +459,16 @@
     }
 }
 
+@media screen and (max-width: 480px) {
+    img {
+        max-width: 200%;
+    }
+    .ab-actions-column {
+        width: 100%;
+    }
+
+}
+
 /* ---------------------- Table Styles ---------------------- */
 table {
     width: 100%;
