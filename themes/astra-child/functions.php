@@ -617,18 +617,17 @@ function rentcast_properties_shortcode($atts) {
     $city  = sanitize_text_field($atts['city']);
     $limit = intval($atts['limit']);
 
+    // API Key
+    $api_key = "7a7c73a68ffc46abae4f32d560e54bf2"; // Replace with your actual API Key
+
     // Fetch RentCast Rental Listings (long-term rentals)
     $curl = curl_init();
     curl_setopt_array($curl, [
         CURLOPT_URL => "https://api.rentcast.io/v1/listings/rental/long-term?city=" . urlencode($city) . "&limit=" . $limit,
         CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
         CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
         CURLOPT_HTTPHEADER => [
-            "X-Api-Key: e1b32defe4904ec5929664d0df7a2a4a", // Replace with your API key
+            "X-Api-Key: $api_key",
             "accept: application/json"
         ],
     ]);
@@ -647,11 +646,12 @@ function rentcast_properties_shortcode($atts) {
         return "<p>No properties found for " . esc_html($city) . ".</p>";
     }
 
-    // Limit properties (API supports limit, but this ensures safety)
+    // Limit properties
     $properties = array_slice($data, 0, $limit);
 
     ob_start(); // Start capturing HTML
     foreach ($properties as $property) {
+        $listing_id = $property['listingId'] ?? null;
         $address    = $property['formattedAddress'] ?? 'N/A';
         $bedrooms   = $property['bedrooms'] ?? 'N/A';
         $bathrooms  = $property['bathrooms'] ?? 'N/A';
@@ -661,7 +661,33 @@ function rentcast_properties_shortcode($atts) {
         $state      = $property['state'] ?? '';
         $zip        = $property['zipCode'] ?? '';
         $images     = $property['photos'] ?? [];
-        $image_url  = !empty($images) ? $images[0] : "https://placehold.co/500x300?text=No+Image";
+
+        // If no images from listings endpoint, try details endpoint
+        if (empty($images) && $listing_id) {
+            $details_curl = curl_init();
+            curl_setopt_array($details_curl, [
+                CURLOPT_URL => "https://api.rentcast.io/v1/properties?listingId=" . urlencode($listing_id),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTPHEADER => [
+                    "X-Api-Key: $api_key",
+                    "accept: application/json"
+                ],
+            ]);
+
+            $details_response = curl_exec($details_curl);
+            $details_err = curl_error($details_curl);
+            curl_close($details_curl);
+
+            if (!$details_err) {
+                $details_data = json_decode($details_response, true);
+                if (!empty($details_data[0]['photos'])) {
+                    $images = $details_data[0]['photos'];
+                }
+            }
+        }
+
+        $image_url = !empty($images) ? $images[0] : "https://placehold.co/500x300?text=No+Image";
 
         ?>
         <div class="pt-property-item">
@@ -700,5 +726,6 @@ function rentcast_properties_shortcode($atts) {
     return ob_get_clean(); // Return captured HTML
 }
 add_shortcode('rentcast_properties', 'rentcast_properties_shortcode');
+
 
 

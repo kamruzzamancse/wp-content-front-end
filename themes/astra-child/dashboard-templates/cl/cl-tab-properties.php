@@ -27,7 +27,7 @@
 </div>
 
 <div class="pt-property-container">
-    <?php echo do_shortcode('[rentcast_properties city="Orlando" limit="1"]'); ?>
+    <?php //echo do_shortcode('[rentcast_properties]'); ?>
     <div class="pt-property-list">
         <!-- Property Example -->
         <div class="pt-property-item">
