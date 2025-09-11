@@ -1,6 +1,6 @@
 <div class="cld-task-section">
     <div class="cld-task-header">
-        <h2 class="header-title">Task Assigned</h2>
+        <h2 class="header-title">Documents</h2>
         <button class="cld-upload-btn" data-modal="cl-upload-document-modal">
             Upload Document <span class="dashicons dashicons-media-document"></span>
         </button>
@@ -12,7 +12,6 @@
                 <th>#</th>
                 <th>Property Name</th>
                 <th>Task</th>
-                <th>Status</th>
                 <th>Upload Docs</th>
                 <th>Actions</th>
             </tr>
@@ -28,7 +27,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Inspection Report</td>
-                <td data-label="Status"><span class="cld-status cld-pending"></span> Pending</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
@@ -46,7 +44,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Payment Verification</td>
-                <td data-label="Status"><span class="cld-status cld-complete"></span> Complete</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
@@ -64,7 +61,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Property Visit</td>
-                <td data-label="Status"><span class="cld-status cld-incomplete"></span> Incomplete</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Property_Images.zip</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
@@ -82,7 +78,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Document Review</td>
-                <td data-label="Status"><span class="cld-status cld-complete"></span> Complete</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Final_Document.pdf</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
@@ -100,7 +95,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Inspection Report</td>
-                <td data-label="Status"><span class="cld-status cld-pending"></span> Pending</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
@@ -118,7 +112,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Final Handover</td>
-                <td data-label="Status"><span class="cld-status cld-incomplete"></span> Incomplete</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Handover_Form.pdf</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
@@ -136,7 +129,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Lease Agreement</td>
-                <td data-label="Status"><span class="cld-status cld-pending"></span> Pending</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Docs.pdf</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
@@ -154,7 +146,6 @@
                     </div>
                 </td>
                 <td data-label="Task">Payment Verification</td>
-                <td data-label="Status"><span class="cld-status cld-complete"></span> Complete</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
                 <td data-label="Actions">
                     <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">

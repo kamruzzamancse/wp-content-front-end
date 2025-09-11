@@ -12,9 +12,18 @@
     color: #fff;
     font-size: 18px;
     font-weight: 600;
-    margin-bottom: 20px;
     letter-spacing: 1px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin-top: -20px;
+}
+.company-tagline {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f0f0f0;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
 }
 /* ------------------------- */
 /* Container & Background */
@@ -76,7 +85,7 @@
 .form-header h2 {
     color: #fff;
     text-align: center;
-    font-size: 24px;
+    font-size: 28px!important;
     letter-spacing: 1px;
     margin-bottom: 5px;
 }
@@ -195,16 +204,6 @@ button[type="submit"]:hover {
 .enhanced-login-message.error { color: #ff4d4d; }
 .enhanced-login-message.success { color: #4dff4d; }
 /* Logo Styling */
-.form-logo {
-    text-align: center;
-}
-.form-logo img {
-    max-width: 100px; /* Adjust logo size */
-    height: auto;
-    display: inline-block;
-    margin-top: -105px;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
-}
 /* ------------------------- */
 /* Animations */
 /* ------------------------- */
@@ -416,17 +415,7 @@ button[type="submit"]:hover {
 }
 .enhanced-register-message.error { color: #ff4d4d; }
 .enhanced-register-message.success { color: #4dff4d; }
-/* Logo Styling */
-.form-logo {
-    text-align: center;
-}
-.form-logo img {
-    max-width: 100px; /* Adjust logo size */
-    height: auto;
-    display: inline-block;
-    margin-top: -105px;
-    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
-}
+
 /* ------------------------- */
 /* Animations */
 /* ------------------------- */

@@ -2,9 +2,9 @@
     <!-- Registration Form -->
     <div class="enhanced-register-form">
         <div class="form-logo">
-            <img src="http://localhost/mary/wp-content/uploads/2025/07/logo.png" alt="Company Logo">
+            <img src="http://localhost/mary/wp-content/uploads/2025/08/mary-logo.png" alt="Company Logo">
+            <!-- <img src="https://maryasfour.livewebsite.space/wp-content/uploads/2025/08/mary-logo.png" alt="Company Logo"> -->
         </div>
-        <div class="company-name" style="margin-bottom:20px">Synchronest</div>
         
         <div class="form-header">
             <h2>Registration</h2>
@@ -102,3 +102,17 @@
         });
     }
 </script>
+
+<style>
+.form-logo {
+    text-align: left;
+    margin-bottom: 25px;
+}
+.form-logo img {
+    max-width: 200px;
+    height: auto;
+    display: inline-block;
+    margin-top: -20px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
+}
+</style>

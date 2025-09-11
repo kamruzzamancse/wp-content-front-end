@@ -112,7 +112,6 @@
 
 <style>
 /* ==== Table & Modal CSS ==== */
-.dashicons { color: #FFF; }
 table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px; background: #fff; table-layout: fixed; }
 .ab-sl-column { width: 50px; text-align: center; }
 .ab-actions-column { width: 50px; }
@@ -140,7 +139,7 @@ tbody tr.client-row .ab-actions-column:hover { background-color: transparent; }
 .form-group { margin-bottom: 15px; display: flex; flex-direction: column; }
 label { margin-bottom: 5px; font-weight: 600; text-align: left; }
 input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-.save-btn { background: #007bff!important; border: none; padding: 10px 15px; font-size: 16px; border-radius: 4px; cursor: pointer; width: 100%; transition: 0.3s; }
+.save-btn { background: #007bff!important; color: #FFF!important; border: none; padding: 10px 15px; font-size: 16px; border-radius: 4px; cursor: pointer; width: 100%; transition: 0.3s; }
 .save-btn:hover { background: #0056b3; }
 
 /* Responsive Table */
@@ -171,6 +170,9 @@ table thead th:first-child {
 }
 table thead th:last-child {
     border-top-right-radius: 10px;
+}
+.modal button:last-child {
+    color: #fff!important;
 }
 </style>
 

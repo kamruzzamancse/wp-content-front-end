@@ -1,6 +1,62 @@
 <div class="dashboard-top">
 
     <div class="dashboard-top-left">
+      
+      <div class="tpg-dashboard-container">
+            <div class="tpg-tracking-section">
+
+                <!-- Header with Dropdown -->
+                <div class="tpg-tracking-header">
+                    <h1 class="tpg-section-title">Tracking Property</h1>
+
+                    <div class="tpg-tracking-summary">
+                        <span class="tpg-amount" id="tpg-amount">$8.24k</span>
+                        <span class="tpg-year">2025</span>
+                    </div>
+
+                    <!-- Property Dropdown -->
+                    <select id="tpg-property-select">
+                        <option value="property1">Property 1</option>
+                        <option value="property2">Property 2</option>
+                        <option value="property3">Property 3</option>
+                    </select>
+                </div>
+
+                <div class="tpg-chart-container">
+
+                    <!-- Y Axis -->
+                    <div class="tpg-y-axis">
+                        <span>9k</span>
+                        <span>7k</span>
+                        <span>5k</span>
+                        <span>3k</span>
+                        <span>1k</span>
+                    </div>
+
+                    <!-- Line Chart -->
+                    <svg class="tpg-line-chart" viewBox="0 0 600 250" preserveAspectRatio="none">
+                        <polyline id="tpg-line" points="0,210 100,180 200,150 300,120 400,80 500,40" />
+                        <circle cx="0" cy="210" r="5" data-value="$2.10k"></circle>
+                        <circle cx="100" cy="180" r="5" data-value="$3.20k"></circle>
+                        <circle cx="200" cy="150" r="5" data-value="$4.80k"></circle>
+                        <circle cx="300" cy="120" r="5" data-value="$6.20k"></circle>
+                        <circle cx="400" cy="80" r="5" data-value="$7.50k"></circle>
+                        <circle cx="500" cy="40" r="5" data-value="$8.24k"></circle>
+                    </svg>
+
+                    <!-- X Axis -->
+                    <div class="tpg-x-axis">
+                        <span>10:30 AM</span>
+                        <span>11:30 AM</span>
+                        <span>12:30 PM</span>
+                        <span>1:30 PM</span>
+                        <span>2:30 PM</span>
+                        <span>3:30 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="dashboard-section active-clients-section">
           <h1 class="header-title">Active Clients</h1>
           <table class="active-clients-table">

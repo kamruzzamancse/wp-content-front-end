@@ -7,7 +7,6 @@ $user_id = $current_user->ID;
 $dashboard_url = in_array('realtor', (array) $current_user->roles) ? home_url('/rt/realtor-dashboard/') : home_url('/');
 $upload_dir = wp_upload_dir();
 $image_url = $upload_dir['baseurl'];
-
 // Get company name from user meta
 $company_name = get_user_meta($user_id, 'company_name', true);
 // If company name is empty, fall back to the role name
@@ -21,7 +20,6 @@ if (empty($company_name)) {
     $company_name = $role_names[$user_roles[0]] ?? ucfirst($user_roles[0]);
 }
 ?>
-
 <!-- Desktop Header -->
 <header class="dashboard-header desktop-header">
     
@@ -51,19 +49,16 @@ if (empty($company_name)) {
             </div>
         </div>
     </div>
-
     <!-- Hamburger menu container -->
     <div class="header-row-2">
         <div class="hamburger-menu" id="desktop-hamburger" aria-label="Open menu" role="button" tabindex="0">
             <span class="dashicons dashicons-menu"></span>
         </div>
     </div>
-
     <?php
         // Modal Sidebar Navigation
         $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashboard';
     ?>
-
     <!-- Modal sidebar -->
     <div class="modal-sidebar" id="modal-sidebar" aria-hidden="true" role="dialog" aria-label="Sidebar menu">
         <button class="close-sidebar" id="close-sidebar" aria-label="Close menu">&times;</button>
@@ -93,10 +88,35 @@ if (empty($company_name)) {
             </ul>
         </nav>
     </div>
-
     <!-- Overlay background -->
     <div class="modal-overlay" id="modal-overlay" tabindex="-1"></div>
 </header>
+
+<!-- Profile Modal -->
+<div class="rt-modal" id="rt-profile-modal">
+    <div class="rt-modal-content">
+        <div class="rt-modal-header">
+            <h2 class="rt-modal-title">User Profile</h2>
+            <button class="rt-modal-close" id="rt-profile-close">&times;</button>
+        </div>
+        <div class="rt-modal-body">
+            <div class="profile-modal-content">
+                <div class="profile-modal-pic">
+                    <img src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Profile Picture">
+                </div>
+                <div class="profile-modal-info">
+                    <h3><?php echo esc_html($current_user->display_name); ?></h3>
+                    <p><?php echo esc_html($company_name); ?></p>
+                    <p><?php echo esc_html($current_user->user_email); ?></p>
+                </div>
+            </div>
+            <div class="profile-modal-actions">
+                <a href="?tab=rt-settings-pi" class="rt-modal-button">Edit Profile</a>
+                <a href="?tab=settings" class="rt-modal-button">Account Settings</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Logout Confirmation Modal -->
 <div class="rt-modal" id="rt-logout-modal">
@@ -113,14 +133,12 @@ if (empty($company_name)) {
         </div>
     </div>
 </div>
-
 <style>
 /* Global Button Styles */
 button {
     color: #000 !important;
 }
-
-/* Logout Modal Styles */
+/* Modal Styles */
 .rt-modal {
     display: none;
     position: fixed;
@@ -133,7 +151,6 @@ button {
     justify-content: center;
     align-items: center;
 }
-
 .rt-modal-content {
     background: #fff;
     border-radius: 8px;
@@ -141,24 +158,23 @@ button {
     max-width: 400px;
     width: 100%;
 }
-
 .rt-modal-header,
 .rt-modal-footer {
     padding: 20px;
 }
-
+.rt-modal-header {
+    position: relative;
+}
 .rt-modal-title {
     margin: 0;
     text-align: center;
     font-size: 18px;
     font-weight: 600;
 }
-
 .rt-modal-body {
     padding: 20px;
     text-align: center;
 }
-
 .rt-modal-button {
     padding: 8px 16px;
     border-radius: 4px;
@@ -166,24 +182,68 @@ button {
     background: #f8f9fa;
     cursor: pointer;
     text-decoration: none;
+    display: inline-block;
+    margin: 5px;
 }
-
+.rt-modal-button:hover {
+    background: #e9ecef;
+}
 .rt-modal-button-primary {
     background: #e74c3c;
     color: #fff;
     border-color: #e74c3c;
 }
-
 .rt-modal-button-primary:hover {
     background: #c0392b;
 }
-
 .rt-modal-footer {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
 }
-
+/* Profile Modal Styles */
+.profile-modal-content {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.profile-modal-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+.profile-modal-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profile-modal-info {
+    text-align: left;
+}
+.profile-modal-info h3 {
+    margin: 0 0 5px 0;
+}
+.profile-modal-info p {
+    margin: 5px 0;
+    color: #666;
+}
+.profile-modal-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.rt-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
 /* Sidebar Toggle Button */
 .sidebar-toggle-btn {
     background: none;
@@ -195,39 +255,85 @@ button {
     border-radius: 4px;
     transition: background-color 0.3s;
 }
-
 .sidebar-toggle-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-
 </style>
-
 <script>
 jQuery(document).ready(function($) {
+    // Initialize modals
+    const profileModal = $('#rt-profile-modal');
+    const profileClose = $('#rt-profile-close');
     const rtLogoutModal = $('#rt-logout-modal');
-    const rtLogoutTrigger = $('#rt-logout-trigger');
     const rtLogoutCancel = $('#rt-logout-cancel');
-
-    // Show modal when logout is clicked
-    rtLogoutTrigger.on('click', function(e) {
+    
+    // Function to show profile modal
+    function showProfileModal(e) {
+        e.preventDefault();
+        profileModal.css('display', 'flex');
+    }
+    
+    // Function to hide profile modal
+    function hideProfileModal() {
+        profileModal.css('display', 'none');
+    }
+    
+    // Function to show logout modal
+    function showLogoutModal(e) {
         e.preventDefault();
         rtLogoutModal.css('display', 'flex');
-    });
-
-    // Hide modal when No is clicked
-    rtLogoutCancel.on('click', function() {
+    }
+    
+    // Function to hide logout modal
+    function hideLogoutModal() {
         rtLogoutModal.css('display', 'none');
+    }
+    
+    // Event delegation for profile picture click
+    $(document).on('click', '.realtor-avatar', function(e) {
+        e.preventDefault();
+        showProfileModal(e);
     });
-
-    // Close modal when clicking outside content
-    rtLogoutModal.on('click', function(e) {
-        if (e.target === this) $(this).css('display', 'none');
+    
+    // Event delegation for logout trigger
+    $(document).on('click', '#rt-logout-trigger', function(e) {
+        e.preventDefault();
+        showLogoutModal(e);
     });
-
-    // Close modal with Escape key
+    
+    // Close profile modal when close button is clicked
+    profileClose.on('click', hideProfileModal);
+    
+    // Close profile modal when clicking outside content
+    profileModal.on('click', function(e) {
+        if (e.target === this) hideProfileModal();
+    });
+    
+    // Close profile modal with Escape key
     $(document).on('keydown', function(e) {
-        if (e.key === 'Escape') rtLogoutModal.css('display', 'none');
+        if (e.key === 'Escape') {
+            hideProfileModal();
+            hideLogoutModal();
+        }
+    });
+    
+    // Hide logout modal when No is clicked
+    rtLogoutCancel.on('click', hideLogoutModal);
+    
+    // Close logout modal when clicking outside content
+    rtLogoutModal.on('click', function(e) {
+        if (e.target === this) hideLogoutModal();
+    });
+    
+    // Re-initialize event listeners after tab changes
+    $(document).on('tab-changed', function() {
+        console.log('Tab changed event triggered');
+        // Re-bind events if needed
+    });
+    
+    // Trigger tab change event when tab links are clicked
+    $('.sidebar-menu a, .sidebar-nav a').on('click', function() {
+        $(document).trigger('tab-changed');
     });
 });
 </script>
-

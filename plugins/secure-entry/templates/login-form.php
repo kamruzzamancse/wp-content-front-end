@@ -2,10 +2,10 @@
     <!-- Login Form -->
     <form id="enhanced-login" method="post">
         <div class="form-logo">
-            <img src="http://localhost/mary/wp-content/uploads/2025/07/logo.png" alt="Company Logo">
+            <img src="http://localhost/mary/wp-content/uploads/2025/08/mary-logo.png" alt="Company Logo">
+            <!-- <img src="https://maryasfour.livewebsite.space/wp-content/uploads/2025/08/mary-logo.png" alt="Company Logo"> -->
         </div>
-        <div class="company-name">Synchronest</div>
-        
+
         <div class="form-header">
             <h2><?php _e('Login', 'enhanced-login'); ?></h2>
         </div>
@@ -59,3 +59,17 @@
         }
     });
 </script>
+
+<style>
+.form-logo {
+    text-align: left;
+    margin-bottom: 25px;
+}
+.form-logo img {
+    max-width: 200px;
+    height: auto;
+    display: inline-block;
+    margin-top: -20px;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4)); /* subtle shadow */
+}
+</style>

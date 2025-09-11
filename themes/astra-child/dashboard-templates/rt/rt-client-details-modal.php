@@ -104,6 +104,7 @@
 .cld-upload-btn .dashicons {
     font-size: 16px;
 }
+
 </style>
 
 <script>

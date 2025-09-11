@@ -20,7 +20,7 @@
 
 .add-note-btn {
   background-color: #3578c6;
-  color: white;
+  color: #FFF!important;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -95,5 +95,5 @@
 }
 
 .delete-btn:hover {
-  color: #d32f2f;
+  color: #FFF!important;
 }

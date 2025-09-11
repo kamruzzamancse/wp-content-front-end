@@ -44,7 +44,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
         </li>
     </ul>
 </aside>
-
 <!-- Logout Confirmation Modal -->
 <div class="sup-modal sup-logout-modal">
     <div class="sup-modal-content">
@@ -60,7 +59,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
         </div>
     </div>
 </div>
-
 <style>
 /* Modal Styles */
 .sup-modal {
@@ -75,7 +73,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     justify-content: center;
     align-items: center;
 }
-
 .sup-modal-content {
     background-color: #fff;
     border-radius: 8px;
@@ -84,12 +81,10 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     max-width: 400px;
     overflow: hidden;
 }
-
 .sup-modal-header {
     padding: 20px;
     border-bottom: 1px solid #eee;
 }
-
 .sup-modal-title {
     font-size: 20px;
     font-weight: 600;
@@ -97,18 +92,15 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     color: #333;
     text-align: center;
 }
-
 .sup-modal-body {
     padding: 20px;
 }
-
 .sup-modal-text {
     font-size: 16px;
     color: #555;
     margin: 0;
     text-align: center;
 }
-
 .sup-modal-footer {
     padding: 15px 20px;
     border-top: 1px solid #eee;
@@ -116,7 +108,6 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     justify-content: flex-end;
     gap: 10px;
 }
-
 .sup-modal-button {
     padding: 8px 16px;
     border-radius: 4px;
@@ -129,32 +120,26 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     color: #333;
     text-decoration: none;
 }
-
 .sup-modal-button:hover {
     color: #FFF!important;
 }
-
 .sup-modal-button-primary {
     background-color: #e74c3c;
     color: #FFF!important;
     border-color: #e74c3c;
 }
-
 .sup-modal-button-primary:hover {
     background-color: #c0392b;
     border-color: #c0392b;
 }
-
 /* Sidebar Styles ************************/
 .dashboard-sidebar {
     width: 60px;
     transition: width 0.3s ease;
 }
-
 .dashboard-sidebar.expanded {
     width: 250px;
 }
-
 .sidebar-menu li a {
     display: flex;
     align-items: center;
@@ -164,20 +149,16 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     transition: background-color 0.3s;
     position: relative;
 }
-
 .sidebar-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
-
 .sidebar-menu li a .dashicons {
     margin-right: 10px;
     flex-shrink: 0;
 }
-
 .dashboard-sidebar:not(.expanded) .sidebar-menu li a span:not(.dashicons) {
     display: none;
 }
-
 /* Tooltip Styles */
 .sidebar-menu li a::after {
     content: attr(title);
@@ -196,22 +177,18 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     transition: opacity 0.3s;
     z-index: 1000;
 }
-
 .dashboard-sidebar:not(.expanded) .sidebar-menu li a:hover::after {
     opacity: 1;
 }
-
 /* Dashboard Content Layout */
 .dashboard-content {
     display: grid;
     grid-template-columns: 60px 1fr;
     transition: grid-template-columns 0.3s ease;
 }
-
 .dashboard-content.sidebar-expanded {
     grid-template-columns: 250px 1fr;
 }
-
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     .dashboard-sidebar {
@@ -233,37 +210,49 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
     }
 }
 </style>
-
 <script>
 jQuery(document).ready(function($) {
     // Select modal and buttons
     const logoutModal = $('.sup-logout-modal');
-    const logoutTrigger = $('.sup-logout-trigger');
     const logoutCancel = $('.sup-logout-cancel');
-
-    // Show modal on trigger click
-    logoutTrigger.on('click', function(e) {
+    
+    // Function to show logout modal
+    function showLogoutModal(e) {
         e.preventDefault();
         logoutModal.css('display', 'flex');
-    });
-
-    // Hide modal on cancel
-    logoutCancel.on('click', function() {
+    }
+    
+    // Function to hide logout modal
+    function hideLogoutModal() {
         logoutModal.css('display', 'none');
+    }
+    
+    // Use event delegation to ensure the click event works across all tabs
+    $(document).on('click', '.sup-logout-trigger', function(e) {
+        e.preventDefault();
+        showLogoutModal(e);
     });
-
+    
+    // Hide modal on cancel
+    logoutCancel.on('click', hideLogoutModal);
+    
     // Close modal when clicking outside
     logoutModal.on('click', function(e) {
         if ($(e.target).hasClass('sup-modal')) {
-            logoutModal.css('display', 'none');
+            hideLogoutModal();
         }
     });
-
+    
     // Close with Escape
     $(document).on('keydown', function(e) {
         if (e.key === 'Escape') {
-            logoutModal.css('display', 'none');
+            hideLogoutModal();
         }
+    });
+    
+    // Trigger tab change event when sidebar links are clicked
+    $('.sidebar-menu a').on('click', function() {
+        $(document).trigger('tab-changed');
     });
 });
 </script>
