@@ -34,11 +34,11 @@
         <table class="documents-table">
             <thead>
                 <tr>
-                    <th style="width:50px; background:#0073e6; color:#fff;">#</th>
-                    <th style="background:#0073e6; color:#fff;">Document Title</th>
-                    <th style="background:#0073e6; color:#fff;">Document Type</th>
-                    <th style="background:#0073e6; color:#fff;">File</th>
-                    <th style="width:120px; background:#0073e6; color:#fff;">Actions</th>
+                    <th style="width:50px; background:#2271b1; color:#fff;">#</th>
+                    <th style="background:#2271b1; color:#fff;">Document Title</th>
+                    <th style="background:#2271b1; color:#fff;">Document Type</th>
+                    <th style="background:#2271b1; color:#fff;">File</th>
+                    <th style="width:120px; background:#2271b1; color:#fff;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -252,8 +252,8 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .stat-card.active { 
-    background:#0073e6; 
-    color:#fff; 
+    background: #2271b1; 
+    color: #fff; 
 }
 
 .stat-card.active h3 { 
