@@ -33,12 +33,6 @@ if (!function_exists('load_realtor_dashboard_data')) {
                     ])),
                     'messages_count' => 0, // Replace with actual query
                 ];
-            case 'properties':
-                return get_posts([
-                    'post_type' => 'property',
-                    'author' => $user_id,
-                    'post_status' => 'publish',
-                ]);
             case 'address-book':
             case 'documents':
             case 'messages':
@@ -78,9 +72,6 @@ get_header();
             switch($current_tab) {
                 case 'dashboard':
                     include locate_template('dashboard-templates/rt/rt-tab-dashboard.php');
-                    break;
-                case 'properties':
-                    include locate_template('dashboard-templates/rt/rt-tab-properties.php');
                     break;
                 case 'address-book':
                     include locate_template('dashboard-templates/rt/rt-tab-address-book.php');
