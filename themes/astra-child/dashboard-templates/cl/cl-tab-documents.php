@@ -171,7 +171,6 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     margin-bottom: 20px;
 }
-
 /* Header */
 .cld-task-header {
     display: flex;
@@ -179,7 +178,6 @@
     align-items: center;
     margin-bottom: 12px;
 }
-
 .cld-upload-btn {
     background: #fff;
     border: 1px solid #0073e6;
@@ -196,12 +194,13 @@
     color: #FFF!important;
     background: #0073e6;
 }
-
 /* Table */
 .cld-task-table {
     border-collapse: separate;
     border-spacing: 0;
     width: 100%;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
 }
 .cld-task-table thead th {
     background: #3273c4;
@@ -210,11 +209,16 @@
     text-align: left;
     font-weight: 500;
 }
+.cld-task-table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+.cld-task-table thead th:last-child {
+    border-top-right-radius: 10px;
+}
 .cld-task-table tbody td {
     padding: 10px;
     vertical-align: middle;
 }
-
 /* Avatar + Name */
 .cld-user-info {
     display: flex;
@@ -226,7 +230,6 @@
     height: 35px;
     border-radius: 50%;
 }
-
 /* Status */
 .cld-status {
     display: inline-block;
@@ -238,20 +241,17 @@
 .cld-pending { background: #ffcc00; }
 .cld-complete { background: #28a745; }
 .cld-incomplete { background: #dc3545; }
-
 /* Documents */
 .cld-doc {
     display: flex;
     align-items: center;
     gap: 6px;
 }
-
 /* Actions */
 .cld-action {
     cursor: pointer;
     font-size: 16px;
 }
-
 /* Narrow down #SL and Actions columns */
 .cld-task-table th:first-child,
 .cld-task-table td:first-child {
@@ -275,11 +275,9 @@
     display: block;
     width: 100%;
   }
-
   .cld-task-table thead {
     display: none;
   }
-
   .cld-task-table tr {
     background: #fff;
     margin-bottom: 15px;
@@ -288,7 +286,6 @@
     padding: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
-
   .cld-task-table td {
     display: flex;
     justify-content: flex-start;
@@ -298,7 +295,6 @@
     position: relative;
     text-align: left;
   }
-
   .cld-task-table td::before {
     content: attr(data-label);
     font-weight: 600;
@@ -307,12 +303,10 @@
     flex-shrink: 0;
     margin-right: 8px;
   }
-
   .cld-task-table th:first-child,
   .cld-task-table td:first-child {
     text-align: left;
    }
-
    .cld-task-section {
         padding: 10px;
     }

@@ -19,7 +19,6 @@
                     <span class="dashicons dashicons-plus-alt"></span> Add Client
                 </button>
             </div>
-
         </div>
     </div>
 

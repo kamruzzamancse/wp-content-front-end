@@ -17,6 +17,9 @@
                         <span class="dashicons dashicons-download"></span> Export
                     </button>
                 </div>
+                <button class="ab-btn ab-btn-create">
+                    <span class="dashicons dashicons-plus-alt"></span> Add Contact
+                </button>
             </div>
         </div>
     </div>
@@ -71,43 +74,10 @@
     </table>
 </div>
 
-<!-- Edit Client Modal -->
-<div id="editClientModal" class="modal">
-  <div class="modal-content">
-    <span class="close" id="closeEditModal">&times;</span>
-    <h2 class="modal-title">Edit Client Details</h2>
-    <form id="editClientForm">
-      <div class="form-group">
-        <label for="clientName">Client Name</label>
-        <input type="text" id="clientName" name="clientName" required>
-      </div>
-      <div class="form-group">
-        <label for="clientEmail">Email</label>
-        <input type="email" id="clientEmail" name="clientEmail" required>
-      </div>
-      <div class="form-group">
-        <label for="clientPhone">Phone Number</label>
-        <input type="tel" id="clientPhone" name="clientPhone" pattern="[0-9\-]+" required>
-      </div>
-      <div class="form-group">
-        <label for="clientNotes">Notes</label>
-        <input type="text" id="clientNotes" name="clientNotes" required>
-      </div>
-      <div class="form-group">
-        <label for="dob">Date of Birth</label>
-        <input type="date" id="dob" name="dob" required>
-      </div>
-      <div class="form-group">
-        <label for="closingDate">House Closing Date</label>
-        <input type="date" id="closingDate" name="closingDate" required>
-      </div>
-      <button type="submit" class="save-btn">Save</button>
-    </form>
-  </div>
-</div>
-
 <?php 
     include locate_template('dashboard-templates/rt/rt-client-details-modal.php');
+    include locate_template('dashboard-templates/rt/rt-client-create-modal.php');
+    include locate_template('dashboard-templates/rt/rt-client-edit-modal.php');
 ?>
 
 <style>
@@ -157,11 +127,11 @@ input { padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
 }
 
 table {
-    border-collapse: separate; /* Required for border-radius to work on tables */
-    border-spacing: 0;         /* Remove gaps between cells */
-    border: 1px solid #ddd;    /* Optional: keeps border visible */
-    border-radius: 10px 10px 0 0; /* Top-left & top-right rounded */
-    overflow: hidden;          /* Ensures rounding shows */
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
 }
 
 /* Optional: Match the top header row */
@@ -174,46 +144,164 @@ table thead th:last-child {
 .modal button:last-child {
     color: #fff!important;
 }
+/* Submit button */
+.ab-btn {
+  background-color: #007bff;
+  color: #fff!important;
+}
+
+.ab-btn:hover {
+  background-color: #0056b3;
+}
 </style>
 
 <script>
-// Edit Client Modal
-document.querySelectorAll('.ab-action-icon[title="Edit"]').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.getElementById('editClientModal').style.display = 'flex';
-    });
-});
-document.getElementById('closeEditModal').addEventListener('click', () => {
-    document.getElementById('editClientModal').style.display = 'none';
-});
-document.getElementById('editClientForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    if (!this.checkValidity()) { alert('Please fill in all fields correctly.'); return; }
-    alert('Client details saved successfully!');
-    document.getElementById('editClientModal').style.display = 'none';
-});
+document.addEventListener('DOMContentLoaded', function() {
 
-// View Client Modal (only Client Name text)
-const clientDetailsModal = document.getElementById('clientDetailsModal');
-const closeClientDetailsModalBtn = document.getElementById('closeClientDetailsModal');
-document.querySelectorAll('tbody tr.client-row td.client-name .client-name-text').forEach(span => {
-    span.addEventListener('click', function(e){
-        e.stopPropagation();
-        const row = this.closest('tr');
-        const viewButton = row.querySelector('.ab-viewClientDetails');
-        if(viewButton) viewButton.click();
+    // Open Edit Modal on Edit icon click
+    document.querySelectorAll('.ab-editClientDetails').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const row = btn.closest('tr');
+
+            // Get values from table row
+            const name = row.querySelector('.client-name-text')?.textContent.trim() || '';
+            const email = row.querySelector('td[data-label="Email"]')?.textContent.trim() || '';
+            const phone = row.querySelector('td[data-label="Phone Number"]')?.textContent.trim() || '';
+            const address = row.querySelector('td[data-label="Address"]')?.textContent.trim() || '';
+            const company = row.querySelector('td[data-label="Company Name"]')?.textContent.trim() || '';
+
+            // Show the new modal
+            const editModal = document.querySelector('.amClientEditModal');
+            if(editModal){
+                editModal.style.display = 'flex';
+
+                // Populate modal fields
+                editModal.querySelector('.edit_client_full_name').value = name;
+                editModal.querySelector('.edit_client_email').value = email;
+                editModal.querySelector('.edit_client_phone').value = phone;
+                editModal.querySelector('.edit_client_address').value = address;
+                editModal.querySelector('.edit_client_company_name').value = company;
+            }
+        });
+    });
+
+    // Close modal on close button click
+    document.querySelectorAll('.closeClientEditModal').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.closest('.amClientEditModal').style.display = 'none';
+        });
+    });
+
+    // Close modal on clicking outside modal content
+    document.querySelectorAll('.amClientEditModal').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if(e.target === modal) modal.style.display = 'none';
+        });
+    });
+
+    // Handle form submission
+    document.querySelectorAll('.editClientForm').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Client details updated successfully! (Demo)');
+            this.closest('.amClientEditModal').style.display = 'none';
+        });
+    });
+
+});
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        const clientDetailsModal = document.getElementById('clientDetailsModal');
+        const closeClientDetailsModalBtn = document.getElementById('closeClientDetailsModal');
+
+        // Open modal when clicking the "View" icon
+        document.querySelectorAll('.ab-viewClientDetails').forEach(btn => {
+            btn.addEventListener('click', function(e){
+                e.stopPropagation();
+                if(clientDetailsModal) clientDetailsModal.style.display = 'flex';
+            });
+        });
+
+        // Also open modal when clicking the client name text
+        document.querySelectorAll('.client-name-text').forEach(span => {
+            span.addEventListener('click', function(e){
+                e.stopPropagation();
+                const row = this.closest('tr');
+                const viewButton = row.querySelector('.ab-viewClientDetails');
+                if(viewButton) viewButton.click();
+            });
+        });
+
+        // Close modal
+        if(closeClientDetailsModalBtn){
+            closeClientDetailsModalBtn.addEventListener('click', () => { 
+                if(clientDetailsModal) clientDetailsModal.style.display = 'none'; 
+            });
+        }
+
+        // Close modal on outside click
+        if(clientDetailsModal){
+            clientDetailsModal.addEventListener('click', e => { 
+                if(e.target === clientDetailsModal) clientDetailsModal.style.display = 'none'; 
+            });
+        }
+
+    });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the "Add Contact" button
+    const addContactBtn = document.querySelector('.ab-btn-create');
+    
+    // Get the modal element
+    const createModal = document.querySelector('.amClientCreateModal');
+    
+    // Add click event to the button
+    if (addContactBtn && createModal) {
+        addContactBtn.addEventListener('click', function() {
+            // Display the modal by changing its display property
+            createModal.style.display = 'flex';
+        });
+    }
+    
+    // Image preview functionality
+    document.querySelectorAll('.create_client_profile_picture').forEach(input => {
+        input.addEventListener('change', function() {
+            const file = this.files[0];
+            if(file) {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    this.closest('.create-pic-container').querySelector('.previewAvatar').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+    
+    // Modal close functionality
+    document.querySelectorAll('.closeClientCreateModal').forEach(btn => {
+        btn.addEventListener('click', function() {
+            this.closest('.amClientCreateModal').style.display = 'none';
+        });
+    });
+    
+    document.querySelectorAll('.amClientCreateModal').forEach(modal => {
+        modal.addEventListener('click', e => {
+            if(e.target === modal) modal.style.display = 'none';
+        });
+    });
+    
+    // Form submission
+    document.querySelectorAll('.createClientForm').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Client created successfully! (This is a demo)');
+            this.closest('.amClientCreateModal').style.display = 'none';
+        });
     });
 });
-document.querySelectorAll('.ab-viewClientDetails').forEach(btn => {
-    btn.addEventListener('click', function(e){
-        e.stopPropagation();
-        if(clientDetailsModal) clientDetailsModal.style.display = 'flex';
-    });
-});
-if(closeClientDetailsModalBtn){
-    closeClientDetailsModalBtn.addEventListener('click', () => { if(clientDetailsModal) clientDetailsModal.style.display = 'none'; });
-}
-if(clientDetailsModal){
-    clientDetailsModal.addEventListener('click', e => { if(e.target === clientDetailsModal){ clientDetailsModal.style.display = 'none'; } });
-}
 </script>
