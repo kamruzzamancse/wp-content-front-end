@@ -158,7 +158,7 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
 .sidebar-menu li a {
     display: flex;
     align-items: center;
-    padding: 12px 0;
+    padding: 20px 15px;
     color: #fff;
     text-decoration: none;
     transition: background-color 0.3s;

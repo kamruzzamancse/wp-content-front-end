@@ -74,7 +74,6 @@
 .sidebar-menu li {
     display: flex;
     align-items: center;
-    padding: 12px 15px;
     cursor: pointer;
     transition: all 0.3s;
     border-left: 4px solid transparent;
