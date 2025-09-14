@@ -33,7 +33,12 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
                 <span>Documents</span>
             </a>
         </li>
-
+        <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
+            <a href="?tab=messages" title="Messages">
+                <span class="dashicons dashicons-email"></span>
+                <span>Messages</span>
+            </a>
+        </li>
         <!-- Settings -->
         <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
             <a href="?tab=settings" title="Settings">

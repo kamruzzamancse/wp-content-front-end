@@ -99,6 +99,9 @@ get_header();
                 case 'clients':
                     include locate_template('dashboard-templates/am/am-tab-clients.php');
                     break;
+                case 'messages':
+                    include locate_template('dashboard-templates/am/am-tab-messages.php');
+                    break;
                 case 'task-status':
                     include locate_template('dashboard-templates/am/am-tab-task-status.php');
                     break;

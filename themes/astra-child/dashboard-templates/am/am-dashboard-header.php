@@ -78,6 +78,9 @@ if (empty($company_name)) {
                 <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
                     <a href="?tab=documents"><span class="dashicons dashicons-media-document"></span> Documents</a>
                 </li>
+                <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
+                    <a href="?tab=messages"><span class="dashicons dashicons-email"></span> Messages</a>
+                </li>
                 <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
                     <a href="?tab=settings"><span class="dashicons dashicons-admin-settings"></span> Settings</a>
                 </li>

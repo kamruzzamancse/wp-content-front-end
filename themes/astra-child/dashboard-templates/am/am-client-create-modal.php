@@ -41,8 +41,8 @@
                         </div>
 
                         <div class="create-detail-row">
-                            <label class="create-detail-label" for="create_realtor_company_name">Company Name:</label>
-                            <input class="create-detail-value" type="text" id="create_realtor_company_name" name="realtor_company_name" placeholder="Enter company name">
+                            <label class="create-detail-label" for="create_realtor_note">Note:</label>
+                            <textarea class="create-detail-value" id="create_realtor_note" name="realtor_note" rows="4" placeholder="Enter note"></textarea>
                         </div>
 
                     </div>
@@ -169,7 +169,7 @@ button[type="submit"] {
     background-color: #0052cc;
     border: none;
     color: white;
-    padding: 14px 32px;
+    padding: 10px 25px;
     font-size: 1.1rem;
     border-radius: 8px;
     cursor: pointer;

@@ -41,8 +41,8 @@
                         </div>
 
                         <div class="edit-detail-row">
-                            <label class="edit-detail-label">Company Name:</label>
-                            <input class="edit-detail-value edit_client_company_name" type="text" name="client_company_name" placeholder="Enter company name">
+                            <label class="edit-detail-label">Note:</label>
+                            <textarea class="edit-detail-value edit_client_note" name="client_note" rows="4" placeholder="Enter note"></textarea>
                         </div>
 
                     </div>
@@ -222,7 +222,7 @@ button[type="submit"] {
   background-color: #007bff;
   color: #fff!important;
   border: none;
-  padding: 12px 25px;
+  padding: 10px 25px;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;

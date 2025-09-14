@@ -204,6 +204,10 @@
     fill: #6c8dfa;
 }
 
+table {
+    border-bottom: 1px solid #CCC;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .tpg-tracking-header {

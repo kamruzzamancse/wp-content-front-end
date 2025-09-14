@@ -415,6 +415,10 @@ document.addEventListener('DOMContentLoaded', function() {
   border-bottom: 1px solid #eee;
 }
 
+table {
+    border-bottom: 1px solid #CCC;
+}
+
 /* Mobile Responsive (Card Style) */
 @media screen and (max-width: 480px) {
   .active-clients-table,

@@ -29,8 +29,17 @@
                 <td data-label="Task">Inspection Report</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -46,8 +55,17 @@
                 <td data-label="Task">Payment Verification</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -63,8 +81,17 @@
                 <td data-label="Task">Property Visit</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Property_Images.zip</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -80,8 +107,17 @@
                 <td data-label="Task">Document Review</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Final_Document.pdf</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -97,8 +133,17 @@
                 <td data-label="Task">Inspection Report</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Agreement.pdf</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -114,8 +159,17 @@
                 <td data-label="Task">Final Handover</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Handover_Form.pdf</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -131,8 +185,17 @@
                 <td data-label="Task">Lease Agreement</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Lease_Docs.pdf</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -148,8 +211,17 @@
                 <td data-label="Task">Payment Verification</td>
                 <td data-label="Upload Docs"><span class="cld-doc"><img src="https://img.icons8.com/color/24/pdf.png"/> Payment_Slip.pdf</span></td>
                 <td data-label="Actions">
-                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1">
+                    <!-- View -->
+                    <a href="javascript:void(0)" class="cld-action" data-modal="cldoc-modal-1" title="View">
                         <span class="dashicons dashicons-visibility"></span>
+                    </a>
+                    <!-- Edit -->
+                    <a href="javascript:void(0)" class="cld-action cld-edit" data-modal="cl-create-document-modal" title="Edit">
+                        <span class="dashicons dashicons-edit"></span>
+                    </a>
+                    <!-- Delete -->
+                    <a href="javascript:void(0)" class="cld-action cld-delete" title="Delete">
+                        <span class="dashicons dashicons-trash"></span>
                     </a>
                 </td>
             </tr>
@@ -160,6 +232,7 @@
 <?php 
     include locate_template('dashboard-templates/cl/cl-realtor-details-modal.php');
     include locate_template('dashboard-templates/cl/cl-upload-document-modal.php');
+    include locate_template('dashboard-templates/cl/cl-create-document-modal.php');
 ?>
 
 <style>
@@ -260,8 +333,13 @@
 }
 .cld-task-table th:last-child,
 .cld-task-table td:last-child {
-    width: 80px;
+    width: 100px;
     text-align: center;
+}
+
+/* Bottom border for last row */
+.cld-task-table tbody tr:last-child td {
+    border-bottom: 1px solid #eaeaea;
 }
 
 /* ---------- Mobile Card View ---------- */
@@ -315,46 +393,42 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // open modal buttons
+
+    // ---------- Open modal ----------
     const modalTriggers = document.querySelectorAll("[data-modal]");
     modalTriggers.forEach(trigger => {
         trigger.addEventListener("click", function () {
             const target = document.getElementById(this.getAttribute("data-modal"));
-            if (target) target.style.display = "flex";
+            if (target) target.classList.add("show");
         });
     });
 
-    // close buttons (x button)
+    // ---------- Close modal via X button ----------
     const closeButtons = document.querySelectorAll(".clup-close-btn");
     closeButtons.forEach(btn => {
         btn.addEventListener("click", function () {
-            this.closest(".clup-modal-overlay").style.display = "none";
+            this.closest(".clup-modal-overlay").classList.remove("show");
         });
     });
 
-    // cancel buttons
+    // ---------- Close modal via Cancel button ----------
     const cancelButtons = document.querySelectorAll(".clup-cancel");
     cancelButtons.forEach(btn => {
         btn.addEventListener("click", function () {
-            this.closest(".clup-modal-overlay").style.display = "none";
+            this.closest(".clup-modal-overlay").classList.remove("show");
         });
     });
 
-    // click outside to close
+    // ---------- Close modal by clicking outside ----------
     const modals = document.querySelectorAll(".clup-modal-overlay");
     modals.forEach(modal => {
         modal.addEventListener("click", function (e) {
-            if (e.target === modal) modal.style.display = "none";
+            if (e.target === modal) modal.classList.remove("show");
         });
     });
-});
-</script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    // Trigger file input when Browse button is clicked
+    // ---------- File upload browse button ----------
     const browseButtons = document.querySelectorAll(".clup-browse");
-
     browseButtons.forEach(btn => {
         btn.addEventListener("click", function () {
             const modal = btn.closest(".clup-modal-overlay");
@@ -373,5 +447,43 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // ---------- Edit button ----------
+    const editButtons = document.querySelectorAll(".cld-edit");
+    editButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+            const modal = document.getElementById("cl-create-document-modal");
+            if (modal) {
+                modal.classList.add("show"); // <-- Updated to use class
+
+                // Change modal title
+                modal.querySelector(".clup-title").textContent = "Edit Document";
+
+                // Change button text
+                modal.querySelector(".clup-create").textContent = "Update Document";
+
+                // Prefill form with existing row data
+                const row = btn.closest("tr");
+                if (row) {
+                    const title = row.querySelector("td[data-label='Task']")?.innerText || "";
+                    modal.querySelector("input[type='text']").value = title;
+                }
+            }
+        });
+    });
+
+    // ---------- Delete button ----------
+    const deleteButtons = document.querySelectorAll(".cld-delete");
+    deleteButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+            if (confirm("Are you sure you want to delete this document?")) {
+                const row = btn.closest("tr");
+                if (row) row.remove();
+            }
+        });
+    });
+
 });
 </script>
+
+

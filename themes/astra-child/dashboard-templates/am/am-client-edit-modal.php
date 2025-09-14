@@ -42,8 +42,8 @@
                         </div>
 
                         <div class="edit-detail-row">
-                            <label class="edit-detail-label" for="edit_realtor_company_name">Company Name:</label>
-                            <input class="edit-detail-value" type="text" id="edit_realtor_company_name" name="realtor_company_name" placeholder="Enter company name">
+                            <label class="edit-detail-label" for="edit_realtor_note">Note:</label>
+                            <textarea class="edit-detail-value" id="edit_realtor_note" name="realtor_note" rows="4" placeholder="Enter note"></textarea>
                         </div>
                     </div>
                 </div>

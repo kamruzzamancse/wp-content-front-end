@@ -33,8 +33,8 @@
               <input class="create-detail-value create_client_address" type="text" name="client_address" placeholder="Enter address">
             </div>
             <div class="create-detail-row">
-              <label class="create-detail-label">Company Name:</label>
-              <input class="create-detail-value create_client_company_name" type="text" name="client_company_name" placeholder="Enter company name">
+              <label class="create-detail-label">Note:</label>
+              <textarea class="create-detail-value create_client_note" name="client_note" rows="4" placeholder="Enter note"></textarea>
             </div>
           </div>
         </div>
@@ -170,7 +170,7 @@ button[type="submit"] {
   background-color: #007bff;
   color: #fff!important;
   border: none;
-  padding: 12px 25px;
+  padding: 10px 25px;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
