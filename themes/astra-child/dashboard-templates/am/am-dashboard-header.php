@@ -69,6 +69,9 @@ if (empty($company_name)) {
                 <li class="<?php echo $current_tab === 'dashboard' ? 'active' : ''; ?>">
                     <a href="?tab=dashboard"><span class="dashicons dashicons-admin-home"></span> Dashboard Overview</a>
                 </li>
+                <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
+                    <a href="?tab=properties"><span class="dashicons dashicons-building"></span> Properties</a>
+                </li>
                 <li class="<?php echo $current_tab === 'realtors' ? 'active' : ''; ?>">
                     <a href="?tab=realtors"><span class="dashicons dashicons-groups"></span> Realtors</a>
                 </li>

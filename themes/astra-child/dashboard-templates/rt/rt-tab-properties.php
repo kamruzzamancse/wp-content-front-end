@@ -3,15 +3,15 @@
     $image_url  = $upload_dir['baseurl'];
 ?>
 
-<div class="pt-toolbar-container rt-toolbar-container">
+<div class="pt-toolbar-container">
     
-    <div class="pt-left-section rt-left-section">
-            <h1 class="header-title rt-header-title">All Properties</h1>
-            <div class="pt-search-box rt-search-box">
+    <div class="pt-left-section">
+            <h1 class="header-title">All Properties</h1>
+            <div class="pt-search-box">
                 <span class="pt-search-icon">🔍</span>
                 <input type="text" class="pt-search-input" placeholder="Search: Property Name" />
             </div>
-        <div class="pt-sort-container rt-sort-container">
+        <div class="pt-sort-container">
             <select class="pt-sort-select">
             <option value="">Sort by</option>
             <option value="price-asc">Price: Low to High</option>
@@ -24,26 +24,11 @@
         </div>
     </div>
 
-    <div class="pt-right-section">
-        <button class="pt-action-button pt-export-btn">
-            <span class="dashicons dashicons-download"></span> Export
-        </button>
-        <button class="pt-action-button pt-add-task-btn">
-            <span class="dashicons dashicons-plus-alt"></span> Add Task
-        </button>
-        <button class="pt-action-button pt-create-property-btn" onclick="openCreateModal()">
-            <span class="dashicons dashicons-admin-home"></span> Create Property
-        </button>
-    </div>
-
 </div>
 
 <div class="pt-property-container">
-
     <?php echo do_shortcode('[rentcast_properties]'); ?>
-
-    <div class="pt-property-list">
-        <!-- Property Example -->
+    <!-- <div class="pt-property-list">
         <div class="pt-property-item">
             <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -58,8 +43,6 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
-                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 4">
-                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 5">
                 </div>
             </div>
         </div>
@@ -100,7 +83,6 @@
             </div>
         </div>
 
-        <!-- 4th Property -->
         <div class="pt-property-item">
             <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -119,7 +101,6 @@
             </div>
         </div>
 
-        <!-- 5th Property -->
         <div class="pt-property-item">
             <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -134,13 +115,10 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
-                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
-                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                 </div>
             </div>
         </div>
 
-        <!-- 6th Property -->
         <div class="pt-property-item">
             <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -159,7 +137,6 @@
             </div>
         </div>
 
-        <!-- 7th Property -->
         <div class="pt-property-item">
             <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -178,7 +155,6 @@
             </div>
         </div>
 
-        <!-- 8th Property -->
         <div class="pt-property-item">
             <a href="?tab=rt-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -196,103 +172,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
+    </div> -->
+
 </div>
-
-<h1 class="header-title">Recent Document</h1>
-
-<div class="pt-documents-container">
-    <!-- Document 1 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed: 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 2 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 3 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 4 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 5 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 6 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-</div>
-
-<?php include locate_template('dashboard-templates/rt/rt-property-create-modal.php'); ?>
-
-<style>
-    @media (max-width: 768px) {
-        .rt-search-box {
-            width: 380px!important;
-        }
-    }
-</style>

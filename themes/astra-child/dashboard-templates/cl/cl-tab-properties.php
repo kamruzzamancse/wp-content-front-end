@@ -27,9 +27,8 @@
 </div>
 
 <div class="pt-property-container">
-    <?php //echo do_shortcode('[rentcast_properties]'); ?>
-    <div class="pt-property-list">
-        <!-- Property Example -->
+    <?php echo do_shortcode('[rentcast_properties]'); ?>
+    <!-- <div class="pt-property-list">
         <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -84,7 +83,6 @@
             </div>
         </div>
 
-        <!-- 4th Property -->
         <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -103,7 +101,6 @@
             </div>
         </div>
 
-        <!-- 5th Property -->
         <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -122,7 +119,6 @@
             </div>
         </div>
 
-        <!-- 6th Property -->
         <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -141,7 +137,6 @@
             </div>
         </div>
 
-        <!-- 7th Property -->
         <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -160,7 +155,6 @@
             </div>
         </div>
 
-        <!-- 8th Property -->
         <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -177,6 +171,7 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
                 </div>
             </div>
-        </div>
-    </div>
+        </div> 
+
+    </div>-->
 </div>

@@ -12,6 +12,15 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
                 <span>Dashboard</span>
             </a>
         </li>
+
+        <!-- Properties -->
+        <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
+            <a href="?tab=properties" title="Properties">
+                <span class="dashicons dashicons-building"></span>
+                <span>Properties</span>
+            </a>
+        </li>
+
         <li class="<?php echo $current_tab === 'address-book' ? 'active' : ''; ?>">
             <a href="?tab=address-book" title="Address Book">
                 <span class="dashicons dashicons-id"></span> <!-- Changed to ID card icon -->

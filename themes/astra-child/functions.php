@@ -512,7 +512,7 @@ add_action('init', function() {
     }
 });
 
-/* function rentcast_properties_shortcode($atts) {
+function rentcast_properties_shortcode($atts) {
     // Shortcode attributes with defaults
     $atts = shortcode_atts([
         'city'  => 'Orlando',  // Default city
@@ -630,4 +630,4 @@ add_action('init', function() {
     }
     return ob_get_clean(); // Return captured HTML
 }
-add_shortcode('rentcast_properties', 'rentcast_properties_shortcode'); */
+add_shortcode('rentcast_properties', 'rentcast_properties_shortcode');

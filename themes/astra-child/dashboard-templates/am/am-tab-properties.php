@@ -4,7 +4,7 @@
 ?>
 
 <div class="pt-toolbar-container">
-
+    
     <div class="pt-left-section">
             <h1 class="header-title">All Properties</h1>
             <div class="pt-search-box">
@@ -24,23 +24,12 @@
         </div>
     </div>
 
-    <div class="pt-right-section">
-        <button class="pt-action-button pt-export-btn">
-            <span class="dashicons dashicons-download"></span> Export
-        </button>
-        <button class="pt-action-button pt-add-task-btn">
-            <span class="dashicons dashicons-plus-alt"></span> Add Task
-        </button>
-        <button class="pt-action-button pt-create-property-btn" onclick="openCreateModal()">
-            <span class="dashicons dashicons-admin-home"></span> Create Property
-        </button>
-    </div>
-
 </div>
 
 <div class="pt-property-container">
-    <div class="pt-property-list">
-        <!-- Property Example -->
+    <?php echo do_shortcode('[rentcast_properties]'); ?>
+    <!-- <div class="pt-property-list">
+
         <div class="pt-property-item">
             <a href="?tab=am-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -55,11 +44,6 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
-                </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
                 </div>
             </div>
         </div>
@@ -79,11 +63,6 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-5.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-6.png' ); ?>" alt="Gallery Image 3">
                 </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
-                </div>
             </div>
         </div>
 
@@ -102,15 +81,9 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-2.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-3.png' ); ?>" alt="Gallery Image 3">
                 </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
-                </div>
             </div>
         </div>
 
-        <!-- 4th Property -->
         <div class="pt-property-item">
             <a href="?tab=am-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -126,15 +99,9 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
                 </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
-                </div>
             </div>
         </div>
 
-        <!-- 5th Property -->
         <div class="pt-property-item">
             <a href="?tab=am-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -150,15 +117,9 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
                 </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
-                </div>
             </div>
         </div>
 
-        <!-- 6th Property -->
         <div class="pt-property-item">
             <a href="?tab=am-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -174,15 +135,9 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-5.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-6.png' ); ?>" alt="Gallery Image 3">
                 </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
-                </div>
             </div>
         </div>
 
-        <!-- 7th Property -->
         <div class="pt-property-item">
             <a href="?tab=am-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium.png' ); ?>" alt="Lakeview Premium" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -198,15 +153,9 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-2.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-premium-3.png' ); ?>" alt="Gallery Image 3">
                 </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
-                </div>
             </div>
         </div>
 
-        <!-- 8th Property -->
         <div class="pt-property-item">
             <a href="?tab=am-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
@@ -222,180 +171,8 @@
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
                     <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
                 </div>
-                <div class="pt-property-actions">
-                    <button class="pt-btn approve-btn">Approve</button>
-                    <button class="pt-btn edit-btn">Edit</button>
-                    <button class="pt-btn delete-btn">Delete</button>
-                </div>
             </div>
         </div>
-    </div>
+    </div> -->
+
 </div>
-
-<h1 class="header-title">Recent Document</h1>
-
-<div class="pt-documents-container">
-    <!-- Document 1 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed: 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 2 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 3 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 4 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 5 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-
-    <!-- Document 6 -->
-    <div class="pt-document-card">
-        <div class="pt-document-header">
-            <div class="pt-document-icon">IMG</div>
-            <div class="pt-document-name">Lease Agreement.jpg</div>
-        </div>
-        <div class="pt-document-size">2.3MB</div>
-        <div class="pt-document-info">Processed 1 week ago</div>
-        <div class="pt-document-actions">
-            <button class="pt-action-btn">View</button>
-            <button class="pt-action-btn">Download</button>
-        </div>
-    </div>
-</div>
-
-<?php include locate_template('dashboard-templates/am/am-property-create-modal.php'); ?>
-
-<style>
-
-.pt-export-btn:hover {
-    color: #FFF!important;
-}
-
-.pt-add-task-btn:hover {
-    color: #FFF!important;
-}
-
-.pt-create-property-btn {
-    color: #FFF!important;
-}
-
-.pt-property-actions {
-    margin-top: 15px;
-    text-align: center;
-    display: flex;
-    flex-wrap: wrap; /* allows wrapping on smaller screens */
-    justify-content: center;
-    gap: 10px; /* space between buttons */
-}
-
-.pt-property-actions .pt-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    border: 2px solid transparent;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background-color: transparent; /* default transparent */
-}
-
-/* Approve Button */
-.approve-btn {
-    border-color: #4CAF50;
-    color: #4CAF50;
-}
-.approve-btn:hover {
-    background-color: #4CAF50;
-    color: white;
-}
-
-/* Edit Button */
-.edit-btn {
-    border-color: #2196F3;
-    color: #2196F3;
-}
-.edit-btn:hover {
-    background-color: #2196F3;
-    color: white;
-}
-
-/* Delete Button */
-.delete-btn {
-    border-color: #f44336;
-    color: #f44336;
-}
-.delete-btn:hover {
-    background-color: #f44336;
-    color: white;
-}
-
-/* Responsive: stack buttons on very small screens */
-@media screen and (max-width: 480px) {
-    .pt-property-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    .pt-property-actions .pt-btn {
-        width: 100%;
-        max-width: 200px;
-    }
-}
-</style>

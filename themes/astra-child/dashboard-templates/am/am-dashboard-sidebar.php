@@ -14,18 +14,31 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
                 <span>Dashboard Overview</span>
             </a>
         </li>
+
+        <!-- Properties -->
+        <li class="<?php echo $current_tab === 'properties' ? 'active' : ''; ?>">
+            <a href="?tab=properties" title="Properties">
+                <span class="dashicons dashicons-building"></span>
+                <span>Properties</span>
+            </a>
+        </li>
+
+        <!-- Realtors -->
         <li class="<?php echo $current_tab === 'realtors' ? 'active' : ''; ?>">
             <a href="?tab=realtors" title="Realtors">
                 <span class="dashicons dashicons-groups"></span>
                 <span>Realtors</span>
             </a>
         </li>
+
+        <!-- Clients -->
         <li class="<?php echo $current_tab === 'clients' ? 'active' : ''; ?>">
             <a href="?tab=clients" title="Clients">
                 <span class="dashicons dashicons-buddicons-buddypress-logo"></span>
                 <span>Clients</span>
             </a>
         </li>
+
         <!-- Document Oversight -->
         <li class="<?php echo $current_tab === 'documents' ? 'active' : ''; ?>">
             <a href="?tab=documents" title="Documents">
@@ -33,12 +46,15 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
                 <span>Documents</span>
             </a>
         </li>
+
+        <!-- Messages -->
         <li class="<?php echo $current_tab === 'messages' ? 'active' : ''; ?>">
             <a href="?tab=messages" title="Messages">
                 <span class="dashicons dashicons-email"></span>
                 <span>Messages</span>
             </a>
         </li>
+
         <!-- Settings -->
         <li class="<?php echo $current_tab === 'settings' ? 'active' : ''; ?>">
             <a href="?tab=settings" title="Settings">
@@ -47,7 +63,7 @@ $current_tab = isset($_GET['tab']) ? sanitize_text_field($_GET['tab']) : 'dashbo
             </a>
         </li>
 
-       <!-- Logout -->
+        <!-- Logout -->
         <li>
             <a href="#" class="sup-am-logout-trigger" title="Logout">
                 <span class="dashicons dashicons-migrate"></span>

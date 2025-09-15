@@ -4,20 +4,15 @@
     $site_url = site_url();
 ?>
 
-<div class="back-link">
-    <a href="<?php echo esc_url( $site_url . '/realtor-dashboard/?tab=properties' ); ?>" class="pd-back-link">
-        <span class="pd-back-link__arrow">←</span>
+<div class="cl-back-link">
+    <a href="<?php echo esc_url( $site_url . '/realtor-dashboard/?tab=properties' ); ?>" class="cl-back-link">
+        <span class="cl-header-arrow">←</span>
         <h1 class="header-title">Property Details</h1>
     </a>
 </div>
 
 <div class="pd-container">
     <div class="pd-left-column">
-        <div class="pd-top-controls">
-            <button class="pd-btn pd-btn-edit" onclick="propertyEditModal()">Edit</button>
-            <button class="pd-btn pd-btn-delete">Delete</button>
-        </div>
-
         <div class="pd-image-gallery-container">
             <div class="pd-thumbnail-gallery">
                 <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard-4.png' ); ?>" onclick="changeImage(this.src)" alt="Gallery Image 1">
@@ -35,93 +30,85 @@
         </div>
 
         <!-- Property Features Grid -->
-        <div class="property-features">
+        <div class="property-features-modal">
+
             <!-- Address -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-location"></span> Address</div>
+                <div class="feature-label"><span class="dashicons dashicons-location-alt"></span> Address</div>
                 <div class="feature-value">Le Marais, Paris, France</div>
+            </div>
+
+            <!-- Price -->
+            <div class="feature-box" id="price-feature">
+                <div class="feature-label">
+                    <span class="dashicons dashicons-admin-site-alt3"></span> Price
+                    <button class="edit-btn" title="Edit Price">&#9998;</button> <!-- small edit icon -->
+                </div>
+                <div class="feature-value" id="price-value">450,000</div>
             </div>
 
             <!-- Bedrooms -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bedrooms</div>
+                <div class="feature-label"><span class="dashicons dashicons-admin-home"></span> Bedrooms</div>
                 <div class="feature-value">3</div>
             </div>
 
             <!-- Bathrooms -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-admin-tools"></span> Bathrooms</div>
+                <div class="feature-label"><span class="dashicons dashicons-admin-users"></span> Bathrooms</div>
                 <div class="feature-value">2</div>
             </div>
 
             <!-- Year Built -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-calendar"></span> Year Built</div>
-                <div class="feature-value">2015</div>
+                <div class="feature-label"><span class="dashicons dashicons-calendar-alt"></span> Year Built</div>
+                <div class="feature-value">2023</div>
             </div>
 
             <!-- Square Footage -->
             <div class="feature-box">
-                <div class="feature-label"><span class="dashicons dashicons-randomize"></span> Square Footage</div>
+                <div class="feature-label"><span class="dashicons dashicons-layout"></span> Square Footage</div>
                 <div class="feature-value">140 m²</div>
             </div>
+
         </div>
-        
     </div>
+
 
     <div class="pd-right-column">
         <div class="pd-right-box pd-assigned-client">
-            <strong style="font-size: 16px; margin-bottom: 10px; display: block;">Assigned Client</strong>
+            <strong style="font-size: 16px; margin-bottom: 10px; display: block;">Realtor</strong>
             <div class="pd-client-name">
                 <img style="border-radius: 50%; width:50px; margin-right: 12px" src="<?php echo esc_url( $image_url . '/2025/08/client-photo.jpg' ); ?>" alt="Client Photo">
-                Afsana Hamid mim
+                Anisur Rahman
             </div>
             <div class="pd-info-row"><span>Phone Number:</span><span>999-888-666</span></div>
             <div class="pd-info-row"><span>Email:</span><span>support.info@gmail.com</span></div>
             <div class="pd-info-row"><span>Address:</span><span>Le Marais, Paris, France</span></div>
             <div class="pd-info-row"><span>Added Date:</span><span>10 June, 2025</span></div>
-            <div class="pd-info-row"><span>Last Update:</span><span>28 June, 2025</span></div>
-        </div>
-
-        <div class="pd-right-box pd-task-details">
-            <strong style="font-size: 16px; margin-bottom: 10px; display: block;">Task Details</strong>
-            <div class="pd-task-row"><label>Property Name</label><span>1234 Elm Street, NY 10001</span></div>
-            <div class="pd-task-row"><label>Document Title</label><span>Final Inspection Report</span></div>
-            <div class="pd-task-row"><label>Document Type</label><span>Inspection Report</span></div>
-            <div class="pd-task-row"><label>Due Date</label><span>11 Oct, 2025</span></div>
-            <div class="pd-task-notes">
-                <label>Notes</label>
-                <textarea rows="4" readonly>Just a quick reminder to review the listings I sent and let me know which properties you'd like to visit. Also, please have your pre-approval letter ready if you're planning to make an offer soon!</textarea>
-            </div>
-            <div class="pd-pdf-file">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="PDF Icon">
-                <div>PDF File</div>
-            </div>
         </div>
     </div>
 </div>
 
 <?php include locate_template('dashboard-templates/rt/rt-property-edit-modal.php'); ?>
 
-
 <style>
 
-/* Property features grid - 2 rows */
-/* Property Features Grid - Exact Match to Screenshot */
-.property-features {
+/* Property Features Grid */
+.property-features-modal {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-top: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin: 30px 0;
 }
 
 .feature-box {
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 16px;
     background-color: #f5f5f5;
-    border-radius: 6px;
-    min-height: 60px;
+    border-radius: 8px;
+    min-height: 70px;
     box-sizing: border-box;
 }
 
@@ -138,33 +125,46 @@
     font-size: 15px;
     font-weight: 500;
     color: #333;
-    padding-left: 28px;
+}
+
+/* Edit Button */
+.edit-btn {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s;
+    padding: 5px;
+}
+
+.edit-btn:hover {
+    color: #2271b1;
 }
 
 /* Specific icon colors */
-.dashicons-location { color: #e74c3c; }
+.dashicons-location-alt { color: #e74c3c; }
 .dashicons-admin-home { color: #3498db; }
-.dashicons-money { color: #2ecc71; }
+.dashicons-admin-site-alt3 { color: #d35400; }
 .dashicons-admin-users { color: #9b59b6; }
-.dashicons-admin-tools { color: #1abc9c; }
-.dashicons-randomize { color: #f39c12; }
-.dashicons-admin-site { color: #d35400; }
-.dashicons-car { color: #27ae60; }
+.dashicons-calendar-alt { color: #1abc9c; }
+.dashicons-layout { color: #f39c12; }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
-    .property-features {
+    .property-features-modal {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 480px) {
-    .property-features {
+@media (max-width: 768px) {
+    .property-features-modal {
         grid-template-columns: 1fr;
     }
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for gallery and columns */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -179,10 +179,6 @@
         width: 100%;
         overflow-x: auto;
         padding-bottom: 10px;
-    }
-    
-    .property-features {
-        grid-template-columns: 1fr;
     }
     
     .property-modal-content {
