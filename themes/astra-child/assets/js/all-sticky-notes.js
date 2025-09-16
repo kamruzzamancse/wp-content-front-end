@@ -9,6 +9,9 @@ function getUserId() {
     return userId;
 }
 
+// Touch support detection
+const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+
 /* Sticky Notes JS */
 document.querySelectorAll('.sticky-notes-container').forEach((container, index) => {
     const addBtn = container.parentElement.querySelector('.add-note-btn');
@@ -29,6 +32,10 @@ document.querySelectorAll('.sticky-notes-container').forEach((container, index) 
         const noteHeader = document.createElement('div');
         noteHeader.className = 'note-header';
         
+        const dragHandle = document.createElement('div');
+        dragHandle.className = 'drag-handle';
+        dragHandle.innerHTML = isTouchDevice ? '☰ Drag me' : '☰';
+        
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete-btn';
         deleteBtn.innerHTML = '×';
@@ -39,7 +46,9 @@ document.querySelectorAll('.sticky-notes-container').forEach((container, index) 
         
         const textarea = document.createElement('textarea');
         textarea.value = noteObj.text;
+        textarea.placeholder = "Write your note here...";
         
+        noteHeader.appendChild(dragHandle);
         noteHeader.appendChild(deleteBtn);
         note.appendChild(noteHeader);
         note.appendChild(textarea);
@@ -64,26 +73,83 @@ document.querySelectorAll('.sticky-notes-container').forEach((container, index) 
     
     function makeDraggable(el, noteObj) {
         let isDown = false, offset = [0, 0];
-        el.addEventListener('mousedown', e => {
-            if (e.target.tagName !== 'BUTTON' && e.target.tagName !== 'TEXTAREA') {
-                isDown = true;
-                offset = [el.offsetLeft - e.clientX, el.offsetTop - e.clientY];
-            }
+        
+        // Mouse events for desktop
+        el.querySelector('.drag-handle').addEventListener('mousedown', startDrag);
+        
+        // Touch events for mobile
+        el.querySelector('.drag-handle').addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            startDrag(e.touches[0]);
         });
-        document.addEventListener('mouseup', () => { isDown = false; });
-        document.addEventListener('mousemove', e => {
+        
+        function startDrag(e) {
+            isDown = true;
+            offset = [el.offsetLeft - e.clientX, el.offsetTop - e.clientY];
+            el.style.zIndex = 1000; // Bring to front while dragging
+            
+            // Add event listeners for move and end
+            if (isTouchDevice) {
+                document.addEventListener('touchmove', handleTouchMove);
+                document.addEventListener('touchend', stopDrag);
+            } else {
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', stopDrag);
+            }
+        }
+        
+        function handleMouseMove(e) {
             if (isDown) {
-                el.style.left = (e.clientX + offset[0]) + 'px';
-                el.style.top = (e.clientY + offset[1]) + 'px';
-                noteObj.left = e.clientX + offset[0];
-                noteObj.top = e.clientY + offset[1];
-                saveNotes();
+                moveElement(e.clientX, e.clientY);
             }
-        });
+        }
+        
+        function handleTouchMove(e) {
+            if (isDown) {
+                moveElement(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }
+        
+        function moveElement(clientX, clientY) {
+            const newLeft = clientX + offset[0];
+            const newTop = clientY + offset[1];
+            
+            // Boundary checks to keep note within container
+            const containerRect = container.getBoundingClientRect();
+            const noteRect = el.getBoundingClientRect();
+            
+            const minLeft = 0;
+            const maxLeft = containerRect.width - noteRect.width;
+            const minTop = 0;
+            const maxTop = containerRect.height - noteRect.height;
+            
+            el.style.left = Math.min(Math.max(newLeft, minLeft), maxLeft) + 'px';
+            el.style.top = Math.min(Math.max(newTop, minTop), maxTop) + 'px';
+            
+            noteObj.left = parseFloat(el.style.left);
+            noteObj.top = parseFloat(el.style.top);
+            saveNotes();
+        }
+        
+        function stopDrag() {
+            isDown = false;
+            el.style.zIndex = ''; // Reset z-index
+            
+            // Remove event listeners
+            if (isTouchDevice) {
+                document.removeEventListener('touchmove', handleTouchMove);
+                document.removeEventListener('touchend', stopDrag);
+            } else {
+                document.removeEventListener('mousemove', handleMouseMove);
+                document.removeEventListener('mouseup', stopDrag);
+            }
+        }
     }
     
+    // Load existing notes
     notesData.forEach(noteObj => createNote(noteObj));
     
+    // Add new note button
     addBtn.addEventListener('click', () => {
         const noteObj = {
             text: '',

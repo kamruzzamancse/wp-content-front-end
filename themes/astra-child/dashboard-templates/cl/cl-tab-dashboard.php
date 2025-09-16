@@ -81,6 +81,7 @@
                 <textarea class="cld-textarea" placeholder="type message here"></textarea>
             </div>
         </div>
+
     </div>
     
    <!-- RIGHT SIDE -->
@@ -122,41 +123,6 @@
     </div>
 
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const line = document.getElementById('tpg-line');
-    const circles = document.querySelectorAll('.tpg-line-chart circle');
-    const amount = document.getElementById('tpg-amount');
-
-    const data = {
-        property1: { points: "0,210 100,180 200,150 300,120 400,80 500,40", values: ["$2.10k","$3.20k","$4.80k","$6.20k","$7.50k","$8.24k"], total: "$8.24k" },
-        property2: { points: "0,200 100,170 200,140 300,110 400,70 500,30", values: ["$2.00k","$3.00k","$4.50k","$6.00k","$7.00k","$8.00k"], total: "$8.00k" },
-        property3: { points: "0,220 100,190 200,160 300,130 400,90 500,50", values: ["$2.20k","$3.50k","$5.00k","$6.50k","$7.80k","$8.50k"], total: "$8.50k" },
-    };
-
-    function updateChart(prop) {
-        line.setAttribute('points', data[prop].points);
-        circles.forEach((circle, i) => {
-            const coords = data[prop].points.split(" ")[i].split(",");
-            circle.setAttribute('cx', coords[0]);
-            circle.setAttribute('cy', coords[1]);
-            circle.setAttribute('data-value', data[prop].values[i]);
-        });
-        amount.textContent = data[prop].total;
-    }
-
-    document.getElementById('tpg-property-select').addEventListener('change', function() {
-        updateChart(this.value);
-    });
-
-    circles.forEach(point => {
-        point.addEventListener('click', function() {
-            alert('Value: ' + this.getAttribute('data-value'));
-        });
-    });
-});
-</script>
 
 <style>
 /* Message Realtor Box Styles */

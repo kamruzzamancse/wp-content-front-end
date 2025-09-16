@@ -512,7 +512,12 @@ add_action('init', function() {
     }
 });
 
-function rentcast_properties_shortcode($atts) {
+
+
+
+
+
+/* function rentcast_properties_shortcode($atts) {
     // Shortcode attributes with defaults
     $atts = shortcode_atts([
         'city'  => 'Orlando',  // Default city
@@ -522,8 +527,11 @@ function rentcast_properties_shortcode($atts) {
     $city  = sanitize_text_field($atts['city']);
     $limit = intval($atts['limit']);
 
-    // API Key
+    // RentCast API Key
     $api_key = "7a7c73a68ffc46abae4f32d560e54bf2"; // Replace with your actual API Key
+
+    // Google Maps API Key
+    $google_api_key = "AIzaSyBLN1XLhQq39mnhXl4ODQIXxq1OOOYAnn8"; // Replace with your key
 
     // Fetch RentCast Rental Listings (long-term rentals)
     $curl = curl_init();
@@ -557,7 +565,7 @@ function rentcast_properties_shortcode($atts) {
     ob_start(); // Start capturing HTML
     foreach ($properties as $property) {
         $listing_id = $property['listingId'] ?? null;
-        $address    = $property['formattedAddress'] ?? 'N/A';
+        $address    = $property['formattedAddress'] ?? '';
         $bedrooms   = $property['bedrooms'] ?? 'N/A';
         $bathrooms  = $property['bathrooms'] ?? 'N/A';
         $sqft       = $property['squareFootage'] ?? 'N/A';
@@ -592,12 +600,28 @@ function rentcast_properties_shortcode($atts) {
             }
         }
 
-        $image_url = !empty($images) ? $images[0] : "https://placehold.co/500x300?text=No+Image";
+        // Determine image URL with improved fallback logic
+        $image_url = '';
+        if (!empty($images)) {
+            $image_url = $images[0];
+        } else if (!empty($address)) {
+            // Google Static Map fallback with marker
+            $location = urlencode($address);
+            $image_url = "https://maps.googleapis.com/maps/api/staticmap?center={$location}&zoom=15&size=600x300&markers=color:red%7C{$location}&key={$google_api_key}";
+        }
+
+        // Default placeholder if no image URL is set
+        if (empty($image_url)) {
+            $image_url = "https://placehold.co/500x300?text=No+Image";
+        }
 
         ?>
         <div class="pt-property-item">
             <a href="?tab=rt-property-details">
-                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($address); ?>" class="pt-main-image">
+                <img src="<?php echo esc_url($image_url); ?>" 
+                     alt="<?php echo esc_attr($address); ?>" 
+                     class="pt-main-image"
+                     onerror="this.src='https://placehold.co/500x300?text=Image+Not+Available'; this.onerror=null;">
             </a>
             <div class="pt-property-details">
                 <a href="?tab=rt-property-details">
@@ -631,3 +655,5 @@ function rentcast_properties_shortcode($atts) {
     return ob_get_clean(); // Return captured HTML
 }
 add_shortcode('rentcast_properties', 'rentcast_properties_shortcode');
+
+ */
