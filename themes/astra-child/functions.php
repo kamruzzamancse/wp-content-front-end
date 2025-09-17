@@ -512,8 +512,27 @@ add_action('init', function() {
     }
 });
 
+// WordPress dashboard access block
+function restrict_specific_users_from_wpadmin() {
+    // Get current user
+    $user = wp_get_current_user();
 
-
+    // Redirect based on username
+    if ( is_admin() && !defined('DOING_AJAX') ) {
+        switch ( $user->user_login ) {
+            case 'admin':
+                wp_redirect(site_url('/am/admin-dashboard/'));
+                exit;
+            case 'anis':
+                wp_redirect(site_url('/rt/realtor-dashboard/'));
+                exit;
+            case 'sadi':
+                wp_redirect(site_url('/cl/client-dashboard/'));
+                exit;
+        }
+    }
+}
+add_action('admin_init', 'restrict_specific_users_from_wpadmin');
 
 
 
