@@ -1,7 +1,9 @@
 <div class="dashboard-top">
 
+    <!-- LEFT SIDE -->
     <div class="dashboard-top-left">
 
+        <!-- Active Clients Section -->
         <div class="dashboard-section active-clients-section">
           <h1 class="header-title">Active Clients</h1>
           <table class="active-clients-table">
@@ -29,7 +31,6 @@
                   for ($i = 0; $i < 6; $i++):
                       $clientName = $clients[array_rand($clients)];
                       $address = $cities[array_rand($cities)];
-                      // Random closing date within next 60 days
                       $closingDate = date("d F", strtotime("+".rand(1,60)." days"));
                       $notes = $notesArr[array_rand($notesArr)];
                   ?>
@@ -44,10 +45,89 @@
           </table>
         </div>
 
-        <?php include locate_template('dashboard-templates/rt/rt-leads-section.php'); ?>
+        <!-- Leads Section -->
+        <div class="dashboard-section leads-section">
+            <div class="leads-header">
+                <h1 class="header-title">Leads</h1>
+                <button id="addLeadBtn" class="btn-primary">+ Add Lead</button>
+            </div>
+            <table class="leads-table">
+                <thead>
+                    <tr>
+                        <th>Client Name</th>
+                        <th>Last Touch</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                        <th style="width:140px">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Client Name">John Smith</td>
+                        <td data-label="Last Touch">12 Sept 25, 3pm</td>
+                        <td data-label="Status"><span class="status-dot status-hot"></span>Hot</td>
+                        <td data-label="Notes">Contract update</td>
+                        <td data-label="Actions" class="action-cell">
+                        <span class="edit-lead-btn" title="Edit">✏️</span>
+                        <span class="convert-lead-btn" title="Convert to Client">🔄</span>
+                        <span class="delete-lead-btn" title="Delete">🗑️</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Client Name">Sarah Lee</td>
+                        <td data-label="Last Touch">10 Sept 25, 11am</td>
+                        <td data-label="Status"><span class="status-dot status-warm"></span>Warm</td>
+                        <td data-label="Notes">Requested property list</td>
+                        <td data-label="Actions" class="action-cell">
+                        <span class="edit-lead-btn" title="Edit">✏️</span>
+                        <span class="convert-lead-btn" title="Convert to Client">🔄</span>
+                        <span class="delete-lead-btn" title="Delete">🗑️</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Client Name">Michael Brown</td>
+                        <td data-label="Last Touch">8 Sept 25, 6pm</td>
+                        <td data-label="Status"><span class="status-dot status-cold"></span>Cold</td>
+                        <td data-label="Notes">Not responsive to emails</td>
+                        <td data-label="Actions" class="action-cell">
+                        <span class="edit-lead-btn" title="Edit">✏️</span>
+                        <span class="convert-lead-btn" title="Convert to Client">🔄</span>
+                        <span class="delete-lead-btn" title="Delete">🗑️</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Client Name">Emily Johnson</td>
+                        <td data-label="Last Touch">5 Sept 25, 9am</td>
+                        <td data-label="Status"><span class="status-dot status-hot"></span>Hot</td>
+                        <td data-label="Notes">Wants to schedule site visit</td>
+                        <td data-label="Actions" class="action-cell">
+                        <span class="edit-lead-btn" title="Edit">✏️</span>
+                        <span class="convert-lead-btn" title="Convert to Client">🔄</span>
+                        <span class="delete-lead-btn" title="Delete">🗑️</span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="Client Name">David Wilson</td>
+                        <td data-label="Last Touch">1 Sept 25, 4pm</td>
+                        <td data-label="Status"><span class="status-dot status-warm"></span>Warm</td>
+                        <td data-label="Notes">Requested mortgage options</td>
+                        <td data-label="Actions" class="action-cell">
+                        <span class="edit-lead-btn" title="Edit">✏️</span>
+                        <span class="convert-lead-btn" title="Convert to Client">🔄</span>
+                        <span class="delete-lead-btn" title="Delete">🗑️</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
 
     </div>
-    
+
     <!-- RIGHT SIDE -->
     <div class="dashboard-top-right">
         <?php
@@ -83,288 +163,288 @@
 
         <!-- Sticky Notes Container -->
         <div class="sticky-notes-container"></div>
+    </div>
+</div>
 
+<!-- Lead Add/Edit Modal -->
+<div class="lead-add-modal" id="leadAddModal">
+  <div class="lead-add-content">
+    <div class="lead-add-header">
+      <h1 class="header-title">Add / Edit Lead</h1>
+      <span class="close-lead-modal">&times;</span>
     </div>
 
+    <label for="clientSelect">Client Name:</label>
+    <input type="text" id="clientSelect" placeholder="Enter client name"><br />
+
+    <label for="statusSelect">Status:</label>
+    <select id="statusSelect">
+        <option value="hot">Hot</option>
+        <option value="warm">Warm</option>
+        <option value="cold">Cold</option>
+    </select><br />
+
+    <label for="notesInput">Notes:</label>
+    <textarea id="notesInput" placeholder="Write notes..." rows="4"></textarea><br />
+
+    <div class="lead-add-footer">
+      <button id="saveLeadBtn" class="btn-primary">Save Lead</button>
+    </div>
+  </div>
+</div>
+
 <style>
-/* Updated Tracking Property Section (Line Chart) */
-.tpg-dashboard-container {
-    background: #ffffff;
+/* Primary button (Add & Save Lead) */
+.btn-primary {
+  background: #2271b1;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.btn-primary:hover {
+  background: #3c57c7;
+}
+
+/* Align Add Lead button to right */
+.leads-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.leads-header .btn-primary {
+  margin-left: auto;
+}
+
+/* Modal Styling */
+.lead-add-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.lead-add-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+}
+.lead-add-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.close-lead-modal {
+  cursor: pointer;
+  font-size: 22px;
+}
+.action-cell span {
+  cursor: pointer;
+  margin: 0 4px;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+.action-cell span:hover {
+  transform: scale(1.2);
+}
+
+/* Calendar styling */
+.simcal-calendar {
+    background: white;
     border-radius: 12px;
-    padding: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-.tpg-tracking-section {
-    position: relative;
+#addLeadBtn, #saveLeadBtn {
+    color: #fff!important;
 }
 
-.tpg-tracking-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    flex-wrap: wrap;
-    gap: 15px;
+/* Leads Table Styling */
+.leads-table thead th:first-child {
+    border-top-left-radius: 10px;
+}
+.leads-table thead th:last-child {
+    border-top-right-radius: 10px;
+}
+.leads-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.tpg-section-title {
-    margin: 0;
-    font-size: 1.5rem!important;
-    font-weight: 600;
-    color: #2c3e50;
+/* Active Clients Table Styling */
+.simcal-calendar-grid {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.tpg-tracking-summary {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    background: #f8fafd;
-    padding: 10px 15px;
-    border-radius: 8px;
+.simcal-calendar-grid thead tr:first-child th:first-child {
+    border-top-left-radius: 10px;
 }
 
-.tpg-amount {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #2c3e50;
+.simcal-calendar-grid thead tr:first-child th:last-child {
+    border-top-right-radius: 10px;
 }
 
-.tpg-year {
-    background: #e6f0ff;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    color: #4e6ef2;
-    font-weight: 500;
-}
-
-.tpg-chart-container {
-    position: relative;
-    height: 250px;
-    background: #fafbfc;
-    border-radius: 8px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Y Axis */
-.tpg-y-axis {
-    position: absolute;
-    top: 15px;
-    bottom: 30px;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 12px;
-    color: #7f8c8d;
-    font-weight: 500;
-    padding-right: 5px;
-}
-
-/* X Axis */
-.tpg-x-axis {
-    position: absolute;
-    bottom: 0;
-    left: 40px;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    font-size: 12px;
-    color: #7f8c8d;
-    font-weight: 500;
-    padding-top: 5px;
-}
-
-/* Line Chart SVG */
-.tpg-line-chart {
-    width: 100%;
-    height: 100%;
-}
-
-.tpg-line-chart polyline {
-    fill: none;
-    stroke: #4e6ef2;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.tpg-line-chart circle {
-    fill: #4e6ef2;
-    cursor: pointer;
-    transition: transform 0.3s, fill 0.3s;
-}
-
-.tpg-line-chart circle:hover {
-    transform: scale(1.2);
-    fill: #6c8dfa;
-}
-
-table {
-    border-bottom: 1px solid #CCC;
-}
-
-/* Responsive Design */
+/* ===== MOBILE VIEW ===== */
 @media (max-width: 768px) {
-    .tpg-tracking-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .tpg-tracking-summary {
-        width: 100%;
-        justify-content: space-between;
-    }
-    .tpg-chart-container {
-        padding: 10px;
-    }
-}
 
-@media screen and (max-width: 480px) {
-    .tpg-dashboard-container {
-        padding: 10px;
-    }
-}
-</style>
-
-<style>
-/* General Styling */
-.dashboard-section {
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px; /* Reduced from 12px */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  overflow-x: auto;
-  margin-bottom: 20px!important;
-}
-
-/* Add this for the calendar container */
-.dashboard-top-right {
-  padding: 20px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  overflow-x: auto;
-  height: 100%;
-}
-
-.calendar-container {
-    padding: 16px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    overflow-x: auto;
-}
-
-/* Table Styling (Desktop) */
-.active-clients-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.active-clients-table th,
-.active-clients-table td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #f5f5f5;
-}
-
-/* Mobile Responsive (Card Style) */
-@media screen and (max-width: 480px) {
-  .active-clients-table,
+  /* Hide table headers */
   .active-clients-table thead,
-  .active-clients-table tbody,
-  .active-clients-table th,
-  .active-clients-table tr {
-    display: block;
-    width: 100%;
-  }
-  
-  .active-clients-table thead {
-    display: none;
-  }
-  
-  .active-clients-table tr {
-    margin-bottom: 10px;
-    border-radius: 6px;
-    background: #f9f9ff;
-    padding: 0 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  }
-  
-  .active-clients-table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0; /* Reduced from 8px */
-    border-bottom: 1px solid #f8f8f8; /* Lighter border color */
-  }
-  
-  .active-clients-table td:last-child {
-    border-bottom: none;
-  }
-  
-  .active-clients-table td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #333;
-  }
-  
-  .dashboard-section {
-    padding: 10px; /* Reduced from 10px */
+  .leads-table thead {
+      display: none;
   }
 
-  table {
-    border-width: 0 !important;
+  /* Make each row a block */
+  .active-clients-table tr,
+  .leads-table tr {
+      display: block;
+      margin-bottom: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 8px 0;
   }
 
-  .active-clients-section {
-    margin-bottom: 20px!important;
+  /* Each cell becomes flex row */
+  .active-clients-table td,
+  .leads-table td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 12px;
+      border-bottom: 1px solid #eee;
   }
 
-  .dashboard-top-right {
-        padding: 10px;
-    }
+  /* Remove border from last cell */
+  .active-clients-table td:last-child,
+  .leads-table td:last-child {
+      border-bottom: 0;
+  }
+
+  /* Show data-label before value */
+  .active-clients-table td::before,
+  .leads-table td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #555;
+      margin-right: 10px;
+      flex-shrink: 0;
+  }
+
+  /* + Add Lead button */
+  #addLeadBtn {
+      white-space: nowrap;
+  }
+
+  /* Action buttons spacing */
+  .action-cell {
+      display: flex;
+      justify-content: flex-start;
+      gap: 20px;
+  }
+
+  /* Status dots & text alignment fix */
+  .leads-table td[data-label="Status"] {
+      justify-content: flex-start;
+  }
+
+  .simcal-calendar {
+    padding: 10px;
+  }
 
 }
-
 </style>
 
+<!-- ====== Scripts ====== -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const line = document.getElementById('tpg-line');
-    const circles = document.querySelectorAll('.tpg-line-chart circle');
-    const amount = document.getElementById('tpg-amount');
+const modal = document.getElementById('leadAddModal');
+const openBtn = document.getElementById('addLeadBtn');
+const closeBtn = document.querySelector('.close-lead-modal');
+const saveBtn = document.getElementById('saveLeadBtn');
+const leadsTable = document.querySelector('.leads-table tbody');
+let editingRow = null;
 
-    const data = {
-        property1: { points: "0,210 100,180 200,150 300,120 400,80 500,40", values: ["$2.10k","$3.20k","$4.80k","$6.20k","$7.50k","$8.24k"], total: "$8.24k" },
-        property2: { points: "0,200 100,170 200,140 300,110 400,70 500,30", values: ["$2.00k","$3.00k","$4.50k","$6.00k","$7.00k","$8.00k"], total: "$8.00k" },
-        property3: { points: "0,220 100,190 200,160 300,130 400,90 500,50", values: ["$2.20k","$3.50k","$5.00k","$6.50k","$7.80k","$8.50k"], total: "$8.50k" },
-    };
+// open modal
+openBtn.addEventListener('click', () => {
+  editingRow = null;
+  document.getElementById('clientSelect').value = "";
+  document.getElementById('statusSelect').value = "hot";
+  document.getElementById('notesInput').value = "";
+  modal.style.display = 'flex';
+});
 
-    function updateChart(prop) {
-        line.setAttribute('points', data[prop].points);
-        circles.forEach((circle, i) => {
-            const coords = data[prop].points.split(" ")[i].split(",");
-            circle.setAttribute('cx', coords[0]);
-            circle.setAttribute('cy', coords[1]);
-            circle.setAttribute('data-value', data[prop].values[i]);
-        });
-        amount.textContent = data[prop].total;
+// close modal
+closeBtn.addEventListener('click', () => modal.style.display = 'none');
+window.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+
+// actions
+document.addEventListener('click', e => {
+  if (e.target.closest('.edit-lead-btn')) {
+    editingRow = e.target.closest('tr');
+    document.getElementById('clientSelect').value = editingRow.querySelector('td[data-label="Client Name"]').innerText;
+    document.getElementById('statusSelect').value = editingRow.querySelector('td[data-label="Status"]').innerText.trim().toLowerCase();
+    document.getElementById('notesInput').value = editingRow.querySelector('td[data-label="Notes"]').innerText;
+    modal.style.display = 'flex';
+  }
+  if (e.target.closest('.delete-lead-btn')) {
+    if (confirm("Are you sure you want to delete this lead?")) {
+      e.target.closest('tr').remove();
     }
+  }
+  if (e.target.closest('.convert-lead-btn')) {
+    alert("Lead converted to Client (frontend demo only).");
+    e.target.closest('tr').remove();
+  }
+});
 
-    document.getElementById('tpg-property-select').addEventListener('change', function() {
-        updateChart(this.value);
-    });
+// save
+saveBtn.addEventListener('click', () => {
+  const client = document.getElementById('clientSelect').value;
+  const status = document.getElementById('statusSelect').value;
+  const notes = document.getElementById('notesInput').value;
+  if (!client) return alert("Please enter a client name!");
 
-    circles.forEach(point => {
-        point.addEventListener('click', function() {
-            alert('Value: ' + this.getAttribute('data-value'));
-        });
-    });
+  if (editingRow) {
+    editingRow.querySelector('td[data-label="Client Name"]').innerText = client;
+    editingRow.querySelector('td[data-label="Status"]').innerHTML = `<span class="status-dot status-${status}"></span>${status.charAt(0).toUpperCase() + status.slice(1)}`;
+    editingRow.querySelector('td[data-label="Notes"]').innerText = notes;
+    editingRow = null;
+    modal.style.display = 'none';
+    return;
+  }
+
+  const now = new Date();
+  const formattedDate = `${now.getDate()} ${now.toLocaleString('default',{month:'long'})} ${now.getFullYear().toString().slice(-2)}, ${now.getHours()}${now.getHours()>=12?'pm':'am'}`;
+
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td data-label="Client Name">${client}</td>
+    <td data-label="Last Touch">${formattedDate}</td>
+    <td data-label="Status"><span class="status-dot status-${status}"></span>${status.charAt(0).toUpperCase() + status.slice(1)}</td>
+    <td data-label="Notes">${notes}</td>
+    <td data-label="Actions" class="action-cell">
+        <span class="edit-lead-btn" title="Edit">✏️</span>
+        <span class="convert-lead-btn" title="Convert to Client">🔄</span>
+        <span class="delete-lead-btn" title="Delete">🗑️</span>
+    </td>`;
+  leadsTable.appendChild(row);
+  modal.style.display = 'none';
 });
 </script>
