@@ -1,55 +1,57 @@
-<!-- Realtor Create Modal -->
-<div id="amRealtorCreateModal" class="modal-overlay-create" style="display:none; align-items:center; justify-content:center; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999;">
-    <div class="modal-content-create">
+<!-- Admin - Client Create Modal -->
+<div id="amAdminClientCreateModal" class="modal-overlay-admin-client" style="display:none; align-items:center; justify-content:center; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:9999;">
+    <div class="modal-content-admin-client">
 
-        <div class="realtor-create-container">
-            <div class="create-header">
+        <div class="admin-client-create-container">
+            <div class="create-header-admin-client">
                 <h2>Create New Client</h2>
-                <span id="closeRealtorCreateModal" class="close-button-create">&times;</span>
+                <span id="closeAdminClientCreateModal" class="close-button-admin-client">&times;</span>
             </div>
 
-            <form id="createRealtorForm" method="POST" enctype="multipart/form-data" novalidate>
-                <div class="create-content">
-                    <div class="create-pic-container">
-                        <label for="create_realtor_profile_picture" title="Click to upload profile picture">
-                            <img class="create-realtor-avatar" id="createPreviewAvatar" src="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>" alt="Profile Preview">
-                            <input type="file" id="create_realtor_profile_picture" name="realtor_profile_picture" accept="image/*" style="display:none;">
+            <form id="createAdminClientForm" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="create-content-admin-client">
+                    <div class="create-pic-container-admin-client">
+                        <label for="create_admin_client_profile_picture" title="Click to upload profile picture">
+                            <img class="create-admin-client-avatar" id="createAdminClientPreviewAvatar" 
+                                src="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>" 
+                                alt="Profile Preview">
+                            <input type="file" id="create_admin_client_profile_picture" name="admin_client_profile_picture" accept="image/*" style="display:none;">
                         </label>
                         <p>Click image to upload</p>
                     </div>
 
-                    <div class="create-details">
+                    <div class="create-details-admin-client">
 
-                        <div class="create-detail-row">
-                            <label class="create-detail-label" for="create_realtor_full_name">Full Name:</label>
-                            <input class="create-detail-value" type="text" id="create_realtor_full_name" name="realtor_full_name" required placeholder="Enter full name">
+                        <div class="create-detail-row-admin-client">
+                            <label class="create-detail-label-admin-client" for="create_admin_client_full_name">Full Name:</label>
+                            <input class="create-detail-value-admin-client" type="text" id="create_admin_client_full_name" name="admin_client_full_name" required placeholder="Enter full name">
                         </div>
 
-                        <div class="create-detail-row">
-                            <label class="create-detail-label" for="create_realtor_email">Email:</label>
-                            <input class="create-detail-value" type="email" id="create_realtor_email" name="realtor_email" required placeholder="Enter email address">
+                        <div class="create-detail-row-admin-client">
+                            <label class="create-detail-label-admin-client" for="create_admin_client_email">Email:</label>
+                            <input class="create-detail-value-admin-client" type="email" id="create_admin_client_email" name="admin_client_email" required placeholder="Enter email address">
                         </div>
 
-                        <div class="create-detail-row">
-                            <label class="create-detail-label" for="create_realtor_phone">Phone Number:</label>
-                            <input class="create-detail-value" type="text" id="create_realtor_phone" name="realtor_phone" placeholder="Enter phone number">
+                        <div class="create-detail-row-admin-client">
+                            <label class="create-detail-label-admin-client" for="create_admin_client_phone">Phone Number:</label>
+                            <input class="create-detail-value-admin-client" type="text" id="create_admin_client_phone" name="admin_client_phone" placeholder="Enter phone number">
                         </div>
 
-                        <div class="create-detail-row">
-                            <label class="create-detail-label" for="create_realtor_address">Address:</label>
-                            <input class="create-detail-value" type="text" id="create_realtor_address" name="realtor_address" placeholder="Enter address">
+                        <div class="create-detail-row-admin-client">
+                            <label class="create-detail-label-admin-client" for="create_admin_client_address">Address:</label>
+                            <input class="create-detail-value-admin-client" type="text" id="create_admin_client_address" name="admin_client_address" placeholder="Enter address">
                         </div>
 
-                        <div class="create-detail-row">
-                            <label class="create-detail-label" for="create_realtor_note">Note:</label>
-                            <textarea class="create-detail-value" id="create_realtor_note" name="realtor_note" rows="4" placeholder="Enter note"></textarea>
+                        <div class="create-detail-row-admin-client">
+                            <label class="create-detail-label-admin-client" for="create_admin_client_note">Note:</label>
+                            <textarea class="create-detail-value-admin-client" id="create_admin_client_note" name="admin_client_note" rows="4" placeholder="Enter note"></textarea>
                         </div>
 
                     </div>
                 </div>
 
                 <div style="text-align: right; margin-top: 20px;">
-                    <button type="submit" class="create-submit-btn">Create Client</button>
+                    <button type="submit" class="create-submit-btn-admin-client">Create Client</button>
                 </div>
             </form>
         </div>
@@ -59,7 +61,7 @@
 
 <style>
 /* Modal overlay and centering */
-.modal-overlay-create {
+.modal-overlay-admin-client {
     display: none;
     align-items: center;
     justify-content: center;
@@ -70,7 +72,7 @@
 }
 
 /* Modal content box */
-.modal-content-create {
+.modal-content-admin-client {
     background: #fff;
     border-radius: 8px;
     max-width: 600px;
@@ -83,40 +85,40 @@
 }
 
 /* Header */
-.create-header {
+.create-header-admin-client {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
 }
-.create-header h2 {
+.create-header-admin-client h2 {
     font-weight: 700;
     font-size: 1.8rem;
     color: #222;
 }
-.close-button-create {
+.close-button-admin-client {
     font-size: 28px;
     cursor: pointer;
     color: #555;
     transition: color 0.25s ease;
 }
-.close-button-create:hover {
+.close-button-admin-client:hover {
     color: #0052cc;
 }
 
 /* Flex container for avatar and form */
-.create-content {
+.create-content-admin-client {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
 }
 
 /* Avatar container */
-.create-pic-container {
+.create-pic-container-admin-client {
     flex: 0 0 140px;
     text-align: center;
 }
-.create-realtor-avatar {
+.create-admin-client-avatar {
     width: 140px;
     height: 140px;
     object-fit: cover;
@@ -125,47 +127,47 @@
     border: 3px solid #ddd;
     transition: border-color 0.3s ease;
 }
-.create-realtor-avatar:hover {
+.create-admin-client-avatar:hover {
     border-color: #0052cc;
 }
-.create-pic-container p {
+.create-pic-container-admin-client p {
     font-size: 12px;
     color: #888;
     margin-top: 8px;
 }
 
 /* Details container */
-.create-details {
+.create-details-admin-client {
     flex: 1;
     min-width: 280px;
 }
 
 /* Form row */
-.create-detail-row {
+.create-detail-row-admin-client {
     margin-bottom: 18px;
     display: flex;
     flex-direction: column;
 }
-.create-detail-label {
+.create-detail-label-admin-client {
     font-weight: 600;
     margin-bottom: 6px;
     color: #333;
     font-size: 0.95rem;
 }
-.create-detail-value {
+.create-detail-value-admin-client {
     padding: 10px 14px;
     border: 1.5px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }
-.create-detail-value:focus {
+.create-detail-value-admin-client:focus {
     border-color: #0052cc;
     outline: none;
 }
 
 /* Submit button */
-button[type="submit"] {
+.create-submit-btn-admin-client {
     background-color: #0052cc;
     border: none;
     color: white;
@@ -175,16 +177,16 @@ button[type="submit"] {
     cursor: pointer;
     transition: background-color 0.25s ease;
 }
-button[type="submit"]:hover {
+.create-submit-btn-admin-client:hover {
     background-color: #003d99;
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-    .create-content {
+    .create-content-admin-client {
         flex-direction: column;
     }
-    .create-pic-container {
+    .create-pic-container-admin-client {
         margin: 0 auto 25px auto;
     }
 }

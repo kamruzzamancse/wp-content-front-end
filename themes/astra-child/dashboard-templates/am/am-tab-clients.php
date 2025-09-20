@@ -15,7 +15,7 @@
                 <button class="ab-btn ab-btn-export">
                     <span class="dashicons dashicons-download"></span> Export
                 </button>
-                <button class="ab-btn ab-btn-create ab-openCreateRealtor">
+                <button class="ab-btn ab-btn-create ab-openCreateAdminClient">
                     <span class="dashicons dashicons-plus-alt"></span> Add Client
                 </button>
             </div>
@@ -615,11 +615,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const createButtons = document.querySelectorAll('.ab-openCreateRealtor'); // Add this class to your "Create Realtor" button(s)
-    const createModal = document.getElementById('amRealtorCreateModal');
-    const closeCreateBtn = document.getElementById('closeRealtorCreateModal');
-    const createAvatarInput = document.getElementById('create_realtor_profile_picture');
-    const createAvatarPreview = document.getElementById('createPreviewAvatar');
+    // Elements
+    const createButtons = document.querySelectorAll('.ab-openCreateAdminClient'); // Button(s) to open modal
+    const createModal = document.getElementById('amAdminClientCreateModal'); // Modal container
+    const closeCreateBtn = document.getElementById('closeAdminClientCreateModal'); // Close button
+    const createAvatarInput = document.getElementById('create_admin_client_profile_picture'); // File input
+    const createAvatarPreview = document.getElementById('createAdminClientPreviewAvatar'); // Avatar preview img
 
     // Open modal
     createButtons.forEach(button => {
@@ -628,14 +629,14 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Close on close button
+    // Close modal on close button click
     if (closeCreateBtn) {
         closeCreateBtn.addEventListener('click', () => {
             if (createModal) createModal.style.display = 'none';
         });
     }
 
-    // Close on outside click
+    // Close modal when clicking outside the modal content
     if (createModal) {
         createModal.addEventListener('click', e => {
             if (e.target === createModal) {
@@ -644,8 +645,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Handle avatar preview
+    // Avatar preview functionality
     if (createAvatarInput && createAvatarPreview) {
+        createAvatarPreview.addEventListener('click', () => createAvatarInput.click()); // Click on image opens file dialog
+
         createAvatarInput.addEventListener('change', function () {
             const file = this.files[0];
             if (file) {
@@ -662,42 +665,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const editButtons = document.querySelectorAll('.ab-editClient');
-    const editModal = document.getElementById('amClientEditModal');
-    const closeBtn = document.getElementById('closeClientEditModal');
-    const avatarInput = document.getElementById('edit_realtor_profile_picture');
-    const avatarPreview = document.getElementById('editPreviewAvatar');
+    const editButtons = document.querySelectorAll('.ab-editClient'); // Edit Client button(s)
+    const editModal = document.getElementById('amAdminClientEditModal'); // Modal container
+    const closeBtn = document.getElementById('closeAdminClientEditModal'); // Close button
+    const avatarInput = document.getElementById('edit_admin_client_profile_picture'); // File input
+    const avatarPreview = document.getElementById('editAdminClientPreviewAvatar'); // Avatar preview img
 
+    // Open modal and populate fields
     editButtons.forEach(button => {
         button.addEventListener('click', () => {
             if (!editModal) return;
 
-            // Safely set field values
+            // Populate form fields safely
             const setValue = (id, value) => {
                 const field = document.getElementById(id);
                 if (field) field.value = value || '';
             };
 
-            setValue('edit_realtor_id', button.dataset.id);
-            setValue('edit_realtor_full_name', button.dataset.name);
-            setValue('edit_realtor_email', button.dataset.email);
-            setValue('edit_realtor_phone', button.dataset.phone);
-            setValue('edit_realtor_address', button.dataset.address);
-            setValue('edit_realtor_company_name', button.dataset.company);
-            // Removed broker number since no field exists
+            setValue('edit_admin_client_id', button.dataset.id);
+            setValue('edit_admin_client_full_name', button.dataset.name);
+            setValue('edit_admin_client_email', button.dataset.email);
+            setValue('edit_admin_client_phone', button.dataset.phone);
+            setValue('edit_admin_client_address', button.dataset.address);
+            setValue('edit_admin_client_note', button.dataset.note || '');
 
+            // Set avatar preview
             avatarPreview.src = button.dataset.avatar || "<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>";
 
+            // Show modal
             editModal.style.display = 'flex';
         });
     });
 
+    // Close modal on close button click
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
-            editModal.style.display = 'none';
+            if (editModal) editModal.style.display = 'none';
         });
     }
 
+    // Close modal on clicking outside content
     if (editModal) {
         editModal.addEventListener('click', e => {
             if (e.target === editModal) {
@@ -706,8 +713,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Handle avatar change
+    // Avatar preview functionality
     if (avatarInput && avatarPreview) {
+        avatarPreview.addEventListener('click', () => avatarInput.click()); // Click on image opens file dialog
+
         avatarInput.addEventListener('change', function () {
             const file = this.files[0];
             if (file) {
@@ -721,3 +730,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
+
+
+

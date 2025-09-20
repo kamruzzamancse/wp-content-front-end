@@ -1,55 +1,57 @@
-<!-- Client Edit Modal -->
-<div id="amClientEditModal" class="modal-overlay-edit">
-    <div class="modal-content-edit">
+<!-- Admin - Client Edit Modal -->
+<div id="amAdminClientEditModal" class="modal-overlay-admin-client-edit">
+    <div class="modal-content-admin-client-edit">
 
-        <div class="realtor-edit-container">
-            <div class="edit-header">
+        <div class="admin-client-edit-container">
+            <div class="edit-header-admin-client">
                 <h2>Edit Client</h2>
-                <span id="closeClientEditModal" class="close-button-edit">&times;</span>
+                <span id="closeAdminClientEditModal" class="close-button-admin-client-edit">&times;</span>
             </div>
 
-            <form id="editRealtorForm" method="POST" enctype="multipart/form-data" novalidate>
-                <div class="edit-content">
-                    <div class="edit-pic-container">
-                        <label for="edit_realtor_profile_picture" title="Click to upload profile picture">
-                            <img class="edit-realtor-avatar" id="editPreviewAvatar" src="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>" alt="Profile Preview">
-                            <input type="file" id="edit_realtor_profile_picture" name="realtor_profile_picture" accept="image/*" style="display:none;">
+            <form id="editAdminClientForm" method="POST" enctype="multipart/form-data" novalidate>
+                <div class="edit-content-admin-client">
+                    <div class="edit-pic-container-admin-client">
+                        <label for="edit_admin_client_profile_picture" title="Click to upload profile picture">
+                            <img class="edit-admin-client-avatar" id="editAdminClientPreviewAvatar" 
+                                src="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>" 
+                                alt="Profile Preview">
+                            <input type="file" id="edit_admin_client_profile_picture" name="admin_client_profile_picture" accept="image/*" style="display:none;">
                         </label>
                         <p>Click image to upload</p>
                     </div>
 
-                    <div class="edit-details">
-                        <input type="hidden" name="realtor_id" id="edit_realtor_id">
+                    <div class="edit-details-admin-client">
+                        <input type="hidden" name="admin_client_id" id="edit_admin_client_id">
 
-                        <div class="edit-detail-row">
-                            <label class="edit-detail-label" for="edit_realtor_full_name">Full Name:</label>
-                            <input class="edit-detail-value" type="text" id="edit_realtor_full_name" name="realtor_full_name" required placeholder="Enter full name">
+                        <div class="edit-detail-row-admin-client">
+                            <label class="edit-detail-label-admin-client" for="edit_admin_client_full_name">Full Name:</label>
+                            <input class="edit-detail-value-admin-client" type="text" id="edit_admin_client_full_name" name="admin_client_full_name" required placeholder="Enter full name">
                         </div>
 
-                        <div class="edit-detail-row">
-                            <label class="edit-detail-label" for="edit_realtor_email">Email:</label>
-                            <input class="edit-detail-value" type="email" id="edit_realtor_email" name="realtor_email" required placeholder="Enter email address">
+                        <div class="edit-detail-row-admin-client">
+                            <label class="edit-detail-label-admin-client" for="edit_admin_client_email">Email:</label>
+                            <input class="edit-detail-value-admin-client" type="email" id="edit_admin_client_email" name="admin_client_email" required placeholder="Enter email address">
                         </div>
 
-                        <div class="edit-detail-row">
-                            <label class="edit-detail-label" for="edit_realtor_phone">Phone Number:</label>
-                            <input class="edit-detail-value" type="text" id="edit_realtor_phone" name="realtor_phone" placeholder="Enter phone number">
+                        <div class="edit-detail-row-admin-client">
+                            <label class="edit-detail-label-admin-client" for="edit_admin_client_phone">Phone Number:</label>
+                            <input class="edit-detail-value-admin-client" type="text" id="edit_admin_client_phone" name="admin_client_phone" placeholder="Enter phone number">
                         </div>
 
-                        <div class="edit-detail-row">
-                            <label class="edit-detail-label" for="edit_realtor_address">Address:</label>
-                            <input class="edit-detail-value" type="text" id="edit_realtor_address" name="realtor_address" placeholder="Enter address">
+                        <div class="edit-detail-row-admin-client">
+                            <label class="edit-detail-label-admin-client" for="edit_admin_client_address">Address:</label>
+                            <input class="edit-detail-value-admin-client" type="text" id="edit_admin_client_address" name="admin_client_address" placeholder="Enter address">
                         </div>
 
-                        <div class="edit-detail-row">
-                            <label class="edit-detail-label" for="edit_realtor_note">Note:</label>
-                            <textarea class="edit-detail-value" id="edit_realtor_note" name="realtor_note" rows="4" placeholder="Enter note"></textarea>
+                        <div class="edit-detail-row-admin-client">
+                            <label class="edit-detail-label-admin-client" for="edit_admin_client_note">Note:</label>
+                            <textarea class="edit-detail-value-admin-client" id="edit_admin_client_note" name="admin_client_note" rows="4" placeholder="Enter note"></textarea>
                         </div>
                     </div>
                 </div>
 
                 <div style="text-align: right; margin-top: 20px;">
-                    <button type="submit" class="edit-submit-btn">Update Client</button>
+                    <button type="submit" class="edit-submit-btn-admin-client">Update Client</button>
                 </div>
             </form>
         </div>
@@ -58,7 +60,7 @@
 </div>
 
 <style>
-.modal-overlay-edit {
+.modal-overlay-admin-client-edit {
     display: none;
     align-items: center;
     justify-content: center;
@@ -68,7 +70,7 @@
     z-index: 9999;
 }
 
-.modal-content-edit {
+.modal-content-admin-client-edit {
     background: #fff;
     border-radius: 8px;
     max-width: 600px;
@@ -80,38 +82,38 @@
     overflow-y: auto;
 }
 
-.edit-header {
+.edit-header-admin-client {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 25px;
 }
-.edit-header h2 {
+.edit-header-admin-client h2 {
     font-weight: 700;
     font-size: 1.8rem;
     color: #222;
 }
-.close-button-edit {
+.close-button-admin-client-edit {
     font-size: 28px;
     cursor: pointer;
     color: #555;
     transition: color 0.25s ease;
 }
-.close-button-edit:hover {
+.close-button-admin-client-edit:hover {
     color: #0052cc;
 }
 
-.edit-content {
+.edit-content-admin-client {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
 }
 
-.edit-pic-container {
+.edit-pic-container-admin-client {
     flex: 0 0 140px;
     text-align: center;
 }
-.edit-realtor-avatar {
+.edit-admin-client-avatar {
     width: 140px;
     height: 140px;
     object-fit: cover;
@@ -120,48 +122,62 @@
     border: 3px solid #ddd;
     transition: border-color 0.3s ease;
 }
-.edit-realtor-avatar:hover {
+.edit-admin-client-avatar:hover {
     border-color: #0052cc;
 }
-.edit-pic-container p {
+.edit-pic-container-admin-client p {
     font-size: 12px;
     color: #888;
     margin-top: 8px;
 }
 
-.edit-details {
+.edit-details-admin-client {
     flex: 1;
     min-width: 280px;
 }
 
-.edit-detail-row {
+.edit-detail-row-admin-client {
     margin-bottom: 18px;
     display: flex;
     flex-direction: column;
 }
-.edit-detail-label {
+.edit-detail-label-admin-client {
     font-weight: 600;
     margin-bottom: 6px;
     color: #333;
     font-size: 0.95rem;
 }
-.edit-detail-value {
+.edit-detail-value-admin-client {
     padding: 10px 14px;
     border: 1.5px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
 }
-.edit-detail-value:focus {
+.edit-detail-value-admin-client:focus {
     border-color: #0052cc;
     outline: none;
 }
 
+.edit-submit-btn-admin-client {
+    background-color: #0052cc;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+.edit-submit-btn-admin-client:hover {
+    background-color: #003d99;
+}
+
 @media (max-width: 600px) {
-    .edit-content {
+    .edit-content-admin-client {
         flex-direction: column;
     }
-    .edit-pic-container {
+    .edit-pic-container-admin-client {
         margin: 0 auto 25px auto;
     }
 }

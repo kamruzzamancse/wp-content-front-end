@@ -170,86 +170,89 @@ document.addEventListener('DOMContentLoaded', function() {
             const address = row.querySelector('td[data-label="Address"]')?.textContent.trim() || '';
             const company = row.querySelector('td[data-label="Company Name"]')?.textContent.trim() || '';
 
-            // Show the new modal
-            const editModal = document.querySelector('.amClientEditModal');
+            // Show the Realtor Edit Modal
+            const editModal = document.getElementById('rmRealtorClientEditModal');
             if(editModal){
                 editModal.style.display = 'flex';
 
                 // Populate modal fields
-                editModal.querySelector('.edit_client_full_name').value = name;
-                editModal.querySelector('.edit_client_email').value = email;
-                editModal.querySelector('.edit_client_phone').value = phone;
-                editModal.querySelector('.edit_client_address').value = address;
-                editModal.querySelector('.edit_client_company_name').value = company;
+                editModal.querySelector('#edit_realtor_client_full_name').value = name;
+                editModal.querySelector('#edit_realtor_client_email').value = email;
+                editModal.querySelector('#edit_realtor_client_phone').value = phone;
+                editModal.querySelector('#edit_realtor_client_address').value = address;
+                editModal.querySelector('#edit_realtor_client_company_name').value = company;
             }
         });
     });
 
     // Close modal on close button click
-    document.querySelectorAll('.closeClientEditModal').forEach(btn => {
-        btn.addEventListener('click', function() {
-            this.closest('.amClientEditModal').style.display = 'none';
+    const closeEditBtn = document.getElementById('closeRealtorClientEditModal');
+    if(closeEditBtn){
+        closeEditBtn.addEventListener('click', function() {
+            document.getElementById('rmRealtorClientEditModal').style.display = 'none';
         });
-    });
+    }
 
     // Close modal on clicking outside modal content
-    document.querySelectorAll('.amClientEditModal').forEach(modal => {
-        modal.addEventListener('click', function(e) {
-            if(e.target === modal) modal.style.display = 'none';
+    const editModal = document.getElementById('rmRealtorClientEditModal');
+    if(editModal){
+        editModal.addEventListener('click', function(e) {
+            if(e.target === editModal) editModal.style.display = 'none';
         });
-    });
+    }
 
     // Handle form submission
-    document.querySelectorAll('.editClientForm').forEach(form => {
-        form.addEventListener('submit', function(e) {
+    const editForm = document.getElementById('editRealtorClientForm');
+    if(editForm){
+        editForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Client details updated successfully! (Demo)');
-            this.closest('.amClientEditModal').style.display = 'none';
+            document.getElementById('rmRealtorClientEditModal').style.display = 'none';
         });
-    });
+    }
 
 });
 </script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
 
-        const clientDetailsModal = document.getElementById('clientDetailsModal');
-        const closeClientDetailsModalBtn = document.getElementById('closeClientDetailsModal');
+    const clientDetailsModal = document.getElementById('clientDetailsModal');
+    const closeClientDetailsModalBtn = document.getElementById('closeClientDetailsModal');
 
-        // Open modal when clicking the "View" icon
-        document.querySelectorAll('.ab-viewClientDetails').forEach(btn => {
-            btn.addEventListener('click', function(e){
-                e.stopPropagation();
-                if(clientDetailsModal) clientDetailsModal.style.display = 'flex';
-            });
+    // Open modal when clicking the "View" icon
+    document.querySelectorAll('.ab-viewClientDetails').forEach(btn => {
+        btn.addEventListener('click', function(e){
+            e.stopPropagation();
+            if(clientDetailsModal) clientDetailsModal.style.display = 'flex';
         });
-
-        // Also open modal when clicking the client name text
-        document.querySelectorAll('.client-name-text').forEach(span => {
-            span.addEventListener('click', function(e){
-                e.stopPropagation();
-                const row = this.closest('tr');
-                const viewButton = row.querySelector('.ab-viewClientDetails');
-                if(viewButton) viewButton.click();
-            });
-        });
-
-        // Close modal
-        if(closeClientDetailsModalBtn){
-            closeClientDetailsModalBtn.addEventListener('click', () => { 
-                if(clientDetailsModal) clientDetailsModal.style.display = 'none'; 
-            });
-        }
-
-        // Close modal on outside click
-        if(clientDetailsModal){
-            clientDetailsModal.addEventListener('click', e => { 
-                if(e.target === clientDetailsModal) clientDetailsModal.style.display = 'none'; 
-            });
-        }
-
     });
+
+    // Also open modal when clicking the client name text
+    document.querySelectorAll('.client-name-text').forEach(span => {
+        span.addEventListener('click', function(e){
+            e.stopPropagation();
+            const row = this.closest('tr');
+            const viewButton = row.querySelector('.ab-viewClientDetails');
+            if(viewButton) viewButton.click();
+        });
+    });
+
+    // Close modal
+    if(closeClientDetailsModalBtn){
+        closeClientDetailsModalBtn.addEventListener('click', () => { 
+            if(clientDetailsModal) clientDetailsModal.style.display = 'none'; 
+        });
+    }
+
+    // Close modal on outside click
+    if(clientDetailsModal){
+        clientDetailsModal.addEventListener('click', e => { 
+            if(e.target === clientDetailsModal) clientDetailsModal.style.display = 'none'; 
+        });
+    }
+
+});
 </script>
 
 <script>
@@ -257,51 +260,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get the "Add Contact" button
     const addContactBtn = document.querySelector('.ab-btn-create');
     
-    // Get the modal element
-    const createModal = document.querySelector('.amClientCreateModal');
+    // Get the Realtor Create Modal element
+    const createModal = document.getElementById('rmRealtorClientCreateModal');
     
     // Add click event to the button
     if (addContactBtn && createModal) {
         addContactBtn.addEventListener('click', function() {
-            // Display the modal by changing its display property
             createModal.style.display = 'flex';
         });
     }
     
     // Image preview functionality
-    document.querySelectorAll('.create_client_profile_picture').forEach(input => {
-        input.addEventListener('change', function() {
+    const profileInput = document.getElementById('create_realtor_client_profile_picture');
+    if(profileInput){
+        profileInput.addEventListener('change', function() {
             const file = this.files[0];
             if(file) {
                 const reader = new FileReader();
                 reader.onload = e => {
-                    this.closest('.create-pic-container').querySelector('.previewAvatar').src = e.target.result;
+                    document.getElementById('createRealtorClientPreviewAvatar').src = e.target.result;
                 }
                 reader.readAsDataURL(file);
             }
         });
-    });
+    }
     
     // Modal close functionality
-    document.querySelectorAll('.closeClientCreateModal').forEach(btn => {
-        btn.addEventListener('click', function() {
-            this.closest('.amClientCreateModal').style.display = 'none';
+    const closeCreateBtn = document.getElementById('closeRealtorClientCreateModal');
+    if(closeCreateBtn){
+        closeCreateBtn.addEventListener('click', function() {
+            createModal.style.display = 'none';
         });
-    });
+    }
     
-    document.querySelectorAll('.amClientCreateModal').forEach(modal => {
-        modal.addEventListener('click', e => {
-            if(e.target === modal) modal.style.display = 'none';
+    if(createModal){
+        createModal.addEventListener('click', e => {
+            if(e.target === createModal) createModal.style.display = 'none';
         });
-    });
+    }
     
     // Form submission
-    document.querySelectorAll('.createClientForm').forEach(form => {
-        form.addEventListener('submit', function(e) {
+    const createForm = document.getElementById('createRealtorClientForm');
+    if(createForm){
+        createForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Client created successfully! (This is a demo)');
-            this.closest('.amClientCreateModal').style.display = 'none';
+            createModal.style.display = 'none';
         });
-    });
+    }
 });
 </script>
