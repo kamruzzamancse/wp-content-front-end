@@ -47,6 +47,16 @@
                             <textarea class="create-detail-value-admin-client" id="create_admin_client_note" name="admin_client_note" rows="4" placeholder="Enter note"></textarea>
                         </div>
 
+                        <!-- New dropdown for Lead / Active -->
+                        <div class="create-detail-row-realtor-client">
+                            <label class="create-detail-label-realtor-client" for="create_realtor_client_status">Status:</label>
+                            <select class="create-detail-value-realtor-client" id="create_realtor_client_status" name="realtor_client_status" required>
+                                <option value="" disabled selected>Select Status</option>
+                                <option value="lead">Lead</option>
+                                <option value="active">Active</option>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
 

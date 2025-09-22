@@ -1,21 +1,6 @@
 <div class="dashboard-top">
     <!-- LEFT SIDE -->
     <div class="dashboard-top-left">
-        <!-- <div class="stats-grid">
-            <div class="stat-card">
-                <h3><span class="dashicons dashicons-building"></span> Total Properties</h3>
-                <p>20</p>
-            </div>
-            <div class="stat-card">
-                <h3><span class="dashicons dashicons-media-document"></span> Documents</h3>
-                <p>5</p>
-            </div>
-            <div class="stat-card">
-                <h3><span class="dashicons dashicons-clock"></span> Pending Tasks</h3>
-                <p>10</p>
-            </div>
-        </div> -->
-
         <div class="tpg-dashboard-container">
             <div class="tpg-tracking-section">
 
@@ -24,11 +9,10 @@
                     <h1 class="tpg-section-title">Tracking Property</h1>
 
                     <div class="tpg-tracking-summary">
-                        <span class="tpg-amount" id="tpg-amount">$8.24k</span>
-                        <span class="tpg-year">2025</span>
+                        <span class="tpg-sales" id="tpg-sales-price">$250K</span>
+                        <span class="tpg-year">2025</span>                        
                     </div>
 
-                    <!-- Property Dropdown -->
                     <select id="tpg-property-select">
                         <option value="property1">Property 1</option>
                         <option value="property2">Property 2</option>
@@ -148,6 +132,14 @@
 
 <style>
 /* Message Realtor Box Styles */
+
+.tpg-sales {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #e74c3c; /* red to match sales line */
+    margin-left: 15px;
+}
+
 .cld-box {
     background: #fff;
     border-radius: 12px;
@@ -506,3 +498,26 @@ table {
     fill: #e74c3c;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const salesDisplay = document.getElementById('tpg-sales-price');
+    const salesCircles = document.querySelectorAll('.sales-circle');
+
+    // Set initial number to the last point's value
+    if (salesCircles.length) {
+        salesDisplay.textContent = salesCircles[salesCircles.length - 1].dataset.value;
+    }
+
+    // Update number when hovering each sales point
+    salesCircles.forEach(circle => {
+        circle.addEventListener('mouseenter', function () {
+            salesDisplay.textContent = this.dataset.value;
+        });
+        circle.addEventListener('mouseleave', function () {
+            // revert to last value when leaving
+            salesDisplay.textContent = salesCircles[salesCircles.length - 1].dataset.value;
+        });
+    });
+});
+</script>

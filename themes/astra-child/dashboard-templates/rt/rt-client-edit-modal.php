@@ -47,6 +47,17 @@
                             <label class="edit-detail-label-realtor-client" for="edit_realtor_client_note">Note:</label>
                             <textarea class="edit-detail-value-realtor-client" id="edit_realtor_client_note" name="realtor_client_note" rows="4" placeholder="Enter note"></textarea>
                         </div>
+
+                        <!-- New dropdown for Lead / Active -->
+                        <div class="edit-detail-row-realtor-client">
+                            <label class="edit-detail-label-realtor-client" for="edit_realtor_client_status">Status:</label>
+                            <select class="edit-detail-value-realtor-client" id="edit_realtor_client_status" name="realtor_client_status" required>
+                                <option value="" disabled selected>Select Status</option>
+                                <option value="lead">Lead</option>
+                                <option value="active">Active</option>
+                            </select>
+                        </div>
+
                     </div>
                 </div>
 
