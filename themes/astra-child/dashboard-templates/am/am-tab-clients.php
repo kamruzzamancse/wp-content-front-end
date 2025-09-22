@@ -34,372 +34,292 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Row 01 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">01</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="1"
-                        data-name="Afsana Hamid Mim"
-                        data-email="Support.info@gmail.com"
-                        data-phone="999-888-666"
-                        data-address="New York"
-                        data-company="Best Realty"
-                        data-broker="BRK-2025-1234"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Afsana Hamid Mim
-                    </span>
-                </td>
-                <td data-label="Email">Support.info@gmail.com</td>
-                <td data-label="Phone Number">999-888-666</td>
-                <td data-label="Address">New York</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="1"
-                            data-name="Afsana Hamid Mim"
-                            data-email="Support.info@gmail.com"
-                            data-phone="999-888-666"
-                            data-address="New York"
-                            data-company="Best Realty"
-                            data-broker="BRK-2025-1234"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 01 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">01</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="1"
+                data-name="Afsana Hamid Mim"
+                data-email="afsana.mim@example.com"
+                data-phone="999-888-666"
+                data-address="New York, NY"
+                data-company="Best Realty"
+                data-broker="BRK-2025-1234"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client1.jpg'); ?>">
+                Afsana Hamid Mim
+            </span>
+        </td>
+        <td data-label="Email">afsana.mim@example.com</td>
+        <td data-label="Phone Number">999-888-666</td>
+        <td data-label="Address">New York, NY</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="1" data-name="Afsana Hamid Mim"
+                      data-email="afsana.mim@example.com"
+                      data-phone="999-888-666"
+                      data-address="New York, NY"
+                      data-company="Best Realty"
+                      data-broker="BRK-2025-1234"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client1.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
 
-            <!-- Row 02 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">02</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="2"
-                        data-name="Liam Anderson"
-                        data-email="liam.anderson@realtorspro.com"
-                        data-phone="888-123-4567"
-                        data-address="Dallas, TX"
-                        data-company="Realtors Pro"
-                        data-broker="BRK-2025-5678"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Liam Anderson
-                    </span>
-                </td>
-                <td data-label="Email">liam.anderson@realtorspro.com</td>
-                <td data-label="Phone Number">888-123-4567</td>
-                <td data-label="Address">Dallas, TX</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="2"
-                            data-name="Liam Anderson"
-                            data-email="liam.anderson@realtorspro.com"
-                            data-phone="888-123-4567"
-                            data-address="Dallas, TX"
-                            data-company="Realtors Pro"
-                            data-broker="BRK-2025-5678"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 02 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">02</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="2"
+                data-name="Liam Anderson"
+                data-email="liam.anderson@realtorspro.com"
+                data-phone="888-123-4567"
+                data-address="Dallas, TX"
+                data-company="Realtors Pro"
+                data-broker="BRK-2025-5678"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client2.jpg'); ?>">
+                Liam Anderson
+            </span>
+        </td>
+        <td data-label="Email">liam.anderson@realtorspro.com</td>
+        <td data-label="Phone Number">888-123-4567</td>
+        <td data-label="Address">Dallas, TX</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="2" data-name="Liam Anderson"
+                      data-email="liam.anderson@realtorspro.com"
+                      data-phone="888-123-4567"
+                      data-address="Dallas, TX"
+                      data-company="Realtors Pro"
+                      data-broker="BRK-2025-5678"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client2.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
 
-            <!-- Row 03 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">03</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="3"
-                        data-name="Amelia Johnson"
-                        data-email="ameliaj@homesales.net"
-                        data-phone="555-777-2323"
-                        data-address="Orlando, FL"
-                        data-company="Home Sales"
-                        data-broker="BRK-2025-9012"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Amelia Johnson
-                    </span>
-                </td>
-                <td data-label="Email">ameliaj@homesales.net</td>
-                <td data-label="Phone Number">555-777-2323</td>
-                <td data-label="Address">Orlando, FL</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="3"
-                            data-name="Amelia Johnson"
-                            data-email="ameliaj@homesales.net"
-                            data-phone="555-777-2323"
-                            data-address="Orlando, FL"
-                            data-company="Home Sales"
-                            data-broker="BRK-2025-9012"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 03 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">03</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="3"
+                data-name="Amelia Johnson"
+                data-email="amelia.johnson@homesales.net"
+                data-phone="555-777-2323"
+                data-address="Orlando, FL"
+                data-company="Home Sales"
+                data-broker="BRK-2025-9012"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client3.jpg'); ?>">
+                Amelia Johnson
+            </span>
+        </td>
+        <td data-label="Email">amelia.johnson@homesales.net</td>
+        <td data-label="Phone Number">555-777-2323</td>
+        <td data-label="Address">Orlando, FL</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="3" data-name="Amelia Johnson"
+                      data-email="amelia.johnson@homesales.net"
+                      data-phone="555-777-2323"
+                      data-address="Orlando, FL"
+                      data-company="Home Sales"
+                      data-broker="BRK-2025-9012"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client3.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
 
-            <!-- Row 04 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">04</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="4"
-                        data-name="Noah Wilson"
-                        data-email="noah.wilson@estateplus.org"
-                        data-phone="321-654-9870"
-                        data-address="Atlanta, GA"
-                        data-company="Estate Plus"
-                        data-broker="BRK-2025-3456"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Noah Wilson
-                    </span>
-                </td>
-                <td data-label="Email">noah.wilson@estateplus.org</td>
-                <td data-label="Phone Number">321-654-9870</td>
-                <td data-label="Address">Atlanta, GA</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="4"
-                            data-name="Noah Wilson"
-                            data-email="noah.wilson@estateplus.org"
-                            data-phone="321-654-9870"
-                            data-address="Atlanta, GA"
-                            data-company="Estate Plus"
-                            data-broker="BRK-2025-3456"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 04 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">04</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="4"
+                data-name="Noah Wilson"
+                data-email="noah.wilson@estateplus.org"
+                data-phone="321-654-9870"
+                data-address="Atlanta, GA"
+                data-company="Estate Plus"
+                data-broker="BRK-2025-3456"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client4.jpg'); ?>">
+                Noah Wilson
+            </span>
+        </td>
+        <td data-label="Email">noah.wilson@estateplus.org</td>
+        <td data-label="Phone Number">321-654-9870</td>
+        <td data-label="Address">Atlanta, GA</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="4" data-name="Noah Wilson"
+                      data-email="noah.wilson@estateplus.org"
+                      data-phone="321-654-9870"
+                      data-address="Atlanta, GA"
+                      data-company="Estate Plus"
+                      data-broker="BRK-2025-3456"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client4.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
 
-            <!-- Row 05 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">05</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="5"
-                        data-name="Emma Davis"
-                        data-email="emma.davis@realtymarket.io"
-                        data-phone="707-555-9087"
-                        data-address="San Diego, CA"
-                        data-company="Realty Market"
-                        data-broker="BRK-2025-7890"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Emma Davis
-                    </span>
-                </td>
-                <td data-label="Email">emma.davis@realtymarket.io</td>
-                <td data-label="Phone Number">707-555-9087</td>
-                <td data-label="Address">San Diego, CA</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="5"
-                            data-name="Emma Davis"
-                            data-email="emma.davis@realtymarket.io"
-                            data-phone="707-555-9087"
-                            data-address="San Diego, CA"
-                            data-company="Realty Market"
-                            data-broker="BRK-2025-7890"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 05 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">05</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="5"
+                data-name="Emma Davis"
+                data-email="emma.davis@realtymarket.io"
+                data-phone="707-555-9087"
+                data-address="San Diego, CA"
+                data-company="Realty Market"
+                data-broker="BRK-2025-7890"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client5.jpg'); ?>">
+                Emma Davis
+            </span>
+        </td>
+        <td data-label="Email">emma.davis@realtymarket.io</td>
+        <td data-label="Phone Number">707-555-9087</td>
+        <td data-label="Address">San Diego, CA</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="5" data-name="Emma Davis"
+                      data-email="emma.davis@realtymarket.io"
+                      data-phone="707-555-9087"
+                      data-address="San Diego, CA"
+                      data-company="Realty Market"
+                      data-broker="BRK-2025-7890"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client5.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
 
-            <!-- Row 06 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">06</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="6"
-                        data-name="William Moore"
-                        data-email="willmoore@prohomes.biz"
-                        data-phone="800-333-4466"
-                        data-address="Phoenix, AZ"
-                        data-company="Pro Homes"
-                        data-broker="BRK-2025-4321"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        William Moore
-                    </span>
-                </td>
-                <td data-label="Email">willmoore@prohomes.biz</td>
-                <td data-label="Phone Number">800-333-4466</td>
-                <td data-label="Address">Phoenix, AZ</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="6"
-                            data-name="William Moore"
-                            data-email="willmoore@prohomes.biz"
-                            data-phone="800-333-4466"
-                            data-address="Phoenix, AZ"
-                            data-company="Pro Homes"
-                            data-broker="BRK-2025-4321"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 06 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">06</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="6"
+                data-name="William Moore"
+                data-email="william.moore@prohomes.biz"
+                data-phone="800-333-4466"
+                data-address="Phoenix, AZ"
+                data-company="Pro Homes"
+                data-broker="BRK-2025-4321"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client6.jpg'); ?>">
+                William Moore
+            </span>
+        </td>
+        <td data-label="Email">william.moore@prohomes.biz</td>
+        <td data-label="Phone Number">800-333-4466</td>
+        <td data-label="Address">Phoenix, AZ</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="6" data-name="William Moore"
+                      data-email="william.moore@prohomes.biz"
+                      data-phone="800-333-4466"
+                      data-address="Phoenix, AZ"
+                      data-company="Pro Homes"
+                      data-broker="BRK-2025-4321"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client6.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
 
-            <!-- Row 07 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">07</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="7"
-                        data-name="Charlotte Lee"
-                        data-email="charlotte.lee@urbanestate.com"
-                        data-phone="609-901-7890"
-                        data-address="Seattle, WA"
-                        data-company="Urban Estate"
-                        data-broker="BRK-2025-6543"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Charlotte Lee
-                    </span>
-                </td>
-                <td data-label="Email">charlotte.lee@urbanestate.com</td>
-                <td data-label="Phone Number">609-901-7890</td>
-                <td data-label="Address">Seattle, WA</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="7"
-                            data-name="Charlotte Lee"
-                            data-email="charlotte.lee@urbanestate.com"
-                            data-phone="609-901-7890"
-                            data-address="Seattle, WA"
-                            data-company="Urban Estate"
-                            data-broker="BRK-2025-6543"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 07 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">07</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="7"
+                data-name="Charlotte Lee"
+                data-email="charlotte.lee@urbanestate.com"
+                data-phone="609-901-7890"
+                data-address="Seattle, WA"
+                data-company="Urban Estate"
+                data-broker="BRK-2025-6543"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client7.jpg'); ?>">
+                Charlotte Lee
+            </span>
+        </td>
+        <td data-label="Email">charlotte.lee@urbanestate.com</td>
+        <td data-label="Phone Number">609-901-7890</td>
+        <td data-label="Address">Seattle, WA</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="7" data-name="Charlotte Lee"
+                      data-email="charlotte.lee@urbanestate.com"
+                      data-phone="609-901-7890"
+                      data-address="Seattle, WA"
+                      data-company="Urban Estate"
+                      data-broker="BRK-2025-6543"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client7.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
 
-            <!-- Row 08 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">08</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="8"
-                        data-name="Benjamin Harris"
-                        data-email="ben.harris@luxuryrealtors.co"
-                        data-phone="444-222-9999"
-                        data-address="Las Vegas, NV"
-                        data-company="Luxury Realtors"
-                        data-broker="BRK-2025-8765"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Benjamin Harris
-                    </span>
-                </td>
-                <td data-label="Email">ben.harris@luxuryrealtors.co</td>
-                <td data-label="Phone Number">444-222-9999</td>
-                <td data-label="Address">Las Vegas, NV</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="8"
-                            data-name="Benjamin Harris"
-                            data-email="ben.harris@luxuryrealtors.co"
-                            data-phone="444-222-9999"
-                            data-address="Las Vegas, NV"
-                            data-company="Luxury Realtors"
-                            data-broker="BRK-2025-8765"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
+    <!-- Row 08 -->
+    <tr>
+        <td class="ab-sl-column" data-label="#SL">08</td>
+        <td data-label="Client Name">
+            <span class="ab-viewClientDetails clickable-name"
+                data-id="8"
+                data-name="Benjamin Harris"
+                data-email="ben.harris@luxuryrealtors.co"
+                data-phone="444-222-9999"
+                data-address="Las Vegas, NV"
+                data-company="Luxury Realtors"
+                data-broker="BRK-2025-8765"
+                data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client8.jpg'); ?>">
+                Benjamin Harris
+            </span>
+        </td>
+        <td data-label="Email">ben.harris@luxuryrealtors.co</td>
+        <td data-label="Phone Number">444-222-9999</td>
+        <td data-label="Address">Las Vegas, NV</td>
+        <td class="ab-actions-column" data-label="Actions">
+            <div class="ab-action-icons">
+                <span class="ab-action-icon ab-viewClientDetails" title="View"
+                      data-id="8" data-name="Benjamin Harris"
+                      data-email="ben.harris@luxuryrealtors.co"
+                      data-phone="444-222-9999"
+                      data-address="Las Vegas, NV"
+                      data-company="Luxury Realtors"
+                      data-broker="BRK-2025-8765"
+                      data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'].'/2025/08/client8.jpg'); ?>">👁️</span>
+                <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
+                <span class="ab-action-icon" title="Delete">🗑️</span>
+            </div>
+        </td>
+    </tr>
+</tbody>
 
-            <!-- Row 09 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">09</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="9"
-                        data-name="Harper White"
-                        data-email="harper.white@primehomes.info"
-                        data-phone="212-888-1234"
-                        data-address="Charlotte, NC"
-                        data-company="Prime Homes"
-                        data-broker="BRK-2025-9876"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Harper White
-                    </span>
-                </td>
-                <td data-label="Email">harper.white@primehomes.info</td>
-                <td data-label="Phone Number">212-888-1234</td>
-                <td data-label="Address">Charlotte, NC</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="9"
-                            data-name="Harper White"
-                            data-email="harper.white@primehomes.info"
-                            data-phone="212-888-1234"
-                            data-address="Charlotte, NC"
-                            data-company="Prime Homes"
-                            data-broker="BRK-2025-9876"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
-
-            <!-- Row 10 -->
-            <tr>
-                <td class="ab-sl-column" data-label="#SL">10</td>
-                <td data-label="Client Name">
-                    <span class="ab-viewClientDetails clickable-name"
-                        data-id="10"
-                        data-name="Elijah Martin"
-                        data-email="elijah@martinrealtygroup.com"
-                        data-phone="999-101-5050"
-                        data-address="Nashville, TN"
-                        data-company="Martin Realty Group"
-                        data-broker="BRK-2025-1122"
-                        data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">
-                        Elijah Martin
-                    </span>
-                </td>
-                <td data-label="Email">elijah@martinrealtygroup.com</td>
-                <td data-label="Phone Number">999-101-5050</td>
-                <td data-label="Address">Nashville, TN</td>
-                <td class="ab-actions-column" data-label="Actions">
-                    <div class="ab-action-icons">
-                        <span class="ab-action-icon ab-viewClientDetails" title="View"
-                            data-id="10"
-                            data-name="Elijah Martin"
-                            data-email="elijah@martinrealtygroup.com"
-                            data-phone="999-101-5050"
-                            data-address="Nashville, TN"
-                            data-company="Martin Realty Group"
-                            data-broker="BRK-2025-1122"
-                            data-avatar="<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>">👁️</span>
-                        <span class="ab-action-icon ab-editClient" title="Edit">✏️</span>
-                        <span class="ab-action-icon" title="Delete">🗑️</span>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
     </table>
-
-
 </div>
 
 <?php
+    include locate_template('dashboard-templates/am/am-client-details-modal.php');
     include locate_template('dashboard-templates/am/am-client-view-modal.php');
     include locate_template('dashboard-templates/am/am-client-create-modal.php');
     include locate_template('dashboard-templates/am/am-client-edit-modal.php');
@@ -465,7 +385,6 @@
     .ab-actions-column {
         width: 100%;
     }
-
 }
 
 /* ---------------------- Table Styles ---------------------- */
@@ -575,21 +494,23 @@ tbody td:hover::after {
   border-collapse: separate !important;
   border-spacing: 0 !important;
   border-radius: 10px !important;
-  overflow: hidden; /* Ensures the rounded corners clip the content */
+  overflow: hidden;
 }
 
 .clients-table thead th:first-child {
   border-top-left-radius: 10px !important;
 }
-
 .clients-table thead th:last-child {
   border-top-right-radius: 10px !important;
 }
 </style>
 
+<!-- ======================  SCRIPTS ======================= -->
 <script>
+/* ---- View Realtor Modal (eye icon only) ---- */
 document.addEventListener('DOMContentLoaded', function () {
-    const viewButtons = document.querySelectorAll('.ab-viewClientDetails');
+    // Now targets only the eye action icon, not the clickable name
+    const viewButtons = document.querySelectorAll('.ab-action-icon.ab-viewClientDetails');
     const modal = document.getElementById('amRealtorViewModal');
     const closeModalBtn = document.getElementById('closeRealtorModal');
 
@@ -614,48 +535,39 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <script>
+/* ---- Create Client Modal ---- */
 document.addEventListener('DOMContentLoaded', function () {
-    // Elements
-    const createButtons = document.querySelectorAll('.ab-openCreateAdminClient'); // Button(s) to open modal
-    const createModal = document.getElementById('amAdminClientCreateModal'); // Modal container
-    const closeCreateBtn = document.getElementById('closeAdminClientCreateModal'); // Close button
-    const createAvatarInput = document.getElementById('create_admin_client_profile_picture'); // File input
-    const createAvatarPreview = document.getElementById('createAdminClientPreviewAvatar'); // Avatar preview img
+    const createButtons = document.querySelectorAll('.ab-openCreateAdminClient');
+    const createModal = document.getElementById('amAdminClientCreateModal');
+    const closeCreateBtn = document.getElementById('closeAdminClientCreateModal');
+    const createAvatarInput = document.getElementById('create_admin_client_profile_picture');
+    const createAvatarPreview = document.getElementById('createAdminClientPreviewAvatar');
 
-    // Open modal
     createButtons.forEach(button => {
         button.addEventListener('click', () => {
             if (createModal) createModal.style.display = 'flex';
         });
     });
 
-    // Close modal on close button click
     if (closeCreateBtn) {
         closeCreateBtn.addEventListener('click', () => {
             if (createModal) createModal.style.display = 'none';
         });
     }
 
-    // Close modal when clicking outside the modal content
     if (createModal) {
         createModal.addEventListener('click', e => {
-            if (e.target === createModal) {
-                createModal.style.display = 'none';
-            }
+            if (e.target === createModal) createModal.style.display = 'none';
         });
     }
 
-    // Avatar preview functionality
     if (createAvatarInput && createAvatarPreview) {
-        createAvatarPreview.addEventListener('click', () => createAvatarInput.click()); // Click on image opens file dialog
-
+        createAvatarPreview.addEventListener('click', () => createAvatarInput.click());
         createAvatarInput.addEventListener('change', function () {
             const file = this.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function (e) {
-                    createAvatarPreview.src = e.target.result;
-                };
+                reader.onload = e => createAvatarPreview.src = e.target.result;
                 reader.readAsDataURL(file);
             }
         });
@@ -664,19 +576,18 @@ document.addEventListener('DOMContentLoaded', function () {
 </script>
 
 <script>
+/* ---- Edit Client Modal ---- */
 document.addEventListener('DOMContentLoaded', function () {
-    const editButtons = document.querySelectorAll('.ab-editClient'); // Edit Client button(s)
-    const editModal = document.getElementById('amAdminClientEditModal'); // Modal container
-    const closeBtn = document.getElementById('closeAdminClientEditModal'); // Close button
-    const avatarInput = document.getElementById('edit_admin_client_profile_picture'); // File input
-    const avatarPreview = document.getElementById('editAdminClientPreviewAvatar'); // Avatar preview img
+    const editButtons = document.querySelectorAll('.ab-editClient');
+    const editModal = document.getElementById('amAdminClientEditModal');
+    const closeBtn = document.getElementById('closeAdminClientEditModal');
+    const avatarInput = document.getElementById('edit_admin_client_profile_picture');
+    const avatarPreview = document.getElementById('editAdminClientPreviewAvatar');
 
-    // Open modal and populate fields
     editButtons.forEach(button => {
         button.addEventListener('click', () => {
             if (!editModal) return;
 
-            // Populate form fields safely
             const setValue = (id, value) => {
                 const field = document.getElementById(id);
                 if (field) field.value = value || '';
@@ -689,41 +600,30 @@ document.addEventListener('DOMContentLoaded', function () {
             setValue('edit_admin_client_address', button.dataset.address);
             setValue('edit_admin_client_note', button.dataset.note || '');
 
-            // Set avatar preview
             avatarPreview.src = button.dataset.avatar || "<?php echo esc_url(wp_upload_dir()['baseurl'] . '/2025/08/client-photo.jpg'); ?>";
-
-            // Show modal
             editModal.style.display = 'flex';
         });
     });
 
-    // Close modal on close button click
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             if (editModal) editModal.style.display = 'none';
         });
     }
 
-    // Close modal on clicking outside content
     if (editModal) {
         editModal.addEventListener('click', e => {
-            if (e.target === editModal) {
-                editModal.style.display = 'none';
-            }
+            if (e.target === editModal) editModal.style.display = 'none';
         });
     }
 
-    // Avatar preview functionality
     if (avatarInput && avatarPreview) {
-        avatarPreview.addEventListener('click', () => avatarInput.click()); // Click on image opens file dialog
-
+        avatarPreview.addEventListener('click', () => avatarInput.click());
         avatarInput.addEventListener('change', function () {
             const file = this.files[0];
             if (file) {
                 const reader = new FileReader();
-                reader.onload = function (e) {
-                    avatarPreview.src = e.target.result;
-                };
+                reader.onload = e => avatarPreview.src = e.target.result;
                 reader.readAsDataURL(file);
             }
         });
@@ -731,5 +631,70 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+/* ---- Client Details Modal (clickable client name) ---- */
+document.addEventListener('DOMContentLoaded', function () {
+    const clientLinks = document.querySelectorAll('.ab-viewClientDetails.clickable-name');
+    const modal = document.getElementById('clientDetailsModal');
+    const closeBtn = document.getElementById('closeClientDetailsModal');
 
+    const modalAvatar = modal.querySelector('.client-avatar');
+    const modalName   = modal.querySelector('.client-name');
+    const modalTable  = modal.querySelector('.client-details-rt');
 
+    clientLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.stopPropagation(); // extra safety
+            const name    = this.dataset.name;
+            const email   = this.dataset.email;
+            const phone   = this.dataset.phone;
+            const address = this.dataset.address;
+            const company = this.dataset.company;
+            const broker  = this.dataset.broker;
+            const avatar  = this.dataset.avatar;
+
+            modalAvatar.src = avatar;
+            modalName.textContent = name;
+            modalTable.innerHTML = `
+                <tr><td>Client Name</td><td>${name}</td></tr>
+                <tr><td>Email</td><td>${email}</td></tr>
+                <tr><td>Phone Number</td><td>${phone}</td></tr>
+                <tr><td>Address</td><td>${address}</td></tr>
+                <tr><td>Company</td><td>${company}</td></tr>
+                <tr><td>Broker ID</td><td>${broker}</td></tr>
+            `;
+            modal.style.display = 'flex';
+        });
+    });
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    }
+
+    modal.addEventListener('click', e => {
+        if (e.target === modal) modal.style.display = 'none';
+    });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Select all delete icons by their title attribute
+    const deleteButtons = document.querySelectorAll('.ab-action-icon[title="Delete"]');
+
+    deleteButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+            // Confirm before deleting the row
+            if (confirm('Are you sure you want to remove this row temporarily?')) {
+                const row = this.closest('tr'); // Find the closest table row
+                if (row) {
+                    // Optional fade-out effect before removing
+                    row.style.transition = 'opacity 0.3s ease';
+                    row.style.opacity = '0';
+                    setTimeout(() => row.remove(), 300); // Remove row after fade-out
+                }
+            }
+        });
+    });
+});
+</script>
