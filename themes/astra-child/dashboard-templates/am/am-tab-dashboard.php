@@ -5,7 +5,11 @@
 
         <!-- Active Clients Section -->
         <div class="dashboard-section active-clients-section">
-          <h1 class="header-title">Active Clients</h1>
+          <div class="clients-header">
+            <h1 class="header-title">Active Clients</h1>
+            <button id="addClientBtn" class="btn-primary">+ Add Client</button>
+          </div>
+
           <table class="active-clients-table">
               <thead>
                   <tr>
@@ -13,6 +17,7 @@
                       <th>Address</th>
                       <th>Closing Date</th>
                       <th>Notes</th>
+                      <th>Action</th>
                   </tr>
               </thead>
               <tbody>
@@ -39,6 +44,9 @@
                       <td data-label="Address"><?= $address ?></td>
                       <td data-label="Closing Date"><?= $closingDate ?></td>
                       <td data-label="Notes"><?= $notes ?></td>
+                      <td data-label="Actions" class="action-cell">
+                          <span class="delete-client-btn" title="Delete">🗑️</span>
+                      </td>
                   </tr>
                   <?php endfor; ?>
               </tbody>
@@ -193,6 +201,10 @@
   </div>
 </div>
 
+<?php 
+    include locate_template('dashboard-templates/rt/rt-client-create-modal.php');
+?>
+
 <style>
 /* Primary button (Add & Save Lead) */
 .btn-primary {
@@ -217,6 +229,16 @@
 }
 .leads-header .btn-primary {
   margin-left: auto;
+}
+
+/* Align Add Client button to right */
+.clients-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.clients-header .btn-primary {
+  margin-left: auto; /* Push button to right */
 }
 
 /* Modal Styling */
@@ -292,11 +314,9 @@
     border-radius: 10px;
     overflow: hidden;
 }
-
 .simcal-calendar-grid thead tr:first-child th:first-child {
     border-top-left-radius: 10px;
 }
-
 .simcal-calendar-grid thead tr:first-child th:last-child {
     border-top-right-radius: 10px;
 }
@@ -368,7 +388,35 @@
   .simcal-calendar {
     padding: 10px;
   }
+}
 
+/* Align Active Clients title and button in same line */
+.active-clients-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.active-clients-section .header-title {
+    margin: 0;
+    padding: 0;
+    align-self: flex-start;
+}
+
+.active-clients-section .btn-primary {
+    align-self: flex-end;
+    margin-top: -28px; /* Adjust based on your title's line-height */
+}
+
+/* Ensure consistent styling with Add Lead button */
+#addClientBtn {
+    color: #fff !important;
+}
+
+/* Active Clients Table Actions column width */
+.active-clients-table th:last-child,
+.active-clients-table td:last-child {
+    width: 100px;
+    text-align: center;
 }
 </style>
 
@@ -446,5 +494,41 @@ saveBtn.addEventListener('click', () => {
     </td>`;
   leadsTable.appendChild(row);
   modal.style.display = 'none';
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const openBtn = document.getElementById("addClientBtn");  
+    const modal = document.getElementById("rmRealtorClientCreateModal");  
+    const closeBtn = document.getElementById("closeRealtorClientCreateModal");  
+
+    // Open modal
+    openBtn.addEventListener("click", () => {
+      modal.style.display = "flex";   // or use a CSS class like .active
+    });
+
+    // Close modal with X
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // Close on outside click
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  });
+</script>
+
+<!-- Add this inside your <script> tag or before </body> -->
+<script>
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.delete-client-btn')) {
+        if (confirm("Are you sure you want to delete this client?")) {
+            e.target.closest('tr').remove();
+        }
+    }
 });
 </script>

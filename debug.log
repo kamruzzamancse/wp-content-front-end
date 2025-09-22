@@ -1,0 +1,220 @@
+[21-Sep-2025 09:41:52 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 09:41:52 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 09:41:52 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 09:41:52 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 09:43:21 UTC] RentCast Raw Response: [{"id":"6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822","formattedAddress":"6512 Swissco Dr, Apt 1425, Orlando, FL 32822","addressLine1":"6512 Swissco Dr","addressLine2":"Apt 1425","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32822","county":"Orange","countyFips":"095","latitude":28.46888,"longitude":-81.300667,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":856,"status":"Active","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-08-11T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.192Z","daysOnMarket":1,"history":{"2025-08-16":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-08-16T00:00:00.000Z","removedDate":"2025-08-17T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}}]
+[21-Sep-2025 09:43:21 UTC] Saving property to DB: Array
+(
+    [listing_id] => 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822
+    [address] => 6512 Swissco Dr, Apt 1425, Orlando, FL 32822
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32822
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 856
+    [price] => 1450
+    [image_url] => https://maps.googleapis.com/maps/api/staticmap?center=6512+Swissco+Dr%2C+Apt+1425%2C+Orlando%2C+FL+32822&zoom=15&size=600x300&markers=color:red%7C6512+Swissco+Dr%2C+Apt+1425%2C+Orlando%2C+FL+32822&key=AIzaSyBLN1XLhQq39mnhXl4ODQIXxq1OOOYAnn8
+)
+
+[21-Sep-2025 09:43:21 UTC] DB insert result for Listing ID 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822: 1
+[21-Sep-2025 09:44:02 UTC] RentCast Raw Response: [{"id":"6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822","formattedAddress":"6512 Swissco Dr, Apt 1425, Orlando, FL 32822","addressLine1":"6512 Swissco Dr","addressLine2":"Apt 1425","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32822","county":"Orange","countyFips":"095","latitude":28.46888,"longitude":-81.300667,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":856,"status":"Active","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-08-11T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.192Z","daysOnMarket":1,"history":{"2025-08-16":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-08-16T00:00:00.000Z","removedDate":"2025-08-17T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}}]
+[21-Sep-2025 09:44:02 UTC] Saving property to DB: Array
+(
+    [listing_id] => 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822
+    [address] => 6512 Swissco Dr, Apt 1425, Orlando, FL 32822
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32822
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 856
+    [price] => 1450
+    [image_url] => https://maps.googleapis.com/maps/api/staticmap?center=6512+Swissco+Dr%2C+Apt+1425%2C+Orlando%2C+FL+32822&zoom=15&size=600x300&markers=color:red%7C6512+Swissco+Dr%2C+Apt+1425%2C+Orlando%2C+FL+32822&key=AIzaSyBLN1XLhQq39mnhXl4ODQIXxq1OOOYAnn8
+)
+
+[21-Sep-2025 09:44:02 UTC] DB insert result for Listing ID 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822: 2
+[21-Sep-2025 09:46:51 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 09:46:51 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 09:46:51 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 09:46:51 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 09:47:15 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 09:47:15 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 09:47:15 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 09:47:15 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 09:56:13 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 09:56:13 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 09:56:13 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 09:56:13 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 09:57:17 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 09:57:17 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 09:57:17 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 09:57:17 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 09:59:04 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 09:59:04 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 09:59:04 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 09:59:04 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 09:59:17 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 09:59:17 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 09:59:17 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 09:59:17 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:00:51 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:00:51 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:00:51 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:00:51 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:05:37 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:05:37 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:05:37 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:05:37 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:15:23 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:15:23 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:15:23 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:15:23 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:16:58 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:16:58 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:16:58 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:16:58 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:21:21 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:21:21 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:21:21 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:21:21 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:23:13 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:23:13 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:23:13 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:23:13 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:23:33 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:23:33 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:23:33 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:23:33 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:25:16 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:25:16 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:25:16 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:25:16 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:25:34 UTC] RentCast Raw Response: {"status":401,"error":"auth/api-key-invalid","message":"The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api"}
+[21-Sep-2025 10:25:34 UTC] Skipping property, no valid ID found: 401
+[21-Sep-2025 10:25:34 UTC] Skipping property, no valid ID found: auth/api-key-invalid
+[21-Sep-2025 10:25:34 UTC] Skipping property, no valid ID found: The provided API key is not valid. Manage API keys on your API dashboard: https://app.rentcast.io/app/api
+[21-Sep-2025 10:26:47 UTC] RentCast Raw Response: [{"id":"6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822","formattedAddress":"6512 Swissco Dr, Apt 1425, Orlando, FL 32822","addressLine1":"6512 Swissco Dr","addressLine2":"Apt 1425","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32822","county":"Orange","countyFips":"095","latitude":28.46888,"longitude":-81.300667,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":856,"status":"Active","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-08-11T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.192Z","daysOnMarket":1,"history":{"2025-08-16":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-08-16T00:00:00.000Z","removedDate":"2025-08-17T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}},{"id":"3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835","formattedAddress":"3455 Westchester Square Blvd, # 1, Orlando, FL 32835","addressLine1":"3455 Westchester Square Blvd","addressLine2":"# 1","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32835","county":"Orange","countyFips":"095","latitude":28.50699,"longitude":-81.472038,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":658,"status":"Active","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-07-14T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.191Z","daysOnMarket":1,"history":{"2025-07-15":{"event":"Rental Listing","price":1400,"listingType":"Standard","listedDate":"2025-07-15T00:00:00.000Z","removedDate":"2025-07-16T00:00:00.000Z","daysOnMarket":1},"2025-09-07":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-07T00:00:00.000Z","removedDate":"2025-09-08T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}}]
+[21-Sep-2025 10:26:47 UTC] Saving property to DB: Array
+(
+    [listing_id] => 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822
+    [address] => 6512 Swissco Dr, Apt 1425, Orlando, FL 32822
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32822
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 856
+    [price] => 1450
+    [image_url] => 
+)
+
+[21-Sep-2025 10:26:48 UTC] DB insert result for Listing ID 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822: 2
+[21-Sep-2025 10:26:48 UTC] Saving property to DB: Array
+(
+    [listing_id] => 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835
+    [address] => 3455 Westchester Square Blvd, # 1, Orlando, FL 32835
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32835
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 658
+    [price] => 1375
+    [image_url] => 
+)
+
+[21-Sep-2025 10:26:48 UTC] DB insert result for Listing ID 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835: 1
+[21-Sep-2025 10:27:20 UTC] RentCast Raw Response: [{"id":"6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822","formattedAddress":"6512 Swissco Dr, Apt 1425, Orlando, FL 32822","addressLine1":"6512 Swissco Dr","addressLine2":"Apt 1425","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32822","county":"Orange","countyFips":"095","latitude":28.46888,"longitude":-81.300667,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":856,"status":"Active","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-08-11T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.192Z","daysOnMarket":1,"history":{"2025-08-16":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-08-16T00:00:00.000Z","removedDate":"2025-08-17T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}},{"id":"3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835","formattedAddress":"3455 Westchester Square Blvd, # 1, Orlando, FL 32835","addressLine1":"3455 Westchester Square Blvd","addressLine2":"# 1","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32835","county":"Orange","countyFips":"095","latitude":28.50699,"longitude":-81.472038,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":658,"status":"Active","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-07-14T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.191Z","daysOnMarket":1,"history":{"2025-07-15":{"event":"Rental Listing","price":1400,"listingType":"Standard","listedDate":"2025-07-15T00:00:00.000Z","removedDate":"2025-07-16T00:00:00.000Z","daysOnMarket":1},"2025-09-07":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-07T00:00:00.000Z","removedDate":"2025-09-08T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}}]
+[21-Sep-2025 10:27:20 UTC] Saving property to DB: Array
+(
+    [listing_id] => 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822
+    [address] => 6512 Swissco Dr, Apt 1425, Orlando, FL 32822
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32822
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 856
+    [price] => 1450
+    [image_url] => 
+)
+
+[21-Sep-2025 10:27:20 UTC] DB insert result for Listing ID 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822: 2
+[21-Sep-2025 10:27:20 UTC] Saving property to DB: Array
+(
+    [listing_id] => 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835
+    [address] => 3455 Westchester Square Blvd, # 1, Orlando, FL 32835
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32835
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 658
+    [price] => 1375
+    [image_url] => 
+)
+
+[21-Sep-2025 10:27:20 UTC] DB insert result for Listing ID 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835: 2
+[21-Sep-2025 10:29:33 UTC] RentCast Raw Response: [{"id":"6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822","formattedAddress":"6512 Swissco Dr, Apt 1425, Orlando, FL 32822","addressLine1":"6512 Swissco Dr","addressLine2":"Apt 1425","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32822","county":"Orange","countyFips":"095","latitude":28.46888,"longitude":-81.300667,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":856,"status":"Active","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-08-11T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.192Z","daysOnMarket":1,"history":{"2025-08-16":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-08-16T00:00:00.000Z","removedDate":"2025-08-17T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}},{"id":"3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835","formattedAddress":"3455 Westchester Square Blvd, # 1, Orlando, FL 32835","addressLine1":"3455 Westchester Square Blvd","addressLine2":"# 1","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32835","county":"Orange","countyFips":"095","latitude":28.50699,"longitude":-81.472038,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":658,"status":"Active","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-07-14T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.191Z","daysOnMarket":1,"history":{"2025-07-15":{"event":"Rental Listing","price":1400,"listingType":"Standard","listedDate":"2025-07-15T00:00:00.000Z","removedDate":"2025-07-16T00:00:00.000Z","daysOnMarket":1},"2025-09-07":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-07T00:00:00.000Z","removedDate":"2025-09-08T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}}]
+[21-Sep-2025 10:29:33 UTC] Saving property to DB: Array
+(
+    [listing_id] => 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822
+    [address] => 6512 Swissco Dr, Apt 1425, Orlando, FL 32822
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32822
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 856
+    [price] => 1450
+    [image_url] => 
+)
+
+[21-Sep-2025 10:29:33 UTC] DB insert result for Listing ID 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822: 2
+[21-Sep-2025 10:29:33 UTC] Saving property to DB: Array
+(
+    [listing_id] => 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835
+    [address] => 3455 Westchester Square Blvd, # 1, Orlando, FL 32835
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32835
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 658
+    [price] => 1375
+    [image_url] => 
+)
+
+[21-Sep-2025 10:29:33 UTC] DB insert result for Listing ID 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835: 2
+[21-Sep-2025 10:29:56 UTC] RentCast Raw Response: [{"id":"6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822","formattedAddress":"6512 Swissco Dr, Apt 1425, Orlando, FL 32822","addressLine1":"6512 Swissco Dr","addressLine2":"Apt 1425","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32822","county":"Orange","countyFips":"095","latitude":28.46888,"longitude":-81.300667,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":856,"status":"Active","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-08-11T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.192Z","daysOnMarket":1,"history":{"2025-08-16":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-08-16T00:00:00.000Z","removedDate":"2025-08-17T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1450,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}},{"id":"3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835","formattedAddress":"3455 Westchester Square Blvd, # 1, Orlando, FL 32835","addressLine1":"3455 Westchester Square Blvd","addressLine2":"# 1","city":"Orlando","state":"FL","stateFips":"12","zipCode":"32835","county":"Orange","countyFips":"095","latitude":28.50699,"longitude":-81.472038,"propertyType":"Townhouse","bedrooms":1,"bathrooms":1,"squareFootage":658,"status":"Active","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"createdDate":"2025-07-14T00:00:00.000Z","lastSeenDate":"2025-09-21T03:46:23.191Z","daysOnMarket":1,"history":{"2025-07-15":{"event":"Rental Listing","price":1400,"listingType":"Standard","listedDate":"2025-07-15T00:00:00.000Z","removedDate":"2025-07-16T00:00:00.000Z","daysOnMarket":1},"2025-09-07":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-07T00:00:00.000Z","removedDate":"2025-09-08T00:00:00.000Z","daysOnMarket":1},"2025-09-21":{"event":"Rental Listing","price":1375,"listingType":"Standard","listedDate":"2025-09-21T00:00:00.000Z","removedDate":null,"daysOnMarket":1}}}]
+[21-Sep-2025 10:29:56 UTC] Saving property to DB: Array
+(
+    [listing_id] => 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822
+    [address] => 6512 Swissco Dr, Apt 1425, Orlando, FL 32822
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32822
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 856
+    [price] => 1450
+    [image_url] => 
+)
+
+[21-Sep-2025 10:29:56 UTC] DB insert result for Listing ID 6512-Swissco-Dr,-Apt-1425,-Orlando,-FL-32822: 2
+[21-Sep-2025 10:29:56 UTC] Saving property to DB: Array
+(
+    [listing_id] => 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835
+    [address] => 3455 Westchester Square Blvd, # 1, Orlando, FL 32835
+    [city] => Orlando
+    [state] => FL
+    [zip] => 32835
+    [bedrooms] => 1
+    [bathrooms] => 1
+    [sqft] => 658
+    [price] => 1375
+    [image_url] => 
+)
+
+[21-Sep-2025 10:29:56 UTC] DB insert result for Listing ID 3455-Westchester-Square-Blvd,---1,-Orlando,-FL-32835: 2

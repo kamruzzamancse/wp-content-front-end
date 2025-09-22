@@ -28,8 +28,8 @@
 
 <div class="pt-property-container">
     <?php echo do_shortcode('[rentcast_properties]'); ?>
-    <!-- <div class="pt-property-list">
-        <div class="pt-property-item">
+    <div class="pt-property-list">
+        <!--  <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic.png' ); ?>" alt="Lakeview Basic" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=cl-property-details"><h3 class="pt-property-title">Lakeview Basic Apartment</h3></a>
@@ -39,15 +39,10 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <span>Downtown, New York</span>
                 </div>
-                <div class="pt-gallery">
-                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9.png' ); ?>" alt="Gallery Image 1">
-                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-8.png' ); ?>" alt="Gallery Image 2">
-                    <img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-basic-9-1.png' ); ?>" alt="Gallery Image 3">
-                </div>
             </div>
         </div>
 
-        <div class="pt-property-item">
+       <div class="pt-property-item">
             <a href="?tab=cl-property-details"><img src="<?php echo esc_url( $image_url . '/2025/08/lakeview-standard.png' ); ?>" alt="Lakeview Standard" class="pt-main-image"></a>
             <div class="pt-property-details">
                 <a href="?tab=cl-property-details"><h3 class="pt-property-title">Lakeview Standard Apartment</h3></a>

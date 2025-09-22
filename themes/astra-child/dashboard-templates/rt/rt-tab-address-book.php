@@ -63,7 +63,7 @@
               <td data-label="Notes"><?php echo $client['notes']; ?></td>
               <td class="ab-actions-column" data-label="Actions">
                   <div class="ab-action-icons">
-                      <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span>
+                      <!-- <span class="ab-action-icon ab-viewClientDetails" title="View">👁️</span> -->
                       <span class="ab-action-icon ab-editClientDetails" title="Edit">✏️</span>
                       <span class="ab-action-icon" title="Delete">🗑️</span>
                   </div>
@@ -84,7 +84,7 @@
 /* ==== Table & Modal CSS ==== */
 table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px; background: #fff; table-layout: fixed; }
 .ab-sl-column { width: 50px; text-align: center; }
-.ab-actions-column { width: 50px; }
+.ab-actions-column { width: 20px; }
 .client-name { width: 15%; min-width: 150px; font-size: 14px; font-weight: 600; }
 .client-name-text { cursor: pointer; color: #0073aa; text-decoration: underline; }
 .client-name-text:hover { color: #0056b3; }
@@ -310,3 +310,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Delete functionality for Address Book
+    document.querySelectorAll('.ab-actions-column .ab-action-icon[title="Delete"]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const row = btn.closest('tr');
+            if (confirm("Are you sure you want to delete this client?")) {
+                row.remove();
+            }
+        });
+    });
+});
+</script>
+

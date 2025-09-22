@@ -144,4 +144,83 @@ html {
     border-top-right-radius: 10px;
 }
 
+/* css for property upload image */
+
+.pt-property-item {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.pt-main-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0;
+    transition: opacity 0.3s ease;
+    display: block;
+}
+
+.pt-property-details {
+    padding: 10px;
+}
+
+.pt-property-title {
+    font-size: 16px;
+    margin: 0 0 5px;
+}
+
+.pt-property-price {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.pt-property-location {
+    font-size: 14px;
+    color: #555;
+}
+
+.pt-upload-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    background-color: #0073aa;  /* WordPress blue */
+    border: 2px solid #fff;     /* White border */
+    border-radius: 50%;
+    width: 40px;                /* Bigger circle */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    font-size: 18px;            /* Bigger icon */
+    color: #fff;                /* White icon */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pt-upload-icon:hover {
+    background-color: #005177; /* Darker on hover */
+    transform: scale(1.1);
+}
+
+.property-image-input {
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    z-index: -1;
+}
+
+
+
+
+
+
+
 

@@ -40,22 +40,32 @@
 
                     <!-- Y Axis -->
                     <div class="tpg-y-axis">
-                        <span>9k</span>
-                        <span>7k</span>
-                        <span>5k</span>
-                        <span>3k</span>
-                        <span>1k</span>
+                        <span>250k</span>
+                        <span>200k</span>
+                        <span>150k</span>
+                        <span>100k</span>
+                        <span>50k</span>
                     </div>
 
                     <!-- Line Chart -->
                     <svg class="tpg-line-chart" viewBox="0 0 600 250" preserveAspectRatio="none">
-                        <polyline id="tpg-line" points="0,210 100,180 200,150 300,120 400,80 500,40" />
-                        <circle cx="0" cy="210" r="5" data-value="$2.10k"></circle>
-                        <circle cx="100" cy="180" r="5" data-value="$3.20k"></circle>
-                        <circle cx="200" cy="150" r="5" data-value="$4.80k"></circle>
-                        <circle cx="300" cy="120" r="5" data-value="$6.20k"></circle>
-                        <circle cx="400" cy="80" r="5" data-value="$7.50k"></circle>
-                        <circle cx="500" cy="40" r="5" data-value="$8.24k"></circle>
+                        <!-- Rental Income Line (Blue) -->
+                        <polyline class="rental-line" points="0,210 100,180 200,150 300,120 400,80 500,40" />
+                        <circle class="rental-circle" cx="0" cy="210" r="5" data-value="$2.10k"></circle>
+                        <circle class="rental-circle" cx="100" cy="180" r="5" data-value="$3.20k"></circle>
+                        <circle class="rental-circle" cx="200" cy="150" r="5" data-value="$4.80k"></circle>
+                        <circle class="rental-circle" cx="300" cy="120" r="5" data-value="$6.20k"></circle>
+                        <circle class="rental-circle" cx="400" cy="80" r="5" data-value="$7.50k"></circle>
+                        <circle class="rental-circle" cx="500" cy="40" r="5" data-value="$8.24k"></circle>
+
+                        <!-- Sales Price Line (Red) -->
+                        <polyline class="sales-line" points="0,200 100,190 200,170 300,140 400,110 500,70" />
+                        <circle class="sales-circle" cx="0" cy="200" r="5" data-value="$180k"></circle>
+                        <circle class="sales-circle" cx="100" cy="190" r="5" data-value="$185k"></circle>
+                        <circle class="sales-circle" cx="200" cy="170" r="5" data-value="$190k"></circle>
+                        <circle class="sales-circle" cx="300" cy="140" r="5" data-value="$200k"></circle>
+                        <circle class="sales-circle" cx="400" cy="110" r="5" data-value="$220k"></circle>
+                        <circle class="sales-circle" cx="500" cy="70" r="5" data-value="$250k"></circle>
                     </svg>
 
                     <!-- X Axis -->
@@ -67,9 +77,21 @@
                         <span>2:30 PM</span>
                         <span>3:30 PM</span>
                     </div>
+
+                    <!-- Legend -->
+                    <div class="tpg-chart-legend" style="display:flex; gap:20px; margin-top:25px;">
+                        <span style="display:flex; align-items:center; gap:5px;">
+                            <span style="width:12px; height:12px; background:#4e6ef2; display:inline-block;"></span> Rental Income
+                        </span>
+                        <span style="display:flex; align-items:center; gap:5px;">
+                            <span style="width:12px; height:12px; background:#e74c3c; display:inline-block;"></span> Sales Price
+                        </span>
+                    </div>
+
                 </div>
             </div>
         </div>
+
 
         <!-- Message Realtor under the graph -->
         <div class="cld-box cld-message-box">
@@ -292,10 +314,10 @@
     padding-right: 5px;
 }
 
-/* X Axis */
+/* Space between X Axis and Legend */
 .tpg-x-axis {
     position: absolute;
-    bottom: 0;
+    bottom: 30px; /* increased from 0 to 30px */
     left: 40px;
     right: 0;
     display: flex;
@@ -304,6 +326,23 @@
     color: #7f8c8d;
     font-weight: 500;
     padding-top: 5px;
+}
+
+/* Legend Styling */
+.tpg-chart-legend {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px; /* increased space from X axis */
+    position: relative; /* so it stays below the X-axis */
+    padding-left: 40px; /* align with chart start */
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tpg-chart-legend span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 /* Line Chart SVG */
@@ -449,5 +488,21 @@ table {
         padding: 10px;
     }
 
+}
+
+/* Rental Income */
+.tpg-dashboard-container .rental-line {
+    stroke: #4e6ef2;
+}
+.tpg-dashboard-container .rental-circle {
+    fill: #4e6ef2;
+}
+
+/* Sales Price */
+.tpg-dashboard-container .sales-line {
+    stroke: #e74c3c;
+}
+.tpg-dashboard-container .sales-circle {
+    fill: #e74c3c;
 }
 </style>
