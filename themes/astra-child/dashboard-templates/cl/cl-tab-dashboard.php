@@ -9,8 +9,8 @@
                     <h1 class="tpg-section-title">Tracking Property</h1>
 
                     <div class="tpg-tracking-summary">
-                        <span class="tpg-sales" id="tpg-sales-price">$250K</span>
-                        <span class="tpg-year">2025</span>                        
+                        <span class="tpg-rental" id="tpg-avg-rental-price">Avg Rental: $5.34K</span> | 
+                        <span class="tpg-sales" id="tpg-avg-sales-price">Avg Sales: $250K</span>
                     </div>
 
                     <select id="tpg-property-select">
@@ -61,18 +61,18 @@
                         <span>2:30 PM</span>
                         <span>3:30 PM</span>
                     </div>
-
-                    <!-- Legend -->
-                    <div class="tpg-chart-legend" style="display:flex; gap:20px; margin-top:25px;">
-                        <span style="display:flex; align-items:center; gap:5px;">
-                            <span style="width:12px; height:12px; background:#4e6ef2; display:inline-block;"></span> Rental Income
-                        </span>
-                        <span style="display:flex; align-items:center; gap:5px;">
-                            <span style="width:12px; height:12px; background:#e74c3c; display:inline-block;"></span> Sales Price
-                        </span>
-                    </div>
-
                 </div>
+
+                <!-- Legend -->
+                <div class="tpg-chart-legend" style="display:flex; gap:20px; margin-top:25px;">
+                    <span style="display:flex; align-items:center; gap:5px;">
+                        <span style="width:12px; height:12px; background:#4e6ef2; display:inline-block;"></span> Rental Income
+                    </span>
+                    <span style="display:flex; align-items:center; gap:5px;">
+                        <span style="width:12px; height:12px; background:#e74c3c; display:inline-block;"></span> Sales Price
+                    </span>
+                </div>
+
             </div>
         </div>
 
@@ -134,10 +134,15 @@
 /* Message Realtor Box Styles */
 
 .tpg-sales {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #e74c3c; /* red to match sales line */
-    margin-left: 15px;
+}
+
+.tpg-rental {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #3578c6; /* red to match sales line */
 }
 
 .cld-box {
@@ -324,9 +329,8 @@
 .tpg-chart-legend {
     display: flex;
     gap: 20px;
-    margin-top: 15px; /* increased space from X axis */
-    position: relative; /* so it stays below the X-axis */
-    padding-left: 40px; /* align with chart start */
+    margin-top: 15px;
+    position: relative;
     font-size: 13px;
     font-weight: 500;
 }
@@ -521,3 +525,97 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const rentalDisplay = document.getElementById('tpg-avg-rental-price');
+    const salesDisplay  = document.getElementById('tpg-avg-sales-price');
+    const propertySelect = document.getElementById('tpg-property-select');
+
+    const rentalLine   = document.querySelector('.rental-line');
+    const salesLine    = document.querySelector('.sales-line');
+    const svgChart     = document.querySelector('.tpg-line-chart');
+
+    // Store dataset for each property (example data)
+    const propertyData = {
+        property1: {
+            rentalPoints: [ [0,210,"$2.10k"], [100,180,"$3.20k"], [200,150,"$4.80k"], [300,120,"$6.20k"], [400,80,"$7.50k"], [500,40,"$8.24k"] ],
+            salesPoints:  [ [0,200,"$180k"], [100,190,"$185k"], [200,170,"$190k"], [300,140,"$200k"], [400,110,"$220k"], [500,70,"$250k"] ]
+        },
+        property2: {
+            rentalPoints: [ [0,200,"$1.80k"], [100,170,"$2.50k"], [200,140,"$3.90k"], [300,100,"$5.00k"], [400,70,"$6.20k"], [500,50,"$7.10k"] ],
+            salesPoints:  [ [0,210,"$170k"], [100,195,"$180k"], [200,180,"$190k"], [300,150,"$210k"], [400,120,"$230k"], [500,90,"$240k"] ]
+        },
+        property3: {
+            rentalPoints: [ [0,220,"$2.50k"], [100,190,"$3.40k"], [200,170,"$4.20k"], [300,140,"$5.50k"], [400,100,"$6.80k"], [500,60,"$8.00k"] ],
+            salesPoints:  [ [0,190,"$160k"], [100,185,"$170k"], [200,175,"$180k"], [300,160,"$190k"], [400,140,"$200k"], [500,120,"$210k"] ]
+        }
+    };
+
+    // Utility to calculate average
+    function getAverageFromPoints(points, isRental = true) {
+        const nums = points.map(p => {
+            let val = p[2].replace(/[$k]/gi,"");
+            return parseFloat(val);
+        });
+        return nums.reduce((a,b)=>a+b,0) / nums.length;
+    }
+
+    // Remove old circles before adding new ones
+    function clearCircles() {
+        svgChart.querySelectorAll('.rental-circle, .sales-circle').forEach(el => el.remove());
+    }
+
+    // Render circles for rental & sales
+    function renderCircles(points, className) {
+        points.forEach(p => {
+            const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circle.setAttribute("cx", p[0]);
+            circle.setAttribute("cy", p[1]);
+            circle.setAttribute("r", "5");
+            circle.setAttribute("class", className);
+            circle.dataset.value = p[2];
+            svgChart.appendChild(circle);
+        });
+    }
+
+    // Update chart + summary
+    function updateChart(propertyKey) {
+        const data = propertyData[propertyKey];
+        if (!data) return;
+
+        // Update polyline paths
+        rentalLine.setAttribute("points", data.rentalPoints.map(p => `${p[0]},${p[1]}`).join(" "));
+        salesLine.setAttribute("points", data.salesPoints.map(p => `${p[0]},${p[1]}`).join(" "));
+
+        // Clear and re-render circles
+        clearCircles();
+        renderCircles(data.rentalPoints, "rental-circle");
+        renderCircles(data.salesPoints, "sales-circle");
+
+        // Update averages
+        rentalDisplay.textContent = `Avg Rental: $${getAverageFromPoints(data.rentalPoints).toFixed(2)}K`;
+        salesDisplay.textContent  = `Avg Sales: $${getAverageFromPoints(data.salesPoints,false).toFixed(0)}K`;
+
+        // Reattach hover for sales circles
+        const salesCircles = svgChart.querySelectorAll('.sales-circle');
+        salesCircles.forEach(circle => {
+            circle.addEventListener('mouseenter', function () {
+                salesDisplay.textContent = `Avg Sales: ${this.dataset.value}`;
+            });
+            circle.addEventListener('mouseleave', function () {
+                salesDisplay.textContent = `Avg Sales: $${getAverageFromPoints(data.salesPoints,false).toFixed(0)}K`;
+            });
+        });
+    }
+
+    // Init with first property
+    updateChart(propertySelect.value);
+
+    // Listen for dropdown changes
+    propertySelect.addEventListener('change', function () {
+        updateChart(this.value);
+    });
+});
+</script>
+
